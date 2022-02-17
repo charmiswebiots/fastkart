@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       builder: (context, widget) {
         return MediaQuery(
-          //Setting font does not change with system font size
+          //Setting font does not change with system font sizes
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
           child: widget!,
         );
