@@ -24,6 +24,7 @@ getRandomColor() {
   //ex : helper.getRandomColor();
 }
 
+
 Color getColorFromHexCode(String color) {
   try {
     color = color.replaceAll('#', '');
