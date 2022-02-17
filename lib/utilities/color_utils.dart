@@ -35,5 +35,4 @@ Color getColorFromHexCode(String color) {
     return const Color(0xFFDBEED3);
   }
 
-  //ex : helper.getColorFromHexCode('#TGDU78');
 }
