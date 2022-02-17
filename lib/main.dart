@@ -1,12 +1,13 @@
 import 'package:fastkart/common/font_name.dart';
 import 'package:fastkart/routes/index.dart';
-import 'package:fastkart/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:fastkart/common/theme/app_theme.dart';
 import 'package:fastkart/common/theme/theme_service.dart';
 import 'package:get_storage/get_storage.dart';
+
+import 'views/splash_screen/splash_screen.dart';
 
 
 void main() async {

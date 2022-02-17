@@ -6,7 +6,7 @@ import 'package:fastkart/config.dart';
 class SplashController extends GetxController {
   @override
   void onInit() async {
-    await Future.delayed(Durations.s2);
+    await Future.delayed(Durations.s3);
     checkLogin();
     super.onInit();
   }
