@@ -12,6 +12,7 @@ class SplashController extends GetxController {
   }
 
   void checkLogin() async {
+    // check which Language is selected
     String? languageCode = getStorage(Session.languageCode);
     String? countryCode = getStorage(Session.countryCode);
     if (languageCode != null && countryCode != null) {
@@ -22,9 +23,7 @@ class SplashController extends GetxController {
       Get.updateLocale(Get.deviceLocale ?? const Locale('en', 'US'));
     }
 
-
-    Get.offAndToNamed(routeName.home);
-    //#endregion
+    Get.toNamed(routeName.onBoarding);
 
   }
 }

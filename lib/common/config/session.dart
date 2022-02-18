@@ -11,4 +11,5 @@ class Session {
   //for language change
   static String get languageCode => 'languageCode';
   static String get countryCode => 'countryCode';
+  static String get onBoarding => 'onBoarding';
 }

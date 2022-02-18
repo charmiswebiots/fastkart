@@ -1,16 +1,19 @@
 import 'package:fastkart/config.dart';
 import 'package:flutter/material.dart';
 
-class SplashBGImage extends StatelessWidget {
-  const SplashBGImage({Key? key}) : super(key: key);
+class BackgroundImage extends StatelessWidget {
+
+  String? image;
+  double? height;
+  BackgroundImage({Key? key,this.image,this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 1.6,
+      height: MediaQuery.of(context).size.height/height!,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(imageAssets.splashBGImage),
+          image: AssetImage(image!,),
           fit: BoxFit.fill,
         ),
       ),

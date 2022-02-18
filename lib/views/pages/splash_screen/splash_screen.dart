@@ -1,5 +1,5 @@
-import 'package:fastkart/views/splash_screen/splash_back_image.dart';
-import 'package:fastkart/views/splash_screen/splash_logo.dart';
+import 'package:fastkart/views/image_layout/background_image.dart';
+import 'package:fastkart/views/pages/splash_screen/splash_logo.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fastkart/config.dart';
@@ -14,11 +14,10 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: const [
+        children:  [
           //Back Image Layout
-          SplashBGImage(),
-
-          //Logo Layout
+          BackgroundImage(image: imageAssets.splashBGImage,height: 1.6,),
+          //splash logo Layout
           SplashLogo()
         ],
       ),
