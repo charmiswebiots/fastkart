@@ -1,4 +1,4 @@
-import 'package:fastkart/views/splash_screen.dart';
+
 import 'package:get/get.dart';
 
 //app file
@@ -10,7 +10,9 @@ RouteName _routeName = RouteName();
 class AppRoute {
   final List<GetPage> getPages = [
     GetPage(name: _routeName.changeTheme, page: () => ChangeTheme()),
-    GetPage(name: _routeName.home, page: () => Index()),
-    GetPage(name: _routeName.splash, page: () => SplashScreen()),
+    GetPage(name: _routeName.home, page: () => const Index()),
+    GetPage(name: _routeName.onBoarding, page: () => const OnBoardingScreen()),
+    GetPage(name: _routeName.login, page: () => LoginScreen()),
+    GetPage(name: _routeName.signup, page: () => SignUpScreen()),
   ];
 }
