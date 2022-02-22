@@ -103,23 +103,6 @@ class LoginWidget {
     );
   }
 
-  //social login button
-  Widget socialLoginButton({containerColor, String? icon, String? text}) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-          color: containerColor, borderRadius: BorderRadius.circular(5)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(icon!),
-          Space(10, 0),
-          LoginFontStyle().mulishtextLayout(text: text)
-        ],
-      ),
-    ).marginOnly(left: 0, right: 0).gestures(onTap: () {});
-  }
-
   //signup with layout
   Widget signupWithLayout({color, fontColor}) {
     return Row(

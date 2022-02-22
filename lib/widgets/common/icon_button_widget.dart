@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/text_widget.dart';
+import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_fontstyle.dart';
 import 'package:flutter/material.dart';
 
 class IconButtonWidget extends StatelessWidget {
@@ -7,10 +7,11 @@ class IconButtonWidget extends StatelessWidget {
       ? Get.find<AppController>()
       : Get.put(AppController());
   String? icon;
-  String? text;
+  Widget? textWidget;
   String? type;
 
-  IconButtonWidget({Key? key, this.icon, this.text, this.type}) : super(key: key);
+
+  IconButtonWidget({Key? key, this.icon, this.textWidget, this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +25,8 @@ class IconButtonWidget extends StatelessWidget {
         children: [
           Image.asset(icon!),
           Space(10, 0),
-          MulishTextWidget(
-            text: text,
-          )
+          textWidget!
+
         ],
       ),
     ).marginOnly(left: 15, right: 15).gestures(onTap: () {

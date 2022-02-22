@@ -2,6 +2,7 @@ import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/views/pages/login/util/login_constants.dart';
 import 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
 import 'package:fastkart/views/pages/login/util/login_widget.dart';
+import 'package:fastkart/widgets/common/icon_button_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../config.dart';
@@ -92,17 +93,18 @@ Get.toNamed(routeName.signup);
                                     color: appCtrl.appTheme.contentColor,
                                     fontColor: appCtrl.appTheme.primary),
                                 Space(0, 20),
-                                LoginWidget().socialLoginButton(
-                                  containerColor: appCtrl.appTheme.lightGray,
-                                  icon: iconAssets.mobileIcon,
-                                  text: LoginFont().continueWithPhone,
-                                ),
+                                IconButtonWidget(icon: iconAssets.mobileIcon,type: LoginFont().phone,
+                                textWidget:LoginFontStyle().mulishtextLayout(
+                                    text: LoginFont().continueWithPhone,
+                                    color: appCtrl.appTheme.titleColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold) ,),
                                 Space(0, 15),
-                                LoginWidget().socialLoginButton(
-                                  containerColor: appCtrl.appTheme.lightGray,
-                                  icon: iconAssets.google,
-                                  text: LoginFont().continueWithGoogle,
-                                ),
+                                IconButtonWidget(icon: iconAssets.google,textWidget: LoginFontStyle().mulishtextLayout(
+                                    text: LoginFont().continueWithGoogle,
+                                    color: appCtrl.appTheme.titleColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold) ,type: LoginFont().google,),
                               ],
                             ),
                           ],

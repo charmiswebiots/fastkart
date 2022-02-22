@@ -1,10 +1,9 @@
-
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/views/pages/signup/util/signup_constants.dart';
 import 'package:fastkart/views/pages/signup/util/signup_fontstyle.dart';
 import 'package:fastkart/views/pages/signup/util/signup_widget.dart';
+import 'package:fastkart/widgets/common/icon_button_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -22,7 +21,8 @@ class SignUpScreen extends StatelessWidget {
         child: Stack(
           children: [
             //background Image
-          SignupWidget().signupBackGroundImage(imageAssets.backgroundImage, context),
+            SignupWidget()
+                .signupBackGroundImage(imageAssets.backgroundImage, context),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -46,7 +46,7 @@ class SignUpScreen extends StatelessWidget {
                                     SignupFontStyle().nunitotextLayout(
                                         text: SignupFont().description,
                                         color:
-                                        appCtrl.appTheme.darkContentColor,
+                                            appCtrl.appTheme.darkContentColor,
                                         fontSize: 14),
                                     Space(0, 20),
                                     SignupFontStyle().mulishtextLayout(
@@ -56,10 +56,11 @@ class SignUpScreen extends StatelessWidget {
                                         fontWeight: FontWeight.w700),
                                     Space(0, 16),
                                     SignupWidget().textFieldLayout(
-                                      suffixIcon: Image.asset(iconAssets.profile),
+                                      suffixIcon:
+                                          Image.asset(iconAssets.profile),
                                       text: SignupFont().fullName,
-                                      borderColor:
-                                      appCtrl.appTheme.primary.withOpacity(.3),
+                                      borderColor: appCtrl.appTheme.primary
+                                          .withOpacity(.3),
                                       hintColor: appCtrl.appTheme.contentColor,
                                       fillcolor: appCtrl.appTheme.lightGray,
                                     ),
@@ -67,7 +68,7 @@ class SignUpScreen extends StatelessWidget {
                                     SignupWidget().textFieldLayout(
                                       text: SignupFont().emailHint,
                                       suffixIcon:
-                                      Image.asset(iconAssets.atsign),
+                                          Image.asset(iconAssets.atsign),
                                       borderColor: appCtrl.appTheme.primary
                                           .withOpacity(.3),
                                       hintColor: appCtrl.appTheme.contentColor,
@@ -80,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
                                   suffixIcon: Image.asset(iconAssets.hide),
                                   text: SignupFont().password,
                                   borderColor:
-                                  appCtrl.appTheme.primary.withOpacity(.3),
+                                      appCtrl.appTheme.primary.withOpacity(.3),
                                   hintColor: appCtrl.appTheme.contentColor,
                                   fillcolor: appCtrl.appTheme.lightGray,
                                 ),
@@ -91,25 +92,35 @@ class SignUpScreen extends StatelessWidget {
                                     fontColor: appCtrl.appTheme.whiteColor),
                                 Space(0, 5),
                                 SignupWidget().alreadyAccountWidget(
-                                  onTap: (){
-                                    Get.back();
-                                  },
+                                    onTap: () {
+                                      Get.back();
+                                    },
                                     color: appCtrl.appTheme.darkContentColor),
                                 Space(0, 20),
                                 SignupWidget().signupWithLayout(
                                     color: appCtrl.appTheme.contentColor,
                                     fontColor: appCtrl.appTheme.primary),
                                 Space(0, 20),
-                                SignupWidget().socialLoginButton(
-                                  containerColor: appCtrl.appTheme.lightGray,
+                                IconButtonWidget(
                                   icon: iconAssets.mobileIcon,
-                                  text: SignupFont().continueWithPhone,
+                                  textWidget: SignupFontStyle()
+                                      .mulishtextLayout(
+                                          text: SignupFont().continueWithPhone,
+                                          color: appCtrl.appTheme.titleColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                  type: SignupFont().phone,
                                 ),
                                 Space(0, 15),
-                                SignupWidget().socialLoginButton(
-                                  containerColor: appCtrl.appTheme.lightGray,
+                                IconButtonWidget(
                                   icon: iconAssets.google,
-                                  text: SignupFont().continueWithGoogle,
+                                  textWidget: SignupFontStyle()
+                                      .mulishtextLayout(
+                                          text: SignupFont().continueWithGoogle,
+                                          color: appCtrl.appTheme.titleColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                  type: SignupFont().google,
                                 ),
                               ],
                             ),
@@ -117,7 +128,8 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                     )),
-                SignupWidget().continueAsGuest(color: appCtrl.appTheme.titleColor)
+                SignupWidget()
+                    .continueAsGuest(color: appCtrl.appTheme.titleColor)
               ],
             )
           ],
