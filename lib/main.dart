@@ -1,6 +1,6 @@
 import 'package:fastkart/common/font_name.dart';
 import 'package:fastkart/routes/index.dart';
-import 'package:fastkart/views/splash_screen.dart';
+import 'package:fastkart/views/pages/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
