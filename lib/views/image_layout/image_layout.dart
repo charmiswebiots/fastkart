@@ -1,11 +1,12 @@
-import 'package:fastkart/config.dart';
 import 'package:flutter/material.dart';
 
-class BackgroundImage extends StatelessWidget {
+class imageLayout extends StatelessWidget {
 
   String? image;
   double? height;
-  BackgroundImage({Key? key,this.image,this.height}) : super(key: key);
+  double? weight;
+  BoxFit? fit;
+  imageLayout({Key? key,this.image,this.height,this.weight,this.fit}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

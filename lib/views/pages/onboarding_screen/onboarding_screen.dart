@@ -1,13 +1,18 @@
-import 'package:fastkart/app_extensions.dart';
 import 'package:fastkart/common/assets/index.dart';
-import 'package:fastkart/views/image_layout/background_image.dart';
-import 'package:fastkart/views/pages/onboarding_screen/font_text_name.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/button_widget.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/text_widget.dart';
+import 'package:fastkart/config.dart';
+import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_constants.dart';
+import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_fontstyle.dart';
+import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_widget.dart';
+import 'package:fastkart/widgets/common/icon_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
+  var appCtrl = Get.isRegistered<AppController>()
+      ? Get.find<AppController>()
+      : Get.put(AppController());
+  String? text;
+
+  OnBoardingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +21,45 @@ class OnBoardingScreen extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
-            BackgroundImage(image: imageAssets.onboardingImage,height: 2.3,),
+            OnboardingWidget().backgroundImage(
+                image: imageAssets.onboardingImage,
+                height: 2.3,
+                context: context),
             Space(0, 15),
-            Image.asset(imageAssets.smallLogoImage,width: MediaQuery.of(context).size.width,),
+            OnboardingWidget().smallLogoImage(
+                image: imageAssets.smallLogoImage, context: context),
             Space(0, 2),
-            QuickSandTextWidget(text: getSafeDelivery,),
+            OnboardingFontStyle().quicksandtextLayout(
+                text: OnboardingFont().getSafeDelivery,
+                color: appCtrl.appTheme.titleColor,
+                fontSize: textSizeNormal,
+                fontWeight: FontWeight.w500),
             Space(0, 10),
-            NunitoSansTextWidget(text: description,),
+            OnboardingFontStyle().nunitotextLayout(
+                text: OnboardingFont().description,
+                color: appCtrl.appTheme.contentColor,
+                fontSize: textSizeSMedium,
+                fontWeight: FontWeight.normal),
             Space(0, 10),
-            IconButtonWidget(icon: iconAssets.mobileIcon,text: continueWithPhone,type: phone,),
+            IconButtonWidget(
+              icon: iconAssets.mobileIcon,
+              textWidget: OnboardingFontStyle().mulishtextLayout(
+                  text: OnboardingFont().continueWithPhone,
+                  color: appCtrl.appTheme.titleColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+              type: OnboardingFont().phone,
+            ),
             Space(0, 15),
-            IconButtonWidget(icon: iconAssets.google,text: continueWithGoogle,type: google,),
+            IconButtonWidget(
+              icon: iconAssets.google,
+              textWidget: OnboardingFontStyle().mulishtextLayout(
+                  text: OnboardingFont().continueWithGoogle,
+                  color: appCtrl.appTheme.titleColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+              type: OnboardingFont().google,
+            ),
           ],
         ),
       ),
