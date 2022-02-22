@@ -12,30 +12,32 @@ class AppCss {
     height: 1,
   );
 
-  final nunitoTextStyle = (
-          {color,
-          double fontSize = 16,
-          FontWeight fontWeight = FontWeight.normal}) =>
-  TextStyle(
-      color: color, fontSize: 16, fontWeight: fontWeight,
-    fontFamily: GoogleFonts.nunitoSans().fontFamily
-  );
+  //nunino font text style
+  // ignore: prefer_function_declarations_over_variables
+  final nunitoTextStyle =
+      ({color, double fontSize = 16, FontWeight? fontWeight}) => TextStyle(
+          color: color,
+          fontSize: 16,
+          fontWeight: fontWeight,
+          fontFamily: GoogleFonts.nunitoSans().fontFamily);
 
+  //mulish font text style
+  // ignore: prefer_function_declarations_over_variables
   final mulishTextStyle = (
           {color,
           double fontSize = 16,
-          FontWeight fontWeight = FontWeight.normal,
-          TextDecoration textDecoration = TextDecoration.none}) =>
+          FontWeight? fontWeight,
+          TextDecoration? textDecoration}) =>
       GoogleFonts.mulish(
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,
           decoration: textDecoration);
 
+  //quicksand font text style
+  // ignore: prefer_function_declarations_over_variables
   final quicksandTextStyle = (
-          {color,
-          double fontSize = 16,
-          FontWeight fontWeight = FontWeight.normal}) =>
+          {color, double fontSize = 16, FontWeight? fontWeight}) =>
       GoogleFonts.quicksand(
         color: color,
         fontSize: fontSize,

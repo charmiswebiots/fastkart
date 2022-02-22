@@ -20,12 +20,13 @@ class SignUpScreen extends StatelessWidget {
       body: Container(
         child: Stack(
           children: [
-            //background Image
+            //background Image layout
             SignupWidget()
                 .signupBackGroundImage(imageAssets.backgroundImage, context),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
+                //white body container layout
                 SignupWidget().bodyContainer(
                     color: appCtrl.appTheme.whiteColor,
                     context: context,
@@ -41,20 +42,27 @@ class SignUpScreen extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    //logo image layout
                                     Image.asset(imageAssets.smallLogoImage),
                                     Space(0, 18),
+
+                                    //description text layout
                                     SignupFontStyle().nunitotextLayout(
                                         text: SignupFont().description,
                                         color:
                                             appCtrl.appTheme.darkContentColor,
                                         fontSize: 14),
                                     Space(0, 20),
+
+                                    //register account text layout
                                     SignupFontStyle().mulishtextLayout(
                                         text: SignupFont().registerAccount,
                                         color: appCtrl.appTheme.titleColor,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w700),
                                     Space(0, 16),
+
+                                    //fullname textformfiel layout
                                     SignupWidget().textFieldLayout(
                                       suffixIcon:
                                           Image.asset(iconAssets.profile),
@@ -65,6 +73,8 @@ class SignUpScreen extends StatelessWidget {
                                       fillcolor: appCtrl.appTheme.lightGray,
                                     ),
                                     Space(0, 13),
+
+                                    //email textformfiel layout
                                     SignupWidget().textFieldLayout(
                                       text: SignupFont().emailHint,
                                       suffixIcon:
@@ -77,6 +87,8 @@ class SignUpScreen extends StatelessWidget {
                                     Space(0, 13),
                                   ],
                                 ),
+
+                                //email password layout
                                 SignupWidget().textFieldLayout(
                                   suffixIcon: Image.asset(iconAssets.hide),
                                   text: SignupFont().password,
@@ -86,21 +98,29 @@ class SignUpScreen extends StatelessWidget {
                                   fillcolor: appCtrl.appTheme.lightGray,
                                 ),
                                 Space(0, 20),
+
+                                //signup button layout
                                 SignupWidget().signUpButton(
                                     color: appCtrl.appTheme.primary,
                                     context: context,
                                     fontColor: appCtrl.appTheme.whiteColor),
                                 Space(0, 5),
+
+                                //already account widget
                                 SignupWidget().alreadyAccountWidget(
                                     onTap: () {
                                       Get.back();
                                     },
                                     color: appCtrl.appTheme.darkContentColor),
                                 Space(0, 20),
+
+                                //signup with text layout
                                 SignupWidget().signupWithLayout(
                                     color: appCtrl.appTheme.contentColor,
                                     fontColor: appCtrl.appTheme.primary),
                                 Space(0, 20),
+
+                                //continoue with phone layout
                                 IconButtonWidget(
                                   icon: iconAssets.mobileIcon,
                                   textWidget: SignupFontStyle()
@@ -112,6 +132,8 @@ class SignUpScreen extends StatelessWidget {
                                   type: SignupFont().phone,
                                 ),
                                 Space(0, 15),
+
+                                //continoue with google layout
                                 IconButtonWidget(
                                   icon: iconAssets.google,
                                   textWidget: SignupFontStyle()
@@ -128,6 +150,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                     )),
+                //continue as guest text layout
                 SignupWidget()
                     .continueAsGuest(color: appCtrl.appTheme.titleColor)
               ],

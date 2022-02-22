@@ -21,26 +21,35 @@ class OnBoardingScreen extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
+            //background image layout
             OnboardingWidget().backgroundImage(
                 image: imageAssets.onboardingImage,
                 height: 2.3,
                 context: context),
             Space(0, 15),
+
+            //logo layout
             OnboardingWidget().smallLogoImage(
                 image: imageAssets.smallLogoImage, context: context),
             Space(0, 2),
-            OnboardingFontStyle().quicksandtextLayout(
+
+            //get safe delivery text layout
+            OnboardingFontStyle().nunitoAndQuicksandtextLayout(
                 text: OnboardingFont().getSafeDelivery,
                 color: appCtrl.appTheme.titleColor,
                 fontSize: textSizeNormal,
-                fontWeight: FontWeight.w500),
+                fontWeight: FontWeight.w500,type: 'quicksand'),
             Space(0, 10),
-            OnboardingFontStyle().nunitotextLayout(
+
+            //description layout
+            OnboardingFontStyle().nunitoAndQuicksandtextLayout(
                 text: OnboardingFont().description,
                 color: appCtrl.appTheme.contentColor,
                 fontSize: textSizeSMedium,
-                fontWeight: FontWeight.normal),
+                fontWeight: FontWeight.normal,type: 'nunito'),
             Space(0, 10),
+
+            //continoue with phone layout
             IconButtonWidget(
               icon: iconAssets.mobileIcon,
               textWidget: OnboardingFontStyle().mulishtextLayout(
@@ -51,6 +60,8 @@ class OnBoardingScreen extends StatelessWidget {
               type: OnboardingFont().phone,
             ),
             Space(0, 15),
+
+            //continoue with google layout
             IconButtonWidget(
               icon: iconAssets.google,
               textWidget: OnboardingFontStyle().mulishtextLayout(
