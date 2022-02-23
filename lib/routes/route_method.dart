@@ -14,5 +14,6 @@ class AppRoute {
     GetPage(name: _routeName.onBoarding, page: () => OnBoardingScreen()),
     GetPage(name: _routeName.login, page: () => LoginScreen()),
     GetPage(name: _routeName.signup, page: () => SignUpScreen()),
+    GetPage(name: _routeName.error404page, page: () => Error404Page()),
   ];
 }

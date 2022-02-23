@@ -5,4 +5,8 @@ class IconAssets {
   final String mobileIcon = 'assets/icons/mobileIcon.png';
   final String profile = 'assets/icons/profile.png';
   final String google = 'assets/icons/google.png';
+  final String category = 'assets/icons/category.png';
+  final String location = 'assets/icons/location.png';
+  final String user = 'assets/icons/user.png';
+  final String white_category_icon = 'assets/icons/white_category_icon.png';
 }

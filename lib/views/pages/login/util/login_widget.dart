@@ -60,18 +60,21 @@ class LoginWidget {
   }
 
   //sign in button
-  Widget signInButton({color, BuildContext? context, fontColor}) {
-    return Container(
-      alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(vertical: 12),
-      width: MediaQuery.of(context!).size.width,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
-      child: LoginFontStyle().mulishtextLayout(
-          text: LoginFont().signIn,
-          fontSize: 17,
-          fontWeight: FontWeight.bold,
-          color: fontColor),
+  Widget signInButton({color, BuildContext? context, fontColor,GestureTapCallback? onTap,}) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(vertical: 12),
+        width: MediaQuery.of(context!).size.width,
+        decoration:
+            BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
+        child: LoginFontStyle().mulishtextLayout(
+            text: LoginFont().signIn,
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
+            color: fontColor),
+      ),
     );
   }
 

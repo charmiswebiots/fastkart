@@ -78,16 +78,20 @@ class OnboardingFontStyle{
       : Get.put(AppController());
 
 
-  //nunito font family text layout
-  Widget nunitotextLayout(
+  //nunito and quick sand font family text layout
+  Widget nunitoAndQuicksandtextLayout(
       {String? text,
         color,
         double fontSize = textSizeMedium,
-        FontWeight fontWeight = FontWeight.normal}) {
+        FontWeight fontWeight = FontWeight.normal,String? type}) {
     return Text(
       text!,
       textAlign: TextAlign.center,
-      style: AppCss().nunitoTextStyle(
+      style: type == 'nunito' ? AppCss().nunitoTextStyle(
+          color: color,
+          fontSize: fontSize,
+          fontWeight:fontWeight
+      ) :AppCss().quicksandTextStyle(
           color: color,
           fontSize: fontSize,
           fontWeight:fontWeight
@@ -113,23 +117,6 @@ class OnboardingFontStyle{
               fontWeight: fontWeight,
               fontSize: textSizeMedium,
               textDecoration: textDecoration)),
-    );
-  }
-
-  //quicksand font family text layout
-  Widget quicksandtextLayout(
-      {String? text,
-        color,
-        double fontSize = textSizeMedium,
-        FontWeight fontWeight = FontWeight.normal}) {
-    return Text(
-      text!,
-      textAlign: TextAlign.center,
-      style: AppCss().quicksandTextStyle(
-          color: color,
-          fontSize: fontSize,
-          fontWeight:fontWeight
-      ),
     );
   }
 }
