@@ -10,10 +10,11 @@ class Error404Widget{
   }
 
   //back to home widget
-Widget backToHomeWidget({String? text,color,GestureTapCallback? onTap,fontColor}){
+Widget backToHomeWidget({String? text,color,GestureTapCallback? onTap,fontColor,BuildContext? context}){
     return InkWell(
       onTap: onTap,
       child: Container(
+        width: MediaQuery.of(context!).size.width / 2.5,
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(vertical: 12),
         decoration:

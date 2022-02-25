@@ -51,14 +51,14 @@ class SignUpScreen extends StatelessWidget {
                                         text: SignupFont().description,
                                         color:
                                             appCtrl.appTheme.darkContentColor,
-                                        fontSize: 14),
+                                        fontSize: textSizeSMedium),
                                     Space(0, 20),
 
                                     //register account text layout
                                     SignupFontStyle().mulishtextLayout(
                                         text: SignupFont().registerAccount,
                                         color: appCtrl.appTheme.titleColor,
-                                        fontSize: 16,
+                                        fontSize: textSizeMedium,
                                         fontWeight: FontWeight.w700),
                                     Space(0, 16),
 
@@ -104,7 +104,7 @@ class SignUpScreen extends StatelessWidget {
                                     color: appCtrl.appTheme.primary,
                                     context: context,
                                     fontColor: appCtrl.appTheme.whiteColor),
-                                Space(0, 5),
+                                Space(0, 25),
 
                                 //already account widget
                                 SignupWidget().alreadyAccountWidget(
@@ -112,13 +112,13 @@ class SignUpScreen extends StatelessWidget {
                                       Get.back();
                                     },
                                     color: appCtrl.appTheme.darkContentColor),
-                                Space(0, 20),
+                                Space(0, 25),
 
                                 //signup with text layout
                                 SignupWidget().signupWithLayout(
                                     color: appCtrl.appTheme.contentColor,
                                     fontColor: appCtrl.appTheme.primary),
-                                Space(0, 20),
+                                Space(0, 35),
 
                                 //continoue with phone layout
                                 IconButtonWidget(
@@ -127,7 +127,7 @@ class SignUpScreen extends StatelessWidget {
                                       .mulishtextLayout(
                                           text: SignupFont().continueWithPhone,
                                           color: appCtrl.appTheme.titleColor,
-                                          fontSize: 16,
+                                          fontSize: textSizeMedium,
                                           fontWeight: FontWeight.bold),
                                   type: SignupFont().phone,
                                 ),
@@ -140,7 +140,7 @@ class SignUpScreen extends StatelessWidget {
                                       .mulishtextLayout(
                                           text: SignupFont().continueWithGoogle,
                                           color: appCtrl.appTheme.titleColor,
-                                          fontSize: 16,
+                                          fontSize: textSizeMedium,
                                           fontWeight: FontWeight.bold),
                                   type: SignupFont().google,
                                 ),

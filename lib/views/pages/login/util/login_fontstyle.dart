@@ -12,7 +12,7 @@ class LoginFontStyle {
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
-            color: color, fontWeight: fontWeight, fontSize: textSizeMedium));
+            color: color, fontWeight: fontWeight, fontSize: fontSize));
   }
 
   //mulish font family text layout

@@ -72,7 +72,7 @@ class AppTheme {
           primary: const Color(0xFF0BAF9A),
           secondary: const Color(0xFF6EBAE7),
           accentTxt: const Color(0xFF001928),
-          whiteColor: Colors.white,
+          whiteColor: const Color(0xFFFFFFFF),
           surface: Colors.white,
           error: const Color(0xFFd32f2f),
           //Extra
@@ -99,7 +99,7 @@ class AppTheme {
           primary: const Color(0xFF6EBAE7),
           secondary: const Color(0xFF6EBAE7),
           accentTxt: const Color(0xFF001928),
-          whiteColor: const Color(0xFF151A1E),
+          whiteColor: const Color(0xFFFFFFFF),
           surface: const Color(0xFF151A1E),
           error: const Color(0xFFd32f2f),
           //Extra
