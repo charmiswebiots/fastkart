@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dotted_line/dotted_line.dart';
 import 'package:fastkart/config.dart';
 import 'package:fastkart/views/pages/login/util/login_constants.dart';
@@ -20,8 +22,8 @@ class LoginWidget {
   //White body Container Layout
   Widget bodyContainer({Widget? child, BuildContext? context, color}) {
     return Container(
-      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / 8.5),
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
+      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / (Platform.isIOS ? 9.2 : 8.5)),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: color,
@@ -65,7 +67,7 @@ class LoginWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: EdgeInsets.symmetric(vertical: 10),
         width: MediaQuery.of(context!).size.width,
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
@@ -95,14 +97,24 @@ class LoginWidget {
 
   //create new user layout
   Widget createUserWidget({color,GestureTapCallback? onTap,}) {
-    return Center(
-      child: LoginFontStyle().mulishtextLayout(
-        color: color,
-        text: LoginFont().creatUser,
-        fontWeight: FontWeight.w600,
-        fontSize: 14,
-        onTap: onTap
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [ LoginFontStyle().mulishtextLayout(
+          color: color,
+          text: LoginFont().creatUser,
+          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          onTap: onTap
       ),
+        LoginFontStyle().mulishtextLayout(
+            color: color,
+            text: LoginFont().createNow,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+
+            textDecoration: TextDecoration.underline,
+            onTap: onTap
+        ),],
     );
   }
 
@@ -124,7 +136,7 @@ class LoginWidget {
           color: fontColor,
           text: LoginFont().signInWith,
           fontWeight: FontWeight.w600,
-          fontSize: 14,
+          fontSize: textSizeSMedium,
         ),
         Space(10, 0),
         Expanded(
@@ -142,12 +154,15 @@ class LoginWidget {
 
 //contiune as guest
   Widget continueAsGuest({color}) {
-    return LoginFontStyle()
-        .mulishtextLayout(
-            text: LoginFont().continueAsGuest,
-            color: color,
-            fontSize: 14,
-            textDecoration: TextDecoration.underline)
-        .marginOnly(bottom: 10);
+    return Padding(
+      padding: EdgeInsets.only(bottom:Platform.isIOS ? 10.0 : 0),
+      child: LoginFontStyle()
+          .mulishtextLayout(
+              text: LoginFont().continueAsGuest,
+              color: color,
+              fontSize: textSizeSMedium,
+              textDecoration: TextDecoration.underline)
+          .marginOnly(bottom: 10),
+    );
   }
 }

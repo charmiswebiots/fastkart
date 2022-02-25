@@ -6,12 +6,14 @@ class Error404Font{
    String backToHome= "Back to Home";
 }
 
-
 //font size
-const textSizeSmall = 12.0;
-const textSizeSMedium = 14.0;
-const textSizeMedium = 16.0;
-const textSizeLargeMedium = 18.0;
-const textSizeNormal = 20.0;
-const textSizeLarge = 24.0;
-const textSizeXLarge = 34.0;
+class Error404FontSize{
+
+   double textSizeSmall = 12.0;
+   double textSizeSMedium = 14.0;
+   double textSizeMedium = 16.0;
+   double textSizeLargeMedium = 18.0;
+   double textSizeNormal = 20.0;
+   double textSizeLarge = 24.0;
+   double textSizeXLarge = 34.0;
+}

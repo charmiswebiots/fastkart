@@ -9,4 +9,7 @@ class IconAssets {
   final String location = 'assets/icons/location.png';
   final String user = 'assets/icons/user.png';
   final String white_category_icon = 'assets/icons/white_category_icon.png';
+  final String cart = 'assets/icons/cart.png';
+  final String offers = 'assets/icons/offers.png';
+  final String search = 'assets/icons/search.png';
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dotted_line/dotted_line.dart';
 import 'package:fastkart/config.dart';
 import 'package:fastkart/views/pages/signup/util/signup_constants.dart';
@@ -20,8 +22,8 @@ class SignupWidget {
   //White body Container Layout
   Widget bodyContainer({Widget? child, BuildContext? context, color}) {
     return Container(
-      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / 8.5),
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
+      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / (Platform.isIOS ? 9.2 : 8.5)),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: color,
@@ -92,15 +94,27 @@ class SignupWidget {
 
   //already account layout
   Widget alreadyAccountWidget({color,GestureTapCallback? onTap,}) {
-    return Center(
-      child: SignupFontStyle().mulishtextLayout(
-        color: color,
-        text: SignupFont().alreadyAccount,
-        fontWeight: FontWeight.w600,
-        fontSize: 14,
-        onTap: onTap
+    return
+    Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [ SignupFontStyle().mulishtextLayout(
+          color: color,
+          text: SignupFont().alreadyAccount,
+          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          onTap: onTap
       ),
-    );
+        SignupFontStyle().mulishtextLayout(
+            color: color,
+            text: SignupFont().signIn,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+
+            textDecoration: TextDecoration.underline,
+            onTap: onTap
+        ),],
+    )
+    ;
   }
 
   //social signup button
@@ -138,7 +152,7 @@ class SignupWidget {
           color: fontColor,
           text: SignupFont().signInWith,
           fontWeight: FontWeight.w600,
-          fontSize: 14,
+          fontSize: textSizeSMedium,
         ),
         Space(10, 0),
         Expanded(
@@ -156,12 +170,16 @@ class SignupWidget {
 
 //contiune as guest
   Widget continueAsGuest({color}) {
-    return SignupFontStyle()
-        .mulishtextLayout(
-            text: SignupFont().continueAsGuest,
-            color: color,
-            fontSize: 14,
-            textDecoration: TextDecoration.underline)
-        .marginOnly(bottom: 10);
+    return Padding(
+
+      padding: EdgeInsets.only(bottom: Platform.isIOS ? 10.0 : 0),
+      child: SignupFontStyle()
+          .mulishtextLayout(
+              text: SignupFont().continueAsGuest,
+              color: color,
+              fontSize: textSizeSMedium,
+              textDecoration: TextDecoration.underline)
+          .marginOnly(bottom: 10),
+    );
   }
 }

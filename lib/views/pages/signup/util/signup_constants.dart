@@ -1,13 +1,14 @@
 //text constants
 class SignupFont{
-   String description= 'Online Supermarket for all your daily needs. you \nare just One Click away from your all needs at \nyour door step.';
+   String description= 'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.';
    String registerAccount = 'Register Account';
    String emailHint = 'Email address';
    String password = 'Password';
    String fullName = 'Full Name';
    String forgotPassword = 'Forgot password';
    String signup = 'Sign Up';
-   String alreadyAccount = 'Already have an Account? Sign In';
+   String alreadyAccount = 'Already have an Account? ';
+   String signIn = 'Sign In';
    String signInWith = 'Or sign in with';
    String continueWithPhone = 'Continue with Phone';
    String continueWithGoogle = 'Continue with Google';

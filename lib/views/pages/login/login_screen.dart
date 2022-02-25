@@ -51,14 +51,14 @@ class LoginScreen extends StatelessWidget {
                                         text: LoginFont().description,
                                         color:
                                             appCtrl.appTheme.darkContentColor,
-                                        fontSize: 14),
+                                        fontSize: textSizeSMedium),
                                     Space(0, 20),
 
                                     //login account text layout
                                     LoginFontStyle().mulishtextLayout(
                                         text: LoginFont().loginAccount,
                                         color: appCtrl.appTheme.titleColor,
-                                        fontSize: 16,
+                                        fontSize: textSizeMedium,
                                         fontWeight: FontWeight.w700),
                                     Space(0, 16),
 
@@ -85,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                                   hintColor: appCtrl.appTheme.contentColor,
                                   fillcolor: appCtrl.appTheme.lightGray,
                                 ),
-                                Space(0, 5),
+                                Space(0, 10),
 
                                 //forgot password text layout
                                 LoginWidget().forgotPasswordWidget(
@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                                     fontColor: appCtrl.appTheme.whiteColor,
                                     onTap: () =>
                                         Get.toNamed(routeName.error404page)),
-                                Space(0, 5),
+                                Space(0, 20),
 
                                 //create user layout
                                 LoginWidget().createUserWidget(
@@ -106,13 +106,13 @@ class LoginScreen extends StatelessWidget {
                                       Get.toNamed(routeName.signup);
                                     },
                                     color: appCtrl.appTheme.darkContentColor),
-                                Space(0, 20),
+                                Space(0, 25),
 
                                 //signup with text layout
                                 LoginWidget().signupWithLayout(
                                     color: appCtrl.appTheme.contentColor,
                                     fontColor: appCtrl.appTheme.primary),
-                                Space(0, 20),
+                                Space(0, 35),
 
                                 //continoue with phone layout
                                 IconButtonWidget(
@@ -121,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                                   textWidget: LoginFontStyle().mulishtextLayout(
                                       text: LoginFont().continueWithPhone,
                                       color: appCtrl.appTheme.titleColor,
-                                      fontSize: 16,
+                                      fontSize: textSizeMedium,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Space(0, 15),
@@ -132,7 +132,7 @@ class LoginScreen extends StatelessWidget {
                                   textWidget: LoginFontStyle().mulishtextLayout(
                                       text: LoginFont().continueWithGoogle,
                                       color: appCtrl.appTheme.titleColor,
-                                      fontSize: 16,
+                                      fontSize: textSizeMedium,
                                       fontWeight: FontWeight.bold),
                                   type: LoginFont().google,
                                 ),
