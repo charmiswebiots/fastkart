@@ -22,13 +22,14 @@ class LoginWidget {
   //White body Container Layout
   Widget bodyContainer({Widget? child, BuildContext? context, color}) {
     return Container(
-      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / (Platform.isIOS ? 9.2 : 8.5)),
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
+      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / (Platform.isIOS ? 9.2 : AppScreenUtil().size(7.2))),
+      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().size(15), vertical: AppScreenUtil().size(38)),
       width: MediaQuery.of(context).size.width,
+      height: AppScreenUtil().screenActualHeight(),
       decoration: BoxDecoration(
           color: color,
-          borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(22), topRight: Radius.circular(22))),
+          borderRadius:  BorderRadius.only(
+              topLeft: Radius.circular(AppScreenUtil().borderRadius(22)), topRight: Radius.circular(AppScreenUtil().borderRadius(22)))),
       child: child,
     );
   }
@@ -39,7 +40,7 @@ class LoginWidget {
     return TextField(
       decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+               EdgeInsets.symmetric(vertical: 0, horizontal: AppScreenUtil().size(20)),
           suffixIcon: suffixIcon,
           fillColor: fillcolor,
           filled: true,
@@ -67,7 +68,7 @@ class LoginWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: EdgeInsets.symmetric(vertical: AppScreenUtil().size(10)),
         width: MediaQuery.of(context!).size.width,
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),

@@ -12,4 +12,6 @@ class IconAssets {
   final String cart = 'assets/icons/cart.png';
   final String offers = 'assets/icons/offers.png';
   final String search = 'assets/icons/search.png';
+  final String textboxSearchIcon = 'assets/icons/textboxSearchIcon.png';
+  final String voice = 'assets/icons/voice.png';
 }
