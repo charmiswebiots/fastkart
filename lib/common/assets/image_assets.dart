@@ -7,4 +7,9 @@ class ImageAssets {
   final String logo = 'assets/images/logo.png';
   final String noPageFoundImage = 'assets/images/404.png';
   final String smallLogoImage = 'assets/images/smallLogo.png';
+  final String recentBought1 = 'assets/recentBought/recentBought1.png';
+  final String recentBought2 = 'assets/recentBought/recentBought2.png';
+  final String recentBought3 = 'assets/recentBought/recentBought3.png';
+  final String recentBought4 = 'assets/recentBought/recentBought4.jpeg';
+  final String recentBought5 = 'assets/recentBought/recentBought5.png';
 }

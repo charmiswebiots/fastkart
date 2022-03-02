@@ -1,5 +1,5 @@
+import 'package:fastkart/views/pages/home_screen/home.dart';
 import 'package:flutter/material.dart';
-import 'package:fastkart/views/home.dart';
 
 class Index extends StatefulWidget {
   const Index({Key? key}) : super(key: key);

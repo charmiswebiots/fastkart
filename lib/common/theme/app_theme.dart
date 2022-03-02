@@ -34,6 +34,7 @@ class AppTheme {
   Color darkContentColor;
   Color ratingColor;
   Color borderColor;
+  Color recentBGColor;
 
   /// Default constructor
   AppTheme({
@@ -60,6 +61,7 @@ class AppTheme {
     required this.darkContentColor,
     required this.ratingColor,
     required this.borderColor,
+    required this.recentBGColor,
   });
 
   /// fromType factory constructor
@@ -67,57 +69,57 @@ class AppTheme {
     switch (t) {
       case ThemeType.light:
         return AppTheme(
-          isDark: false,
-          txt: const Color(0xFF001928),
-          primary: const Color(0xFF0BAF9A),
-          secondary: const Color(0xFF6EBAE7),
-          accentTxt: const Color(0xFF001928),
-          whiteColor: const Color(0xFFFFFFFF),
-          surface: Colors.white,
-          error: const Color(0xFFd32f2f),
-          //Extra
-          bgGray: const Color(0xFFF0F8FD),
-          gray: const Color(0xFF999999),
-          darkGray: const Color(0xFF666666),
-          lightGray: const Color(0xFFFAFAFA),
-          borderGray: const Color(0xFFE6E8EA),
-          green: const Color(0xFF5CB85C),
-          white: Colors.white,
-          lightPrimary: const Color(0xFFEDF8F8),
-          greyBGColor: const Color(0xFFF1F1F1),
-          titleColor: const Color(0xFF222222),
-          contentColor: const Color(0xFFCACACA),
-          darkContentColor: const Color(0xFF777777),
-          ratingColor: const Color(0xFFFFBF13),
-          borderColor: const Color(0xFFF1F1F1),
-        );
+            isDark: false,
+            txt: const Color(0xFF001928),
+            primary: const Color(0xFF0BAF9A),
+            secondary: const Color(0xFF6EBAE7),
+            accentTxt: const Color(0xFF001928),
+            whiteColor: const Color(0xFFFFFFFF),
+            surface: Colors.white,
+            error: const Color(0xFFd32f2f),
+            //Extra
+            bgGray: const Color(0xFFF0F8FD),
+            gray: const Color(0xFF999999),
+            darkGray: const Color(0xFF666666),
+            lightGray: const Color(0xFFFAFAFA),
+            borderGray: const Color(0xFFE6E8EA),
+            green: const Color(0xFF5CB85C),
+            white: Colors.white,
+            lightPrimary: const Color(0xFFEDF8F8),
+            greyBGColor: const Color(0xFFF1F1F1),
+            titleColor: const Color(0xFF222222),
+            contentColor: const Color(0xFFCACACA),
+            darkContentColor: const Color(0xFF777777),
+            ratingColor: const Color(0xFFFFBF13),
+            borderColor: const Color(0xFFF1F1F1),
+            recentBGColor: const Color(0xFFE9FFFF));
 
       case ThemeType.dark:
         return AppTheme(
-          isDark: true,
-          txt: Colors.white,
-          primary: const Color(0xFF6EBAE7),
-          secondary: const Color(0xFF6EBAE7),
-          accentTxt: const Color(0xFF001928),
-          whiteColor: const Color(0xFFFFFFFF),
-          surface: const Color(0xFF151A1E),
-          error: const Color(0xFFd32f2f),
-          //Extra
-          bgGray: const Color(0xFF262F36),
-          gray: const Color(0xFF999999),
-          darkGray: const Color(0xFF999999),
-          lightGray: const Color(0xFFFAFAFA),
-          borderGray: const Color(0xFF353C41),
-          green: const Color(0xFF5CB85C),
-          white: Colors.white,
-          lightPrimary: const Color(0xFFEDF8F8),
-          greyBGColor: const Color(0xFFF1F1F1),
-          titleColor: const Color(0xFF222222),
-          contentColor: const Color(0xFFCACACA),
-          darkContentColor: const Color(0xFF777777),
-          ratingColor: const Color(0xFFFFBF13),
-          borderColor: const Color(0xFFF1F1F1),
-        );
+            isDark: true,
+            txt: Colors.white,
+            primary: const Color(0xFF6EBAE7),
+            secondary: const Color(0xFF6EBAE7),
+            accentTxt: const Color(0xFF001928),
+            whiteColor: const Color(0xFFFFFFFF),
+            surface: const Color(0xFF151A1E),
+            error: const Color(0xFFd32f2f),
+            //Extra
+            bgGray: const Color(0xFF262F36),
+            gray: const Color(0xFF999999),
+            darkGray: const Color(0xFF999999),
+            lightGray: const Color(0xFFFAFAFA),
+            borderGray: const Color(0xFF353C41),
+            green: const Color(0xFF5CB85C),
+            white: Colors.white,
+            lightPrimary: const Color(0xFFEDF8F8),
+            greyBGColor: const Color(0xFFF1F1F1),
+            titleColor: const Color(0xFF222222),
+            contentColor: const Color(0xFFCACACA),
+            darkContentColor: const Color(0xFF777777),
+            ratingColor: const Color(0xFFFFBF13),
+            borderColor: const Color(0xFFF1F1F1),
+            recentBGColor: const Color(0xFFE9FFFF));
     }
   }
 

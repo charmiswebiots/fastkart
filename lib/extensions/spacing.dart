@@ -1,3 +1,4 @@
+import 'package:fastkart/common/app_screen_util.dart';
 import 'package:flutter/cupertino.dart';
 
 class Space extends StatelessWidget {
@@ -7,7 +8,7 @@ class Space extends StatelessWidget {
   Space(this.width, this.height);
 
   @override
-  Widget build(BuildContext context) => SizedBox(width: width, height: height);
+  Widget build(BuildContext context) => SizedBox(width: AppScreenUtil().size(width), height: AppScreenUtil().size(height));
 }
 
 // Vertical Space
@@ -17,7 +18,7 @@ class VSpace extends StatelessWidget {
   const VSpace(this.size, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Space(0, size);
+  Widget build(BuildContext context) => Space(0, AppScreenUtil().size(size));
 }
 
 //Horizontal Space
@@ -27,5 +28,5 @@ class HSpace extends StatelessWidget {
   const HSpace(this.size, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Space(size, 0);
+  Widget build(BuildContext context) => Space(AppScreenUtil().size(size), 0);
 }
