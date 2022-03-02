@@ -9,7 +9,7 @@ class SignupFont{
    String signup = 'Sign Up';
    String alreadyAccount = 'Already have an Account? ';
    String signIn = 'Sign In';
-   String signInWith = 'Or sign in with';
+   String signInWith = 'Or login with';
    String continueWithPhone = 'Continue with Phone';
    String continueWithGoogle = 'Continue with Google';
    String continueAsGuest = 'Continue as guest';

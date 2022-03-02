@@ -21,101 +21,102 @@ class BottomNavigatorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS ? BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      selectedFontSize: BottomNavigationFontSize().textSizeSmall,
-      unselectedItemColor: appCtrl.appTheme.whiteColor,
-      backgroundColor: appCtrl.appTheme.primary,
-      selectedItemColor: appCtrl.appTheme.whiteColor,
-      selectedLabelStyle: TextStyle(fontSize: BottomNavigationFontSize().textSizeSmall),
-      items: <BottomNavigationBarItem>[
-        BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().home,
-            imageIcon: iconAssets.home,
-            height: 20,
-            width: 20
-        ),BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().category,
-            imageIcon: iconAssets.white_category_icon,
-            height: 20,
-            width: 20
-        ),
-        BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().search,
-            imageIcon: iconAssets.search,
-            height: 20,
-            width: 20
-        ),
+    return Platform.isIOS
+        ? BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            selectedFontSize: BottomNavigationFontSize().textSizeSmall,
+            unselectedItemColor: appCtrl.appTheme.whiteColor.withOpacity(.8),
+            backgroundColor: appCtrl.appTheme.primary,
+            selectedItemColor: appCtrl.appTheme.whiteColor,
+            selectedLabelStyle: TextStyle(
+                fontSize: BottomNavigationFontSize().textSizeSmall,
+                fontWeight:
+                    selectedIndex == 0 ? FontWeight.w600 : FontWeight.normal),
+            items: <BottomNavigationBarItem>[
+              BottomNavigationWidget().bottomNavigationCard(
+                  color: appCtrl.appTheme.primary,
+                  text: BottomNavigationFont().home,
+                  imageIcon: iconAssets.home,
+                  height: 20,
+                  width: 20),
+              BottomNavigationWidget().bottomNavigationCard(
+                  color: appCtrl.appTheme.primary,
+                  text: BottomNavigationFont().category,
+                  imageIcon: iconAssets.search,
+                  height: 20,
+                  width: 20),
+              BottomNavigationWidget().bottomNavigationCard(
+                  color: appCtrl.appTheme.primary,
+                  text: BottomNavigationFont().search,
+                  imageIcon: iconAssets.search,
+                  height: 20,
+                  width: 20),
+              BottomNavigationWidget().bottomNavigationCard(
+                  color: appCtrl.appTheme.primary,
+                  text: BottomNavigationFont().offers,
+                  imageIcon: iconAssets.offers,
+                  imagecolor: appCtrl.appTheme.contentColor,
+                  height: 20,
+                  width: 20),
+              BottomNavigationWidget().bottomNavigationCard(
+                  color: appCtrl.appTheme.primary,
+                  text: BottomNavigationFont().cart,
+                  imageIcon: iconAssets.cart,
+                  height: 20,
+                  width: 20),
+            ],
+            currentIndex: selectedIndex!,
+            onTap: onTap,
+          )
+        : Container(
+            height: AppScreenUtil().screenHeight(65),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              selectedFontSize: BottomNavigationFontSize().textSizeSmall,
+              unselectedItemColor: appCtrl.appTheme.whiteColor.withOpacity(.8),
+              backgroundColor: appCtrl.appTheme.primary,
+              selectedItemColor: appCtrl.appTheme.whiteColor,
+              selectedLabelStyle: TextStyle(
+                  fontSize: BottomNavigationFontSize().textSizeSmall,
+                  fontWeight:
+                      selectedIndex == 0 ? FontWeight.w700 : FontWeight.normal),
+              items: <BottomNavigationBarItem>[
+                BottomNavigationWidget().bottomNavigationCard(
+                    color: appCtrl.appTheme.primary,
+                    text: BottomNavigationFont().home,
+                    imageIcon: iconAssets.home,
+                    height: 20,
+                    width: 20),
+                BottomNavigationWidget().bottomNavigationCard(
+                    color: appCtrl.appTheme.primary,
+                    text: BottomNavigationFont().category,
+                    imageIcon: iconAssets.white_category_icon,
+                    height: 20,
+                    width: 20),
+                BottomNavigationWidget().bottomNavigationCard(
+                    color: appCtrl.appTheme.primary,
+                    text: BottomNavigationFont().search,
+                    imageIcon: iconAssets.search,
+                    height: 20,
+                    width: 20),
+                BottomNavigationWidget().bottomNavigationCard(
+                    color: appCtrl.appTheme.primary,
+                    imagecolor: appCtrl.appTheme.whiteColor.withOpacity(.8),
+                    text: BottomNavigationFont().offers,
+                    imageIcon: gifAssets.offers,
 
-        BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().offers,
-            imageIcon: iconAssets.offers,
-            height: 20,
-            width: 20
-        ),
-        BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().cart,
-            imageIcon: iconAssets.cart,
-            height: 20,
-            width: 20
-        ),
-      ],
-      currentIndex: selectedIndex!,
-      onTap: onTap,
-    ):  Container(
-      height:65,
-      child: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedFontSize: BottomNavigationFontSize().textSizeSmall,
-        unselectedItemColor: appCtrl.appTheme.whiteColor,
-        backgroundColor: appCtrl.appTheme.primary,
-        selectedItemColor: appCtrl.appTheme.whiteColor,
-        selectedLabelStyle: TextStyle(fontSize: BottomNavigationFontSize().textSizeSmall),
-        items: <BottomNavigationBarItem>[
-          BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().home,
-            imageIcon: iconAssets.home,
-            height: 20,
-            width: 20
-          ),BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().category,
-            imageIcon: iconAssets.home,
-            height: 20,
-            width: 20
-          ),
-          BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().search,
-            imageIcon: iconAssets.search,
-            height: 20,
-            width: 20
-          ),
-
-          BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().offers,
-            imageIcon: iconAssets.offers,
-            height: 20,
-            width: 20
-          ),
-          BottomNavigationWidget().bottomNavigationCard(
-            color: appCtrl.appTheme.primary,
-            text: BottomNavigationFont().cart,
-            imageIcon: iconAssets.cart,
-            height: 20,
-            width: 20
-          ),
-        ],
-        currentIndex: selectedIndex!,
-        onTap: onTap,
-      ),
-    );
+                    height: 25,
+                    width: 25),
+                BottomNavigationWidget().bottomNavigationCard(
+                    color: appCtrl.appTheme.primary,
+                    text: BottomNavigationFont().cart,
+                    imageIcon: iconAssets.cart,
+                    height: 20,
+                    width: 20),
+              ],
+              currentIndex: selectedIndex!,
+              onTap: onTap,
+            ),
+          );
   }
 }

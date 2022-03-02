@@ -1,3 +1,4 @@
+import 'package:fastkart/common/app_screen_util.dart';
 import 'package:flutter/material.dart';
 import 'package:fastkart/extensions/textstyle_extensions.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,7 @@ class AppCss {
   final nunitoTextStyle =
       ({color, double fontSize = 16, FontWeight? fontWeight}) => TextStyle(
           color: color,
-          fontSize: 16,
+          fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight: fontWeight,
           fontFamily: GoogleFonts.nunitoSans().fontFamily);
 
@@ -30,7 +31,7 @@ class AppCss {
           TextDecoration? textDecoration}) =>
       GoogleFonts.mulish(
           color: color,
-          fontSize: fontSize,
+          fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight: fontWeight,
           decoration: textDecoration);
 
@@ -40,7 +41,7 @@ class AppCss {
           {color, double fontSize = 16, FontWeight? fontWeight}) =>
       GoogleFonts.quicksand(
         color: color,
-        fontSize: fontSize,
+        fontSize: AppScreenUtil().fontSize(fontSize),
         fontWeight: fontWeight,
       );
 
