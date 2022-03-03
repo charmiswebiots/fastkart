@@ -11,36 +11,42 @@ class CommonAppBar1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            AppBarWidget().commonIconImage(
-              onTap: onTap,
-                image: iconAssets.category, height: 20),
-            Space(10, 0),
-            AppBarWidget().commonIconImage(
-                image: imageAssets.smallLogoImage, height: 16),
-          ],
-        ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            AppBarWidget().commonIconImage(
-                image: iconAssets.location, height: 16),
-            Space(5, 0),
-            AppBarFontStyle().mulishtextLayout(
-                text: AppBarFont().name,
-                fontSize: 14,
-                fontWeight: FontWeight.normal),
-            Space(5, 0),
-            AppBarWidget()
-                .commonIconImage(image: iconAssets.user, height: 30),
-          ],
-        ),
-      ],
+    return Container(
+      margin: EdgeInsets.only(
+
+          left: AppScreenUtil().screenHeight(15),
+          right: AppScreenUtil().screenHeight(15)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              AppBarWidget().commonIconImage(
+                onTap: onTap,
+                  image: iconAssets.category, height: 20),
+              Space(10, 0),
+              AppBarWidget().commonIconImage(
+                  image: imageAssets.smallLogoImage, height: 16),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              AppBarWidget().commonIconImage(
+                  image: iconAssets.location, height: 16),
+              Space(5, 0),
+              AppBarFontStyle().mulishtextLayout(
+                  text: AppBarFont().name,
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal),
+              Space(5, 0),
+              AppBarWidget()
+                  .commonIconImage(image: iconAssets.user, height: 30),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

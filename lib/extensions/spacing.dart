@@ -8,7 +8,7 @@ class Space extends StatelessWidget {
   Space(this.width, this.height);
 
   @override
-  Widget build(BuildContext context) => SizedBox(width: AppScreenUtil().size(width), height: AppScreenUtil().size(height));
+  Widget build(BuildContext context) => SizedBox(width: AppScreenUtil().screenWidth(width), height: AppScreenUtil().screenHeight(height));
 }
 
 // Vertical Space

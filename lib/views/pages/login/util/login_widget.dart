@@ -9,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
 class LoginWidget {
-
   //login background image layout
   Widget loginBackGroundImage(String image, context) {
     return Image.asset(
@@ -22,14 +21,19 @@ class LoginWidget {
   //White body Container Layout
   Widget bodyContainer({Widget? child, BuildContext? context, color}) {
     return Container(
-      margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / (Platform.isIOS ? 9.2 : AppScreenUtil().size(7.2))),
-      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().size(15), vertical: AppScreenUtil().size(38)),
+      margin: EdgeInsets.only(
+          top: MediaQuery.of(context!).size.height /
+              (Platform.isIOS ? 9.2 : AppScreenUtil().size(7.2))),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppScreenUtil().size(15),
+          vertical: AppScreenUtil().size(25)),
       width: MediaQuery.of(context).size.width,
       height: AppScreenUtil().screenActualHeight(),
       decoration: BoxDecoration(
           color: color,
-          borderRadius:  BorderRadius.only(
-              topLeft: Radius.circular(AppScreenUtil().borderRadius(22)), topRight: Radius.circular(AppScreenUtil().borderRadius(22)))),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(AppScreenUtil().borderRadius(22)),
+              topRight: Radius.circular(AppScreenUtil().borderRadius(22)))),
       child: child,
     );
   }
@@ -39,8 +43,8 @@ class LoginWidget {
       {String? text, fillcolor, borderColor, hintColor, Widget? suffixIcon}) {
     return TextField(
       decoration: InputDecoration(
-          contentPadding:
-               EdgeInsets.symmetric(vertical: 0, horizontal: AppScreenUtil().size(20)),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: 0, horizontal: AppScreenUtil().size(20)),
           suffixIcon: suffixIcon,
           fillColor: fillcolor,
           filled: true,
@@ -63,7 +67,12 @@ class LoginWidget {
   }
 
   //sign in button
-  Widget signInButton({color, BuildContext? context, fontColor,GestureTapCallback? onTap,}) {
+  Widget signInButton({
+    color,
+    BuildContext? context,
+    fontColor,
+    GestureTapCallback? onTap,
+  }) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -71,7 +80,7 @@ class LoginWidget {
         padding: EdgeInsets.symmetric(vertical: AppScreenUtil().size(10)),
         width: MediaQuery.of(context!).size.width,
         decoration:
-            BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
+        BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
         child: LoginFontStyle().mulishtextLayout(
             text: LoginFont().signIn,
             fontSize: 17,
@@ -91,31 +100,33 @@ class LoginWidget {
             color: color,
             fontSize: 12,
             fontWeight: FontWeight.normal),
-        Space(0, 20),
+        Space(0, 15),
       ],
     );
   }
 
   //create new user layout
-  Widget createUserWidget({color,GestureTapCallback? onTap,}) {
+  Widget createUserWidget({
+    color,
+    GestureTapCallback? onTap,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [ LoginFontStyle().mulishtextLayout(
-          color: color,
-          text: LoginFont().creatUser,
-          fontWeight: FontWeight.w600,
-          fontSize: 14,
-          onTap: onTap
-      ),
+      children: [
+        LoginFontStyle().mulishtextLayout(
+            color: color,
+            text: LoginFont().creatUser,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            onTap: onTap),
         LoginFontStyle().mulishtextLayout(
             color: color,
             text: LoginFont().createNow,
             fontWeight: FontWeight.w600,
             fontSize: 14,
-
             textDecoration: TextDecoration.underline,
-            onTap: onTap
-        ),],
+            onTap: onTap),
+      ],
     );
   }
 
@@ -156,13 +167,13 @@ class LoginWidget {
 //contiune as guest
   Widget continueAsGuest({color}) {
     return Padding(
-      padding: EdgeInsets.only(bottom:Platform.isIOS ? 10.0 : 0),
+      padding: EdgeInsets.only(bottom: Platform.isIOS ? 10.0 : 0),
       child: LoginFontStyle()
           .mulishtextLayout(
-              text: LoginFont().continueAsGuest,
-              color: color,
-              fontSize: textSizeSMedium,
-              textDecoration: TextDecoration.underline)
+          text: LoginFont().continueAsGuest,
+          color: color,
+          fontSize: textSizeSMedium,
+          textDecoration: TextDecoration.underline)
           .marginOnly(bottom: 10),
     );
   }

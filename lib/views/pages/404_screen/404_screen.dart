@@ -23,7 +23,7 @@ class Error404Page extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            margin: EdgeInsets.only(top: Platform.isIOS ? MediaQuery.of(context).size.height /15 : MediaQuery.of(context).size.height /20, left: 15, right: 15),
+            margin: EdgeInsets.only(top: Platform.isIOS ? MediaQuery.of(context).size.height /AppScreenUtil().screenHeight(15) : MediaQuery.of(context).size.height /AppScreenUtil().screenHeight(20), left: AppScreenUtil().screenHeight(15), right: AppScreenUtil().screenHeight(15)),
             child: Column(
               children: [
                 CommonAppBar1(

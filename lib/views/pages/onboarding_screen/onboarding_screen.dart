@@ -30,51 +30,64 @@ class OnBoardingScreen extends StatelessWidget {
                   image: imageAssets.onboardingImage,
                   height: 2.3,
                   context: context),
-              Space(0, 15),
+              Space(0, 5),
 
-              //logo layout
-              OnboardingWidget().smallLogoImage(
-                  image: imageAssets.smallLogoImage, context: context),
-              Space(0, 2),
+             Container(
+               height: MediaQuery.of(context).size.height /3.1,
+               child: Column(
+                 children: [
+                   //logo layout
+                   OnboardingWidget().smallLogoImage(
+                       image: imageAssets.smallLogoImage, context: context),
+                   Space(0, 2),
 
-              //get safe delivery text layout
-              OnboardingFontStyle().nunitoAndQuicksandtextLayout(
-                  text: OnboardingFont().getSafeDelivery,
-                  color: appCtrl.appTheme.titleColor,
-                  fontSize: textSizeNormal,
-                  fontWeight: FontWeight.w500,type: 'quicksand'),
-              Space(0, 10),
+                   //get safe delivery text layout
+                   OnboardingFontStyle().nunitoAndQuicksandtextLayout(
+                       text: OnboardingFont().getSafeDelivery,
+                       color: appCtrl.appTheme.titleColor,
+                       fontSize: textSizeNormal,
+                       fontWeight: FontWeight.w500,type: 'quicksand'),
+                   Space(0, 5),
 
-              //description layout
-              OnboardingFontStyle().nunitoAndQuicksandtextLayout(
-                  text: OnboardingFont().description,
-                  color: appCtrl.appTheme.contentColor,
-                  fontSize: textSizeSMedium,
-                  fontWeight: FontWeight.normal,type: 'nunito'),
-              Space(0, 10),
+                   //description layout
+                   OnboardingFontStyle().nunitoAndQuicksandtextLayout(
+                       text: OnboardingFont().description,
+                       color: appCtrl.appTheme.contentColor,
+                       fontSize: textSizeSMedium,
+                       fontWeight: FontWeight.normal,type: 'nunito'),
+                 ],
+               ),
+             ),
 
-              //continoue with phone layout
-              IconButtonWidget(
-                icon: iconAssets.mobileIcon,
-                textWidget: OnboardingFontStyle().mulishtextLayout(
-                    text: OnboardingFont().continueWithPhone,
-                    color: appCtrl.appTheme.titleColor,
-                    fontSize: textSizeMedium,
-                    fontWeight: FontWeight.bold),
-                type: OnboardingFont().phone,
-              ),
-              Space(0, 15),
+           Container(
+             height: MediaQuery.of(context).size.height / 4.50,
+             child: Column(
+               children: [
+                 //continoue with phone layout
+                 IconButtonWidget(
+                   icon: iconAssets.mobileIcon,
+                   textWidget: OnboardingFontStyle().mulishtextLayout(
+                       text: OnboardingFont().continueWithPhone,
+                       color: appCtrl.appTheme.titleColor,
+                       fontSize: textSizeMedium,
+                       fontWeight: FontWeight.bold),
+                   type: OnboardingFont().phone,
+                 ),
+                 Space(0, 10),
 
-              //continoue with google layout
-              IconButtonWidget(
-                icon: iconAssets.google,
-                textWidget: OnboardingFontStyle().mulishtextLayout(
-                    text: OnboardingFont().continueWithGoogle,
-                    color: appCtrl.appTheme.titleColor,
-                    fontSize: textSizeMedium,
-                    fontWeight: FontWeight.bold),
-                type: OnboardingFont().google,
-              ),
+                 //continoue with google layout
+                 IconButtonWidget(
+                   icon: iconAssets.google,
+                   textWidget: OnboardingFontStyle().mulishtextLayout(
+                       text: OnboardingFont().continueWithGoogle,
+                       color: appCtrl.appTheme.titleColor,
+                       fontSize: textSizeMedium,
+                       fontWeight: FontWeight.bold),
+                   type: OnboardingFont().google,
+                 ),
+               ],
+             ),
+           )
             ],
           ),
         ),

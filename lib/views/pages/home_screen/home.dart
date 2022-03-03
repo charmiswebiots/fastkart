@@ -1,9 +1,10 @@
 import 'dart:io';
-
-import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
+import 'package:fastkart/views/pages/home_screen/banner_list.dart';
+import 'package:fastkart/views/pages/home_screen/shop_by_category.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
+import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_widget.dart';
 import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
 import 'package:flutter/material.dart';
@@ -19,80 +20,131 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Container(
-            margin: EdgeInsets.only(
-                top: Platform.isIOS
-                    ? MediaQuery.of(context).size.height / 15
-                    : MediaQuery.of(context).size.height / 20,
-                left: 15,
-                right: 15),
-            child: Column(
-              children: [
-                CommonAppBar1(
-                  onTap: () {},
+      body: Container(
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: Platform.isIOS
+                      ? MediaQuery.of(context).size.height /
+                          AppScreenUtil().screenHeight(15)
+                      : MediaQuery.of(context).size.height /
+                          AppScreenUtil().screenHeight(20),
                 ),
-                Space(0, 10),
-                //fullname textformfiel layout
-                HomeWidget().textFieldLayout(
-                  suffixIcon: Image.asset(iconAssets.voice),
-                  prefixIcon: Image.asset(iconAssets.textboxSearchIcon),
-                  text: HomeFont().searchProduct,
-                  borderColor: appCtrl.appTheme.primary.withOpacity(.3),
-                  hintColor: appCtrl.appTheme.contentColor,
-                  fillcolor: appCtrl.appTheme.lightGray,
-                ),
-                Space(0, 20),
-                HomeWidget().recentBoughtListWiget(
-                  context: context,
-                  containercolor: appCtrl.appTheme.lightPrimary,
-                  bordercolor: appCtrl.appTheme.recentBGColor,
-                  titlecolor: appCtrl.appTheme.titleColor,
-                  title: HomeFont().recentBought,
-                  list: AppArray().recentBoughtList,
-                  listcontainercolor: appCtrl.appTheme.whiteColor,
-                ),
-                Space(0, 25),
-                //recent bought widget
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
                   children: [
-                    Container(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 4,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: appCtrl.appTheme.greyBGColor,width: 2),
-                        ),
+                    //common app bar
+                    CommonAppBar1(
+                      onTap: () {},
+                    ),
+                    Space(0, 10),
+
+                    //fullname textformfiel layout
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: AppScreenUtil().screenHeight(15),
+                          right: AppScreenUtil().screenHeight(15)),
+                      child: HomeWidget().textFieldLayout(
+                        suffixIcon: Image.asset(iconAssets.voice),
+                        prefixIcon: Image.asset(iconAssets.textboxSearchIcon),
+                        text: HomeFont().searchProduct,
+                        borderColor: appCtrl.appTheme.primary.withOpacity(.3),
+                        hintColor: appCtrl.appTheme.contentColor,
+                        fillcolor: appCtrl.appTheme.lightGray,
                       ),
                     ),
-                    HomeWidget().shopByCategory(
-                        text: HomeFont().shopByCategory,
-                        color: appCtrl.appTheme.titleColor),
-                    Container(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 4,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(color: appCtrl.appTheme.greyBGColor,width: 2),
-                        ),
-                      ),
+                    Space(0, 20),
+
+                    //Banner
+                    BannerList(),
+                    Space(0, 20),
+                    //recent bought widget
+                    HomeWidget().recentBoughtListWiget(
+                      context: context,
+                      containercolor: appCtrl.appTheme.lightPrimary,
+                      bordercolor: appCtrl.appTheme.recentBGColor,
+                      titlecolor: appCtrl.appTheme.titleColor,
+                      title: HomeFont().recentBought,
+                      list: AppArray().recentBoughtList,
+                      listcontainercolor: appCtrl.appTheme.whiteColor,
                     ),
+                    Space(0, 25),
+                    //recent bought widget
+                    HomeWidget().shopByCategoryText(
+                        bordercolor: appCtrl.appTheme.greyBGColor,
+                        title: HomeFont().shopByCategory,
+                        titlecolor: appCtrl.appTheme.titleColor,
+                        context: context),
+
+                    //shop by category list
+                    const ShopByCategory(),
+                    Space(0, 25),
+                    Container(
+                      height: 300,
+                      width: MediaQuery.of(context).size.width,
+                      padding: EdgeInsets.only(
+                          top: 30,
+                          left: AppScreenUtil().screenHeight(15),
+                          right: AppScreenUtil().screenHeight(15)),
+                      color: appCtrl.appTheme.lightPrimary,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              HomeFontStyle().mulishtextLayout(
+                                  text: HomeFont().sayHelloToOffer,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14),
+                              HomeFontStyle().mulishtextLayout(
+                                  text: HomeFont().seeAll,
+                                  fontSize: 12,
+                                  color: appCtrl.appTheme.primary),
+                            ],
+                          ),
+                          HomeFontStyle().mulishtextLayout(
+                              text: HomeFont().bestPriceEverOfAllTheTime,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 12,
+                              color: appCtrl.appTheme.darkContentColor),
+
+                          Space(0, 10),
+                          Container(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: AppArray().offerList.length,
+                              itemBuilder: (context, index) {
+                              return Container(
+                                decoration: BoxDecoration(
+                                  color: appCtrl.appTheme.whiteColor,
+                                  borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.asset(AppArray().offerList[index]['image'].toString())
+                                  ],
+                                ),
+                              );
+                            },),
+                          )
+                        ],
+                      ),
+                    )
                   ],
-                )
-              ],
+                ),
+              ),
             ),
-          ),
-          BottomNavigatorCard(
-            selectedIndex: 0,
-            onTap: (val) {},
-          )
-        ],
+            BottomNavigatorCard(
+              selectedIndex: 0,
+              onTap: (val) {},
+            )
+          ],
+        ),
       ),
     );
   }

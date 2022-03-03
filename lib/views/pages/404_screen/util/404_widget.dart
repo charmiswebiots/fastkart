@@ -1,4 +1,5 @@
 
+import 'package:fastkart/common/app_screen_util.dart';
 import 'package:fastkart/views/pages/404_screen/util/404_fontstyle.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,7 @@ class Error404Widget{
 
   //common icon image layout
   Widget commonIconImage({String? image,double? height}){
-    return Image.asset(image!,height: height  ,);
+    return Image.asset(image!,height: AppScreenUtil().screenHeight(height!)  ,);
   }
 
   //back to home widget
@@ -14,11 +15,11 @@ Widget backToHomeWidget({String? text,color,GestureTapCallback? onTap,fontColor,
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: MediaQuery.of(context!).size.width / 2.5,
+        width: MediaQuery.of(context!).size.width / AppScreenUtil().screenWidth(2.5),
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(12)),
         decoration:
-        BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
+        BoxDecoration(color: color, borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))),
         child: Error404FontStyle().mulishtextLayout(
             text: text,
             fontSize: 15,

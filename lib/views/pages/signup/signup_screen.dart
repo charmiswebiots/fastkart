@@ -18,6 +18,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: appCtrl.appTheme.primary,
       body: Container(
+        height: AppScreenUtil().screenActualHeight(),
         child: Stack(
           children: [
             //background Image layout
@@ -32,7 +33,6 @@ class SignUpScreen extends StatelessWidget {
                     context: context,
                     child: SingleChildScrollView(
                       child: Container(
-                        height: MediaQuery.of(context).size.height,
                         child: Stack(
                           alignment: Alignment.bottomCenter,
                           children: [
@@ -69,7 +69,7 @@ class SignUpScreen extends StatelessWidget {
                                       text: SignupFont().fullName,
                                       borderColor: appCtrl.appTheme.primary
                                           .withOpacity(.3),
-                                      hintColor: appCtrl.appTheme.contentColor,
+                                      hintColor: appCtrl.appTheme.darkContentColor,
                                       fillcolor: appCtrl.appTheme.lightGray,
                                     ),
                                     Space(0, 13),
@@ -81,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
                                           Image.asset(iconAssets.atsign),
                                       borderColor: appCtrl.appTheme.primary
                                           .withOpacity(.3),
-                                      hintColor: appCtrl.appTheme.contentColor,
+                                      hintColor: appCtrl.appTheme.darkContentColor,
                                       fillcolor: appCtrl.appTheme.lightGray,
                                     ),
                                     Space(0, 13),
@@ -94,7 +94,7 @@ class SignUpScreen extends StatelessWidget {
                                   text: SignupFont().password,
                                   borderColor:
                                       appCtrl.appTheme.primary.withOpacity(.3),
-                                  hintColor: appCtrl.appTheme.contentColor,
+                                  hintColor: appCtrl.appTheme.darkContentColor,
                                   fillcolor: appCtrl.appTheme.lightGray,
                                 ),
                                 Space(0, 20),

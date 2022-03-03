@@ -16,7 +16,7 @@ class IconButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(AppScreenUtil().size(16)),
       decoration: BoxDecoration(
           color: appCtrl.appTheme.lightGray,
           borderRadius: BorderRadius.circular(5)),
@@ -29,7 +29,7 @@ class IconButtonWidget extends StatelessWidget {
 
         ],
       ),
-    ).marginOnly(left: 15, right: 15).gestures(onTap: () {
+    ).marginOnly(left: AppScreenUtil().screenWidth(15), right: AppScreenUtil().screenWidth(15)).gestures(onTap: () {
       if (type == 'phone') {
         Get.toNamed(routeName.login);
       }
