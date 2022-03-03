@@ -31,7 +31,7 @@ class MediumScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height / AppScreenUtil().screenHeight(1.70),
+                        height: MediaQuery.of(context).size.height / AppScreenUtil().screenHeight(1.75),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -43,8 +43,8 @@ class MediumScreen extends StatelessWidget {
                               LoginFontStyle().nunitotextLayout(
                                   text: LoginFont().description,
                                   color: appCtrl.appTheme.darkContentColor,
-                                  fontSize: textSizeSMedium),
-                              Space(0, 10),
+                                  fontSize: textSizeSmall),
+                              Space(0, 8),
 
                               //login account text layout
                               LoginFontStyle().mulishtextLayout(
@@ -52,12 +52,12 @@ class MediumScreen extends StatelessWidget {
                                   color: appCtrl.appTheme.titleColor,
                                   fontSize: textSizeMedium,
                                   fontWeight: FontWeight.w700),
-                              Space(0, 12),
+                              Space(0, 10),
 
                               //email textformfiel layout
                               LoginWidget().textFieldLayout(
                                 text: LoginFont().emailHint,
-                                suffixIcon: Image.asset(iconAssets.atsign),
+                                suffixIcon: Icon(Icons.alternate_email,color: appCtrl.appTheme.titleColor,),
                                 borderColor:
                                 appCtrl.appTheme.primary.withOpacity(.3),
                                 hintColor: appCtrl.appTheme.darkContentColor,
@@ -65,7 +65,7 @@ class MediumScreen extends StatelessWidget {
                               ),
                               Space(0, 11), //email password layout
                               LoginWidget().textFieldLayout(
-                                suffixIcon: Image.asset(iconAssets.hide),
+                                suffixIcon: Image.asset(iconAssets.hide,color: appCtrl.appTheme.titleColor),
                                 text: LoginFont().password,
                                 borderColor:
                                 appCtrl.appTheme.primary.withOpacity(.3),
@@ -91,18 +91,21 @@ class MediumScreen extends StatelessWidget {
 
                               //create user layout
                               LoginWidget().createUserWidget(
+                                fontWeight: FontWeight.w600,
                                   onTap: () {
                                     Get.toNamed(routeName.signup);
                                   },
                                   color: appCtrl.appTheme.darkContentColor),
-                              Space(0, 11),
+                              Space(0, 15),
 
                               //signup with text layout
-                              LoginWidget().signupWithLayout(
+                              LoginWidget().loginWithLayout(
+                                fontWeight: FontWeight.w700,
                                   color: appCtrl.appTheme.contentColor,
                                   fontColor: appCtrl.appTheme.primary),
                             ]),
                       ),
+                      Space(0, 15),
                       IconButtonWidget(
                         icon: iconAssets.mobileIcon,
                         type: LoginFont().phone,
