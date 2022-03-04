@@ -14,7 +14,6 @@ class LoginWidget {
     return Image.asset(
       image,
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
       fit: BoxFit.fill,
     );
   }
@@ -109,10 +108,7 @@ class LoginWidget {
   //create new user layout
   Widget createUserWidget({
     color,
-<<<<<<< HEAD
-=======
     fontWeight,
->>>>>>> f7bddb1e2ab98a5ab4e947c90a7aef7135075121
     GestureTapCallback? onTap,
   }) {
     return Row(
@@ -121,16 +117,10 @@ class LoginWidget {
         LoginFontStyle().mulishtextLayout(
             color: color,
             text: LoginFont().creatUser,
-<<<<<<< HEAD
-            fontWeight: FontWeight.w600,
-            fontSize: 14,
-            onTap: onTap),
-=======
             fontWeight: fontWeight,
             fontSize: 14,
             onTap: onTap),
         Space(1.5, 0),
->>>>>>> f7bddb1e2ab98a5ab4e947c90a7aef7135075121
         LoginFontStyle().mulishtextLayout(
             color: color,
             text: LoginFont().createNow,
