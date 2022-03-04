@@ -100,14 +100,14 @@ class SignupWidget {
       children: [ SignupFontStyle().mulishtextLayout(
           color: color,
           text: SignupFont().alreadyAccount,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           fontSize: 14,
           onTap: onTap
       ),
         SignupFontStyle().mulishtextLayout(
             color: color,
             text: SignupFont().signIn,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
             fontSize: 14,
 
             textDecoration: TextDecoration.underline,
@@ -134,14 +134,14 @@ class SignupWidget {
     ).marginOnly(left: 0, right: 0).gestures(onTap: () {});
   }
 
-  //signup with layout
-  Widget signupWithLayout({color, fontColor}) {
+  //login with layout
+  Widget loginWithLayout({color, fontColor}) {
     return Row(
       children: [
         Expanded(
           child: DottedLine(
             direction: Axis.horizontal,
-            dashLength: 4,
+            dashLength: 5,
             dashColor: color,
             lineThickness: 2,
             dashRadius: 2,
@@ -151,14 +151,14 @@ class SignupWidget {
         SignupFontStyle().mulishtextLayout(
           color: fontColor,
           text: SignupFont().signInWith,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
           fontSize: textSizeSMedium,
         ),
         Space(10, 0),
         Expanded(
           child: DottedLine(
             direction: Axis.horizontal,
-            dashLength: 4,
+            dashLength: 5,
             dashColor: color,
             lineThickness: 2,
             dashRadius: 2,

@@ -90,6 +90,7 @@ class LargeScreen extends StatelessWidget {
 
                               //create user layout
                               LoginWidget().createUserWidget(
+                                fontWeight: FontWeight.w700,
                                   onTap: () {
                                     Get.toNamed(routeName.signup);
                                   },
@@ -97,7 +98,8 @@ class LargeScreen extends StatelessWidget {
                               Space(0, 15),
 
                               //signup with text layout
-                              LoginWidget().signupWithLayout(
+                              LoginWidget().loginWithLayout(
+                                fontWeight: FontWeight.w800,
                                   color: appCtrl.appTheme.contentColor,
                                   fontColor: appCtrl.appTheme.primary),
                             ]),

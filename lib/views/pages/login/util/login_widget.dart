@@ -108,6 +108,7 @@ class LoginWidget {
   //create new user layout
   Widget createUserWidget({
     color,
+    fontWeight,
     GestureTapCallback? onTap,
   }) {
     return Row(
@@ -116,13 +117,14 @@ class LoginWidget {
         LoginFontStyle().mulishtextLayout(
             color: color,
             text: LoginFont().creatUser,
-            fontWeight: FontWeight.w600,
+            fontWeight: fontWeight,
             fontSize: 14,
             onTap: onTap),
+        Space(1.5, 0),
         LoginFontStyle().mulishtextLayout(
             color: color,
             text: LoginFont().createNow,
-            fontWeight: FontWeight.w600,
+            fontWeight: fontWeight,
             fontSize: 14,
             textDecoration: TextDecoration.underline,
             onTap: onTap),
@@ -130,14 +132,14 @@ class LoginWidget {
     );
   }
 
-  //signup with layout
-  Widget signupWithLayout({color, fontColor}) {
+  //login with layout
+  Widget loginWithLayout({color, fontColor, fontWeight}) {
     return Row(
       children: [
         Expanded(
           child: DottedLine(
             direction: Axis.horizontal,
-            dashLength: 4,
+            dashLength: 5,
             dashColor: color,
             lineThickness: 2,
             dashRadius: 2,
@@ -147,14 +149,14 @@ class LoginWidget {
         LoginFontStyle().mulishtextLayout(
           color: fontColor,
           text: LoginFont().signInWith,
-          fontWeight: FontWeight.w600,
+          fontWeight: fontWeight,
           fontSize: textSizeSMedium,
         ),
         Space(10, 0),
         Expanded(
           child: DottedLine(
             direction: Axis.horizontal,
-            dashLength: 4,
+            dashLength: 5,
             dashColor: color,
             lineThickness: 2,
             dashRadius: 2,
