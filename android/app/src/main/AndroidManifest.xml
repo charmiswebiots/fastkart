@@ -2,7 +2,6 @@
     package="com.fastkart">
    <application
         android:label="fastkart"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -3,6 +3,9 @@ class HomeFont{
    String searchProduct= 'Search Products here..';
    String recentBought= 'Buy from Recently Bought';
    String shopByCategory = 'Shop by Category';
+   String sayHelloToOffer = 'Say hello to Offers!';
+   String bestPriceEverOfAllTheTime = 'Best price ever of all the time';
+   String seeAll = 'See All';
 
 }
 

@@ -1,4 +1,3 @@
-import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/views/pages/signup/util/signup_constants.dart';
 import 'package:fastkart/views/pages/signup/util/signup_fontstyle.dart';
 import 'package:fastkart/views/pages/signup/util/signup_widget.dart';
@@ -18,6 +17,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: appCtrl.appTheme.primary,
       body: Container(
+        height: AppScreenUtil().screenActualHeight(),
         child: Stack(
           children: [
             //background Image layout
@@ -32,7 +32,6 @@ class SignUpScreen extends StatelessWidget {
                     context: context,
                     child: SingleChildScrollView(
                       child: Container(
-                        height: MediaQuery.of(context).size.height,
                         child: Stack(
                           alignment: Alignment.bottomCenter,
                           children: [
@@ -65,11 +64,11 @@ class SignUpScreen extends StatelessWidget {
                                     //fullname textformfiel layout
                                     SignupWidget().textFieldLayout(
                                       suffixIcon:
-                                          Image.asset(iconAssets.profile),
+                                          Image.asset(iconAssets.profile,color: appCtrl.appTheme.titleColor,),
                                       text: SignupFont().fullName,
                                       borderColor: appCtrl.appTheme.primary
                                           .withOpacity(.3),
-                                      hintColor: appCtrl.appTheme.contentColor,
+                                      hintColor: appCtrl.appTheme.darkContentColor,
                                       fillcolor: appCtrl.appTheme.lightGray,
                                     ),
                                     Space(0, 13),
@@ -78,10 +77,10 @@ class SignUpScreen extends StatelessWidget {
                                     SignupWidget().textFieldLayout(
                                       text: SignupFont().emailHint,
                                       suffixIcon:
-                                          Image.asset(iconAssets.atsign),
+                                          Image.asset(iconAssets.atsign,color: appCtrl.appTheme.titleColor),
                                       borderColor: appCtrl.appTheme.primary
                                           .withOpacity(.3),
-                                      hintColor: appCtrl.appTheme.contentColor,
+                                      hintColor: appCtrl.appTheme.darkContentColor,
                                       fillcolor: appCtrl.appTheme.lightGray,
                                     ),
                                     Space(0, 13),
@@ -90,11 +89,11 @@ class SignUpScreen extends StatelessWidget {
 
                                 //email password layout
                                 SignupWidget().textFieldLayout(
-                                  suffixIcon: Image.asset(iconAssets.hide),
+                                  suffixIcon: Image.asset(iconAssets.hide,color: appCtrl.appTheme.titleColor),
                                   text: SignupFont().password,
                                   borderColor:
                                       appCtrl.appTheme.primary.withOpacity(.3),
-                                  hintColor: appCtrl.appTheme.contentColor,
+                                  hintColor: appCtrl.appTheme.darkContentColor,
                                   fillcolor: appCtrl.appTheme.lightGray,
                                 ),
                                 Space(0, 20),
@@ -115,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
                                 Space(0, 25),
 
                                 //signup with text layout
-                                SignupWidget().signupWithLayout(
+                                SignupWidget().loginWithLayout(
                                     color: appCtrl.appTheme.contentColor,
                                     fontColor: appCtrl.appTheme.primary),
                                 Space(0, 35),

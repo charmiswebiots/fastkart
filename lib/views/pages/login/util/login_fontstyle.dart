@@ -12,7 +12,7 @@ class LoginFontStyle {
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
-            color: color, fontWeight: fontWeight, fontSize: AppScreenUtil().fontSize(fontSize)));
+            color: color, fontWeight: fontWeight, fontSize: fontSize));
   }
 
   //mulish font family text layout
@@ -30,7 +30,7 @@ class LoginFontStyle {
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: AppScreenUtil().fontSize(fontSize),
+              fontSize: fontSize,
               textDecoration: textDecoration)),
     );
   }
