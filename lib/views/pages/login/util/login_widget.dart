@@ -9,6 +9,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
 class LoginWidget {
+
+  //focus change
+  fieldFocusChange(
+      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+    currentFocus.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
+
+
   //login background image layout
   Widget loginBackGroundImage(String image, context) {
     return Image.asset(
@@ -40,29 +49,41 @@ class LoginWidget {
 
   //textformfield layout
   Widget textFieldLayout(
-      {String? text, fillcolor, borderColor, hintColor, Widget? suffixIcon}) {
-    return TextField(
+      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,bool isLargeScreen = false}) {
+    return TextFormField(
+      controller: controller,
+      focusNode: focusNode,
+      onFieldSubmitted:onFieldSubmitted,
+      validator: validator,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(
-              vertical: 0, horizontal: AppScreenUtil().size(20)),
-          suffixIcon: suffixIcon,
-          fillColor: fillcolor,
-          filled: true,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
+
+        contentPadding: EdgeInsets.symmetric(
+            vertical: 0, horizontal: AppScreenUtil().size(20)),
+        suffixIcon: suffixIcon,
+        fillColor: fillcolor,
+        filled: true,
+       // errorStyle: TextStyle(height:isLargeScreen ? 1: 0),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: borderColor,
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: borderColor,
           ),
-          hintText: text,
-          hintStyle: TextStyle(
-              fontSize: 15,
-              color: hintColor,
-              fontFamily: GoogleFonts.mulish().fontFamily)),
+        ),
+        errorBorder:  OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red,
+          ),
+        ),
+        hintText: text,
+        hintStyle: TextStyle(
+            fontSize: 15,
+            color: hintColor,
+            fontFamily: GoogleFonts.mulish().fontFamily),
+      ),
     );
   }
 
@@ -80,7 +101,7 @@ class LoginWidget {
         padding: EdgeInsets.symmetric(vertical: AppScreenUtil().size(10)),
         width: MediaQuery.of(context!).size.width,
         decoration:
-        BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
+            BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
         child: LoginFontStyle().mulishtextLayout(
             text: LoginFont().signIn,
             fontSize: 17,
@@ -172,10 +193,10 @@ class LoginWidget {
       padding: EdgeInsets.only(bottom: Platform.isIOS ? 10.0 : 0),
       child: LoginFontStyle()
           .mulishtextLayout(
-          text: LoginFont().continueAsGuest,
-          color: color,
-          fontSize: textSizeSMedium,
-          textDecoration: TextDecoration.underline)
+              text: LoginFont().continueAsGuest,
+              color: color,
+              fontSize: textSizeSMedium,
+              textDecoration: TextDecoration.underline)
           .marginOnly(bottom: 10),
     );
   }

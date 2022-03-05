@@ -10,6 +10,15 @@ import 'package:google_fonts/google_fonts.dart';
 //Widget Layout
 class SignupWidget {
 
+
+  //focus change
+  fieldFocusChange(
+      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+    currentFocus.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
+
+
   //signup background image layout
   Widget signupBackGroundImage(String image, context) {
     return Image.asset(
@@ -35,8 +44,12 @@ class SignupWidget {
 
   //textformfield layout
   Widget textFieldLayout(
-      {String? text, fillcolor, borderColor, hintColor, Widget? suffixIcon}) {
-    return TextField(
+      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,}) {
+    return TextFormField(
+      controller: controller,
+      focusNode: focusNode,
+      onFieldSubmitted:onFieldSubmitted,
+      validator: validator,
       decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -53,6 +66,11 @@ class SignupWidget {
               color: borderColor,
             ),
           ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: borderColor,
+            ),
+          ),
           hintText: text,
           hintStyle: TextStyle(
               fontSize: 15,
@@ -62,18 +80,21 @@ class SignupWidget {
   }
 
   //sign up button
-  Widget signUpButton({color, BuildContext? context, fontColor}) {
-    return Container(
-      alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(vertical: 12),
-      width: MediaQuery.of(context!).size.width,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
-      child: SignupFontStyle().mulishtextLayout(
-          text: SignupFont().signup,
-          fontSize: 17,
-          fontWeight: FontWeight.bold,
-          color: fontColor),
+  Widget signUpButton({color, BuildContext? context, fontColor,GestureTapCallback? onTap}) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(vertical: 12),
+        width: MediaQuery.of(context!).size.width,
+        decoration:
+            BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
+        child: SignupFontStyle().mulishtextLayout(
+            text: SignupFont().signup,
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
+            color: fontColor),
+      ),
     );
   }
 

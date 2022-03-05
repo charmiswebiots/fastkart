@@ -6,6 +6,7 @@ class HomeFont{
    String sayHelloToOffer = 'Say hello to Offers!';
    String bestPriceEverOfAllTheTime = 'Best price ever of all the time';
    String seeAll = 'See All';
+   String dollar = "\$";
 
 }
 

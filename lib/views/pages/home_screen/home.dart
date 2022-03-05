@@ -25,15 +25,15 @@ class HomeLayout extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SingleChildScrollView(
-              child: Container(
-                margin: EdgeInsets.only(
-                  top: Platform.isIOS
-                      ? MediaQuery.of(context).size.height /
-                          AppScreenUtil().screenHeight(15)
-                      : MediaQuery.of(context).size.height /
-                          AppScreenUtil().screenHeight(20),
-                ),
+            Container(
+              margin: EdgeInsets.only(
+                top: Platform.isIOS
+                    ? MediaQuery.of(context).size.height /
+                        AppScreenUtil().screenHeight(15)
+                    : MediaQuery.of(context).size.height /
+                        AppScreenUtil().screenHeight(20),
+              ),
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     //common app bar
@@ -83,7 +83,7 @@ class HomeLayout extends StatelessWidget {
                     const ShopByCategory(),
                     Space(0, 25),
                     Container(
-                      height: 300,
+                      height: 500,
                       width: MediaQuery.of(context).size.width,
                       padding: EdgeInsets.only(
                           top: 30,
@@ -111,27 +111,114 @@ class HomeLayout extends StatelessWidget {
                               fontWeight: FontWeight.normal,
                               fontSize: 12,
                               color: appCtrl.appTheme.darkContentColor),
-
                           Space(0, 10),
-                          Container(
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: AppArray().offerList.length,
-                              itemBuilder: (context, index) {
-                              return Container(
-                                decoration: BoxDecoration(
-                                  color: appCtrl.appTheme.whiteColor,
-                                  borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))
-                                ),
-                                child: Row(
-                                  children: [
-                                    Image.asset(AppArray().offerList[index]['image'].toString())
-                                  ],
-                                ),
-                              );
-                            },),
-                          )
+
+                         /* Container(
+                            width: MediaQuery.of(context).size.width,
+                            child:Column(
+                              children: [
+                                ...AppArray().offerList.map((e) {
+                                  return Row(
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                            right: AppScreenUtil().screenWidth(15),bottom: AppScreenUtil().size(10)),
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: AppScreenUtil().size(12),
+                                            horizontal: AppScreenUtil().size(15)),
+                                        decoration: BoxDecoration(
+                                            color: appCtrl.appTheme.whiteColor,
+                                            borderRadius: BorderRadius.circular(10)),
+                                        child: IntrinsicHeight(
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Image.asset(
+                                                e['image'].toString(),
+                                                fit: BoxFit.fill,
+                                                height: AppScreenUtil().size(45),
+                                                width: AppScreenUtil().size(45),
+                                              ),
+                                              Space(15, 0),
+                                              VerticalDivider(
+                                                color: appCtrl.appTheme.contentColor.withOpacity(.5),
+                                                width: 5,
+                                                thickness: 1,
+                                              ),
+                                              Space(15, 0),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  HomeFontStyle().mulishtextLayout(
+                                                      text: e['name'],
+                                                      fontSize: 13,
+                                                      color: appCtrl.appTheme.titleColor
+                                                  ),
+                                                  Space(0, 5),
+                                                  HomeFontStyle().mulishtextLayout(
+                                                      text: e['description'],
+                                                      fontSize: 13,
+                                                      color: appCtrl.appTheme.darkContentColor
+                                                  ),
+                                                  Space(0, 5),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                          HomeFontStyle().mulishtextLayout(
+                                                              text: HomeFont().dollar +  e['price'].toString(),
+                                                              fontSize: 12,
+                                                              color: appCtrl.appTheme.titleColor,
+                                                              fontWeight: FontWeight.w700
+                                                          ),
+                                                          Container(
+                                                            decoration: BoxDecoration(
+                                                                color: appCtrl.appTheme.primary,
+                                                                borderRadius: BorderRadius.circular(20)
+                                                            ),
+                                                            margin: EdgeInsets.only(left: AppScreenUtil().screenHeight(5)),
+                                                            padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(12),vertical: AppScreenUtil().screenHeight(5)),
+                                                            child:  HomeFontStyle().mulishtextLayout(
+                                                              text: e['discount'].toString(),
+                                                              fontSize: 2,
+                                                              color: appCtrl.appTheme.whiteColor,
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      Space(10,0),
+                                                      Container(
+                                                        padding : EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(8),horizontal: AppScreenUtil().screenWidth(8)),
+                                                        decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
+                                                          border: Border.all(color: appCtrl.appTheme.lightPrimary)
+                                                        ),
+                                                        child: Row(
+                                                          children: [
+                                                            Icon(Icons.remove,size: 18,),
+                                                            Space(10,0),
+                                                            Text('1'),
+                                                            Space(10,0),
+                                                            Icon(Icons.add,size: 18),
+                                                          ],
+                                                        ),
+                                                      )
+                                                    ],
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                }).toList(),
+                              ],
+                            ),
+                          )*/
                         ],
                       ),
                     )

@@ -15,6 +15,10 @@ class SignupFont{
    String continueAsGuest = 'Continue as guest';
    String phone = 'phone';
    String google = 'google';
+   String fullNameRequired = 'Name is Required';
+   String emailNameRequired = 'Name is Required';
+   String passwordNameRequired = 'Name is Required';
+   String inCorrectUsername = "Incorrect Email";
 }
 
 
