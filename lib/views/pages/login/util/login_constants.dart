@@ -14,6 +14,9 @@ class LoginFont{
    String continueAsGuest = 'Continue as guest';
    String phone = 'phone';
    String google = 'google';
+   String userFieldError = "Please Enter Email";
+   String passwordFieldError = "Please Enter Password";
+   String inCorrectUsername = "Incorrect Email";
 }
 
 
