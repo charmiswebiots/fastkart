@@ -52,7 +52,7 @@ class SignupWidget {
       validator: validator,
       decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+              const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           suffixIcon: suffixIcon,
           fillColor: fillcolor,
           filled: true,
@@ -70,6 +70,9 @@ class SignupWidget {
             borderSide: BorderSide(
               color: borderColor,
             ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor)
           ),
           hintText: text,
           hintStyle: TextStyle(

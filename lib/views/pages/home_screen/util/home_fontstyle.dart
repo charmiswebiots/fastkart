@@ -29,7 +29,7 @@ class HomeFontStyle {
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: textSizeMedium,
+              fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
   }

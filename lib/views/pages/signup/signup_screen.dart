@@ -160,6 +160,8 @@ class SignUpScreen extends StatelessWidget {
 
                                         //continoue with phone layout
                                         IconButtonWidget(
+                                          lefMargin: 0,
+                                          rightMargin: 0,
                                           icon: iconAssets.mobileIcon,
                                           textWidget: SignupFontStyle()
                                               .mulishtextLayout(
@@ -173,6 +175,8 @@ class SignUpScreen extends StatelessWidget {
 
                                         //continoue with google layout
                                         IconButtonWidget(
+                                          lefMargin: 0,
+                                          rightMargin: 0,
                                           icon: iconAssets.google,
                                           textWidget: SignupFontStyle()
                                               .mulishtextLayout(

@@ -56,13 +56,14 @@ class LoginWidget {
       onFieldSubmitted:onFieldSubmitted,
       validator: validator,
       decoration: InputDecoration(
-
         contentPadding: EdgeInsets.symmetric(
-            vertical: 0, horizontal: AppScreenUtil().size(20)),
+            vertical: AppScreenUtil().screenHeight(14), horizontal: AppScreenUtil().size(20)),
         suffixIcon: suffixIcon,
         fillColor: fillcolor,
         filled: true,
-       // errorStyle: TextStyle(height:isLargeScreen ? 1: 0),
+        border: OutlineInputBorder(
+            borderSide:  BorderSide(color:borderColor)
+        ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: borderColor,
@@ -75,8 +76,11 @@ class LoginWidget {
         ),
         errorBorder:  OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.red,
+            color: borderColor,
           ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: borderColor)
         ),
         hintText: text,
         hintStyle: TextStyle(

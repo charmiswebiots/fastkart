@@ -35,4 +35,11 @@ class ImageAssets {
   final String offer1 = 'assets/offer/offerimage1.png';
   final String offer2 = 'assets/offer/offerimage2.png';
   final String offer3 = 'assets/offer/offerimage3.png';
+
+  //lowest Price image
+  final String lowestPrice1 = 'assets/lowestPrice/lowestPrice1.png';
+  final String lowestPrice2 = 'assets/lowestPrice/lowestPrice2.png';
+  final String lowestPrice3 = 'assets/lowestPrice/lowestPrice3.png';
+  final String lowestPrice4 = 'assets/lowestPrice/lowestPrice4.png';
+  final String lowestPrice5 = 'assets/lowestPrice/lowestPrice5.png';
 }

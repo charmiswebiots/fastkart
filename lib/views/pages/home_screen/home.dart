@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/views/pages/home_screen/banner_list.dart';
+import 'package:fastkart/views/pages/home_screen/offer_list.dart';
 import 'package:fastkart/views/pages/home_screen/shop_by_category.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
@@ -25,15 +26,15 @@ class HomeLayout extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              margin: EdgeInsets.only(
-                top: Platform.isIOS
-                    ? MediaQuery.of(context).size.height /
-                        AppScreenUtil().screenHeight(15)
-                    : MediaQuery.of(context).size.height /
-                        AppScreenUtil().screenHeight(20),
-              ),
-              child: SingleChildScrollView(
+            SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: Platform.isIOS
+                      ? MediaQuery.of(context).size.height /
+                          AppScreenUtil().screenHeight(15)
+                      : MediaQuery.of(context).size.height /
+                          AppScreenUtil().screenHeight(20),
+                ),
                 child: Column(
                   children: [
                     //common app bar
@@ -82,143 +83,91 @@ class HomeLayout extends StatelessWidget {
                     //shop by category list
                     const ShopByCategory(),
                     Space(0, 25),
+
+                    //offerlist widget
                     Container(
-                      height: 500,
+                      height: AppScreenUtil().screenHeight(480),
                       width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.only(
-                          top: 30,
-                          left: AppScreenUtil().screenHeight(15),
-                          right: AppScreenUtil().screenHeight(15)),
                       color: appCtrl.appTheme.lightPrimary,
+                      padding: EdgeInsets.symmetric(horizontal:AppScreenUtil().screenWidth(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              HomeFontStyle().mulishtextLayout(
-                                  text: HomeFont().sayHelloToOffer,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 14),
-                              HomeFontStyle().mulishtextLayout(
-                                  text: HomeFont().seeAll,
-                                  fontSize: 12,
-                                  color: appCtrl.appTheme.primary),
-                            ],
-                          ),
-                          HomeFontStyle().mulishtextLayout(
-                              text: HomeFont().bestPriceEverOfAllTheTime,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                              color: appCtrl.appTheme.darkContentColor),
-                          Space(0, 10),
-
-                         /* Container(
-                            width: MediaQuery.of(context).size.width,
-                            child:Column(
-                              children: [
-                                ...AppArray().offerList.map((e) {
-                                  return Row(
-                                    children: [
-                                      Container(
-                                        margin: EdgeInsets.only(
-                                            right: AppScreenUtil().screenWidth(15),bottom: AppScreenUtil().size(10)),
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: AppScreenUtil().size(12),
-                                            horizontal: AppScreenUtil().size(15)),
-                                        decoration: BoxDecoration(
-                                            color: appCtrl.appTheme.whiteColor,
-                                            borderRadius: BorderRadius.circular(10)),
-                                        child: IntrinsicHeight(
-                                          child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Image.asset(
-                                                e['image'].toString(),
-                                                fit: BoxFit.fill,
-                                                height: AppScreenUtil().size(45),
-                                                width: AppScreenUtil().size(45),
-                                              ),
-                                              Space(15, 0),
-                                              VerticalDivider(
-                                                color: appCtrl.appTheme.contentColor.withOpacity(.5),
-                                                width: 5,
-                                                thickness: 1,
-                                              ),
-                                              Space(15, 0),
-                                              Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  HomeFontStyle().mulishtextLayout(
-                                                      text: e['name'],
-                                                      fontSize: 13,
-                                                      color: appCtrl.appTheme.titleColor
-                                                  ),
-                                                  Space(0, 5),
-                                                  HomeFontStyle().mulishtextLayout(
-                                                      text: e['description'],
-                                                      fontSize: 13,
-                                                      color: appCtrl.appTheme.darkContentColor
-                                                  ),
-                                                  Space(0, 5),
-                                                  Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                        children: [
-                                                          HomeFontStyle().mulishtextLayout(
-                                                              text: HomeFont().dollar +  e['price'].toString(),
-                                                              fontSize: 12,
-                                                              color: appCtrl.appTheme.titleColor,
-                                                              fontWeight: FontWeight.w700
-                                                          ),
-                                                          Container(
-                                                            decoration: BoxDecoration(
-                                                                color: appCtrl.appTheme.primary,
-                                                                borderRadius: BorderRadius.circular(20)
-                                                            ),
-                                                            margin: EdgeInsets.only(left: AppScreenUtil().screenHeight(5)),
-                                                            padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(12),vertical: AppScreenUtil().screenHeight(5)),
-                                                            child:  HomeFontStyle().mulishtextLayout(
-                                                              text: e['discount'].toString(),
-                                                              fontSize: 2,
-                                                              color: appCtrl.appTheme.whiteColor,
-                                                            ),
-                                                          )
-                                                        ],
-                                                      ),
-                                                      Space(10,0),
-                                                      Container(
-                                                        padding : EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(8),horizontal: AppScreenUtil().screenWidth(8)),
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
-                                                          border: Border.all(color: appCtrl.appTheme.lightPrimary)
-                                                        ),
-                                                        child: Row(
-                                                          children: [
-                                                            Icon(Icons.remove,size: 18,),
-                                                            Space(10,0),
-                                                            Text('1'),
-                                                            Space(10,0),
-                                                            Icon(Icons.add,size: 18),
-                                                          ],
-                                                        ),
-                                                      )
-                                                    ],
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                }).toList(),
-                              ],
+                          //say hello and see all  widget
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: AppScreenUtil().screenHeight(30),
                             ),
-                          )*/
+                            child: HomeWidget().commonTitleAndSeeAllWidget(
+                                title: HomeFont().sayHelloToOffer,
+                                seeAllText: HomeFont().seeAll,
+                                seeAllColor: appCtrl.appTheme.primary),
+                          ),
+                          //best price widget
+                          HomeWidget().commonDescriptionTextWidget(
+                              text: HomeFont().bestPriceEverOfAllTheTime,
+                              color: appCtrl.appTheme.darkContentColor),
+                          //offer list
+                          ...AppArray().offerList.map((e) {
+                            return OfferListCard(
+                              data: e,
+                            );
+                          }).toList(),
+                        ],
+                      ),
+                    ),
+                    Space(0, 20),
+                    Container(
+                      color: appCtrl.appTheme.whiteColor,
+                      width: MediaQuery.of(context).size.width,
+                      height: AppScreenUtil().screenHeight(500),
+                      padding: EdgeInsets.symmetric(horizontal:AppScreenUtil().screenWidth(15)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //lowest price and see all  widget
+                          HomeWidget().commonTitleAndSeeAllWidget(
+                              title :HomeFont().lowestPrice,
+                            seeAllText:HomeFont().seeAll,
+                            seeAllColor: appCtrl.appTheme.primary
+                          ),
+
+                          //popular offers of the day text widget
+                          HomeWidget().commonDescriptionTextWidget(
+                              text: HomeFont().payLessGetMore,
+                              color: appCtrl.appTheme.darkContentColor),
+
+                          //lowest price list
+                          Container(
+                            height: 300,
+                            child: ListView.builder(
+                              itemCount: AppArray().lowerPriceList.length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+
+                              return Container(
+                                padding: EdgeInsets.all(AppScreenUtil().size(10)),
+                                margin: EdgeInsets.only(left: AppScreenUtil().size(index == 0 ? 0 :10,),top: AppScreenUtil().screenHeight(10),bottom: AppScreenUtil().screenHeight(10) ),
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: appCtrl.appTheme.contentColor),
+                                  borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.topRight,
+                                 // crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(iconAssets.heart),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Image.asset(AppArray().lowerPriceList[index]['image'].toString(),height: 50,width: 50,fit: BoxFit.fill,),
+                                    ),
+
+                                  ],
+                                ),
+                              );
+                            },),
+                          )
                         ],
                       ),
                     )

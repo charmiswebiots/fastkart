@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController{
+  GlobalKey<FormState> loginformKey = new GlobalKey<FormState>();
   final FocusNode userFocus = FocusNode();
   final FocusNode passwordFocus = FocusNode();
   TextEditingController email = TextEditingController();
@@ -55,4 +56,5 @@ class LoginController extends GetxController{
       update();
     }
   }
+
 }

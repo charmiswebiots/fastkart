@@ -1,5 +1,6 @@
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/config.dart';
+import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -74,11 +75,11 @@ class HomeWidget {
               vertical: AppScreenUtil().size(18)),
           decoration: BoxDecoration(
               color: containercolor,
-              borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(40),
-                  topLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                  bottomLeft: Radius.circular(10)),
+              borderRadius:  BorderRadius.only(
+                  topRight: Radius.circular(AppScreenUtil().borderRadius(40)),
+                  topLeft: Radius.circular(AppScreenUtil().borderRadius(10)),
+                  bottomRight: Radius.circular(AppScreenUtil().borderRadius(10)),
+                  bottomLeft: Radius.circular(AppScreenUtil().borderRadius(10))),
               border: Border.all(color: bordercolor)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,9 +116,7 @@ class HomeWidget {
             ],
           ),
         ),
-        Positioned(
-          right: 15,
-            child: Image.asset(imageAssets.corner))
+        Positioned(right: 15, child: Image.asset(imageAssets.corner))
       ],
     );
   }
@@ -145,7 +144,7 @@ class HomeWidget {
           HomeWidget().shopByCategory(text: title, color: titlecolor),
           Container(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width / 4,
+              width: MediaQuery.of(context).size.width / AppScreenUtil().screenWidth(4),
             ),
             decoration: BoxDecoration(
               border: Border(
@@ -156,5 +155,28 @@ class HomeWidget {
         ],
       ),
     );
+  }
+
+  //common title and see all widget
+  Widget commonTitleAndSeeAllWidget(
+      {String? title, String? seeAllText, var seeAllColor}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        HomeFontStyle().mulishtextLayout(
+            text: title, fontWeight: FontWeight.w700, fontSize: textSizeSMedium),
+        HomeFontStyle().mulishtextLayout(
+            text: seeAllText, fontSize: 12, color: seeAllColor),
+      ],
+    );
+  }
+
+  //common description text Widget
+  Widget commonDescriptionTextWidget ({String? text,var color}){
+    return HomeFontStyle().mulishtextLayout(
+        text: text,
+        fontWeight: FontWeight.normal,
+        fontSize: textSizeSmall,
+        color: color);
   }
 }
