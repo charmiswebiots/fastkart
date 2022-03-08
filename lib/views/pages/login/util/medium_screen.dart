@@ -63,6 +63,8 @@ class MediumScreen extends StatelessWidget {
                                   //email textformfield layout
                                   LoginWidget().textFieldLayout(
                                     isLargeScreen: false,
+                                    keyboardType: TextInputType.emailAddress,
+                                    textInputAction: TextInputAction.next,
                                     controller: loginCtrl.email,
                                     onFieldSubmitted: (value) {
                                       LoginWidget().fieldFocusChange(
@@ -74,7 +76,11 @@ class MediumScreen extends StatelessWidget {
                                     validator: (value) => LoginValidation()
                                         .checkIDValidation(value),
                                     text: LoginFont().emailHint,
-                                    suffixIcon: Image.asset(iconAssets.atsign),
+                                    suffixIcon: InkWell(
+                                      onTap: (){
+                                        loginCtrl.toggle();
+                                      },
+                                        child: Image.asset(iconAssets.atsign)),
                                     borderColor: appCtrl.appTheme.primary
                                         .withOpacity(.3),
                                     hintColor:
@@ -82,15 +88,23 @@ class MediumScreen extends StatelessWidget {
                                     fillcolor: appCtrl.appTheme.lightGray,
                                   ),
 
-                                  Space(0,11), //email password layout
+                                  Space(0,11),
+                                  // password layout
                                   LoginWidget().textFieldLayout(
                                     isLargeScreen: false,
+                                    keyboardType: TextInputType.visiblePassword,
+                                    textInputAction: TextInputAction.none,
                                     controller: loginCtrl.password,
                                     focusNode: loginCtrl.passwordFocus,
                                     validator: (value) => LoginValidation()
                                         .checkPasswordValidation(value),
-                                    suffixIcon: Image.asset(iconAssets.hide,
-                                        color: appCtrl.appTheme.titleColor),
+                                    suffixIcon: InkWell(
+                                      onTap: (){
+                                        loginCtrl.toggle();
+                                      },
+                                      child: Image.asset(loginCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,
+                                          color: appCtrl.appTheme.titleColor ),
+                                    ),
                                     text: LoginFont().password,
                                     borderColor: appCtrl.appTheme.primary
                                         .withOpacity(.3),

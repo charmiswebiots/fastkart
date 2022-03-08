@@ -16,6 +16,7 @@ class LargeScreen extends StatelessWidget {
     var appCtrl = Get.isRegistered<AppController>()
         ? Get.find<AppController>()
         : Get.put(AppController());
+
     return GetBuilder<LoginController>(
       builder: (_) => Container(
         height: AppScreenUtil().screenActualHeight(),
@@ -63,7 +64,9 @@ class LargeScreen extends StatelessWidget {
                                   //email textformfiel layout
                                   LoginWidget().textFieldLayout(
                                     isLargeScreen: true,
+                                    keyboardType: TextInputType.emailAddress,
                                     controller: loginCtrl.email,
+                                    textInputAction: TextInputAction.next,
                                     onFieldSubmitted: (value) {
                                       LoginWidget().fieldFocusChange(
                                           context,
@@ -82,15 +85,24 @@ class LargeScreen extends StatelessWidget {
                                     fillcolor: appCtrl.appTheme.lightGray,
                                   ),
 
-                                  Space(0, 13), //email password layout
+                                  Space(0, 13),
+                                  // password layout
                                   LoginWidget().textFieldLayout(
                                     isLargeScreen: true,
+                                    keyboardType: TextInputType.visiblePassword,
+                                    textInputAction: TextInputAction.none,
+                                    obscureText: loginCtrl.passwordVisible,
                                     controller: loginCtrl.password,
                                     focusNode: loginCtrl.passwordFocus,
                                     validator: (value) => LoginValidation()
                                         .checkPasswordValidation(value),
-                                    suffixIcon: Image.asset(iconAssets.hide,
-                                        color: appCtrl.appTheme.titleColor),
+                                    suffixIcon: InkWell(
+                                      onTap: (){
+                                        loginCtrl.toggle();
+                                      },
+                                      child: Image.asset( loginCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,
+                                          color: appCtrl.appTheme.titleColor),
+                                    ),
                                     text: LoginFont().password,
                                     borderColor: appCtrl.appTheme.primary
                                         .withOpacity(.3),
@@ -142,6 +154,8 @@ class LargeScreen extends StatelessWidget {
                                 ]),
                           ),
                           IconButtonWidget(
+                            lefMargin: 0,
+                            rightMargin: 0,
                             icon: iconAssets.mobileIcon,
                             type: LoginFont().phone,
                             textWidget: LoginFontStyle().mulishtextLayout(
@@ -154,6 +168,8 @@ class LargeScreen extends StatelessWidget {
 
                           // continoue with google layout
                           IconButtonWidget(
+                            lefMargin: 0,
+                            rightMargin: 0,
                             icon: iconAssets.google,
                             textWidget: LoginFontStyle().mulishtextLayout(
                                 text: LoginFont().continueWithGoogle,
