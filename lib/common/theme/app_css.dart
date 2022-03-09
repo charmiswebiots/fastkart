@@ -33,7 +33,7 @@ class AppCss {
           color: color,
           fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight: fontWeight,
-          decoration: textDecoration);
+          decoration: textDecoration, );
 
   //quicksand font text style
   // ignore: prefer_function_declarations_over_variables

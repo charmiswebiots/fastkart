@@ -63,6 +63,7 @@ class LargeScreen extends StatelessWidget {
 
                                   //email textformfiel layout
                                   LoginWidget().textFieldLayout(
+obscureText: false,
                                     isLargeScreen: true,
                                     keyboardType: TextInputType.emailAddress,
                                     controller: loginCtrl.email,

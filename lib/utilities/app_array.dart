@@ -110,27 +110,27 @@ class AppArray {
   //lower price lists
   var lowerPriceList = [
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted \nCapsicum Combo',
       'description': '500g',
       'price' : '25.00',
       'image': imageAssets.lowestPrice1
     },{
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted \nCapsicum Combo',
       'description': '500g',
       'price' : '25.00',
       'image': imageAssets.lowestPrice2
     },{
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted \nCapsicum Combo',
       'description': '500g',
       'price' : '25.00',
       'image': imageAssets.lowestPrice3
     },{
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted \nCapsicum Combo',
       'description': '500g',
       'price' : '25.00',
       'image': imageAssets.lowestPrice4
     },{
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted \nCapsicum Combo',
       'description': '500g',
       'price' : '25.00',
       'image': imageAssets.lowestPrice5

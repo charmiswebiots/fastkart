@@ -3,6 +3,7 @@ import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/views/pages/home_screen/banner_list.dart';
 import 'package:fastkart/views/pages/home_screen/offer_list.dart';
+import 'package:fastkart/views/pages/home_screen/recentBought_list.dart';
 import 'package:fastkart/views/pages/home_screen/shop_by_category.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
@@ -63,8 +64,7 @@ class HomeLayout extends StatelessWidget {
                     BannerList(),
                     Space(0, 20),
                     //recent bought widget
-                    HomeWidget().recentBoughtListWiget(
-                      context: context,
+                    RecentBoughtList(
                       containercolor: appCtrl.appTheme.lightPrimary,
                       bordercolor: appCtrl.appTheme.recentBGColor,
                       titlecolor: appCtrl.appTheme.titleColor,
@@ -73,6 +73,7 @@ class HomeLayout extends StatelessWidget {
                       listcontainercolor: appCtrl.appTheme.whiteColor,
                     ),
                     Space(0, 25),
+
                     //recent bought widget
                     HomeWidget().shopByCategoryText(
                         bordercolor: appCtrl.appTheme.greyBGColor,
@@ -84,92 +85,65 @@ class HomeLayout extends StatelessWidget {
                     const ShopByCategory(),
                     Space(0, 25),
 
-                    //offerlist widget
-                    Container(
-                      height: AppScreenUtil().screenHeight(480),
-                      width: MediaQuery.of(context).size.width,
-                      color: appCtrl.appTheme.lightPrimary,
-                      padding: EdgeInsets.symmetric(horizontal:AppScreenUtil().screenWidth(15)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //say hello and see all  widget
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: AppScreenUtil().screenHeight(30),
-                            ),
-                            child: HomeWidget().commonTitleAndSeeAllWidget(
-                                title: HomeFont().sayHelloToOffer,
-                                seeAllText: HomeFont().seeAll,
-                                seeAllColor: appCtrl.appTheme.primary),
-                          ),
-                          //best price widget
-                          HomeWidget().commonDescriptionTextWidget(
-                              text: HomeFont().bestPriceEverOfAllTheTime,
-                              color: appCtrl.appTheme.darkContentColor),
-                          //offer list
-                          ...AppArray().offerList.map((e) {
-                            return OfferListCard(
-                              data: e,
-                            );
-                          }).toList(),
-                        ],
-                      ),
-                    ),
+                    //offer list widget
+                    HomeWidget().offerListAndContentWidget(
+                        context: context,
+                        containerColor: appCtrl.appTheme.lightPrimary,
+                        seeAllColor: appCtrl.appTheme.primary,
+                        descriptionColor: appCtrl.appTheme.darkContentColor),
                     Space(0, 20),
                     Container(
                       color: appCtrl.appTheme.whiteColor,
                       width: MediaQuery.of(context).size.width,
-                      height: AppScreenUtil().screenHeight(500),
-                      padding: EdgeInsets.symmetric(horizontal:AppScreenUtil().screenWidth(15)),
+                      height: MediaQuery.of(context).size.height * 85 / 100,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: AppScreenUtil().screenWidth(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          //lowest price and see all  widget
-                          HomeWidget().commonTitleAndSeeAllWidget(
-                              title :HomeFont().lowestPrice,
-                            seeAllText:HomeFont().seeAll,
-                            seeAllColor: appCtrl.appTheme.primary
-                          ),
-
-                          //popular offers of the day text widget
-                          HomeWidget().commonDescriptionTextWidget(
-                              text: HomeFont().payLessGetMore,
-                              color: appCtrl.appTheme.darkContentColor),
-
-                          //lowest price list
-                          Container(
-                            height: 300,
-                            child: ListView.builder(
-                              itemCount: AppArray().lowerPriceList.length,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-
-                              return Container(
-                                padding: EdgeInsets.all(AppScreenUtil().size(10)),
-                                margin: EdgeInsets.only(left: AppScreenUtil().size(index == 0 ? 0 :10,),top: AppScreenUtil().screenHeight(10),bottom: AppScreenUtil().screenHeight(10) ),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: appCtrl.appTheme.contentColor),
-                                  borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.topRight,
-                                 // crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Image.asset(iconAssets.heart),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.asset(AppArray().lowerPriceList[index]['image'].toString(),height: 50,width: 50,fit: BoxFit.fill,),
-                                    ),
-
-                                  ],
-                                ),
-                              );
-                            },),
-                          )
+                          //lowest price layout
+                          HomeWidget().commonHorizontalListLayout(
+                            context: context,
+                              title: HomeFont().lowestPrice,
+                              seeAllText: HomeFont().seeAll,
+                              data: AppArray().lowerPriceList,
+                              shadowColor: appCtrl.appTheme.contentColor,
+                              lowestPriceColor: appCtrl.appTheme.primary,
+                              payLessColor: appCtrl.appTheme.darkContentColor,
+                              descriptionColor:
+                                  appCtrl.appTheme.darkContentColor,
+                              containerBorderColor:
+                                  appCtrl.appTheme.greyBGColor,
+                              iconColor: appCtrl.appTheme.whiteColor,
+                              priceColor: appCtrl.appTheme.titleColor,
+                              primaryColor: appCtrl.appTheme.primary),
+                          Space(0, 20),
+                          //Everyday Essentials layout
+                          HomeWidget().commonHorizontalListLayout(
+                              context: context,
+                              title: HomeFont().everydayEssentials,
+                              seeAllText: HomeFont().seeAll,
+                              data: AppArray().lowerPriceList,
+                              shadowColor: appCtrl.appTheme.contentColor,
+                              lowestPriceColor: appCtrl.appTheme.primary,
+                              payLessColor: appCtrl.appTheme.darkContentColor,
+                              descriptionColor:
+                                  appCtrl.appTheme.darkContentColor,
+                              containerBorderColor:
+                                  appCtrl.appTheme.greyBGColor,
+                              iconColor: appCtrl.appTheme.whiteColor,
+                              priceColor: appCtrl.appTheme.titleColor,
+                              primaryColor: appCtrl.appTheme.primary),
                         ],
                       ),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 70/100,
+                      width: MediaQuery.of(context).size.width,
+                      color: appCtrl.appTheme.lightPrimary,
+                      padding:
+                      EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15),vertical: 10),
+
                     )
                   ],
                 ),

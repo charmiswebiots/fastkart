@@ -1,5 +1,10 @@
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/app_array.dart';
+import 'package:fastkart/views/pages/home_screen/everyday_essential_Card.dart';
+import 'package:fastkart/views/pages/home_screen/lowestPriceCard.dart';
+import 'package:fastkart/views/pages/home_screen/offer_list.dart';
+import 'package:fastkart/views/pages/home_screen/recentBought_list.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
 import 'package:flutter/material.dart';
@@ -53,71 +58,18 @@ class HomeWidget {
         text: text, color: color, fontSize: 14, fontWeight: FontWeight.w600);
   }
 
-  //recent bought List
-  Widget recentBoughtListWiget(
-      {BuildContext? context,
-      containercolor,
-      bordercolor,
-      String? title,
-      titlecolor,
-      var list,
-      listcontainercolor}) {
-    return Stack(
-      alignment: Alignment.topRight,
-      children: [
-        Container(
-          margin: EdgeInsets.only(
-              left: AppScreenUtil().screenHeight(15),
-              right: AppScreenUtil().screenHeight(15)),
-          width: MediaQuery.of(context!).size.width,
-          padding: EdgeInsets.symmetric(
-              horizontal: AppScreenUtil().size(15),
-              vertical: AppScreenUtil().size(18)),
-          decoration: BoxDecoration(
-              color: containercolor,
-              borderRadius:  BorderRadius.only(
-                  topRight: Radius.circular(AppScreenUtil().borderRadius(40)),
-                  topLeft: Radius.circular(AppScreenUtil().borderRadius(10)),
-                  bottomRight: Radius.circular(AppScreenUtil().borderRadius(10)),
-                  bottomLeft: Radius.circular(AppScreenUtil().borderRadius(10))),
-              border: Border.all(color: bordercolor)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              //recent bought widget
-              HomeWidget().recentlyBought(text: title, color: titlecolor),
-              Space(0, 20),
-              Container(
-                height: 60,
-                child: ListView.builder(
-                  itemCount: list.length,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    //  print(AppArray().recentBoughtList[index]);
-                    return Container(
-                      margin: EdgeInsets.only(right: AppScreenUtil().size(15)),
-                      padding: EdgeInsets.symmetric(
-                          vertical: AppScreenUtil().size(12),
-                          horizontal: AppScreenUtil().size(12)),
-                      decoration: BoxDecoration(
-                          color: listcontainercolor,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Image.asset(
-                        list[index]['image'].toString(),
-                        fit: BoxFit.fill,
-                        height: AppScreenUtil().size(30),
-                        width: AppScreenUtil().size(30),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+//line border widget
+  Widget lineBorderWidget({BuildContext? context, var bordercolor}) {
+    return Container(
+      child: SizedBox(
+        width:
+            MediaQuery.of(context!).size.width / AppScreenUtil().screenWidth(4),
+      ),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: bordercolor, width: 2),
         ),
-        Positioned(right: 15, child: Image.asset(imageAssets.corner))
-      ],
+      ),
     );
   }
 
@@ -131,27 +83,9 @@ class HomeWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            child: SizedBox(
-              width: MediaQuery.of(context!).size.width / 4,
-            ),
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: bordercolor, width: 2),
-              ),
-            ),
-          ),
+          lineBorderWidget(context: context, bordercolor: bordercolor),
           HomeWidget().shopByCategory(text: title, color: titlecolor),
-          Container(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width / AppScreenUtil().screenWidth(4),
-            ),
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: bordercolor, width: 2),
-              ),
-            ),
-          ),
+          lineBorderWidget(context: context, bordercolor: bordercolor),
         ],
       ),
     );
@@ -164,19 +98,106 @@ class HomeWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         HomeFontStyle().mulishtextLayout(
-            text: title, fontWeight: FontWeight.w700, fontSize: textSizeSMedium),
+            text: title,
+            fontWeight: FontWeight.w700,
+            fontSize: textSizeSMedium),
         HomeFontStyle().mulishtextLayout(
             text: seeAllText, fontSize: 12, color: seeAllColor),
       ],
     );
   }
 
+  //offer list and content widget layout
+  Widget offerListAndContentWidget(
+      {BuildContext? context,
+      var containerColor,
+      var seeAllColor,
+      var descriptionColor}) {
+    return Container(
+      height: MediaQuery.of(context!).size.height * 70/100,
+      width: MediaQuery.of(context).size.width,
+      color: containerColor,
+      padding:
+          EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          //say hello and see all  widget
+          Padding(
+            padding: EdgeInsets.only(
+              top: AppScreenUtil().screenHeight(30),
+            ),
+            child: HomeWidget().commonTitleAndSeeAllWidget(
+                title: HomeFont().sayHelloToOffer,
+                seeAllText: HomeFont().seeAll,
+                seeAllColor: seeAllColor),
+          ),
+          //best price widget
+          HomeWidget().commonDescriptionTextWidget(
+              text: HomeFont().bestPriceEverOfAllTheTime,
+              color: descriptionColor),
+          //offer list
+          ...AppArray().offerList.map((e) {
+            return OfferListCard(
+              data: e,
+            );
+          }).toList(),
+        ],
+      ),
+    );
+  }
+
   //common description text Widget
-  Widget commonDescriptionTextWidget ({String? text,var color}){
+  Widget commonDescriptionTextWidget({String? text, var color}) {
     return HomeFontStyle().mulishtextLayout(
         text: text,
         fontWeight: FontWeight.normal,
         fontSize: textSizeSmall,
         color: color);
+  }
+
+  //Common Horizontal lisr=t layout
+  Widget commonHorizontalListLayout(
+      {BuildContext? context, String? title,String? seeAllText,var data,var lowestPriceColor,
+        var payLessColor,
+        var containerBorderColor,
+        var descriptionColor,
+        var priceColor,
+        var primaryColor,
+        var iconColor,var shadowColor}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        //everyday essential and see all  widget
+        commonTitleAndSeeAllWidget(
+            title: title,
+            seeAllText: seeAllText,
+            seeAllColor: lowestPriceColor),
+
+        //popular offers of the day text widget
+        commonDescriptionTextWidget(
+            text: HomeFont().payLessGetMore, color: payLessColor),
+        //lowest price list
+        Container(
+          height:MediaQuery.of(context!).size.height  * 30/100 ,
+          child: ListView.builder(
+            itemCount: data.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return EveryDayEssentialCard(
+                  index: index,
+                  shadowColor: shadowColor,
+                  data: data[index],
+                  containerBorderColor: containerBorderColor,
+                  descriptionColor: descriptionColor,
+                  priceColor: priceColor,
+                  primaryColor: primaryColor,
+                  iconColor: iconColor);
+            },
+          ),
+        )
+      ],
+    );
   }
 }

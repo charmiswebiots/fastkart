@@ -9,6 +9,7 @@ class HomeFont{
    String payLessGetMore = 'Pay less, Get More';
    String seeAll = 'See all';
    String lowestPrice = 'Lowest Price';
+   String everydayEssentials = 'Everyday Essentials';
    String dollar = "\$";
 
 }

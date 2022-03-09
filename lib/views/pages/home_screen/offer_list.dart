@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
 import 'package:flutter/material.dart';

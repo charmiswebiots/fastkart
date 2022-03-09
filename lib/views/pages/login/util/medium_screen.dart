@@ -62,6 +62,7 @@ class MediumScreen extends StatelessWidget {
 
                                   //email textformfield layout
                                   LoginWidget().textFieldLayout(
+                                    obscureText: false,
                                     isLargeScreen: false,
                                     keyboardType: TextInputType.emailAddress,
                                     textInputAction: TextInputAction.next,
@@ -76,11 +77,7 @@ class MediumScreen extends StatelessWidget {
                                     validator: (value) => LoginValidation()
                                         .checkIDValidation(value),
                                     text: LoginFont().emailHint,
-                                    suffixIcon: InkWell(
-                                      onTap: (){
-                                        loginCtrl.toggle();
-                                      },
-                                        child: Image.asset(iconAssets.atsign)),
+                                    suffixIcon: Image.asset(iconAssets.atsign),
                                     borderColor: appCtrl.appTheme.primary
                                         .withOpacity(.3),
                                     hintColor:
@@ -96,6 +93,7 @@ class MediumScreen extends StatelessWidget {
                                     textInputAction: TextInputAction.none,
                                     controller: loginCtrl.password,
                                     focusNode: loginCtrl.passwordFocus,
+                                    obscureText: loginCtrl.passwordVisible,
                                     validator: (value) => LoginValidation()
                                         .checkPasswordValidation(value),
                                     suffixIcon: InkWell(
@@ -103,7 +101,7 @@ class MediumScreen extends StatelessWidget {
                                         loginCtrl.toggle();
                                       },
                                       child: Image.asset(loginCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,
-                                          color: appCtrl.appTheme.titleColor ),
+                                          color: appCtrl.appTheme.titleColor, ),
                                     ),
                                     text: LoginFont().password,
                                     borderColor: appCtrl.appTheme.primary
