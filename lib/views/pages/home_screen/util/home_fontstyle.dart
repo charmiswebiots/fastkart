@@ -22,14 +22,18 @@ class HomeFontStyle {
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
+    TextOverflow overflow = TextOverflow.ellipsis,
   }) {
     return InkWell(
       onTap: onTap,
       child: Text(text!,
+          overflow: overflow,
+          textAlign: TextAlign.left,
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: textSizeMedium,
+
+              fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
   }

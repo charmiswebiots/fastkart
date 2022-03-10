@@ -61,10 +61,13 @@ class OnBoardingScreen extends StatelessWidget {
 
            Container(
              height: MediaQuery.of(context).size.height / 4.50,
+             padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
              child: Column(
                children: [
                  //continoue with phone layout
                  IconButtonWidget(
+                   lefMargin: 15,
+                   rightMargin: 15,
                    icon: iconAssets.mobileIcon,
                    textWidget: OnboardingFontStyle().mulishtextLayout(
                        text: OnboardingFont().continueWithPhone,
@@ -77,6 +80,8 @@ class OnBoardingScreen extends StatelessWidget {
 
                  //continoue with google layout
                  IconButtonWidget(
+                   lefMargin: 15,
+                   rightMargin: 15,
                    icon: iconAssets.google,
                    textWidget: OnboardingFontStyle().mulishtextLayout(
                        text: OnboardingFont().continueWithGoogle,

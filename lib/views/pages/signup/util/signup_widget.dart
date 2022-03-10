@@ -44,15 +44,20 @@ class SignupWidget {
 
   //textformfield layout
   Widget textFieldLayout(
-      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,}) {
+      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,bool obscureText = true,
+        TextInputAction? textInputAction,
+        TextInputType? keyboardType,}) {
     return TextFormField(
       controller: controller,
       focusNode: focusNode,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      textInputAction: textInputAction,
       onFieldSubmitted:onFieldSubmitted,
       validator: validator,
       decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+              const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           suffixIcon: suffixIcon,
           fillColor: fillcolor,
           filled: true,
@@ -70,6 +75,9 @@ class SignupWidget {
             borderSide: BorderSide(
               color: borderColor,
             ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: borderColor)
           ),
           hintText: text,
           hintStyle: TextStyle(

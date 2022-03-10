@@ -9,4 +9,11 @@ class SignupController extends GetxController{
   TextEditingController username = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  bool passwordVisible = true;
+
+  // Toggle Between Password show
+  toggle() {
+    passwordVisible = !passwordVisible;
+    update();
+  }
 }

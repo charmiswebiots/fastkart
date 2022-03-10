@@ -1,5 +1,3 @@
-
-
 import 'package:fastkart/views/pages/signup/util/signup_constants.dart';
 
 class SignupValidation {
@@ -10,24 +8,23 @@ class SignupValidation {
     return _email.hasMatch(str.toLowerCase());
   }
 
-
-// Check username Validation
-    String? checkUserNameValidation(value) {
+  // Check username Validation
+  String? checkUserNameValidation(value) {
     if (value.isEmpty) {
       return SignupFont().fullNameRequired;
-    }else{
+    } else {
       return null;
     }
     return null;
   }
 
-//validate for password
+  //validate for password
   bool isPassword(String str) {
     RegExp _pwd = RegExp(r"^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$");
     return _pwd.hasMatch(str);
   }
 
-// Check Id Validation
+  // Check Id Validation
   String? checkIDValidation(value) {
     if (value.isEmpty) {
       return SignupFont().emailNameRequired;
@@ -38,13 +35,14 @@ class SignupValidation {
     }
   }
 
-// Check Password Validation
+  // Check Password Validation
   String? checkPasswordValidation(value) {
     if (value.isEmpty) {
       return SignupFont().passwordNameRequired;
-    }else{
+    } else if (value.length <= 8) {
+      return SignupFont().passwordMininumValueEnter;
+    } else {
       return null;
     }
-    return null;
   }
 }

@@ -16,9 +16,10 @@ class SignupFont{
    String phone = 'phone';
    String google = 'google';
    String fullNameRequired = 'Name is Required';
-   String emailNameRequired = 'Name is Required';
-   String passwordNameRequired = 'Name is Required';
+   String emailNameRequired = 'Email is Required';
+   String passwordNameRequired = 'Password is Required';
    String inCorrectUsername = "Incorrect Email";
+   String passwordMininumValueEnter = "Please enter mininmum 8 characters";
 }
 
 

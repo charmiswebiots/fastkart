@@ -32,7 +32,9 @@ class LoginValidation {
   String? checkPasswordValidation(value) {
     print(value);
     if (value.isEmpty) {
-      return LoginFont().inCorrectUsername;
+      return LoginFont().passwordFieldError;
+    }else if (value.length <= 8){
+      return LoginFont().passwordMininumValueEnter;
     }else{
       return null;
     }

@@ -78,6 +78,8 @@ class SignUpScreen extends StatelessWidget {
                                             //fullname textformfiel layout
                                             SignupWidget().textFieldLayout(
                                               controller: signupCtrl.username,
+                                              keyboardType: TextInputType.name,
+                                              textInputAction: TextInputAction.next,
                                               onFieldSubmitted: (value) {
                                                 SignupWidget().fieldFocusChange(
                                                     context,signupCtrl.usernameFocus, signupCtrl.emailFocus);
@@ -98,6 +100,8 @@ class SignUpScreen extends StatelessWidget {
                                             //email textformfiel layout
                                             SignupWidget().textFieldLayout(
                                               controller: signupCtrl.email,
+                                              keyboardType: TextInputType.emailAddress,
+                                              textInputAction: TextInputAction.next,
                                               onFieldSubmitted: (value) {
                                                 SignupWidget().fieldFocusChange(
                                                     context, signupCtrl.emailFocus, signupCtrl.passwordFocus);
@@ -120,11 +124,18 @@ class SignUpScreen extends StatelessWidget {
                                         //email password layout
                                         SignupWidget().textFieldLayout(
                                           controller: signupCtrl.password,
+                                          keyboardType: TextInputType.visiblePassword,
+                                          textInputAction: TextInputAction.none,
 
+                                          obscureText: signupCtrl.passwordVisible,
                                           focusNode: signupCtrl.passwordFocus,
                                           validator: (value) =>SignupValidation()
                                               .checkPasswordValidation(value),
-                                          suffixIcon: Image.asset(iconAssets.hide,color: appCtrl.appTheme.titleColor),
+                                          suffixIcon: InkWell(
+                                              onTap: (){
+                                                signupCtrl.toggle();
+                                              },
+                                              child: Image.asset( signupCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,color: appCtrl.appTheme.titleColor)),
                                           text: SignupFont().password,
                                           borderColor:
                                           appCtrl.appTheme.primary.withOpacity(.3),
@@ -160,6 +171,8 @@ class SignUpScreen extends StatelessWidget {
 
                                         //continoue with phone layout
                                         IconButtonWidget(
+                                          lefMargin: 0,
+                                          rightMargin: 0,
                                           icon: iconAssets.mobileIcon,
                                           textWidget: SignupFontStyle()
                                               .mulishtextLayout(
@@ -173,6 +186,8 @@ class SignUpScreen extends StatelessWidget {
 
                                         //continoue with google layout
                                         IconButtonWidget(
+                                          lefMargin: 0,
+                                          rightMargin: 0,
                                           icon: iconAssets.google,
                                           textWidget: SignupFontStyle()
                                               .mulishtextLayout(

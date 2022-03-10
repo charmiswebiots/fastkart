@@ -4,6 +4,7 @@ import 'package:fastkart/models/category_model.dart';
 import 'package:flutter/material.dart';
 
 class AppArray {
+  //recent bought list
   var recentBoughtList = [
     {
       'image': imageAssets.recentBought1,
@@ -22,6 +23,7 @@ class AppArray {
     },
   ];
 
+  //category list with model
   var categoryData = <CategoryModel>[
     CategoryModel(
       "Oils,Refined & Ghee",
@@ -73,6 +75,7 @@ class AppArray {
     )
   ];
 
+  //banner list
   var bannerList = <BannerModel>[
     BannerModel('Farm Fresh Vegies', 'Get instant delivery',
         imageAssets.banner1, 'Shop Now'),
@@ -80,6 +83,7 @@ class AppArray {
         imageAssets.banner2, 'Shop Now'),
   ];
 
+  //offer lists
   var offerList = [
     {
       'name': 'Assorted Capsicum Combo',
@@ -99,6 +103,37 @@ class AppArray {
       'price' : '25.00',
       'discount' :'50% off',
       'image': imageAssets.offer1
+    }
+  ];
+
+  //
+  //lower price lists
+  var lowerPriceList = [
+    {
+      'name': 'Assorted \nCapsicum Combo',
+      'description': '500g',
+      'price' : '25.00',
+      'image': imageAssets.lowestPrice1
+    },{
+      'name': 'Assorted \nCapsicum Combo',
+      'description': '500g',
+      'price' : '25.00',
+      'image': imageAssets.lowestPrice2
+    },{
+      'name': 'Assorted \nCapsicum Combo',
+      'description': '500g',
+      'price' : '25.00',
+      'image': imageAssets.lowestPrice3
+    },{
+      'name': 'Assorted \nCapsicum Combo',
+      'description': '500g',
+      'price' : '25.00',
+      'image': imageAssets.lowestPrice4
+    },{
+      'name': 'Assorted \nCapsicum Combo',
+      'description': '500g',
+      'price' : '25.00',
+      'image': imageAssets.lowestPrice5
     }
   ];
 }

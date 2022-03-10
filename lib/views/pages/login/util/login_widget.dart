@@ -9,14 +9,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
 class LoginWidget {
-
   //focus change
   fieldFocusChange(
       BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
     currentFocus.unfocus();
     FocusScope.of(context).requestFocus(nextFocus);
   }
-
 
   //login background image layout
   Widget loginBackGroundImage(String image, context) {
@@ -48,21 +46,37 @@ class LoginWidget {
   }
 
   //textformfield layout
-  Widget textFieldLayout(
-      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,bool isLargeScreen = false}) {
+  Widget textFieldLayout({
+    String? text,
+    fillcolor,
+    borderColor,
+    hintColor,
+    TextEditingController? controller,
+    Widget? suffixIcon,
+    FormFieldValidator<String>? validator,
+    ValueChanged<String>? onFieldSubmitted,
+    FocusNode? focusNode,
+    bool isLargeScreen = false,
+    bool obscureText = true,
+    TextInputAction? textInputAction,
+    TextInputType? keyboardType,
+  }) {
     return TextFormField(
       controller: controller,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       focusNode: focusNode,
-      onFieldSubmitted:onFieldSubmitted,
+      textInputAction: textInputAction,
+      onFieldSubmitted: onFieldSubmitted,
       validator: validator,
       decoration: InputDecoration(
-
         contentPadding: EdgeInsets.symmetric(
-            vertical: 0, horizontal: AppScreenUtil().size(20)),
+            vertical: AppScreenUtil().screenHeight(14),
+            horizontal: AppScreenUtil().size(20)),
         suffixIcon: suffixIcon,
         fillColor: fillcolor,
         filled: true,
-       // errorStyle: TextStyle(height:isLargeScreen ? 1: 0),
+        border: OutlineInputBorder(borderSide: BorderSide(color: borderColor)),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: borderColor,
@@ -73,11 +87,13 @@ class LoginWidget {
             color: borderColor,
           ),
         ),
-        errorBorder:  OutlineInputBorder(
+        errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.red,
+            color: borderColor,
           ),
         ),
+        focusedErrorBorder:
+            OutlineInputBorder(borderSide: BorderSide(color: borderColor)),
         hintText: text,
         hintStyle: TextStyle(
             fontSize: 15,

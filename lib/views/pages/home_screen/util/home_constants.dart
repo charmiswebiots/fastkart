@@ -5,7 +5,11 @@ class HomeFont{
    String shopByCategory = 'Shop by Category';
    String sayHelloToOffer = 'Say hello to Offers!';
    String bestPriceEverOfAllTheTime = 'Best price ever of all the time';
-   String seeAll = 'See All';
+   String popularOffersOfTheDay = 'Popular Offers of the Day';
+   String payLessGetMore = 'Pay less, Get More';
+   String seeAll = 'See all';
+   String lowestPrice = 'Lowest Price';
+   String everydayEssentials = 'Everyday Essentials';
    String dollar = "\$";
 
 }

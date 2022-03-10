@@ -12,7 +12,6 @@ class MediumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     var loginCtrl = Get.put(LoginController());
     var appCtrl = Get.isRegistered<AppController>()
         ? Get.find<AppController>()
@@ -33,12 +32,12 @@ class MediumScreen extends StatelessWidget {
                     color: appCtrl.appTheme.whiteColor,
                     context: context,
                     child: Form(
-                      key: formKey,
+                      key: loginCtrl.loginformKey,
                       child: Column(
                         children: [
                           Container(
                             height: MediaQuery.of(context).size.height /
-                                AppScreenUtil().screenHeight(1.30),
+                                AppScreenUtil().screenHeight(1.28),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -60,45 +59,13 @@ class MediumScreen extends StatelessWidget {
                                       fontSize: textSizeMedium,
                                       fontWeight: FontWeight.w700),
                                   Space(0, 10),
-                                 /* TextFormField(
-                                    controller: loginCtrl.email,
-                                    focusNode: loginCtrl.userFocus,
-                                    onFieldSubmitted:onFieldSubmitted,
-                                    validator: validator,
-                                    decoration: InputDecoration(
 
-                                      contentPadding: EdgeInsets.symmetric(
-                                          vertical: 0, horizontal: AppScreenUtil().size(20)),
-                                      suffixIcon: suffixIcon,
-                                      fillColor: fillcolor,
-                                      filled: true,
-                                      // errorStyle: TextStyle(height:isLargeScreen ? 1: 0),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: borderColor,
-                                        ),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: borderColor,
-                                        ),
-                                      ),
-                                      errorBorder:  OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                                      hintText: text,
-                                      hintStyle: TextStyle(
-                                          fontSize: 15,
-                                          color: hintColor,
-                                          fontFamily: GoogleFonts.mulish().fontFamily),
-                                    ),
-                                  ),*/
-
-                                  //email textformfiel layout
+                                  //email textformfield layout
                                   LoginWidget().textFieldLayout(
+                                    obscureText: false,
                                     isLargeScreen: false,
+                                    keyboardType: TextInputType.emailAddress,
+                                    textInputAction: TextInputAction.next,
                                     controller: loginCtrl.email,
                                     onFieldSubmitted: (value) {
                                       LoginWidget().fieldFocusChange(
@@ -106,7 +73,7 @@ class MediumScreen extends StatelessWidget {
                                           loginCtrl.userFocus,
                                           loginCtrl.passwordFocus);
                                     },
-                                    //focusNode: loginCtrl.userFocus,
+                                    focusNode: loginCtrl.userFocus,
                                     validator: (value) => LoginValidation()
                                         .checkIDValidation(value),
                                     text: LoginFont().emailHint,
@@ -117,45 +84,32 @@ class MediumScreen extends StatelessWidget {
                                     appCtrl.appTheme.darkContentColor,
                                     fillcolor: appCtrl.appTheme.lightGray,
                                   ),
-                                  if (loginCtrl.isEmail == true)
-                                    Column(
-                                      children: [
-                                        Space(0, 5),
-                                        //error text layout
-                                        LoginFontStyle().nunitotextLayout(
-                                            text: loginCtrl.errorEmail,
-                                            color: Colors.red,
-                                            fontSize: 10),
-                                      ],
-                                    ),
-                                  Space(0,loginCtrl.isEmail == true ? 5 : 11), //email password layout
+
+                                  Space(0,11),
+                                  // password layout
                                   LoginWidget().textFieldLayout(
                                     isLargeScreen: false,
+                                    keyboardType: TextInputType.visiblePassword,
+                                    textInputAction: TextInputAction.none,
                                     controller: loginCtrl.password,
                                     focusNode: loginCtrl.passwordFocus,
-                                   /* validator: (value) => LoginValidation()
-                                        .checkPasswordValidation(value),*/
-                                    suffixIcon: Image.asset(iconAssets.hide,
-                                        color: appCtrl.appTheme.titleColor),
+                                    obscureText: loginCtrl.passwordVisible,
+                                    validator: (value) => LoginValidation()
+                                        .checkPasswordValidation(value),
+                                    suffixIcon: InkWell(
+                                      onTap: (){
+                                        loginCtrl.toggle();
+                                      },
+                                      child: Image.asset(loginCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,
+                                          color: appCtrl.appTheme.titleColor, ),
+                                    ),
                                     text: LoginFont().password,
                                     borderColor: appCtrl.appTheme.primary
                                         .withOpacity(.3),
                                     hintColor:  appCtrl.appTheme.darkContentColor,
                                     fillcolor: appCtrl.appTheme.lightGray,
                                   ),
-                                  if (loginCtrl.isPassword == true)
-                                    Column(
-                                      children: [
-                                        Space(0, 5),
-                                        //error text layout
-                                        LoginFontStyle().nunitotextLayout(
-                                            text: LoginFont().passwordFieldError,
-                                            color: Colors.red,
-                                            fontSize: 10),
-                                      ],
-                                    ),
-                                  Space(0,  loginCtrl.isPassword ? 0 : 6),
-
+                                  Space(0, 5),
                                   //forgot password text layout
                                   Align(
                                     alignment: Alignment.centerRight,
@@ -170,13 +124,16 @@ class MediumScreen extends StatelessWidget {
                                       context: context,
                                       fontColor: appCtrl.appTheme.whiteColor,
                                       onTap: () {
-                                        loginCtrl.emailValid();
-                                        loginCtrl.passwordValid();
-                                        if(loginCtrl.isEmail == false && loginCtrl.isPassword == false){
-                                          Get.toNamed(routeName.home);
+                                        FocusScopeNode currentFocus = FocusScope.of(context);
+
+                                        if (!currentFocus.hasPrimaryFocus) {
+                                          currentFocus.unfocus();
+                                        }
+                                        if(loginCtrl.loginformKey.currentState!.validate()) {
+                                          Get.offAndToNamed(routeName.home);
                                         }
                                       }),
-                                  Space(0, loginCtrl.isPassword ?10 : 16),
+                                  Space(0, 14),
 
                                   //create user layout
                                   LoginWidget().createUserWidget(
@@ -185,15 +142,17 @@ class MediumScreen extends StatelessWidget {
                                         Get.toNamed(routeName.signup);
                                       },
                                       color: appCtrl.appTheme.darkContentColor),
-                                  Space(0, loginCtrl.isEmail == true ?10 : 20),
+                                  Space(0, 8),
 
                                   //signup with text layout
                                   LoginWidget().loginWithLayout(
                                       fontWeight: FontWeight.w700,
                                       color: appCtrl.appTheme.contentColor,
                                       fontColor: appCtrl.appTheme.primary),
-                                  Space(0,loginCtrl.isEmail == true ? 5: 15),
+                                  Space(0,8),
                                   IconButtonWidget(
+                                    lefMargin: 0,
+                                    rightMargin: 0,
                                     icon: iconAssets.mobileIcon,
                                     type: LoginFont().phone,
                                     textWidget: LoginFontStyle()
@@ -207,6 +166,8 @@ class MediumScreen extends StatelessWidget {
 
                                   // continoue with google layout
                                   IconButtonWidget(
+                                    lefMargin: 0,
+                                    rightMargin: 0,
                                     icon: iconAssets.google,
                                     textWidget: LoginFontStyle()
                                         .mulishtextLayout(
