@@ -11,6 +11,8 @@ class HomeFont{
    String lowestPrice = 'Lowest Price';
    String everydayEssentials = 'Everyday Essentials';
    String coupensForYou = 'Coupens For You';
+   String didntFindWhatYouWereLookingFor = 'Didn’t find what you were looking for?';
+   String browseCategory = 'Browse Category';
    String dollar = "\$";
 
 }
