@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/views/pages/home_screen/banner_list.dart';
@@ -92,18 +93,18 @@ class HomeLayout extends StatelessWidget {
                         seeAllColor: appCtrl.appTheme.primary,
                         descriptionColor: appCtrl.appTheme.darkContentColor),
                     Space(0, 20),
-                    Container(
-                      color: appCtrl.appTheme.whiteColor,
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 85 / 100,
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppScreenUtil().screenWidth(15)),
+
+                    //lowest price and everyday essential layout
+
+                    HomeWidget().lowestPriceAndEveryDayEssentialWidget(
+                      containerColor: appCtrl.appTheme.whiteColor,
+                      context: context,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           //lowest price layout
                           HomeWidget().commonHorizontalListLayout(
-                            context: context,
+                              context: context,
                               title: HomeFont().lowestPrice,
                               seeAllText: HomeFont().seeAll,
                               data: AppArray().lowerPriceList,
@@ -111,9 +112,9 @@ class HomeLayout extends StatelessWidget {
                               lowestPriceColor: appCtrl.appTheme.primary,
                               payLessColor: appCtrl.appTheme.darkContentColor,
                               descriptionColor:
-                                  appCtrl.appTheme.darkContentColor,
+                              appCtrl.appTheme.darkContentColor,
                               containerBorderColor:
-                                  appCtrl.appTheme.greyBGColor,
+                              appCtrl.appTheme.greyBGColor,
                               iconColor: appCtrl.appTheme.whiteColor,
                               priceColor: appCtrl.appTheme.titleColor,
                               primaryColor: appCtrl.appTheme.primary),
@@ -128,23 +129,40 @@ class HomeLayout extends StatelessWidget {
                               lowestPriceColor: appCtrl.appTheme.primary,
                               payLessColor: appCtrl.appTheme.darkContentColor,
                               descriptionColor:
-                                  appCtrl.appTheme.darkContentColor,
+                              appCtrl.appTheme.darkContentColor,
                               containerBorderColor:
-                                  appCtrl.appTheme.greyBGColor,
+                              appCtrl.appTheme.greyBGColor,
                               iconColor: appCtrl.appTheme.whiteColor,
                               priceColor: appCtrl.appTheme.titleColor,
                               primaryColor: appCtrl.appTheme.primary),
                         ],
-                      ),
+                      )
                     ),
+
+                    //coupons layout
+                    HomeWidget().couponsWidget(
+                      context: context,
+                      containerColor: appCtrl.appTheme.lightPrimary,
+                      primaryColor: appCtrl.appTheme.lightPrimary,
+                      descriptionColor:
+                      appCtrl.appTheme.darkContentColor,
+                      seeAllColor: appCtrl.appTheme.primary,
+                      dottedLineColor: appCtrl.appTheme.greyBGColor,
+                        decriptionColor: appCtrl.appTheme.darkContentColor
+                    ),
+
+                    Space(0, 20),
                     Container(
-                      height: MediaQuery.of(context).size.height * 70/100,
+                      height: MediaQuery.of(context).size.height * 20 / 100,
                       width: MediaQuery.of(context).size.width,
                       color: appCtrl.appTheme.lightPrimary,
-                      padding:
-                      EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15),vertical: 10),
+                      alignment: Alignment.topCenter,
+                      child: Column(
+                        children: [
 
-                    )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

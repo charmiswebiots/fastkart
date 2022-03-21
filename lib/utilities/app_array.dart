@@ -1,6 +1,7 @@
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/models/banner_model.dart';
 import 'package:fastkart/models/category_model.dart';
+import 'package:fastkart/models/coupon_model.dart';
 import 'package:flutter/material.dart';
 
 class AppArray {
@@ -135,5 +136,28 @@ class AppArray {
       'price' : '25.00',
       'image': imageAssets.lowestPrice5
     }
+  ];
+
+  //coupon List
+  var couponData = <CouponModel>[
+    CouponModel(
+      "50% OFF",
+      'UPTO \$20.00',
+      imageAssets.coupon1,
+      Color(0xFFFFF4F3),
+    ),
+    CouponModel(
+      "50% OFF",
+      'UPTO \$20.00',
+      imageAssets.coupon2,
+      Color(0xFFFFFFFF),
+    ),
+    CouponModel(
+      "50% OFF",
+      'UPTO \$20.00',
+      imageAssets.coupon3,
+      Color(0xFFFFFDE9),
+    ),
+
   ];
 }

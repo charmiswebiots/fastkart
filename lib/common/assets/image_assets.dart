@@ -42,4 +42,9 @@ class ImageAssets {
   final String lowestPrice3 = 'assets/lowestPrice/lowestPrice3.png';
   final String lowestPrice4 = 'assets/lowestPrice/lowestPrice4.png';
   final String lowestPrice5 = 'assets/lowestPrice/lowestPrice5.png';
+
+  //coupon image
+  final String coupon1 = 'assets/coupon/gpay_icon.png';
+  final String coupon2 = 'assets/coupon/venmo.png';
+  final String coupon3 = 'assets/coupon/paypal.png';
 }

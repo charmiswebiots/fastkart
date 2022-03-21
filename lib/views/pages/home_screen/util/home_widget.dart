@@ -1,6 +1,7 @@
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/config.dart';
 import 'package:fastkart/utilities/app_array.dart';
+import 'package:fastkart/views/pages/home_screen/couponCard.dart';
 import 'package:fastkart/views/pages/home_screen/everyday_essential_Card.dart';
 import 'package:fastkart/views/pages/home_screen/lowestPriceCard.dart';
 import 'package:fastkart/views/pages/home_screen/offer_list.dart';
@@ -147,6 +148,18 @@ class HomeWidget {
     );
   }
 
+  //lowest price and everyday essential container widget
+  Widget lowestPriceAndEveryDayEssentialWidget({Widget? child,var containerColor,BuildContext? context}){
+    return Container(
+      color: containerColor,
+      width: MediaQuery.of(context!).size.width,
+      height: MediaQuery.of(context).size.height * 76 / 100,
+      padding: EdgeInsets.symmetric(
+          horizontal: AppScreenUtil().screenWidth(15)),
+      child: child,
+    );
+  }
+
   //common description text Widget
   Widget commonDescriptionTextWidget({String? text, var color}) {
     return HomeFontStyle().mulishtextLayout(
@@ -156,7 +169,49 @@ class HomeWidget {
         color: color);
   }
 
-  //Common Horizontal lisr=t layout
+  //coupons layout widget
+  Widget couponsWidget({BuildContext? context,var containerColor,Widget? child,var seeAllColor,var descriptionColor, var primaryColor,var dottedLineColor,var decriptionColor}){
+    return Container(
+      height: MediaQuery.of(context!).size.height * 35 / 100,
+      width: MediaQuery.of(context).size.width,
+      color: containerColor,
+      padding:
+      EdgeInsets.only(left: AppScreenUtil().screenWidth(15),right: AppScreenUtil().screenWidth(15),top: AppScreenUtil().screenHeight(30),),
+      alignment: Alignment.topCenter,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          //everyday essential and see all  widget
+          HomeWidget().commonTitleAndSeeAllWidget(
+              title: HomeFont().coupensForYou,
+              seeAllText: HomeFont().seeAll,
+              seeAllColor: seeAllColor),
+
+          //popular offers of the day text widget
+          HomeWidget().commonDescriptionTextWidget(
+              text: HomeFont().payLessGetMore, color: descriptionColor),
+          Container(
+            height:MediaQuery.of(context).size.height  * 20/100 ,
+            child: ListView.builder(
+              itemCount: AppArray().couponData.length,
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return CouponCard(
+                  index: index,
+                  couponModel: AppArray().couponData[index],
+                  primaryColor:primaryColor ,
+                  dottedLineColor: dottedLineColor,
+                    decriptionColor:decriptionColor
+                );
+              },),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //Common Horizontal list layout
   Widget commonHorizontalListLayout(
       {BuildContext? context, String? title,String? seeAllText,var data,var lowestPriceColor,
         var payLessColor,
