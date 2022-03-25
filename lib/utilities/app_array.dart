@@ -1,6 +1,7 @@
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/models/banner_model.dart';
 import 'package:fastkart/models/category_model.dart';
+import 'package:fastkart/models/coupon_model.dart';
 import 'package:flutter/material.dart';
 
 class AppArray {
@@ -38,37 +39,37 @@ class AppArray {
       Color(0xFFFFF6C3),
     ),
     CategoryModel(
-      "Food Cupboard",
+      "Food \nCupboard",
       Color(0xFFFFF2EC),
       imageAssets.category3,
       Color(0xFFFFEAE0),
     ),
     CategoryModel(
-      "Fresh Fruits& Vegetables",
+      "Fresh Fruits & Vegetables",
       Color(0xFFFFF2F2),
       imageAssets.category4,
       Color(0xFFFFFE5E5),
     ),
     CategoryModel(
-      "Drinks& Beverages",
+      "Drinks & Beverages",
       Color(0xFFFCF1FF),
       imageAssets.category5,
       Color(0xFFFAEAFF),
     ),
     CategoryModel(
-      "Instant Mixes",
+      "Instant \nMixes",
       Color(0xFFE8FFFC),
       imageAssets.category6,
       Color(0xFFDBFFFA),
     ),
     CategoryModel(
-      "Ready to Eat",
+      "Ready to \nEat",
       Color(0xFFFFF9D8),
       imageAssets.category7,
       Color(0xFFFFF6C3),
     ),
     CategoryModel(
-      "Dals & Pulses",
+      "Dals & \nPulses",
       Color(0xFFFFF8F0),
       imageAssets.category8,
       Color(0xFFFFF1E1),
@@ -135,5 +136,28 @@ class AppArray {
       'price' : '25.00',
       'image': imageAssets.lowestPrice5
     }
+  ];
+
+  //coupon List
+  var couponData = <CouponModel>[
+    CouponModel(
+      "50% OFF",
+      'UPTO \$20.00',
+      imageAssets.coupon1,
+      Color(0xFFFFF4F3),
+    ),
+    CouponModel(
+      "50% OFF",
+      'UPTO \$20.00',
+      imageAssets.coupon2,
+      Color(0xFFFFFFFF),
+    ),
+    CouponModel(
+      "50% OFF",
+      'UPTO \$20.00',
+      imageAssets.coupon3,
+      Color(0xFFFFFDE9),
+    ),
+
   ];
 }

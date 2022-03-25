@@ -23,16 +23,16 @@ class HomeFontStyle {
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
     TextOverflow overflow = TextOverflow.ellipsis,
+    TextAlign textAlign = TextAlign.left
   }) {
     return InkWell(
       onTap: onTap,
       child: Text(text!,
           overflow: overflow,
-          textAlign: TextAlign.left,
+          textAlign: textAlign,
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-
               fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
