@@ -133,8 +133,9 @@ obscureText: false,
                                           currentFocus.unfocus();
                                         }
                                         if (loginCtrl.loginformKey.currentState!
-                                            .validate())
-                                          Get.offAndToNamed(routeName.home);
+                                            .validate()) {
+                                          loginCtrl.signIn();
+                                        }
                                       }),
                                   Space(0, 20),
 

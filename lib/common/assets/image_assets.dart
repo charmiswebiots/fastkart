@@ -2,6 +2,7 @@ class ImageAssets {
   final String noImageBanner = 'assets/images/placeholder.jpg';
   final String noInternet = 'assets/images/nointernet.png';
   final String corner = 'assets/images/corner.png';
+  final String usersquare = 'assets/images/usersquare.png';
 
   final String backgroundImage = 'assets/backgroundImages/backgroundImage.png';
   final String splashBGImage = 'assets/backgroundImages/splashBGImage.png';

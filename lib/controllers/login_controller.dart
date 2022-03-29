@@ -1,3 +1,5 @@
+import 'package:fastkart/config.dart';
+import 'package:fastkart/routes/index.dart';
 import 'package:fastkart/views/pages/login/util/login_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,5 +19,12 @@ class LoginController extends GetxController {
   toggle() {
     passwordVisible = !passwordVisible;
     update();
+  }
+
+  //gotoHome Page
+  signIn() async {
+    await writeStorage('isLogin', true);
+    update();
+    Get.offAndToNamed(routeName.home);
   }
 }

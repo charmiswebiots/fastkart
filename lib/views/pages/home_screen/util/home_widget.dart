@@ -22,7 +22,7 @@ class HomeWidget {
     return TextField(
       decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: -2, horizontal: 20),
+          EdgeInsets.symmetric(vertical: 0, horizontal: AppScreenUtil().screenWidth(20)),
           suffixIcon: suffixIcon,
           prefixIcon: prefixIcon,
           fillColor: fillcolor,

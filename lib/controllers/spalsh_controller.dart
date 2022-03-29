@@ -23,7 +23,14 @@ class SplashController extends GetxController {
       Get.updateLocale(Get.deviceLocale ?? const Locale('en', 'US'));
     }
 
-    Get.toNamed(routeName.onBoarding);
-
+    bool? isLogin = await getStorage('isLogin') ?? null;
+    print(isLogin);
+    if (isLogin != null && isLogin == true) {
+      Get.toNamed(routeName.home);
+    } else {
+      Get.toNamed(routeName.onBoarding);
+    }
   }
+
+
 }

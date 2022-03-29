@@ -39,7 +39,10 @@ class HomeLagreScreen extends StatelessWidget {
                 children: [
                   //common app bar
                   CommonAppBar1(
-                    onTap: () {},
+                    onTap: () {
+                      print('tap');
+                      Scaffold.of(context).openDrawer();
+                    },
                   ),
                   Space(0, 10),
 
@@ -49,8 +52,8 @@ class HomeLagreScreen extends StatelessWidget {
                         left: AppScreenUtil().screenHeight(15),
                         right: AppScreenUtil().screenHeight(15)),
                     child: HomeWidget().textFieldLayout(
-                      suffixIcon: Image.asset(iconAssets.voice),
-                      prefixIcon: Image.asset(iconAssets.textboxSearchIcon),
+                      suffixIcon: Image.asset(iconAssets.voice,color: appCtrl.appTheme.titleColor,),
+                      prefixIcon: Image.asset(iconAssets.blacktextboxSearchIcon,color: Colors.black,),
                       text: HomeFont().searchProduct,
                       borderColor: appCtrl.appTheme.primary.withOpacity(.3),
                       hintColor: appCtrl.appTheme.contentColor,
