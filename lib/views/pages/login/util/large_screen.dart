@@ -63,7 +63,7 @@ class LargeScreen extends StatelessWidget {
 
                                   //email textformfiel layout
                                   LoginWidget().textFieldLayout(
-obscureText: false,
+                                    obscureText: false,
                                     isLargeScreen: true,
                                     keyboardType: TextInputType.emailAddress,
                                     controller: loginCtrl.email,
@@ -98,10 +98,13 @@ obscureText: false,
                                     validator: (value) => LoginValidation()
                                         .checkPasswordValidation(value),
                                     suffixIcon: InkWell(
-                                      onTap: (){
+                                      onTap: () {
                                         loginCtrl.toggle();
                                       },
-                                      child: Image.asset( loginCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,
+                                      child: Image.asset(
+                                          loginCtrl.passwordVisible
+                                              ? iconAssets.hide
+                                              : iconAssets.view,
                                           color: appCtrl.appTheme.titleColor),
                                     ),
                                     text: LoginFont().password,
@@ -127,7 +130,8 @@ obscureText: false,
                                       context: context,
                                       fontColor: appCtrl.appTheme.whiteColor,
                                       onTap: () {
-                                        FocusScopeNode currentFocus = FocusScope.of(context);
+                                        FocusScopeNode currentFocus =
+                                            FocusScope.of(context);
 
                                         if (!currentFocus.hasPrimaryFocus) {
                                           currentFocus.unfocus();

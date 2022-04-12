@@ -17,12 +17,9 @@ class _HomeLayoutState extends State<HomeLayout> {
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       drawer: DrawerScreen(),
       body: NotificationListener<OverscrollIndicatorNotification>(
@@ -40,3 +37,5 @@ class _HomeLayoutState extends State<HomeLayout> {
     );
   }
 }
+
+

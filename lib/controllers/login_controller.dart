@@ -27,4 +27,13 @@ class LoginController extends GetxController {
     update();
     Get.offAndToNamed(routeName.home);
   }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    email.text = 'abc@gmail.com';
+    password.text = '12345678';
+    update();
+    super.onInit();
+  }
 }

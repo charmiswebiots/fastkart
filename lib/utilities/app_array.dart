@@ -160,4 +160,18 @@ class AppArray {
     ),
 
   ];
+
+  //drawer list
+  final drawerList = [
+    {"title": "Home","icon": iconAssets.drawerHome,},
+    {"title": "Shop By Category","icon": iconAssets.category,},
+    {"title": "Orders","icon": iconAssets.orders,},
+    {"title": "Your Wishlist","icon": iconAssets.simpleheart,},
+    {"title": "Language","icon": iconAssets.language,},
+    {"title": "Your Account","icon": iconAssets.profile,},
+    {"title": "Notification","icon": iconAssets.notification,},
+    {"title": "Settings","icon": iconAssets.setting,},
+    {"title": "Dark Theme","icon": iconAssets.darkTheme,},
+    {"title": "Light Theme","icon": iconAssets.darkTheme,},
+  ];
 }

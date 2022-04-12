@@ -61,7 +61,7 @@ class DrawerWidget {
 
   //common Image Layout
   Widget commonImageLayout({String? image,double? height,var iconColor}){
-    return image == 'assets/icons/language.png' ? Image.asset(image!,height: height!) : Image.asset(image!,height: height!,color: iconColor,);
+    return image == 'assets/icons/language.png' ? Image.asset(image!,height: AppScreenUtil().screenHeight(height!)) : Image.asset(image!,height:AppScreenUtil().screenHeight(height!),color: iconColor,);
 }
 
   //forward arrow icon container
@@ -76,18 +76,21 @@ class DrawerWidget {
   }
 
   //common drawer listtile
-  Widget commonDrawerListTile({String? image,String? title,GestureTapCallback? onTap,var color,var iconColor}){
-    return ListTile(
-      horizontalTitleGap: 0,
-      leading: commonImageLayout(image: image,height: 22,iconColor:iconColor),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          DrawerFontStyle().mulishtextLayout(text: title,fontSize:  14),
-          forwardArrow(color:color )
-        ],
-      ),
+  Widget commonDrawerListTile({String? image,String? title,GestureTapCallback? onTap,var color,var iconColor,double? height,double? fontSize}){
+    return InkWell(
       onTap: onTap,
+      child: ListTile(
+        horizontalTitleGap: 0,
+        leading: commonImageLayout(image: image,height: height,iconColor:iconColor),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            DrawerFontStyle().mulishtextLayout(text: title,fontSize:  fontSize!),
+            forwardArrow(color:color )
+          ],
+        ),
+        onTap: onTap,
+      ),
     );
   }
 

@@ -38,7 +38,10 @@ class HomeMediumScreen extends StatelessWidget {
                 children: [
                   //common app bar
                   CommonAppBar1(
-                    onTap: () {},
+                    onTap: () {
+                      print('tap');
+                      Scaffold.of(context).openDrawer();
+                    },
                   ),
                   Space(0, 10),
 
