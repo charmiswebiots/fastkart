@@ -33,7 +33,7 @@ class LoginValidation {
     print(value);
     if (value.isEmpty) {
       return LoginFont().passwordFieldError;
-    }else if (value.length <= 8){
+    }else if (value.length <= 7){
       return LoginFont().passwordMininumValueEnter;
     }else{
       return null;

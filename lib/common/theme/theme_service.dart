@@ -20,15 +20,22 @@ class ThemeService {
   _saveThemeToStorage(bool isDarkMode) => _getStorage.write(_storageKey, isDarkMode);
 
   /// Switch theme and save to local storage
-  void switchTheme() {
-    if (_loadThemeFromStorage()) {
+  switchTheme() {
+    print('save');
+    print(_loadThemeFromStorage());
+    if (!_loadThemeFromStorage()) {
       Get.changeThemeMode(ThemeMode.light);
       appCtrl.updateTheme(AppTheme.fromType(ThemeType.light));
+      _saveThemeToStorage(true);
+      appCtrl.update();
     } else {
       Get.changeThemeMode(ThemeMode.dark);
       appCtrl.updateTheme(AppTheme.fromType(ThemeType.dark));
+      _saveThemeToStorage(false);
+      appCtrl.update();
     }
-    _saveThemeToStorage(!_loadThemeFromStorage());
+
+    appCtrl.update();
   }
 
   AppTheme get appTheme => Get.isDarkMode ? AppTheme.fromType(ThemeType.dark) : AppTheme.fromType(ThemeType.light);

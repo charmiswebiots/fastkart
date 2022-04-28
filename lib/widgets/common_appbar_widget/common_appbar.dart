@@ -7,13 +7,34 @@ import 'package:flutter/material.dart';
 
 class CommonAppBar1 extends StatelessWidget {
   GestureTapCallback? onTap;
-  CommonAppBar1({Key? key,this.onTap}) : super(key: key);
+  bool? isLocation;
+  bool? isCart;
+  bool? isCategory;
+  bool? isback;
+  bool? isWishListText;
+  bool? isHome;
+  var color;
+  bool? isTheme;
+  var borderColor;
+
+  CommonAppBar1(
+      {Key? key,
+      this.onTap,
+      this.isCart,
+      this.isLocation,
+      this.isback,
+      this.isHome,this.borderColor,
+        this.isWishListText,
+      this.isCategory,this.color,this.isTheme})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-
+          top: MediaQuery.of(context).size.height /
+              AppScreenUtil().screenHeight(13),
+          bottom: AppScreenUtil().screenHeight(10),
           left: AppScreenUtil().screenHeight(15),
           right: AppScreenUtil().screenHeight(15)),
       child: Row(
@@ -22,29 +43,55 @@ class CommonAppBar1 extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              AppBarWidget().commonIconImage(
-                onTap: onTap,
-                  image: iconAssets.category, height: 20),
+              if (isCategory!)
+                AppBarWidget().commonIconImage(
+                    onTap: onTap, image: iconAssets.category, height: 20,color: color),
+              if (isback!)
+                InkWell(
+                  onTap: onTap,
+                  child: Container(
+                    height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 22 :30),
+                    width: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 22 :30),
+                    padding: EdgeInsets.all(AppScreenUtil().size(5)),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: borderColor,width: 2),
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    child: Icon(Icons.arrow_back_sharp,size: AppScreenUtil().size(12),color: color,),
+
+                  ),
+                ),
               Space(10, 0),
               AppBarWidget().commonIconImage(
-                  image: imageAssets.smallLogoImage, height: 16),
+                  image: isTheme! ? imageAssets.themeLogo : imageAssets.smallLogoImage, height: 16),
+              Space(10, 0),
+              if(isWishListText!)
+                AppBarFontStyle().mulishtextLayout(
+                    text: "(4 Items)",
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal),
             ],
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              AppBarWidget().commonIconImage(
-                  image: iconAssets.location, height: 16),
-              Space(5, 0),
-              AppBarFontStyle().mulishtextLayout(
-                  text: AppBarFont().name,
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal),
-              Space(5, 0),
-              AppBarWidget()
-                  .commonIconImage(image: iconAssets.user, height: 30),
-            ],
-          ),
+          if (isLocation!)
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                AppBarWidget()
+                    .commonIconImage(image: iconAssets.location, height: 16,color: color),
+                Space(5, 0),
+                AppBarFontStyle().mulishtextLayout(
+                    text: AppBarFont().name,
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal),
+                Space(5, 0),
+                AppBarWidget()
+                    .commonIconImage(image: iconAssets.user, height: 30),
+              ],
+            ),
+          if (isCart!) Image.asset(gifAssets.colorOffer, height: 30),
+
+          if (isHome!) Image.asset(iconAssets.colorHome, height: 20,fit: BoxFit.contain,),
         ],
       ),
     );

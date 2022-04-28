@@ -17,7 +17,7 @@ class OnboardingWidget{
   }
   //small logo Image
   Widget smallLogoImage({String? image,BuildContext? context}){
-    return Image.asset(image!,width: MediaQuery.of(context!).size.width,);
+    return Image.asset(image!,width: MediaQuery.of(context!).size.width);
   }
 
 }

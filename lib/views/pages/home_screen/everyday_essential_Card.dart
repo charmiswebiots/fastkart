@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 class EveryDayEssentialCard extends StatelessWidget {
   int? index;
   var containerBorderColor;
+  var boxColor;
   var data;
   var descriptionColor;
   var priceColor;
   var primaryColor;
   var iconColor;
   var shadowColor;
-  EveryDayEssentialCard({Key? key,this.index,this.containerBorderColor,this.data,this.descriptionColor,this.priceColor,this.primaryColor,this.iconColor,this.shadowColor}) : super(key: key);
+  EveryDayEssentialCard({Key? key,this.index,this.containerBorderColor,this.boxColor,this.data,this.descriptionColor,this.priceColor,this.primaryColor,this.iconColor,this.shadowColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class EveryDayEssentialCard extends StatelessWidget {
           top: AppScreenUtil().screenHeight(10),
           bottom: AppScreenUtil().screenHeight(20)),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: boxColor,
           boxShadow: [
             BoxShadow(
               color: shadowColor,

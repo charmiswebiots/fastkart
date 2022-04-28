@@ -1,5 +1,6 @@
 import 'package:fastkart/config.dart';
 import 'package:fastkart/controllers/login_controller.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 import 'package:fastkart/views/pages/login/util/login_constants.dart';
 import 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
 import 'package:fastkart/views/pages/login/util/login_validation.dart';
@@ -37,12 +38,12 @@ class MediumScreen extends StatelessWidget {
                         children: [
                           Container(
                             height: MediaQuery.of(context).size.height /
-                                AppScreenUtil().screenHeight(1.28),
+                                AppScreenUtil().screenHeight((ResponsiveWidget.isMediumScreen(context))  ? 1.28: 1.55),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   //logo image layout
-                                  Image.asset(imageAssets.smallLogoImage),
+                                  appCtrl.isTheme ? Image.asset( imageAssets.themeLogo,fit: BoxFit.contain,height: AppScreenUtil().screenHeight(20),) : Image.asset(imageAssets.smallLogoImage),
                                   Space(0, 10),
 
                                   //description text layout
@@ -77,12 +78,12 @@ class MediumScreen extends StatelessWidget {
                                     validator: (value) => LoginValidation()
                                         .checkIDValidation(value),
                                     text: LoginFont().emailHint,
-                                    suffixIcon: Image.asset(iconAssets.atsign),
-                                    borderColor: appCtrl.appTheme.primary
-                                        .withOpacity(.3),
-                                    hintColor:
-                                    appCtrl.appTheme.darkContentColor,
-                                    fillcolor: appCtrl.appTheme.lightGray,
+                                    borderColor: appCtrl.appTheme.primary.withOpacity(.3),
+                                    hintColor: appCtrl.appTheme.contentColor,
+                                    fillcolor: appCtrl.appTheme.textBoxColor,
+                                    suffixIcon: Image.asset(iconAssets.atsign,color: appCtrl.appTheme.titleColor,),
+
+
                                   ),
 
                                   Space(0,11),
@@ -104,10 +105,9 @@ class MediumScreen extends StatelessWidget {
                                           color: appCtrl.appTheme.titleColor, ),
                                     ),
                                     text: LoginFont().password,
-                                    borderColor: appCtrl.appTheme.primary
-                                        .withOpacity(.3),
-                                    hintColor:  appCtrl.appTheme.darkContentColor,
-                                    fillcolor: appCtrl.appTheme.lightGray,
+                                    borderColor: appCtrl.appTheme.primary.withOpacity(.3),
+                                    hintColor: appCtrl.appTheme.contentColor,
+                                    fillcolor: appCtrl.appTheme.textBoxColor,
                                   ),
                                   Space(0, 5),
                                   //forgot password text layout
@@ -130,7 +130,7 @@ class MediumScreen extends StatelessWidget {
                                           currentFocus.unfocus();
                                         }
                                         if(loginCtrl.loginformKey.currentState!.validate()) {
-                                          Get.offAndToNamed(routeName.home);
+                                          Get.offAndToNamed(routeName.dashboard);
                                         }
                                       }),
                                   Space(0, 14),

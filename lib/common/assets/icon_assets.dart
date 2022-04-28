@@ -1,5 +1,7 @@
 class IconAssets {
   final String home = 'assets/icons/home.png';
+  final String colorHome = 'assets/icons/colorHome.png';
+  final String drawerHome = 'assets/icons/drawerHome.png';
   final String atsign = 'assets/icons/atsign.png';
   final String hide = 'assets/icons/hide.png';
   final String mobileIcon = 'assets/icons/mobileIcon.png';
@@ -13,7 +15,15 @@ class IconAssets {
   final String offers = 'assets/icons/offers.png';
   final String search = 'assets/icons/search.png';
   final String textboxSearchIcon = 'assets/icons/textboxSearchIcon.png';
+  final String blacktextboxSearchIcon = 'assets/icons/blackSearch.png';
   final String voice = 'assets/icons/voice.png';
   final String heart = 'assets/icons/heart.png';
+  final String simpleheart = 'assets/icons/simpleheart.png';
   final String view = 'assets/icons/view.png';
+  final String orders = 'assets/icons/orders.png';
+  final String language = 'assets/icons/language.png';
+  final String notification = 'assets/icons/notification.png';
+  final String setting = 'assets/icons/setting.png';
+  final String darkTheme = 'assets/icons/darkTheme.png';
+  final String arrowBack = 'assets/icons/arrowBack.png';
 }

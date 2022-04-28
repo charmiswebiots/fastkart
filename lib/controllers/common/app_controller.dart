@@ -1,16 +1,47 @@
 import 'package:fastkart/common/theme/index.dart';
+import 'package:fastkart/routes/screen_list.dart';
+import 'package:fastkart/views/pages/category/category_screen.dart';
+import 'package:fastkart/views/pages/home_screen/home.dart';
+import 'package:fastkart/views/pages/myWishlist/mywishlist_screen.dart';
+import 'package:fastkart/views/pages/offers/offers_screen.dart';
+import 'package:fastkart/views/pages/search/search_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AppController extends GetxController {
   AppTheme _appTheme = AppTheme.fromType(ThemeType.light);
   bool _isLoading = false;
+  int drawerSelectedIndex = 0;
+  int selectedIndex = 0;
+  bool isTheme = false;
 
   AppTheme get appTheme => _appTheme;
+
   bool get isLoading => _isLoading;
+  final getStorage = GetStorage();
+
+  //list of bottomnavigator page
+  List<Widget> widgetOptions = <Widget>[
+    HomeLayout(),
+    CategoryScreen(),
+    SearchScreen(),
+    OfferScreen(),
+    MyWishListScreen(),
+  ];
 
   @override
   void onReady() {
-    updateTheme(AppTheme.fromType(ThemeType.light));
+    //updateTheme(AppTheme.fromType(ThemeType.light));
+    bool _loadThemeFromStorage() => getStorage.read('isDarkMode') ?? false;
+    print('isDarkMode L ${_loadThemeFromStorage()}');
+    if (_loadThemeFromStorage()) {
+      isTheme = true;
+    } else {
+      isTheme = false;
+    }
+    update();
+    ThemeService().switchTheme();
     super.onReady();
   }
 
@@ -26,6 +57,11 @@ class AppController extends GetxController {
 
   void hideLoading() {
     _isLoading = false;
+    update();
+  }
+
+  onSelectIndex(index) {
+    drawerSelectedIndex = index;
     update();
   }
 }

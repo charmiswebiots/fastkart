@@ -20,12 +20,12 @@ class IconButtonWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(AppScreenUtil().size(12)),
       decoration: BoxDecoration(
-          color: appCtrl.appTheme.lightGray,
+          color: appCtrl.appTheme.socialColor,
           borderRadius: BorderRadius.circular(5)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(icon!),
+          Image.asset(icon!,height: AppScreenUtil().screenHeight(20),),
           Space(10, 0),
           textWidget!
 

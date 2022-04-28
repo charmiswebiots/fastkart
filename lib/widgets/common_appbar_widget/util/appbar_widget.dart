@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 class AppBarWidget{
 
   //common icon image layout
-  Widget commonIconImage({String? image,double? height,GestureTapCallback? onTap}){
+  Widget commonIconImage({String? image,double? height,GestureTapCallback? onTap,var color}){
     return InkWell(
         onTap:onTap,
-        child: Image.asset(image!,height: height  ,));
+        child: Image.asset(image!,height: height ,color: color,));
   }
 
   //back to home widget

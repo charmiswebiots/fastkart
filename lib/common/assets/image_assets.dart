@@ -2,13 +2,19 @@ class ImageAssets {
   final String noImageBanner = 'assets/images/placeholder.jpg';
   final String noInternet = 'assets/images/nointernet.png';
   final String corner = 'assets/images/corner.png';
+  final String usersquare = 'assets/images/usersquare.png';
 
   final String backgroundImage = 'assets/backgroundImages/backgroundImage.png';
   final String splashBGImage = 'assets/backgroundImages/splashBGImage.png';
   final String onboardingImage = 'assets/backgroundImages/onboardingImage.png';
+  final String recentBoughtBG = 'assets/backgroundImages/recentBoughtBG.png';
+  final String themeRecentBoughtBG = 'assets/backgroundImages/themeRecentBoughtBG.png';
+  final String offerBG = 'assets/backgroundImages/offerBG.png';
+  final String themeOfferBG = 'assets/backgroundImages/themeOfferBG.png';
   final String logo = 'assets/images/logo.png';
   final String noPageFoundImage = 'assets/images/404.png';
   final String smallLogoImage = 'assets/images/smallLogo.png';
+  final String themeLogo = 'assets/images/themeLogo.png';
 
   //recent bought images
   final String recentBought1 = 'assets/recentBought/recentBought1.png';
@@ -40,6 +46,33 @@ class ImageAssets {
   final String lowestPrice1 = 'assets/lowestPrice/lowestPrice1.png';
   final String lowestPrice2 = 'assets/lowestPrice/lowestPrice2.png';
   final String lowestPrice3 = 'assets/lowestPrice/lowestPrice3.png';
-  final String lowestPrice4 = 'assets/lowestPrice/lowestPrice4.png';
-  final String lowestPrice5 = 'assets/lowestPrice/lowestPrice5.png';
+
+  //everyday Essential image
+  final String everyDay1 = 'assets/everyDayEssential/everyDay1.png';
+  final String everyDay2 = 'assets/everyDayEssential/everyDay2.png';
+  final String everyDay3 = 'assets/everyDayEssential/everyDay3.png';
+
+
+  //coupon image
+  final String coupon1 = 'assets/coupon/gpay_icon.png';
+  final String coupon2 = 'assets/coupon/venmo.png';
+  final String coupon3 = 'assets/coupon/paypal.png';
+  final String offerBG1 = 'assets/coupon/offerBG1.png';
+  final String offerBG2 = 'assets/coupon/offerBG2.png';
+  final String offerBG3 = 'assets/coupon/offerBG3.png';
+  final String themeOfferBG1 = 'assets/coupon/themeOfferBG1.png';
+  final String themeOfferBG2 = 'assets/coupon/themeOfferBG2.png';
+  final String themeOfferBG3 = 'assets/coupon/themeOfferBG3.png';
+
+  //subCategoryImages
+  final String subCategory1 = 'assets/subCategory/vegetables.png';
+  final String subCategory2 = 'assets/subCategory/fruits.png';
+  final String subCategory3 = 'assets/subCategory/herbs.png';
+  final String subCategory4 = 'assets/subCategory/herbs1.png';
+  final String subCategory5 = 'assets/subCategory/sprouts.png';
+  final String subCategory6 = 'assets/subCategory/flowers.png';
+  final String subCategory7 = 'assets/subCategory/exoticFruits.png';
+  final String subCategory8 = 'assets/subCategory/organic.png';
+  final String subCategory9 = 'assets/subCategory/cutFruits.png';
+  final String subCategory10 = 'assets/subCategory/bouquets.png';
 }

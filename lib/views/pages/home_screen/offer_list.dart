@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/controllers/home_controller.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,9 @@ class OfferListCard extends StatelessWidget {
       ? Get.find<AppController>()
       : Get.put(AppController());
   var data;
-  OfferListCard({Key? key,this.data}) : super(key: key);
+  GestureTapCallback? minusTap;
+  GestureTapCallback? plusTap;
+  OfferListCard({Key? key,this.data,this.plusTap,this.minusTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class OfferListCard extends StatelessWidget {
       ),
       padding: EdgeInsets.symmetric(
           vertical: AppScreenUtil().screenHeight(15),
-          horizontal: AppScreenUtil().screenHeight(20)),
+          horizontal: AppScreenUtil().screenHeight(15)),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
           color: appCtrl.appTheme.whiteColor,
@@ -32,13 +35,16 @@ class OfferListCard extends StatelessWidget {
               data['image'].toString(),
               fit: BoxFit.fill,
               height: AppScreenUtil().size(45),
-              width: AppScreenUtil().size(45),
+              width: AppScreenUtil().size(50),
             ),
+            Space(5, 0),
             VerticalDivider(
               color: appCtrl.appTheme.contentColor.withOpacity(.5),
               width: 5,
+
               thickness: 1,
             ),
+            Space(5, 0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -67,7 +73,7 @@ class OfferListCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20)
                       ),
                       margin: EdgeInsets.only(left: AppScreenUtil().screenHeight(5)),
-                      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(12),vertical: AppScreenUtil().screenHeight(5)),
+                      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(10),vertical: AppScreenUtil().screenHeight(3)),
                       child:  HomeFontStyle().mulishtextLayout(
                         text: data['discount'].toString(),
                         fontSize:10,
@@ -81,15 +87,19 @@ class OfferListCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
                           border: Border.all(color: appCtrl.appTheme.lightPrimary)
                       ),
-                      child: Row(
+                      child:GetBuilder<HomeController>(builder: (controller) => Row(
                         children: [
-                          Icon(Icons.remove,size: 18,),
+                          InkWell(
+                              onTap: minusTap,
+                              child: Icon(Icons.remove,size: 18,)),
                           Space(10,0),
-                          Text('1'),
+                          Text(data['quantity'].toString()),
                           Space(10,0),
-                          Icon(Icons.add,size: 18),
+                          InkWell(
+                              onTap: plusTap,
+                              child: Icon(Icons.add,size: 18)),
                         ],
-                      ),
+                      ),),
                     )
                   ],
                 )
