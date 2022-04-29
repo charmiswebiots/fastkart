@@ -1,19 +1,21 @@
 //text constants
-class OfferFont{
+class ShopFont{
    String searchProduct= 'Search Products here..';
-   String recentlySearch= 'Recently Search';
-   String trendingCategory= 'Trending category';
-   String trendingProducts= 'Trending Products';
-   String termsConditions= 'Terms & conditions';
-   String copyCode= "Copy Code";
+   String priceRange= 'Price Range';
+   String packSize= 'Pack Size';
+   String reset= 'Reset';
+   String category= 'Category';
+   String viewCart= "View Cart";
    String filter= "Filter";
+   String close= "Close";
+   String cancel = "Cancel";
    String dollar = "\$";
 
 }
 
 
 //font size
-class OfferFontSize{
+class ShopFontSize{
   static const  double textXSizeSmall = 10.0;
   static const  double textSizeSmall = 12.0;
   static const  double textSizeSMedium = 14.0;

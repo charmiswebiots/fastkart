@@ -64,7 +64,7 @@ class _HomeMediumScreenState extends State<HomeMediumScreen> {
                       Space(0, 20),
 
                       //Banner
-                      BannerList(),
+                      BannerList(onTap: () => Get.toNamed(routeName.shopScreen),),
                       Space(0, 20),
                       //recent bought widget
                       RecentBoughtList(

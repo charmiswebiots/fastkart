@@ -16,11 +16,17 @@ class SearchController extends GetxController{
 
   //quantity decrement function
   minusTap(index){
-    if (offerList[index]['qty'] != 0) {
-      int count = int.parse(offerList[index]['quantity'].toString());
-      count = count - 1;
-      offerList[index]['quantity'] = count.toString();
-      update();
+    if (offerList[index]['quantity'] != 0) {
+      print(offerList[index]['quantity']);
+      if(offerList[index]['quantity'] == "0"){
+        offerList[index]['quantity'] = "0";
+        update();
+      }else {
+        int count = int.parse(offerList[index]['quantity'].toString());
+        count = count - 1;
+        offerList[index]['quantity'] = count.toString();
+        update();
+      }
     }
   }
 

@@ -26,4 +26,5 @@ class IconAssets {
   final String setting = 'assets/icons/setting.png';
   final String darkTheme = 'assets/icons/darkTheme.png';
   final String arrowBack = 'assets/icons/arrowBack.png';
+  final String delete = 'assets/icons/delete.png';
 }

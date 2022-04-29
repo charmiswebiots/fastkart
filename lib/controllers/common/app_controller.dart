@@ -33,33 +33,48 @@ class AppController extends GetxController {
   @override
   void onReady() {
     //updateTheme(AppTheme.fromType(ThemeType.light));
-    bool _loadThemeFromStorage() => getStorage.read('isDarkMode') ?? false;
-    print('isDarkMode L ${_loadThemeFromStorage()}');
-    if (_loadThemeFromStorage()) {
+    getData();
+    super.onReady();
+  }
+
+  //get theme value
+  getData() async {
+    bool _loadThemeFromStorage = await getStorage.read('isDarkMode') ?? false;
+    print('isDarkMode L ${_loadThemeFromStorage}');
+    if (_loadThemeFromStorage) {
       isTheme = true;
     } else {
       isTheme = false;
     }
     update();
-    ThemeService().switchTheme();
-    super.onReady();
+    await getStorage.write("isDarkMode", isTheme);
+
+    ThemeService().switchTheme(isTheme);
+
+    Get.forceAppUpdate();
+    bool dddd = await getStorage.read('isDarkMode');
+    print('ddddd ${dddd}');
   }
 
+  //update theme
   updateTheme(theme) {
     _appTheme = theme;
     Get.forceAppUpdate();
   }
 
+  //show loader
   void showLoading() {
     _isLoading = true;
     update();
   }
 
+  //hide loader
   void hideLoading() {
     _isLoading = false;
     update();
   }
 
+  //on drawer change function
   onSelectIndex(index) {
     drawerSelectedIndex = index;
     update();

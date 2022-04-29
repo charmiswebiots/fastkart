@@ -276,6 +276,30 @@ class AppArray {
     }
   ];
 
+  //shop category list
+  final shopCategoryList = [
+    {
+      'title': 'Fresh Vegetables',
+      'id': 1,
+    },
+    {
+      'title': 'Herbs & Seasonings',
+      'id': 2,
+    },
+    {
+      'title': 'Fresh Fruit',
+      'id': 3,
+    },
+    {
+      'title': 'Drinks& Beverages',
+      'id': 4,
+    },
+    {
+      'title': 'Instant Mixes',
+      'id': 5,
+    },
+  ];
+
   //offer list
   final myOfferList = [
     {
@@ -315,4 +339,88 @@ class AppArray {
       "code": "SCD450"
     },
   ];
+
+  //shop lists
+  var shopList = [
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.offer1,
+      'quantity': 0,
+      'categoryId': 1
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.offer2,
+      'quantity': 0,
+      'categoryId': 1
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.offer3,
+      'quantity': 0,
+      'categoryId': 1
+    },
+    {
+      'name': '100% Organic, Best Quality,\nBest price',
+      'image': imageAssets.shopListImage,
+      'categoryId': 1
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.lowestPrice3,
+      'quantity': 0,
+      'categoryId': 2
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.lowestPrice2,
+      'quantity': 0,
+      'categoryId': 2
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.everyDay3,
+      'quantity': 0,
+      'categoryId': 3
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.everyDay1,
+      'quantity': 0,
+      'categoryId': 3
+    },
+    {
+      'name': 'Assorted Capsicum Combo',
+      'description': '500g',
+      'price': '25.00',
+      'discount': '50% off',
+      'image': imageAssets.offer3,
+      'quantity': 0,
+      'categoryId': 4
+    },
+  ];
+
+  //package size
+  var packageSizeList =[{"title" : "100g-500g"},{"title" : "500g-1kg"},{"title" : "1kg-1.5kg"},{"title" : "1.5kg-2kg"},];
 }

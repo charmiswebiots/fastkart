@@ -15,39 +15,32 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   var splashCtrl = Get.put(SplashController());
-
+  var appCtrl = Get.isRegistered<AppController>()
+      ? Get.find<AppController>()
+      : Get.put(AppController());
 
   @override
   void initState() {
     // TODO: implement initState
-   getTheme();
+ //  getTheme();
     super.initState();
-  }
-
-  getTheme()async{
-    bool _loadThemeFromStorage = await splashCtrl.storage.read('isDarkMode') ?? false;
-    print('isDarkMode : ${_loadThemeFromStorage}');
-    splashCtrl.update();
-    if (_loadThemeFromStorage) {
-      splashCtrl.isTheme = true;
-    } else {
-      splashCtrl.isTheme = false;
-    }
-    splashCtrl.update();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GetBuilder<SplashController>(builder: (_) => Stack(
-        children:  [
-          //Back Image Layout
-          SplashWidget().backgroundImage(image: imageAssets.splashBGImage,height: 1.6,context: context),
-          //splash logo Layout
-          splashCtrl.isTheme ?SplashWidget().splashLogo(image: imageAssets.themeLogo,width: 3.5,context: context) :SplashWidget().splashLogo(image: imageAssets.logo,width: 4,context: context)
+    return GetBuilder<AppController>(builder: (cntrl) {
+        return Scaffold(
+          body: GetBuilder<SplashController>(builder: (_) => Stack(
+            children:  [
+              //Back Image Layout
+              SplashWidget().backgroundImage(image: imageAssets.splashBGImage,height: 1.6,context: context),
+              //splash logo Layout
+              appCtrl.isTheme ?SplashWidget().splashLogo(image: imageAssets.themeLogo,width: 3.5,context: context) :SplashWidget().splashLogo(image: imageAssets.logo,width: 4,context: context)
 
-        ],
-      ),),
+            ],
+          ),),
+        );
+      }
     );
   }
 }

@@ -7,5 +7,6 @@ class RouteName {
   final String changeTheme = '/changeTheme';
   final String signup = '/signup';
   final String error404page = '/error404page';
+  final String shopScreen = '/shopScreen';
   final noInternet = '/noInternet';
 }

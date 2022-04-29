@@ -76,7 +76,7 @@ class DrawerScreen extends StatelessWidget {
                                 onToggle: (val) {
                                   appCtrl.isTheme = val;
                                   appCtrl.update();
-                                  ThemeService().switchTheme();
+                                  ThemeService().switchTheme(val);
                                 },
                                 activeIconColor: appCtrl.appTheme.green,
                                 onTap: () {

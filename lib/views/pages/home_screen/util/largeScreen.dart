@@ -71,7 +71,7 @@ class _HomeLagreScreenState extends State<HomeLagreScreen> {
                       Space(0, 20),
 
                       //Banner
-                      BannerList(),
+                      BannerList(onTap: () => Get.toNamed(routeName.shopScreen),),
                       Space(0, 20),
                       //recent bought widget
                       RecentBoughtList(

@@ -15,6 +15,9 @@ class ImageAssets {
   final String noPageFoundImage = 'assets/images/404.png';
   final String smallLogoImage = 'assets/images/smallLogo.png';
   final String themeLogo = 'assets/images/themeLogo.png';
+  final String fkLogo = 'assets/images/fkLogo.png';
+  final String themeFkLogo = 'assets/images/themeFkLogo.png';
+  final String shopListImage = 'assets/images/shopListImage.png';
 
   //recent bought images
   final String recentBought1 = 'assets/recentBought/recentBought1.png';

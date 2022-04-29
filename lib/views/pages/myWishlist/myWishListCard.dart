@@ -1,19 +1,36 @@
-import 'package:fastkart/config.dart';
-import 'package:fastkart/controllers/home_controller.dart';
-import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
-import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
+import 'package:fastkart/controllers/mywishlist_controller.dart';
+import 'package:fastkart/controllers/search_controller.dart';
+import 'package:fastkart/views/pages/myWishlist/util/mywishlist_constants.dart';
+import 'package:fastkart/views/pages/myWishlist/util/mywishlist_fontstyle.dart';
 import 'package:flutter/material.dart';
 
-class OfferListCard extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>()
-      ? Get.find<AppController>()
-      : Get.put(AppController());
+import '../../../config.dart';
+
+class MyWishListCard extends StatelessWidget {
   var data;
+  var containerboxColor;
+  var dividerColor;
+  var titleColor;
+  var descriptionColor;
+  var discountBoxColor;
+  var discountTextColor;
+  var quantityBorderColor;
   GestureTapCallback? minusTap;
   GestureTapCallback? plusTap;
 
-  OfferListCard({Key? key, this.data, this.plusTap, this.minusTap})
-      : super(key: key);
+  MyWishListCard({
+    Key? key,
+    this.data,
+    this.titleColor,
+    this.containerboxColor,
+    this.descriptionColor,
+    this.discountBoxColor,
+    this.dividerColor,
+    this.discountTextColor,
+    this.quantityBorderColor,
+    this.minusTap,
+    this.plusTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +40,14 @@ class OfferListCard extends StatelessWidget {
       ),
       padding: EdgeInsets.symmetric(
           vertical: AppScreenUtil().screenHeight(15),
-          horizontal: AppScreenUtil().screenHeight(15)),
+          horizontal: AppScreenUtil().screenHeight(10)),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-          color: appCtrl.appTheme.whiteColor,
-          borderRadius:
-              BorderRadius.circular(AppScreenUtil().borderRadius(10))),
+        color: containerboxColor,
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(AppScreenUtil().borderRadius(10)),
+            bottomLeft: Radius.circular(AppScreenUtil().borderRadius(10))),
+      ),
       child: IntrinsicHeight(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,12 +55,12 @@ class OfferListCard extends StatelessWidget {
             Image.asset(
               data['image'].toString(),
               fit: BoxFit.fill,
-              height: AppScreenUtil().size(45),
-              width: AppScreenUtil().size(50),
+              height: AppScreenUtil().screenHeight(45),
+              width: AppScreenUtil().screenWidth(50),
             ),
             Space(5, 0),
             VerticalDivider(
-                color: appCtrl.appTheme.contentColor.withOpacity(.5),
+                color: dividerColor,
                 width: 5,
                 indent: 10,
                 endIndent: 10,
@@ -50,35 +69,34 @@ class OfferListCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HomeFontStyle().mulishtextLayout(
-                    text: data['name'],
-                    fontSize: 13,
-                    color: appCtrl.appTheme.titleColor),
+                MyWishListFontStyle().mulishtextLayout(
+                    text: data['name'], fontSize: 13, color: titleColor),
                 Space(0, 2),
-                HomeFontStyle().mulishtextLayout(
+                MyWishListFontStyle().mulishtextLayout(
                     text: data['description'],
                     fontSize: 13,
-                    color: appCtrl.appTheme.darkContentColor),
+                    color: descriptionColor),
                 Row(
                   children: [
-                    HomeFontStyle().mulishtextLayout(
-                        text: HomeFont().dollar + data['price'].toString(),
+                    MyWishListFontStyle().mulishtextLayout(
+                        text:
+                            MyWishListFont().dollar + data['price'].toString(),
                         fontSize: 12,
-                        color: appCtrl.appTheme.titleColor,
+                        color: titleColor,
                         fontWeight: FontWeight.w700),
                     Container(
                       decoration: BoxDecoration(
-                          color: appCtrl.appTheme.primary,
+                          color: discountBoxColor,
                           borderRadius: BorderRadius.circular(20)),
                       margin: EdgeInsets.only(
                           left: AppScreenUtil().screenHeight(5)),
                       padding: EdgeInsets.symmetric(
                           horizontal: AppScreenUtil().screenWidth(10),
                           vertical: AppScreenUtil().screenHeight(3)),
-                      child: HomeFontStyle().mulishtextLayout(
+                      child: MyWishListFontStyle().mulishtextLayout(
                         text: data['discount'].toString(),
                         fontSize: 10,
-                        color: appCtrl.appTheme.whiteColor,
+                        color: discountTextColor,
                       ),
                     ),
                     Space(45, 0),
@@ -87,11 +105,11 @@ class OfferListCard extends StatelessWidget {
                           vertical: AppScreenUtil().screenHeight(8),
                           horizontal: AppScreenUtil().screenWidth(8)),
                       decoration: BoxDecoration(
+                          color: discountTextColor,
                           borderRadius: BorderRadius.circular(
                               AppScreenUtil().borderRadius(5)),
-                          border:
-                              Border.all(color: appCtrl.appTheme.lightPrimary)),
-                      child: GetBuilder<HomeController>(
+                          border: Border.all(color: quantityBorderColor)),
+                      child: GetBuilder<MyWishListController>(
                         builder: (controller) => Row(
                           children: [
                             InkWell(
