@@ -49,6 +49,7 @@ class AppTheme {
   Color wishtListBoxColor;
   Color redColor;
   Color popUpColor;
+  Color lowestBgColor;
 
 
   /// Default constructor
@@ -91,6 +92,7 @@ class AppTheme {
     required this.wishtListBoxColor,
     required this.redColor,
     required this.popUpColor,
+    required this.lowestBgColor,
   });
 
   /// fromType factory constructor
@@ -136,6 +138,7 @@ class AppTheme {
           wishtListBoxColor: const Color(0xFFFAFAFA),
           redColor: Colors.red,
           popUpColor: Colors.white,
+          lowestBgColor: const Color(0xFFEDF8F8),
         );
 
       case ThemeType.dark:
@@ -178,6 +181,7 @@ class AppTheme {
           wishtListBoxColor: const Color(0xFF262B2F),
           redColor: Colors.red,
           popUpColor: const Color(0xFF1F2427),
+          lowestBgColor: const Color(0xFF262B2F),
         );
     }
   }

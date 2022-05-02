@@ -44,7 +44,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 ShopWidget().appBarActionLayout(),
               ],
             ),
-            backgroundColor: shopCtrl.appCtrl.appTheme.blackColor,
+            backgroundColor: shopCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
                 overscroll.disallowGlow();

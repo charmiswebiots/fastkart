@@ -8,5 +8,8 @@ class RouteName {
   final String signup = '/signup';
   final String error404page = '/error404page';
   final String shopScreen = '/shopScreen';
+  final String productDetail = '/productDetail';
+  final String myCart = '/myCart';
+  final String addAddress = '/addAddress';
   final noInternet = '/noInternet';
 }

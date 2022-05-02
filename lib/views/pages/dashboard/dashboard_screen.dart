@@ -39,36 +39,51 @@ class _DashboardState extends State<Dashboard> {
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(AppScreenUtil().screenHeight(300)),
             child: CommonAppBar1(
-              onTap: () async{
+              onTap: () async {
                 print('tap');
                 print(appCtrl.selectedIndex);
-                if(appCtrl.selectedIndex == 3){
+                if (appCtrl.selectedIndex == 3) {
                   int index = await appCtrl.getStorage.read('selectedIndex');
                   print(index);
                   appCtrl.selectedIndex = index;
                   appCtrl.update();
-                }else {
+                }
+                if (appCtrl.selectedIndex == 4) {
+                  appCtrl.selectedIndex = 3;
+                  appCtrl.update();
+                } else {
                   _scaffoldKey.currentState!.openDrawer();
                 }
               },
               isTheme: appCtrl.isTheme,
               borderColor: appCtrl.appTheme.titleColor,
               color: appCtrl.appTheme.titleColor,
-              isWishListText: appCtrl.selectedIndex == 4 ? true :false,
+              isWishListText: appCtrl.selectedIndex == 4 ? true : false,
               isCart: appCtrl.selectedIndex == 1 ? true : false,
-              isLocation: (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2 )? true : false,
-              isback: (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4 )? true : false,
-              isCategory: (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 1 || appCtrl.selectedIndex == 2 )? true : false,
-              isHome: (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4 )? true : false,
+              isLocation:
+                  (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
+                      ? true
+                      : false,
+              isback: (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4)
+                  ? true
+                  : false,
+              isCategory: (appCtrl.selectedIndex == 0 ||
+                      appCtrl.selectedIndex == 1 ||
+                      appCtrl.selectedIndex == 2)
+                  ? true
+                  : false,
+              isHome: (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4)
+                  ? true
+                  : false,
             ),
           ),
           bottomNavigationBar: BottomNavigatorCard(
             selectedIndex: appCtrl.selectedIndex,
-            onTap: (val) async{
-              await appCtrl.getStorage.write('selectedIndex',  appCtrl.selectedIndex);
+            onTap: (val) async {
+              await appCtrl.getStorage
+                  .write('selectedIndex', appCtrl.selectedIndex);
               appCtrl.selectedIndex = val;
               appCtrl.update();
-
             },
           ),
           body: appCtrl.widgetOptions.elementAt(appCtrl.selectedIndex),

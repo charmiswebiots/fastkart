@@ -50,15 +50,19 @@ class CommonAppBar1 extends StatelessWidget {
                 InkWell(
                   onTap: onTap,
                   child: Container(
-                    height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 22 :30),
-                    width: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 22 :30),
-                    padding: EdgeInsets.all(AppScreenUtil().size(5)),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: borderColor,width: 2),
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                    child: Icon(Icons.arrow_back_sharp,size: AppScreenUtil().size(12),color: color,),
+                    height: AppScreenUtil().screenHeight(
+                        AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
+                    width: AppScreenUtil().screenHeight(
+                        AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
 
+                    decoration: BoxDecoration(
+                        border: Border.all(color: borderColor, width: 1.5),
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Icon(
+                      Icons.arrow_back_sharp,
+                      size: AppScreenUtil().size(14),
+                      color: color,
+                    ),
                   ),
                 ),
               Space(10, 0),

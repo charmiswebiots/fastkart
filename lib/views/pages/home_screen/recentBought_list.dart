@@ -75,19 +75,22 @@ class RecentBoughtList extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.only(right: AppScreenUtil().size(15)),
-                        padding: EdgeInsets.symmetric(
-                            vertical: AppScreenUtil().size(12),
-                            horizontal: AppScreenUtil().size(12)),
-                        decoration: BoxDecoration(
-                            color: listcontainercolor,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Image.asset(
-                          list[index]['image'].toString(),
-                          fit: BoxFit.fill,
-                          height: AppScreenUtil().size(30),
-                          width: AppScreenUtil().size(30),
+                      return InkWell(
+                        onTap: () => Get.toNamed(routeName.productDetail),
+                        child: Container(
+                          margin: EdgeInsets.only(right: AppScreenUtil().size(15)),
+                          padding: EdgeInsets.symmetric(
+                              vertical: AppScreenUtil().size(12),
+                              horizontal: AppScreenUtil().size(12)),
+                          decoration: BoxDecoration(
+                              color: listcontainercolor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Image.asset(
+                            list[index]['image'].toString(),
+                            fit: BoxFit.fill,
+                            height: AppScreenUtil().size(30),
+                            width: AppScreenUtil().size(30),
+                          ),
                         ),
                       );
                     },

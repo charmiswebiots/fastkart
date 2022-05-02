@@ -422,5 +422,77 @@ class AppArray {
   ];
 
   //package size
-  var packageSizeList =[{"title" : "100g-500g"},{"title" : "500g-1kg"},{"title" : "1kg-1.5kg"},{"title" : "1.5kg-2kg"},];
+  var packageSizeList = [
+    {"title": "100g-500g"},
+    {"title": "500g-1kg"},
+    {"title": "1kg-1.5kg"},
+    {"title": "1.5kg-2kg"},
+  ];
+
+  //quantity list
+  var quantityList = [
+    {"title": "500 g / \$24.00"},
+    {"title": "700 g / \$34.00"},
+    {"title": "100 g / \$48.00"},
+    {"title": "1.5 Kg / \$70.00"},
+    {"title": "2 Kg / \$100.00"},
+    {"title": "5 Kg / \$150.00"},
+  ];
+
+  //deliveryTime list
+  var deliveryTimeList = [
+    {"title": "7 Am"},
+    {"title": "9 Am"},
+    {"title": "11 Am"},
+    {"title": "5 Pm"},
+    {"title": "7 Pm"},
+    {"title": "9 Pm"},
+  ];
+
+  var detailList = [
+
+      {
+        "title": "Product Details",
+        'desc':
+            'Refillable, Reusable, High Quality Glass Roll on Bottles with Silver cap For Essential Oil Blends DIY Perfume Cosmetics Beauty Products Ideal',
+        'isShow' :false
+      },
+      {
+        "title": "Manufacturer Details",
+        'desc':
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
+        'isShow' :false
+      },
+      {
+        "title": "Product Disclaimer",
+        'desc':
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
+        'isShow' :false
+      },
+      {
+        "title": "Features & details",
+        'desc':
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
+        'isShow' :false
+      },
+
+  ];
+
+  var reviewList =[{
+    'name':'Andrea Joanne',
+    'rating':4,
+    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+  },{
+    'name':'Andrea Joanne',
+    'rating':4,
+    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+  },{
+    'name':'Andrea Joanne',
+    'rating':4,
+    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+  },{
+    'name':'Andrea Joanne',
+    'rating':4,
+    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+  },];
 }

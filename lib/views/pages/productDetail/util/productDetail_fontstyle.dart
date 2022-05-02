@@ -1,13 +1,13 @@
 import 'package:fastkart/config.dart';
 import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/myWishlist/util/mywishlist_constants.dart';
+import 'package:fastkart/views/pages/productDetail/util/productDetail_constants.dart';
 
-class MyWishListFontStyle {
+class ProductDetailFontStyle {
 //nunito font family text layout
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = MyWishListFontSize.textSizeMedium,
+      double fontSize = ProductDetailFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
@@ -18,7 +18,7 @@ class MyWishListFontStyle {
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = MyWishListFontSize.textSizeMedium,
+    double fontSize = ProductDetailFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -27,14 +27,19 @@ class MyWishListFontStyle {
   }) {
     return InkWell(
       onTap: onTap,
-      child: Text(text!,
-          overflow: overflow,
-          textAlign: textAlign,
-          style: AppCss().mulishTextStyle(
-              color: color,
-              fontWeight: fontWeight,
-              fontSize: AppScreenUtil().fontSize(fontSize),
-              textDecoration: textDecoration)),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: AppScreenUtil().screenWidth(15),
+            ),
+        child: Text(text!,
+            overflow: overflow,
+            textAlign: textAlign,
+            style: AppCss().mulishTextStyle(
+                color: color,
+                fontWeight: fontWeight,
+                fontSize: AppScreenUtil().fontSize(fontSize),
+                textDecoration: textDecoration)),
+      ),
     );
   }
 
@@ -42,15 +47,15 @@ class MyWishListFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = MyWishListFontSize.textSizeMedium,
-        FontWeight fontWeight = FontWeight.normal}) {
+        double fontSize = ProductDetailFontSize.textSizeMedium,
+        FontWeight fontWeight = FontWeight.normal,TextAlign textAlign = TextAlign.left}) {
     return Text(
       text!,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: AppCss().quicksandTextStyle(
           color: color,
           fontSize:  AppScreenUtil().fontSize(fontSize),
-          fontWeight:fontWeight
+          fontWeight:fontWeight,
       ),
     );
   }

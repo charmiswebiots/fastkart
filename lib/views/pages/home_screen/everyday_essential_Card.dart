@@ -13,7 +13,8 @@ class EveryDayEssentialCard extends StatelessWidget {
   var primaryColor;
   var iconColor;
   var shadowColor;
-  EveryDayEssentialCard({Key? key,this.index,this.containerBorderColor,this.boxColor,this.data,this.descriptionColor,this.priceColor,this.primaryColor,this.iconColor,this.shadowColor}) : super(key: key);
+  var quantityColor;
+  EveryDayEssentialCard({Key? key,this.index,this.containerBorderColor,this.boxColor,this.data,this.descriptionColor,this.priceColor,this.primaryColor,this.iconColor,this.shadowColor,this.quantityColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,18 +1,25 @@
 //text constants
-class MyWishListFont{
+class MyCartFont{
    String searchProduct= 'Search Products here..';
    String recentlySearch= 'Recently Search';
    String trendingCategory= 'Trending category';
    String trendingProducts= 'Trending Products';
    String termsConditions= 'Terms & conditions';
    String copyCode= "Copy Code";
+   String orderDetails= "Order Details";
+   String bagTotal= "Bag total";
+   String delivery= "Delivery";
+   String totalAmount= "Total Amount";
+   String couponDiscount= "Coupon Discount";
+   String bagSavings= "Bag savings";
+   String proceedtoCheckout= "Proceed to Checkout";
    String dollar = "\$";
 
 }
 
 
 //font size
-class MyWishListFontSize{
+class MyCartFontSize{
   static const  double textXSizeSmall = 10.0;
   static const  double textSizeSmall = 12.0;
   static const  double textSizeSMedium = 14.0;

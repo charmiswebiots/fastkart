@@ -1,44 +1,13 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/myWishlist/util/mywishlist_constants.dart';
-import 'package:fastkart/views/pages/myWishlist/util/mywishlist_fontstyle.dart';
+import 'package:fastkart/views/pages/myWishList/util/myWishList_fontstyle.dart';
+import 'package:fastkart/views/pages/myWishList/util/myWishList_fontstyle.dart';
+import 'package:fastkart/views/pages/myWishList/util/mywishlist_constants.dart';
+import 'package:fastkart/views/pages/myWishList/util/mywishlist_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
-class MyWishlistWidget {
-  //textformfield layout
-  Widget textFieldLayout(
-      {String? text,
-      fillcolor,
-      borderColor,
-      hintColor,
-      Widget? suffixIcon,
-      Widget? prefixIcon}) {
-    return TextField(
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(
-              vertical: 0, horizontal: AppScreenUtil().screenWidth(20)),
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
-          fillColor: fillcolor,
-          filled: true,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
-          ),
-          hintText: text,
-          hintStyle: TextStyle(
-              fontSize: AppScreenUtil().fontSize(15),
-              color: hintColor,
-              fontFamily: GoogleFonts.mulish().fontFamily)),
-    );
-  }
+class MyWishListWidget {
+
 
   //popup detail layout
   Widget bottomSheetLayout({Widget? child,var primaryColor}){
@@ -89,4 +58,15 @@ class MyWishlistWidget {
           fontWeight: FontWeight.bold),
     );
   }
+
+  //common text layout
+  Widget commonTextLayout({String? text, var color, var fontWeight}){
+    return MyWishListFontStyle().mulishtextLayout(
+        text: text,
+        color:
+        color,
+        fontSize: MyWishListFontSize.textSizeSMedium,
+        fontWeight: fontWeight);
+  }
+
 }

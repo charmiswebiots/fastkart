@@ -1,12 +1,11 @@
-import 'package:fastkart/controllers/mywishlist_controller.dart';
-import 'package:fastkart/controllers/search_controller.dart';
-import 'package:fastkart/views/pages/myWishlist/util/mywishlist_constants.dart';
-import 'package:fastkart/views/pages/myWishlist/util/mywishlist_fontstyle.dart';
+import 'package:fastkart/controllers/mycart_controller.dart';
+import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
+import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../config.dart';
 
-class MyWishListCard extends StatelessWidget {
+class MyCartCard extends StatelessWidget {
   var data;
   var containerboxColor;
   var dividerColor;
@@ -18,7 +17,7 @@ class MyWishListCard extends StatelessWidget {
   GestureTapCallback? minusTap;
   GestureTapCallback? plusTap;
 
-  MyWishListCard({
+  MyCartCard({
     Key? key,
     this.data,
     this.titleColor,
@@ -69,18 +68,18 @@ class MyWishListCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyWishListFontStyle().mulishtextLayout(
+                MyCartFontStyle().mulishtextLayout(
                     text: data['name'], fontSize: 13, color: titleColor),
                 Space(0, 2),
-                MyWishListFontStyle().mulishtextLayout(
+                MyCartFontStyle().mulishtextLayout(
                     text: data['description'],
                     fontSize: 13,
                     color: descriptionColor),
                 Row(
                   children: [
-                    MyWishListFontStyle().mulishtextLayout(
+                    MyCartFontStyle().mulishtextLayout(
                         text:
-                            MyWishListFont().dollar + data['price'].toString(),
+                            MyCartFont().dollar + data['price'].toString(),
                         fontSize: 12,
                         color: titleColor,
                         fontWeight: FontWeight.w700),
@@ -93,7 +92,7 @@ class MyWishListCard extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: AppScreenUtil().screenWidth(10),
                           vertical: AppScreenUtil().screenHeight(3)),
-                      child: MyWishListFontStyle().mulishtextLayout(
+                      child: MyCartFontStyle().mulishtextLayout(
                         text: data['discount'].toString(),
                         fontSize: 10,
                         color: discountTextColor,
@@ -109,7 +108,7 @@ class MyWishListCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(
                               AppScreenUtil().borderRadius(5)),
                           border: Border.all(color: quantityBorderColor)),
-                      child: GetBuilder<MyWishListController>(
+                      child: GetBuilder<MyCartListController>(
                         builder: (controller) => Row(
                           children: [
                             InkWell(

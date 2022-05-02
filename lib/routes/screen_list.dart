@@ -6,3 +6,6 @@ export '../views/pages/404_screen/404_screen.dart';
 export '../views/pages/home_screen/index.dart';
 export '../views/pages/shop/shop_screen.dart';
 export '../views/pages/dashboard/dashboard_screen.dart';
+export '../views/pages/productDetail/productDetail_screen.dart';
+export '../views/pages/myCart/myCart_screen.dart';
+export '../views/pages/addAddress/addAddress_screen.dart';

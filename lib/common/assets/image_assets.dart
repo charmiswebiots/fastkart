@@ -10,6 +10,7 @@ class ImageAssets {
   final String recentBoughtBG = 'assets/backgroundImages/recentBoughtBG.png';
   final String themeRecentBoughtBG = 'assets/backgroundImages/themeRecentBoughtBG.png';
   final String offerBG = 'assets/backgroundImages/offerBG.png';
+  final String myCartBG = 'assets/backgroundImages/myCartBG.png';
   final String themeOfferBG = 'assets/backgroundImages/themeOfferBG.png';
   final String logo = 'assets/images/logo.png';
   final String noPageFoundImage = 'assets/images/404.png';
@@ -18,6 +19,7 @@ class ImageAssets {
   final String fkLogo = 'assets/images/fkLogo.png';
   final String themeFkLogo = 'assets/images/themeFkLogo.png';
   final String shopListImage = 'assets/images/shopListImage.png';
+  final String map = 'assets/images/map.png';
 
   //recent bought images
   final String recentBought1 = 'assets/recentBought/recentBought1.png';

@@ -27,4 +27,6 @@ class IconAssets {
   final String darkTheme = 'assets/icons/darkTheme.png';
   final String arrowBack = 'assets/icons/arrowBack.png';
   final String delete = 'assets/icons/delete.png';
+  final String share = 'assets/icons/share.png';
+  final String star = 'assets/icons/star.png';
 }

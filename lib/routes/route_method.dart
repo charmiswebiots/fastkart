@@ -1,6 +1,8 @@
+
 import 'package:get/get.dart';
 
 //app file
+
 import 'route_name.dart';
 import 'screen_list.dart';
 
@@ -15,5 +17,8 @@ class AppRoute {
     GetPage(name: _routeName.signup, page: () => SignUpScreen()),
     GetPage(name: _routeName.error404page, page: () => Error404Page()),
     GetPage(name: _routeName.shopScreen, page: () => ShopScreen()),
+    GetPage(name: _routeName.productDetail, page: () => ProductDetailScreen()),
+    GetPage(name: _routeName.myCart, page: () => MyCartListScreen()),
+    GetPage(name: _routeName.addAddress, page: () => AddAddress()),
   ];
 }

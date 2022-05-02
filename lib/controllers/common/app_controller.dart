@@ -2,7 +2,7 @@ import 'package:fastkart/common/theme/index.dart';
 import 'package:fastkart/routes/screen_list.dart';
 import 'package:fastkart/views/pages/category/category_screen.dart';
 import 'package:fastkart/views/pages/home_screen/home.dart';
-import 'package:fastkart/views/pages/myWishlist/mywishlist_screen.dart';
+import 'package:fastkart/views/pages/myCart/myCart_screen.dart';
 import 'package:fastkart/views/pages/offers/offers_screen.dart';
 import 'package:fastkart/views/pages/search/search_screen.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,7 @@ class AppController extends GetxController {
     CategoryScreen(),
     SearchScreen(),
     OfferScreen(),
-    MyWishListScreen(),
+    MyCartListScreen(),
   ];
 
   @override
