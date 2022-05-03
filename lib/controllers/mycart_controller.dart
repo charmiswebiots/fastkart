@@ -7,6 +7,7 @@ class MyCartListController extends GetxController{
       : Get.put(AppController());
 
   List offerList = [];
+  bool isAppBar =false;
 
 
   //quantity increment function
@@ -39,11 +40,14 @@ class MyCartListController extends GetxController{
     // TODO: implement onInit
     /*offerList = AppArray().offerList;
     update();*/
-
+    isAppBar  = Get.arguments ?? false;
+    print(isAppBar);
+    update();
     super.onInit();
   }
 
   getData(){
+
     offerList = AppArray().offerList;
     update();
     appCtrl.hideLoading();

@@ -1,13 +1,13 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/addAddress/util/addAddress_constants.dart';
+import 'package:fastkart/views/pages/payment/util/payment_constants.dart';
 import 'package:flutter/material.dart';
 
-class AddAddressFontStyle {
+class PaymentFontStyle {
 //nunito font family text layout
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = AddAddressFontSize.textSizeMedium,
+      double fontSize = PaymentFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
@@ -18,7 +18,7 @@ class AddAddressFontStyle {
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = AddAddressFontSize.textSizeMedium,
+    double fontSize = PaymentFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -42,7 +42,7 @@ class AddAddressFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = AddAddressFontSize.textSizeMedium,
+        double fontSize = PaymentFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal,TextAlign textAlign = TextAlign.left}) {
     return Text(
       text!,

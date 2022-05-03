@@ -43,8 +43,10 @@ class OfferListCard extends StatelessWidget {
                 OfferFontStyle().quicksandtextLayout(
                     text: data['discount'],
                     color: primaryColor,
-                    fontSize: 25,
+                    fontSize: OfferFontSize
+                        .textSizeXLarge,
                     fontWeight: FontWeight.bold),
+                Space(5, 0),
                 Column(
                   mainAxisAlignment:
                   MainAxisAlignment.center,
@@ -56,7 +58,7 @@ class OfferListCard extends StatelessWidget {
                         text: "%",
                         color: primaryColor,
                         fontSize: OfferFontSize
-                            .textXSizeSmall,
+                            .textSizeSMedium,
                         fontWeight:
                         FontWeight.normal),
                     OfferFontStyle()
@@ -64,7 +66,7 @@ class OfferListCard extends StatelessWidget {
                         text: "OFF",
                         color: primaryColor,
                         fontSize: OfferFontSize
-                            .textXSizeSmall,
+                            .textSizeSmall,
                         fontWeight:
                         FontWeight.normal)
                   ],

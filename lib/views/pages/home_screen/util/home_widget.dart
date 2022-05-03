@@ -54,7 +54,7 @@ class HomeWidget {
   //shop by category widget
   Widget shopByCategory({String? text, color}) {
     return HomeFontStyle().mulishtextLayout(
-        text: text, color: color, fontSize: 14, fontWeight: FontWeight.w600);
+        text: text, color: color, fontSize: 14, fontWeight: FontWeight.w800);
   }
 
 //line border widget
@@ -101,7 +101,7 @@ class HomeWidget {
             fontWeight: FontWeight.w700,
             fontSize: textSizeSMedium,color: textColor),
         HomeFontStyle().mulishtextLayout(
-            text: seeAllText, fontSize: 12, color: seeAllColor),
+            text: seeAllText, fontSize: 12, color: seeAllColor,fontWeight: FontWeight.w700),
       ],
     );
   }
@@ -147,7 +147,7 @@ class HomeWidget {
     return Container(
       color: containerColor,
       width: MediaQuery.of(context!).size.width,
-      height: MediaQuery.of(context).size.height * (AppScreenUtil().screenActualWidth() > 370 ? 65 :80) / 100,
+      height: MediaQuery.of(context).size.height * (AppScreenUtil().screenActualWidth() > 370 ? 67 :80) / 100,
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(15)),
       child: child,
@@ -159,7 +159,7 @@ class HomeWidget {
     return Container(
       color: containerColor,
       width: MediaQuery.of(context!).size.width,
-      height: MediaQuery.of(context).size.height * (isBigScreen! ? 65 :80) / 100,
+      height: MediaQuery.of(context).size.height * (isBigScreen! ? 65 :60) / 100,
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(15)),
       child: child,
@@ -178,11 +178,11 @@ class HomeWidget {
   //coupons layout widget
   Widget couponsWidget({BuildContext? context,var containerColor,Widget? child,var seeAllColor,var descriptionColor, var primaryColor,var dottedLineColor,var decriptionColor,bool? isTheme,var titleColor}){
     return Container(
-      height: MediaQuery.of(context!).size.height * 35 / 100,
+      height: MediaQuery.of(context!).size.height * 30 / 100,
       width: MediaQuery.of(context).size.width,
       color: containerColor,
       padding:
-      EdgeInsets.only(left: AppScreenUtil().screenWidth(15),right: AppScreenUtil().screenWidth(15),top: AppScreenUtil().screenHeight(22),),
+      EdgeInsets.only(left: AppScreenUtil().screenWidth(15),right: AppScreenUtil().screenWidth(15),top: AppScreenUtil().screenHeight(20),),
       alignment: Alignment.topCenter,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,7 +197,7 @@ class HomeWidget {
           HomeWidget().commonDescriptionTextWidget(
               text: HomeFont().payLessGetMore, color: descriptionColor),
           Container(
-            height:MediaQuery.of(context).size.height  * 25/100 ,
+            height:MediaQuery.of(context).size.height  * 20/100 ,
             child: ListView.builder(
               itemCount: AppArray().couponData.length,
               scrollDirection: Axis.horizontal,
@@ -246,7 +246,7 @@ var boxColor,
           height: MediaQuery
               .of(context!)
               .size
-              .height * (AppScreenUtil().screenActualWidth() > 370 ? 25 : 32) / 100,
+              .height * (AppScreenUtil().screenActualWidth() > 370 ? 27 : 32) / 100,
           child: ListView.builder(
             itemCount: data.length,
             shrinkWrap: true,

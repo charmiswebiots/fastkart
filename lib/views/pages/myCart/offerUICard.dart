@@ -24,7 +24,7 @@ class OfferUICard extends StatelessWidget {
           bottom: AppScreenUtil().screenHeight(15)),
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(20),
-          right: AppScreenUtil().screenWidth(18)),
+          right: AppScreenUtil().screenWidth(22)),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
@@ -48,6 +48,7 @@ class OfferUICard extends StatelessWidget {
                   color: discountColor,
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
+              Space(5, 0),
               Column(
                 mainAxisAlignment:
                 MainAxisAlignment.center,

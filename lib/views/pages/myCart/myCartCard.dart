@@ -118,7 +118,8 @@ class MyCartCard extends StatelessWidget {
                                   size: 18,
                                 )),
                             Space(10, 0),
-                            Text(data['quantity'].toString()),
+                            MyCartFontStyle().mulishtextLayout(text:data['quantity'].toString(),fontSize: 14,color: discountBoxColor ),
+
                             Space(10, 0),
                             InkWell(
                                 onTap: plusTap,

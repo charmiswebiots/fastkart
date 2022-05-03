@@ -9,3 +9,5 @@ export '../views/pages/dashboard/dashboard_screen.dart';
 export '../views/pages/productDetail/productDetail_screen.dart';
 export '../views/pages/myCart/myCart_screen.dart';
 export '../views/pages/addAddress/addAddress_screen.dart';
+export '../views/pages/addressList/addressList_screen.dart';
+export '../views/pages/payment/payment_screen.dart';

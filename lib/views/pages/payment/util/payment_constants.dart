@@ -1,21 +1,29 @@
 //text constants
-class AddAddressFont{
+class PaymentFont{
    String howCanWeHelp= 'How Can We Help...';
    String useCurrentLocation= 'Use current location';
    String packSize= 'Pack Size';
-   String reset= 'Reset';
+   String selectCard= 'Select Card';
+   String netBanking= 'Net Banking';
    String category= 'Category';
    String viewCart= "View Cart";
-   String filter= "Filter";
-   String confirmLocation = 'Confirm location & proceed';
-   String addAddress= "Add Address";
+   String addAddress = "Add New Address";
+   String confirmPayment = "Confirm Payment";
+   String addPaymentMethod= "Add Payment Method";
+   String cashonDelivery= "Cash on Delivery";
+   String orderDetails= "Order Details";
+   String bagTotal= "Bag total";
+   String delivery= "Delivery";
+   String totalAmount= "Total Amount";
+   String couponDiscount= "Coupon Discount";
+   String bagSavings= "Bag savings";
    String dollar = "\$";
 
 }
 
 
 //font size
-class AddAddressFontSize{
+class PaymentFontSize{
   static const  double textXSizeSmall = 10.0;
     static const  double textSizeSmall = 12.0;
   static const  double textSizeSMedium = 14.0;

@@ -9,6 +9,7 @@ class IconAssets {
   final String google = 'assets/icons/google.png';
   final String category = 'assets/icons/category.png';
   final String location = 'assets/icons/location.png';
+  final String addreesslocation = 'assets/icons/addreesslocation.png';
   final String user = 'assets/icons/user.png';
   final String white_category_icon = 'assets/icons/white_category_icon.png';
   final String cart = 'assets/icons/cart.png';
@@ -29,4 +30,9 @@ class IconAssets {
   final String delete = 'assets/icons/delete.png';
   final String share = 'assets/icons/share.png';
   final String star = 'assets/icons/star.png';
+  final String truck = 'assets/icons/truck.png';
+  final String send = 'assets/icons/send.png';
+  final String crosshair = 'assets/icons/crosshair.png';
+  final String work = 'assets/icons/work.png';
+  final String map1 = 'assets/icons/map1.png';
 }

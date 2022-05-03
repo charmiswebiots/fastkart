@@ -81,7 +81,7 @@ class OfferListCard extends StatelessWidget {
                         color: appCtrl.appTheme.whiteColor,
                       ),
                     ),
-                    Space(45, 0),
+                    Space(40, 0),
                     Container(
                       padding: EdgeInsets.symmetric(
                           vertical: AppScreenUtil().screenHeight(8),
@@ -101,7 +101,8 @@ class OfferListCard extends StatelessWidget {
                                   size: 18,
                                 )),
                             Space(10, 0),
-                            Text(data['quantity'].toString()),
+                            HomeFontStyle().mulishtextLayout(text:data['quantity'].toString(),fontSize: 14,color: appCtrl.appTheme.primary ),
+                            // Text(data['quantity'].toString()),
                             Space(10, 0),
                             InkWell(
                                 onTap: plusTap,

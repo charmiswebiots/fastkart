@@ -35,12 +35,15 @@ class ShopListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return index == 3  ?  Stack(
-      alignment: Alignment.center,
-      children: [
-        Image.asset(data['image']),
-        ShopFontStyle().quicksandtextLayout(text: data['name'],fontWeight: FontWeight.w500,fontSize: 16,)
-      ],
+    return index == 3  ?  Padding(
+      padding:EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(5)),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Image.asset(data['image'],height: AppScreenUtil().screenHeight(120),fit: BoxFit.fill,),
+          ShopFontStyle().quicksandtextLayout(text: data['name'],fontWeight: FontWeight.w500,fontSize: 16,)
+        ],
+      ),
     ) :Container(
       margin: EdgeInsets.symmetric(
         vertical: AppScreenUtil().screenHeight(10),

@@ -40,8 +40,70 @@ class MyCartWidget {
     );
   }
 
+  //appbar leading layout
+  Widget appBarLeadingLayput(
+      {GestureTapCallback? onTap,
+      var borderColor,
+      var iconColor,
+      String? image,String? text, var textColor}) {
+    return Row(
+      children: [
+        InkWell(
+          onTap: onTap,
+          child: Container(
+            height: AppScreenUtil().screenHeight(
+                AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
+            width: AppScreenUtil().screenHeight(
+                AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
+            margin: EdgeInsets.only(
+                left: AppScreenUtil().screenWidth(15),
+                right: AppScreenUtil().screenWidth(8)),
+            decoration: BoxDecoration(
+                border: Border.all(color: borderColor, width: 1.5),
+                borderRadius: BorderRadius.circular(8)),
+            child: Icon(
+              Icons.arrow_back_sharp,
+              size: AppScreenUtil().size(14),
+              color: iconColor,
+            ),
+          ),
+        ),
+        MyCartFontStyle().mulishtextLayout(
+            text: text,
+            fontWeight: FontWeight.w600,
+            fontSize: MyCartFontSize.textSizeSMedium,
+            color: textColor)
+      ],
+    );
+  }
+
+  //appbar title layout
+  Widget appBarTitleLayout({String? text, var textColor}) {
+    return MyCartFontStyle().mulishtextLayout(
+        text: text,
+        fontWeight: FontWeight.w600,
+        fontSize: 12,
+        color: textColor,);
+  }
+
+
+  //appbar action layout
+  Widget appBarActionLayout() {
+    return Padding(
+      padding: EdgeInsets.only(
+          bottom: AppScreenUtil().screenHeight(8),
+          top: AppScreenUtil().screenHeight(10),
+          right: AppScreenUtil().screenWidth(15)),
+      child: Image.asset(
+        iconAssets.drawerHome,
+        height: AppScreenUtil().screenHeight(20),
+        fit: BoxFit.contain,
+      ),
+    );
+  }
+
   //popup detail layout
-  Widget bottomSheetLayout({Widget? child,var primaryColor}){
+  Widget bottomSheetLayout({Widget? child, var primaryColor}) {
     return Container(
       height: AppScreenUtil().screenHeight(150),
       padding: EdgeInsets.only(
@@ -59,29 +121,28 @@ class MyCartWidget {
   }
 
   //code display layout
-  Widget codeLayout({Widget? child, var lightPrimary}){
+  Widget codeLayout({Widget? child, var lightPrimary}) {
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(20),
           vertical: AppScreenUtil().screenHeight(10)),
       decoration: BoxDecoration(
           color: lightPrimary,
-          borderRadius: BorderRadius.circular(
-              AppScreenUtil().borderRadius(5))),
+          borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))),
       child: child,
     );
   }
 
   //copy Code style
-  Widget copyCodeButton ({text,var whiteColor, var primaryColor}){
+  Widget copyCodeButton({text, var whiteColor, var primaryColor}) {
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(12),
           vertical: AppScreenUtil().screenHeight(6)),
       decoration: BoxDecoration(
           color: whiteColor,
-          borderRadius: BorderRadius.circular(
-              AppScreenUtil().borderRadius(50))),
+          borderRadius:
+              BorderRadius.circular(AppScreenUtil().borderRadius(50))),
       child: MyCartFontStyle().mulishtextLayout(
           text: text,
           color: primaryColor,
@@ -91,28 +152,54 @@ class MyCartWidget {
   }
 
   //common text layout
-  Widget commonTextLayout({String? text, var color, var fontWeight}){
+  Widget commonTextLayout({String? text, var color, var fontWeight}) {
     return MyCartFontStyle().mulishtextLayout(
         text: text,
-        color:
-        color,
+        color: color,
         fontSize: MyCartFontSize.textSizeSMedium,
         fontWeight: fontWeight);
   }
 
   //common price detail layout
-  Widget commonPriceDetail({String? title, String? val, var titleColor, var valColor,var fontWeight}){
-    return  Row(
-      mainAxisAlignment:
-      MainAxisAlignment.spaceBetween,
+  Widget commonPriceDetail(
+      {String? title,
+      String? val,
+      var titleColor,
+      var valColor,
+      var fontWeight}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         MyCartWidget().commonTextLayout(
-            text: title,
-            color: titleColor,fontWeight: fontWeight),
+            text: title, color: titleColor, fontWeight: fontWeight),
         MyCartWidget().commonTextLayout(
-            text:
-            val,
-            color: valColor,fontWeight: fontWeight),
+            text: val, color: valColor, fontWeight: fontWeight),
+      ],
+    );
+  }
+
+  //aapbar
+  PreferredSizeWidget appBarLayout({var backgroundColor, String? image,GestureTapCallback? onTap,var titleColor,var darkContentColor}){
+    return AppBar(
+      titleSpacing: 5,
+      toolbarHeight: AppScreenUtil().screenHeight(40),
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      leadingWidth: AppScreenUtil().screenWidth(105),
+      backgroundColor: backgroundColor,
+      centerTitle: false,
+      leading: MyCartWidget().appBarLeadingLayput(
+          onTap: onTap,
+          borderColor: titleColor,
+          iconColor: titleColor,
+          image: image,
+          text: MyCartFont().myCart,
+          textColor: titleColor),
+      title: MyCartWidget().appBarTitleLayout(
+          text: "(4 Items)",
+          textColor: darkContentColor),
+      actions: [
+        MyCartWidget().appBarActionLayout(),
       ],
     );
   }

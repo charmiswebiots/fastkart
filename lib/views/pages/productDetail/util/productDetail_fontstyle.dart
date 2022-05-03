@@ -27,19 +27,14 @@ class ProductDetailFontStyle {
   }) {
     return InkWell(
       onTap: onTap,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: AppScreenUtil().screenWidth(15),
-            ),
-        child: Text(text!,
-            overflow: overflow,
-            textAlign: textAlign,
-            style: AppCss().mulishTextStyle(
-                color: color,
-                fontWeight: fontWeight,
-                fontSize: AppScreenUtil().fontSize(fontSize),
-                textDecoration: textDecoration)),
-      ),
+      child: Text(text!,
+          overflow: overflow,
+          textAlign: textAlign,
+          style: AppCss().mulishTextStyle(
+              color: color,
+              fontWeight: fontWeight,
+              fontSize: AppScreenUtil().fontSize(fontSize),
+              textDecoration: textDecoration)),
     );
   }
 

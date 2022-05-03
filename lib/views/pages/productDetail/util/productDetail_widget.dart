@@ -38,11 +38,6 @@ class ProductDetailWidget {
             ),
           ),
         ),
-        Image.asset(
-          image!,
-          height: AppScreenUtil().screenHeight(16),
-          fit: BoxFit.contain,
-        )
       ],
     );
   }
@@ -89,29 +84,28 @@ class ProductDetailWidget {
       var unratedColor,
       ValueChanged<double>? onRatingUpdate,
       double? value}) {
-    return RatingBar.builder(
-      initialRating: value!,
+    return Container(
+
+        child: RatingBar.builder(
+      itemSize: AppScreenUtil().size(20.0),
+      initialRating: 3,
       minRating: 1,
-      
       direction: Axis.horizontal,
       allowHalfRating: true,
-      glowColor: glowColor,
-      unratedColor: unratedColor,
       itemCount: 5,
-      itemSize: 25,
-      itemPadding: EdgeInsets.zero,
-      itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.only(left: AppScreenUtil().screenWidth(index == 0 ? 10:0)),
-        child: Image.asset(
-          iconAssets.star,
-          height: AppScreenUtil().screenHeight(index == 0 ? 20:15),
-          width: AppScreenUtil().screenHeight(index == 0 ? 20:10),
-          fit: BoxFit.contain,
-          color: ratingColor,
-        ),
+      glowColor: glowColor,
+      itemPadding: EdgeInsets.symmetric(
+          horizontal: AppScreenUtil().screenWidth(1),
+          vertical: AppScreenUtil().screenHeight(5)),
+      unratedColor: unratedColor,
+      itemBuilder: (context, _) => Icon(
+        Icons.star,
+        color: Colors.amber,
       ),
-      onRatingUpdate: onRatingUpdate!,
-    );
+      onRatingUpdate: (rating) {
+        print(rating);
+      },
+    ));
   }
 
   //price layout
@@ -122,28 +116,33 @@ class ProductDetailWidget {
       var totalPriceColor,
       var discountText,
       var discountTextColor}) {
-    return Row(
-      children: [
-        ProductDetailFontStyle().mulishtextLayout(
-            text: ProductDetailFont().dollar + dicountPric!,
-            fontSize: 18,
-            color: discountPriceColor,
-            fontWeight: FontWeight.w600,
-            overflow: TextOverflow.clip),
-        ProductDetailFontStyle().mulishtextLayout(
-            text: ProductDetailFont().dollar + totalPrice,
-            fontSize: 16,
-            textDecoration: TextDecoration.lineThrough,
-            color: totalPriceColor,
-            fontWeight: FontWeight.normal,
-            overflow: TextOverflow.clip),
-        ProductDetailFontStyle().mulishtextLayout(
-            text: discountText,
-            fontSize: 16,
-            color: discountTextColor,
-            fontWeight: FontWeight.normal,
-            overflow: TextOverflow.clip),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+      child: Row(
+        children: [
+          ProductDetailFontStyle().mulishtextLayout(
+              text: ProductDetailFont().dollar + dicountPric!,
+              fontSize: ProductDetailFontSize.textSizeMedium,
+              color: discountPriceColor,
+              fontWeight: FontWeight.w600,
+              overflow: TextOverflow.clip),
+          Space(10, 0),
+          ProductDetailFontStyle().mulishtextLayout(
+              text: ProductDetailFont().dollar + totalPrice,
+              fontSize: ProductDetailFontSize.textSizeSMedium,
+              textDecoration: TextDecoration.lineThrough,
+              color: totalPriceColor,
+              fontWeight: FontWeight.normal,
+              overflow: TextOverflow.clip),
+          Space(10, 0),
+          ProductDetailFontStyle().mulishtextLayout(
+              text: discountText,
+              fontSize: ProductDetailFontSize.textSizeSMedium,
+              color: discountTextColor,
+              fontWeight: FontWeight.normal,
+              overflow: TextOverflow.clip),
+        ],
+      ),
     );
   }
 
@@ -158,12 +157,12 @@ class ProductDetailWidget {
         child: Container(
             padding: EdgeInsets.symmetric(
                 vertical: AppScreenUtil().screenHeight(10),
-                horizontal: AppScreenUtil().screenWidth(5)),
+                horizontal: AppScreenUtil().screenWidth(10)),
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 color: containerColor,
                 borderRadius:
-                    BorderRadius.circular(AppScreenUtil().borderRadius(10))),
+                    BorderRadius.circular(AppScreenUtil().borderRadius(5))),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -233,19 +232,22 @@ class ProductDetailWidget {
       context,
       var textColor,
       var dividerColor,
+      bool? isShow,
       ValueChanged<bool>? onExpansionChanged}) {
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: Column(
         children: [
           ExpansionTile(
-            tilePadding: EdgeInsets.only(left: AppScreenUtil().screenWidth(5),right: AppScreenUtil().screenWidth(15)),
+            tilePadding: EdgeInsets.only(
+                left: AppScreenUtil().screenWidth(5),
+                right: AppScreenUtil().screenWidth(15)),
             textColor: textColor,
             collapsedTextColor: textColor,
             childrenPadding: EdgeInsets.symmetric(
-                horizontal: AppScreenUtil().screenWidth(15), vertical: 0),
+                horizontal: AppScreenUtil().screenWidth(5), vertical: 0),
             title: ProductDetailFontStyle().mulishtextLayout(
-                text: data['title'], fontWeight: FontWeight.w600, fontSize: 15),
+                text: data['title'], fontWeight: FontWeight.normal, fontSize: ProductDetailFontSize.textSizeSMedium),
             trailing: Icon(
               data['isShow']
                   ? Icons.keyboard_arrow_down_outlined
@@ -255,18 +257,18 @@ class ProductDetailWidget {
             onExpansionChanged: onExpansionChanged,
             children: [
               ProductDetailFontStyle().mulishtextLayout(
-                  text: data['desc'] + data['isShow'].toString(),
+                  text: data['desc'],
                   fontWeight: FontWeight.normal,
-                  fontSize: 12,
+                  fontSize: ProductDetailFontSize.textSizeSmall,
                   overflow: TextOverflow.clip),
             ],
           ),
-          Space(0, 10),
+          Space(0, data['isShow'] ?  isShow! ? 10 : 0 : 0),
           Divider(
             color: dividerColor,
             thickness: .5,
-            indent: 15,
-            endIndent: 15,
+            indent: 5,
+            endIndent: 5,
             height: 0,
           )
         ],
@@ -282,9 +284,7 @@ class ProductDetailWidget {
       var seeAllColor,
       GestureTapCallback? onTap}) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppScreenUtil().screenWidth(10),
-      ),
+      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -299,7 +299,7 @@ class ProductDetailWidget {
                   text: seeAll,
                   fontSize: 12,
                   color: seeAllColor,
-                  fontWeight: FontWeight.normal))
+                  fontWeight: FontWeight.w700))
         ],
       ),
     );
@@ -336,7 +336,7 @@ class ProductDetailWidget {
             fontSize: ProductDetailFontSize.textSizeSMedium,
             color: textColor),
         ProductDetailFontStyle().mulishtextLayout(
-            text: seeAllText, fontSize: 12, color: seeAllColor),
+            text: seeAllText, fontSize: 12, color: seeAllColor,fontWeight: FontWeight.w700),
       ],
     );
   }
@@ -365,7 +365,6 @@ class ProductDetailWidget {
       var boxColor,
       var iconColor,
       var shadowColor,
-
       bool? isBigScreen}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -382,7 +381,7 @@ class ProductDetailWidget {
         //lowest price list
         Container(
           height: MediaQuery.of(context!).size.height *
-              (AppScreenUtil().screenActualWidth() > 370 ? 25 : 32) /
+              (AppScreenUtil().screenActualWidth() > 370 ? 27 : 32) /
               100,
           child: ListView.builder(
             itemCount: data.length,
@@ -412,9 +411,10 @@ class ProductDetailWidget {
       var buttonColor,
       var itemColor,
       var qunatityBoxColor,
-        var quantityColor,
-        GestureTapCallback? minusTap,
-        GestureTapCallback? plusTap,
+      var quantityColor,
+      GestureTapCallback? minusTap,
+      GestureTapCallback? plusTap,
+      GestureTapCallback? onTap,
       int? quantity}) {
     return Container(
       height: AppScreenUtil().screenHeight(55),
@@ -432,44 +432,49 @@ class ProductDetailWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(5),vertical: AppScreenUtil().screenHeight(10)),
+            padding: EdgeInsets.symmetric(
+                horizontal: AppScreenUtil().screenWidth(5),
+                vertical: AppScreenUtil().screenHeight(10)),
             decoration: BoxDecoration(
                 color: qunatityBoxColor,
                 borderRadius:
                     BorderRadius.circular(AppScreenUtil().borderRadius(10))),
-            child: GetBuilder<ProductDetailController>(
-              builder: (ctrl) {
-                return Row(
-                  children: [
-                    InkWell(
-                      onTap:minusTap,
-                        child: Icon(CupertinoIcons.minus, color: quantityColor)),
-                    ProductDetailFontStyle().mulishtextLayout(
-                        text: quantity.toString(),
-                        fontWeight: FontWeight.normal,
-                        fontSize: ProductDetailFontSize.textSizeSMedium,
-                        color: buttonColor),
-                    InkWell(
-                        onTap: plusTap,
-                        child: Icon(Icons.add, color: quantityColor))
-                  ],
-                );
-              }
-            ),
+            child: GetBuilder<ProductDetailController>(builder: (ctrl) {
+              return Row(
+                children: [
+                  InkWell(
+                      onTap: minusTap,
+                      child: Icon(CupertinoIcons.minus, color: quantityColor)),
+                  Space(15, 0),
+                  ProductDetailFontStyle().mulishtextLayout(
+                      text: quantity.toString(),
+                      fontWeight: FontWeight.normal,
+                      fontSize: ProductDetailFontSize.textSizeSMedium,
+                      color: buttonColor),
+                  Space(15, 0),
+                  InkWell(
+                      onTap: plusTap,
+                      child: Icon(Icons.add, color: quantityColor))
+                ],
+              );
+            }),
           ),
-          Row(
-            children: [
-              ProductDetailFontStyle().mulishtextLayout(
-                  text: ProductDetailFont().addToCart,
+          InkWell(
+            onTap: onTap,
+            child: Row(
+              children: [
+                ProductDetailFontStyle().mulishtextLayout(
+                    text: ProductDetailFont().addToCart,
+                    color: itemColor,
+                    fontSize: ProductDetailFontSize.textSizeSMedium),
+                Space(5, 0),
+                Icon(
+                  Icons.arrow_forward_ios_outlined,
                   color: itemColor,
-                  fontSize: ProductDetailFontSize.textSizeSMedium),
-              Space(5, 0),
-              Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: itemColor,
-                size: AppScreenUtil().size(18),
-              )
-            ],
+                  size: AppScreenUtil().size(18),
+                )
+              ],
+            ),
           )
         ],
       ),

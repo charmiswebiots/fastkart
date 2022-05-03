@@ -19,7 +19,7 @@ class EveryDayEssentialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width /3,
+      width: MediaQuery.of(context).size.width /2.8,
       padding:
       EdgeInsets.all(AppScreenUtil().size(10)),
       margin: EdgeInsets.only(
@@ -56,8 +56,8 @@ class EveryDayEssentialCard extends StatelessWidget {
                   data
                   ['image']
                       .toString(),
-                  height: 50,
-                  width: 100,
+                  height: AppScreenUtil().screenHeight(50),
+                  width: AppScreenUtil().screenWidth(100),
                 ),
               ),
             ],

@@ -21,6 +21,8 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   var productDetailCtrl = Get.put(ProductDetailController());
 
+
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).copyWith(dividerColor: Colors.transparent);
@@ -31,7 +33,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: productDetailCtrl.appCtrl.appTheme.wishtListBoxColor,
-          leadingWidth: AppScreenUtil().screenWidth(100),
+
           leading: ProductDetailWidget().appBarLeadingLayput(
               onTap: () => Get.back(),
               borderColor: productDetailCtrl.appCtrl.appTheme.titleColor,
@@ -68,6 +70,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             dotColor: productDetailCtrl.appCtrl.appTheme.primary,
                           ),
                           Container(
+                            padding: EdgeInsets.only(top: AppScreenUtil().screenHeight(10)),
                             decoration: BoxDecoration(
                                 color:
                                     productDetailCtrl.appCtrl.appTheme.whiteColor,
@@ -80,18 +83,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 //product name layout
-                                ProductDetailFontStyle().mulishtextLayout(
-                                    text:
-                                        'Assorted Capsicum Combo-  (Red, Yellow, Green)',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    overflow: TextOverflow.clip),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                                  child: ProductDetailFontStyle().mulishtextLayout(
+                                      text:
+                                          'Assorted Capsicum Combo-  (Red, Yellow, Green)',
+                                      fontSize: ProductDetailFontSize.textSizeSMedium,
+                                      fontWeight: FontWeight.w800,
+                                      overflow: TextOverflow.clip),
+                                ),
 
                                 //rating layout
                                 Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: AppScreenUtil().screenWidth(15),
-                                  ),
+                                  padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
                                   child: Row(
                                     children: [
                                       ProductDetailWidget().ratingLayout(
@@ -105,12 +109,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                           onRatingUpdate: (rating) {
                                             print(rating);
                                           }),
+                                      Space(5, 0),
                                       ProductDetailFontStyle().mulishtextLayout(
                                           text: '(150 Ratings)',
-                                          fontSize: 10,
+                                          fontSize: ProductDetailFontSize.textSizeSmall,
                                           color: productDetailCtrl
                                               .appCtrl.appTheme.darkContentColor,
-                                          fontWeight: FontWeight.normal,
+                                          fontWeight: FontWeight.w600,
                                           overflow: TextOverflow.clip),
                                     ],
                                   ),
@@ -130,9 +135,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Space(0, 15),
                                 // select quantity and delivery time
                                 Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: AppScreenUtil().screenWidth(15),
-                                  ),
+                                  padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -168,8 +171,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Space(0, 15),
                                 //detail layout
                                 Container(
-
-                                  height: AppScreenUtil().screenHeight( productDetailCtrl.isShow? 320: 250),
+                                  padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                                  height: AppScreenUtil().screenHeight( productDetailCtrl.isShow? 300: 220),
                                   child: Theme(
                                     data: Theme.of(context)
                                         .copyWith(dividerColor: Colors.transparent),
@@ -183,10 +186,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                               data: productDetailCtrl
                                                   .detailList[index],
                                               context: context,
+                                              isShow: productDetailCtrl.isShow,
                                               textColor: productDetailCtrl
                                                   .appCtrl.appTheme.titleColor,
                                               dividerColor: productDetailCtrl
-                                                  .appCtrl.appTheme.lightGray,
+                                                  .appCtrl.appTheme.contentColor.withOpacity(.6),
                                               onExpansionChanged: (bool expanded) {
                                                 productDetailCtrl.detailList[index]
                                                     ['isShow'] = expanded;
@@ -214,9 +218,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 Space(0, 20),
                                 //reviewList layout
                                 Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: AppScreenUtil().screenWidth(15),
-                                  ),
+                                  padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
                                   height: AppScreenUtil().screenHeight(320),
                                   child: ListView.builder(
                                     itemCount: 2,
@@ -285,9 +287,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ),
                 ProductDetailWidget().amountButtonLayout(
                     context: context,
-                      quantityColor: productDetailCtrl.appCtrl.isTheme ? productDetailCtrl.appCtrl.appTheme.white : productDetailCtrl.appCtrl.appTheme.primary,
+                      quantityColor:  productDetailCtrl.appCtrl.appTheme.titleColor,
                       plusTap: () => productDetailCtrl.increaseQuantity(),
                       minusTap: () => productDetailCtrl.decreaseQuantity(),
+                      onTap: (){
+                        Get.toNamed(routeName.myCart,arguments: true);
+                      },
                       buttonColor: productDetailCtrl.appCtrl.appTheme.primary,
                     quantity: productDetailCtrl.quantity,
                     itemColor: productDetailCtrl.appCtrl.appTheme.white,qunatityBoxColor: productDetailCtrl.appCtrl.appTheme.whiteColor)

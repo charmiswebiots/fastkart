@@ -87,7 +87,7 @@ class SearchWidget {
         left: AppScreenUtil().screenHeight(15),
         top: AppScreenUtil().screenHeight(15),
         right: AppScreenUtil().screenHeight(15)),
-      height: AppScreenUtil().screenHeight(25),
+      height: AppScreenUtil().screenHeight(30),
       child: child,
     );
   }
@@ -108,12 +108,12 @@ class SearchWidget {
   //recent list card
   Widget recentListCard ({data,color}) {
     return Container(
-      height: AppScreenUtil().screenHeight(20),
+      height: AppScreenUtil().screenHeight(30),
       margin: EdgeInsets.only(
           right: AppScreenUtil().screenWidth(10)),
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(25),
-          vertical: AppScreenUtil().screenHeight(5)),
+          vertical: AppScreenUtil().screenHeight(8)),
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(

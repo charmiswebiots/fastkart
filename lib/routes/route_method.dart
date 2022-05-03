@@ -20,5 +20,7 @@ class AppRoute {
     GetPage(name: _routeName.productDetail, page: () => ProductDetailScreen()),
     GetPage(name: _routeName.myCart, page: () => MyCartListScreen()),
     GetPage(name: _routeName.addAddress, page: () => AddAddress()),
+    GetPage(name: _routeName.addressList, page: () => AddressListScreen()),
+    GetPage(name: _routeName.paymentScreen, page: () => PaymentScreen()),
   ];
 }

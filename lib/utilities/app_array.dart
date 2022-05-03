@@ -450,49 +450,141 @@ class AppArray {
   ];
 
   var detailList = [
-
-      {
-        "title": "Product Details",
-        'desc':
-            'Refillable, Reusable, High Quality Glass Roll on Bottles with Silver cap For Essential Oil Blends DIY Perfume Cosmetics Beauty Products Ideal',
-        'isShow' :false
-      },
-      {
-        "title": "Manufacturer Details",
-        'desc':
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
-        'isShow' :false
-      },
-      {
-        "title": "Product Disclaimer",
-        'desc':
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
-        'isShow' :false
-      },
-      {
-        "title": "Features & details",
-        'desc':
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
-        'isShow' :false
-      },
-
+    {
+      "title": "Product Details",
+      'desc':
+          'Refillable, Reusable, High Quality Glass Roll on Bottles with Silver cap For Essential Oil Blends DIY Perfume Cosmetics Beauty Products Ideal',
+      'isShow': false
+    },
+    {
+      "title": "Manufacturer Details",
+      'desc':
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
+      'isShow': false
+    },
+    {
+      "title": "Product Disclaimer",
+      'desc':
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
+      'isShow': false
+    },
+    {
+      "title": "Features & details",
+      'desc':
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
+      'isShow': false
+    },
   ];
 
-  var reviewList =[{
-    'name':'Andrea Joanne',
-    'rating':4,
-    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-  },{
-    'name':'Andrea Joanne',
-    'rating':4,
-    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-  },{
-    'name':'Andrea Joanne',
-    'rating':4,
-    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-  },{
-    'name':'Andrea Joanne',
-    'rating':4,
-    'desc':"It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-  },];
+  var reviewList = [
+    {
+      'name': 'Andrea Joanne',
+      'rating': 4,
+      'desc':
+          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+    },
+    {
+      'name': 'Andrea Joanne',
+      'rating': 4,
+      'desc':
+          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+    },
+    {
+      'name': 'Andrea Joanne',
+      'rating': 4,
+      'desc':
+          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+    },
+    {
+      'name': 'Andrea Joanne',
+      'rating': 4,
+      'desc':
+          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
+    },
+  ];
+
+  //address list
+  var addressList = [
+    {
+      'address': 'Noah Hamilton',
+      'area': '8857 Morris Rd.,Charlottesville, VA 22901'
+    },
+    {
+      'address': 'Noah Hamilton',
+      'area': '8857 Morris Rd.,Charlottesville, VA 22901'
+    },
+  ];
+
+  //new address list
+  var newAddressList = [
+    {
+      'icon': iconAssets.work,
+      'place': 'Work',
+      'address': 'Noah Hamilton',
+      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+    },
+    {
+      'icon': iconAssets.home,
+      'place': 'Home',
+      'address': 'Noah Hamilton',
+      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+    },
+    {
+      'icon': iconAssets.home,
+      'place': 'Home',
+      'address': 'Noah Hamilton',
+      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+    },
+    {
+      'icon': iconAssets.home,
+      'place': 'Other',
+      'address': 'Noah Hamilton',
+      'area': '8857 Morris Rd\nCharlottesville, VA 22901'
+    },
+  ];
+
+
+  //payment method list
+  var paymentMethodList = [
+    {
+      'title': 'Select Card',
+      'child' :[
+        {
+          'icon': imageAssets.masterCard1,
+          'number': '9800 XXXX XXXX XXXX 0545',
+        },
+        {
+          'icon': imageAssets.masterCard2,
+          'number': '6580 XXXX XXXX XXXX 2562',
+        },
+        {
+          'icon': imageAssets.masterCard3,
+          'number': '5125 XXXX XXXX XXXX 6262',
+        },
+      ]
+    },
+    {
+      'title': 'Net Banking',
+      'child': [
+        {'title': 'Industrial & Commercial Bank', 'isSelect': false},
+        {'title': 'Construction Bank Corp.', 'isSelect': false},
+        {'title': 'Agricultural Bank', 'isSelect': false},
+        {'title': 'HSBC Holdings', 'isSelect': false},
+        {'title': 'Bank of America', 'isSelect': false},
+        {'title': ' JPMorgan Chase & Co.', 'isSelect': false},
+      ]
+    },
+    {
+      'title': 'Credit/Debit Card',
+      'child': [
+        {'title': 'Adyen', 'isSelect': false},
+        {'title': ' Airtel Money', 'isSelect': false},
+        {'title': ' AlliedWallet', 'isSelect': false},
+        {'title': ' Apple Pay', 'isSelect': false},
+        {'title': ' Brinks', 'isSelect': false},
+        {'title': ' CardFree', 'isSelect': false},
+      ]
+    },
+    {'title': 'Cash on Delivery', 'child': 'textbox'},
+  ];
 }

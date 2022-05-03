@@ -28,11 +28,15 @@ class ReviewCard extends StatelessWidget {
           Row(
             children: [
               Image.asset(imageAssets.usersquare,height: AppScreenUtil().screenHeight(50),),
-              Space(5, 0),
+              Space(10, 0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ProductDetailFontStyle().mulishtextLayout(text:data['name'],textAlign: TextAlign.start,fontSize: 14,color: nameColor,fontWeight: FontWeight.w600),
+                  Padding(
+                    padding: EdgeInsets.only(left: AppScreenUtil().screenWidth(5)),
+                    child: ProductDetailFontStyle().mulishtextLayout(text:data['name'],textAlign: TextAlign.start,fontSize: 14,color: nameColor,fontWeight: FontWeight.w600),
+                  ),
                   ProductDetailWidget().ratingLayout(
                       glowColor: glowColor,
                       unratedColor: unratedColor,

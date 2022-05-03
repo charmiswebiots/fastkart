@@ -21,5 +21,5 @@ class OfferFontSize{
   static const  double textSizeLargeMedium = 18.0;
   static const double textSizeNormal = 20.0;
   static const double textSizeLarge = 24.0;
-  static const  double textSizeXLarge = 34.0;
+  static const  double textSizeXLarge = 32.0;
 }

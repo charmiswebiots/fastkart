@@ -1,6 +1,7 @@
 //text constants
 class MyCartFont{
    String searchProduct= 'Search Products here..';
+   String myCart= 'My Cart';
    String recentlySearch= 'Recently Search';
    String trendingCategory= 'Trending category';
    String trendingProducts= 'Trending Products';

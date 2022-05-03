@@ -31,11 +31,11 @@ class SplashController extends GetxController {
     update();
     bool? isLogin = await getStorage('isLogin');
     print(isLogin);
-    /*if (isLogin != null && isLogin == true) {
+    if (isLogin != null && isLogin == true) {
       Get.toNamed(routeName.dashboard);
     } else {
       Get.toNamed(routeName.onBoarding);
-    }*/
-    Get.toNamed(routeName.onBoarding);
+    }
+
   }
 }

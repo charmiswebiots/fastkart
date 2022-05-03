@@ -131,7 +131,7 @@ class ShopWidget {
       width: MediaQuery.of(context).size.width,
       color: color,
       margin: EdgeInsets.only(
-        top: AppScreenUtil().screenHeight(15),
+
         bottom: AppScreenUtil().screenHeight(15),
       ),
       padding: EdgeInsets.only(

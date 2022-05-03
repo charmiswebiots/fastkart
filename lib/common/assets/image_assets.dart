@@ -11,6 +11,7 @@ class ImageAssets {
   final String themeRecentBoughtBG = 'assets/backgroundImages/themeRecentBoughtBG.png';
   final String offerBG = 'assets/backgroundImages/offerBG.png';
   final String myCartBG = 'assets/backgroundImages/myCartBG.png';
+  final String themeCartBg = 'assets/backgroundImages/themeCartBg.png';
   final String themeOfferBG = 'assets/backgroundImages/themeOfferBG.png';
   final String logo = 'assets/images/logo.png';
   final String noPageFoundImage = 'assets/images/404.png';
@@ -80,4 +81,9 @@ class ImageAssets {
   final String subCategory8 = 'assets/subCategory/organic.png';
   final String subCategory9 = 'assets/subCategory/cutFruits.png';
   final String subCategory10 = 'assets/subCategory/bouquets.png';
+
+  //save card
+  final String masterCard1 = 'assets/images/mastercard1.png';
+  final String masterCard2 = 'assets/images/mastercard2.png';
+  final String masterCard3 = 'assets/images/mastercard3.png';
 }
