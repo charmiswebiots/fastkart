@@ -22,5 +22,8 @@ class AppRoute {
     GetPage(name: _routeName.addAddress, page: () => AddAddress()),
     GetPage(name: _routeName.addressList, page: () => AddressListScreen()),
     GetPage(name: _routeName.paymentScreen, page: () => PaymentScreen()),
+    GetPage(name: _routeName.orderSuccess, page: () => OrderSuccess()),
+    GetPage(name: _routeName.orderTrack, page: () => OrderTrack()),
+    GetPage(name: _routeName.orderDetail, page: () => OrderDetail()),
   ];
 }

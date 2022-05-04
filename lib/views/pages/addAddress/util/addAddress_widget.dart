@@ -103,7 +103,7 @@ class AddAddressWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: AppScreenUtil().screenHeight(50),
+        height: AppScreenUtil().screenHeight(45),
         width: MediaQuery.of(context).size.width,
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(

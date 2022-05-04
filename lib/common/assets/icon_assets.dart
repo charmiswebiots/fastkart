@@ -35,4 +35,10 @@ class IconAssets {
   final String crosshair = 'assets/icons/crosshair.png';
   final String work = 'assets/icons/work.png';
   final String map1 = 'assets/icons/map1.png';
+  final String calendar = 'assets/icons/calendar.png';
+  final String paper = 'assets/icons/paper.png';
+  final String call = 'assets/icons/call.png';
+  final String chat = 'assets/icons/chat.png';
+  final String line = 'assets/icons/line.png';
+  final String box = 'assets/icons/box.png';
 }

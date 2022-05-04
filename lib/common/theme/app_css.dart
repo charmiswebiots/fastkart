@@ -27,12 +27,16 @@ class AppCss {
   final mulishTextStyle = (
           {color,
           double fontSize = 16,
+          double height = 1,
+          double letterSpacing = 0,
           FontWeight? fontWeight,
           TextDecoration? textDecoration}) =>
       GoogleFonts.mulish(
           color: color,
           fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight: fontWeight,
+          letterSpacing:letterSpacing ,
+          height: height,
           decoration: textDecoration, );
 
   //quicksand font text style

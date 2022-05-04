@@ -50,6 +50,8 @@ class AppTheme {
   Color redColor;
   Color popUpColor;
   Color lowestBgColor;
+  Color paymentBgColor;
+  Color iconBgColor;
 
 
   /// Default constructor
@@ -93,6 +95,8 @@ class AppTheme {
     required this.redColor,
     required this.popUpColor,
     required this.lowestBgColor,
+    required this.paymentBgColor,
+    required this.iconBgColor,
   });
 
   /// fromType factory constructor
@@ -139,6 +143,8 @@ class AppTheme {
           redColor: Colors.red,
           popUpColor: Colors.white,
           lowestBgColor: const Color(0xFFEDF8F8),
+          paymentBgColor: Colors.white,
+          iconBgColor: const Color(0xFFEDF8F8),
         );
 
       case ThemeType.dark:
@@ -182,6 +188,8 @@ class AppTheme {
           redColor: Colors.red,
           popUpColor: const Color(0xFF1F2427),
           lowestBgColor: const Color(0xFF262B2F),
+          paymentBgColor: const Color(0xFF242224),
+          iconBgColor: Colors.black,
         );
     }
   }

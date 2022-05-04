@@ -11,3 +11,6 @@ export '../views/pages/myCart/myCart_screen.dart';
 export '../views/pages/addAddress/addAddress_screen.dart';
 export '../views/pages/addressList/addressList_screen.dart';
 export '../views/pages/payment/payment_screen.dart';
+export '../views/orderPages/orderSuccess/orderSuccess.dart';
+export '../views/orderPages/orderTrack/orderTrack.dart';
+export '../views/orderPages/orderDetail/orderDetail.dart';

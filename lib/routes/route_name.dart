@@ -13,5 +13,8 @@ class RouteName {
   final String addAddress = '/addAddress';
   final String addressList = '/addressList';
   final String paymentScreen = '/paymentScreen';
+  final String orderSuccess = '/orderSuccess';
+  final String orderTrack = '/orderTrack';
+  final String orderDetail = '/orderDetail';
   final noInternet = '/noInternet';
 }

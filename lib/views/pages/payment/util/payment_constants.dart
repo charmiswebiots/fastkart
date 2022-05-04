@@ -17,6 +17,11 @@ class PaymentFont{
    String totalAmount= "Total Amount";
    String couponDiscount= "Coupon Discount";
    String bagSavings= "Bag savings";
+   String addCard = "Add Card";
+   String cardHolderName = "Card Holder Name";
+   String cardNumber = "Card Number";
+   String expiryDate = "Expiry Date";
+   String cv = "CV";
    String dollar = "\$";
 
 }

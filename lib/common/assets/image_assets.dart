@@ -3,6 +3,8 @@ class ImageAssets {
   final String noInternet = 'assets/images/nointernet.png';
   final String corner = 'assets/images/corner.png';
   final String usersquare = 'assets/images/usersquare.png';
+  final String success = 'assets/images/success.png';
+  final String mapSection = 'assets/images/mapSection.png';
 
   final String backgroundImage = 'assets/backgroundImages/backgroundImage.png';
   final String splashBGImage = 'assets/backgroundImages/splashBGImage.png';
