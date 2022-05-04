@@ -26,10 +26,7 @@ class Error404Page extends StatelessWidget {
             margin: EdgeInsets.only(top: Platform.isIOS ? MediaQuery.of(context).size.height /AppScreenUtil().screenHeight(15) : MediaQuery.of(context).size.height /AppScreenUtil().screenHeight(20), left: AppScreenUtil().screenHeight(15), right: AppScreenUtil().screenHeight(15)),
             child: Column(
               children: [
-                CommonAppBar1(
-                  onTap: (){},
-                ),
-                Space(0, MediaQuery.of(context).size.height/6),
+
                 Column(
                   children: [
                     Error404Widget().commonIconImage(

@@ -16,6 +16,7 @@ class BottomNavigationWidget{
         ),
       ),
       label: text,
+
     );
   }
 

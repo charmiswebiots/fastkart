@@ -13,7 +13,7 @@ class ChangeTheme extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                ThemeService().switchTheme();
+               // ThemeService().switchTheme();
               },
               child: Text(
                 "Change",

@@ -10,6 +10,9 @@ class HomeFont{
    String seeAll = 'See all';
    String lowestPrice = 'Lowest Price';
    String everydayEssentials = 'Everyday Essentials';
+   String coupensForYou = 'Coupons For You';
+   String didntFindWhatYouWereLookingFor = 'Didn’t find what you were looking for?';
+   String browseCategory = 'Browse Category';
    String dollar = "\$";
 
 }

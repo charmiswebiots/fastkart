@@ -8,7 +8,8 @@ class BannerList extends StatelessWidget {
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
-  BannerList({Key? key}) : super(key: key);
+  GestureTapCallback? onTap;
+  BannerList({Key? key,this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,27 +54,30 @@ class BannerList extends StatelessWidget {
                                     .bannerList[itemIndex].title,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
-                                color: itemIndex.isEven ?appCtrl.appTheme.titleColor  : appCtrl.appTheme.whiteColor),
+                                color: itemIndex.isEven ?appCtrl.appTheme.bannerTitleColor  : appCtrl.appTheme.white),
                             Space(0, 5),
                             HomeFontStyle().quicksandtextLayout(
                                 text: AppArray()
                                     .bannerList[itemIndex].description,
                                 fontWeight: FontWeight.normal,
                                 fontSize: 14,
-                                color:  itemIndex.isEven ? appCtrl.appTheme.darkContentColor : appCtrl.appTheme.whiteColor),
+                                color:  itemIndex.isEven ? appCtrl.appTheme.darkContentColor : appCtrl.appTheme.white),
                             Space(0, 15),
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
-                                  color: itemIndex.isEven ? appCtrl.appTheme.primary : appCtrl.appTheme.whiteColor
+                            InkWell(
+                              onTap: onTap,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
+                                    color: itemIndex.isEven ? appCtrl.appTheme.primary : appCtrl.appTheme.white
+                                ),
+                                padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(5),horizontal: AppScreenUtil().screenHeight(20)),
+                                child:  HomeFontStyle().mulishtextLayout(
+                                    text: AppArray()
+                                        .bannerList[itemIndex].buttonTitle,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                    color:  itemIndex.isEven ? appCtrl.appTheme.white : appCtrl.appTheme.primary),
                               ),
-                              padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(5),horizontal: AppScreenUtil().screenHeight(20)),
-                              child:  HomeFontStyle().mulishtextLayout(
-                                  text: AppArray()
-                                      .bannerList[itemIndex].buttonTitle,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10,
-                                  color:  itemIndex.isEven ? appCtrl.appTheme.whiteColor : appCtrl.appTheme.primary),
                             )
                           ],
                         ),

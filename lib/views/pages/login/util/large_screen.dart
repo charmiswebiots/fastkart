@@ -43,7 +43,7 @@ class LargeScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   //logo image layout
-                                  Image.asset(imageAssets.smallLogoImage),
+                                  appCtrl.isTheme ? Image.asset( imageAssets.themeLogo,fit: BoxFit.contain,height: AppScreenUtil().screenHeight(20),) : Image.asset( imageAssets.smallLogoImage),
                                   Space(0, 10),
 
                                   //description text layout
@@ -63,7 +63,7 @@ class LargeScreen extends StatelessWidget {
 
                                   //email textformfiel layout
                                   LoginWidget().textFieldLayout(
-obscureText: false,
+                                    obscureText: false,
                                     isLargeScreen: true,
                                     keyboardType: TextInputType.emailAddress,
                                     controller: loginCtrl.email,
@@ -78,12 +78,11 @@ obscureText: false,
                                     validator: (value) => LoginValidation()
                                         .checkIDValidation(value),
                                     text: LoginFont().emailHint,
-                                    suffixIcon: Image.asset(iconAssets.atsign),
-                                    borderColor: appCtrl.appTheme.primary
-                                        .withOpacity(.3),
-                                    hintColor:
-                                        appCtrl.appTheme.darkContentColor,
-                                    fillcolor: appCtrl.appTheme.lightGray,
+                                    borderColor: appCtrl.appTheme.primary.withOpacity(.3),
+                                    hintColor: appCtrl.appTheme.contentColor,
+                                    fillcolor: appCtrl.appTheme.textBoxColor,
+                                    suffixIcon: Image.asset(iconAssets.atsign,color: appCtrl.appTheme.titleColor,),
+
                                   ),
 
                                   Space(0, 13),
@@ -98,18 +97,19 @@ obscureText: false,
                                     validator: (value) => LoginValidation()
                                         .checkPasswordValidation(value),
                                     suffixIcon: InkWell(
-                                      onTap: (){
+                                      onTap: () {
                                         loginCtrl.toggle();
                                       },
-                                      child: Image.asset( loginCtrl.passwordVisible ? iconAssets.hide : iconAssets.view,
+                                      child: Image.asset(
+                                          loginCtrl.passwordVisible
+                                              ? iconAssets.hide
+                                              : iconAssets.view,
                                           color: appCtrl.appTheme.titleColor),
                                     ),
                                     text: LoginFont().password,
-                                    borderColor: appCtrl.appTheme.primary
-                                        .withOpacity(.3),
-                                    hintColor:
-                                        appCtrl.appTheme.darkContentColor,
-                                    fillcolor: appCtrl.appTheme.lightGray,
+                                    borderColor: appCtrl.appTheme.primary.withOpacity(.3),
+                                    hintColor: appCtrl.appTheme.contentColor,
+                                    fillcolor: appCtrl.appTheme.textBoxColor,
                                   ),
                                   Space(0, 10),
 
@@ -127,14 +127,16 @@ obscureText: false,
                                       context: context,
                                       fontColor: appCtrl.appTheme.whiteColor,
                                       onTap: () {
-                                        FocusScopeNode currentFocus = FocusScope.of(context);
+                                        FocusScopeNode currentFocus =
+                                            FocusScope.of(context);
 
                                         if (!currentFocus.hasPrimaryFocus) {
                                           currentFocus.unfocus();
                                         }
                                         if (loginCtrl.loginformKey.currentState!
-                                            .validate())
-                                          Get.offAndToNamed(routeName.home);
+                                            .validate()) {
+                                          loginCtrl.signIn();
+                                        }
                                       }),
                                   Space(0, 20),
 

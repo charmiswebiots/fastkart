@@ -13,12 +13,15 @@ class ResponsiveWidget extends StatelessWidget {
   const ResponsiveWidget({Key? key, @required this.largeScreen, this.smallScreen,this.mediumScreen,}) : super(key: key);
 
   static bool isSmallScreen(BuildContext context) {
+    print('isSmall : ${MediaQuery.of(context).size.width}');
     return MediaQuery.of(context).size.width <800;
   }
   static bool isMediumScreen(BuildContext context) {
+    print('isMedium : ${MediaQuery.of(context).size.width}');
     return MediaQuery.of(context).size.width >= 700 && MediaQuery.of(context).size.width < 1000;
   }
   static bool isLargeScreen(BuildContext context) {
+    print('islarge : ${MediaQuery.of(context).size.width}');
     return MediaQuery.of(context).size.width >=800;
   }
 

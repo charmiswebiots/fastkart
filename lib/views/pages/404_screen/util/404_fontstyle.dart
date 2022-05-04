@@ -11,7 +11,7 @@ class Error404FontStyle {
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
-            color: color, fontWeight: fontWeight, fontSize: textSizeMedium));
+            color: color, fontWeight: fontWeight, fontSize: AppScreenUtil().fontSize(fontSize)));
   }
 
 //mulish font family text layout
@@ -29,7 +29,7 @@ class Error404FontStyle {
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: textSizeMedium,
+              fontSize:  AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
   }
@@ -45,7 +45,7 @@ class Error404FontStyle {
       textAlign: TextAlign.center,
       style: AppCss().quicksandTextStyle(
           color: color,
-          fontSize: fontSize,
+          fontSize:  AppScreenUtil().fontSize(fontSize),
           fontWeight:fontWeight
       ),
     );

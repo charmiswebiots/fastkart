@@ -6,18 +6,20 @@ import 'package:flutter/material.dart';
 class EveryDayEssentialCard extends StatelessWidget {
   int? index;
   var containerBorderColor;
+  var boxColor;
   var data;
   var descriptionColor;
   var priceColor;
   var primaryColor;
   var iconColor;
   var shadowColor;
-  EveryDayEssentialCard({Key? key,this.index,this.containerBorderColor,this.data,this.descriptionColor,this.priceColor,this.primaryColor,this.iconColor,this.shadowColor}) : super(key: key);
+  var quantityColor;
+  EveryDayEssentialCard({Key? key,this.index,this.containerBorderColor,this.boxColor,this.data,this.descriptionColor,this.priceColor,this.primaryColor,this.iconColor,this.shadowColor,this.quantityColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width /3,
+      width: MediaQuery.of(context).size.width /2.8,
       padding:
       EdgeInsets.all(AppScreenUtil().size(10)),
       margin: EdgeInsets.only(
@@ -27,7 +29,7 @@ class EveryDayEssentialCard extends StatelessWidget {
           top: AppScreenUtil().screenHeight(10),
           bottom: AppScreenUtil().screenHeight(20)),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: boxColor,
           boxShadow: [
             BoxShadow(
               color: shadowColor,
@@ -54,8 +56,8 @@ class EveryDayEssentialCard extends StatelessWidget {
                   data
                   ['image']
                       .toString(),
-                  height: 50,
-                  width: 100,
+                  height: AppScreenUtil().screenHeight(50),
+                  width: AppScreenUtil().screenWidth(100),
                 ),
               ),
             ],
