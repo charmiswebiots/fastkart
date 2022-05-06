@@ -1,3 +1,4 @@
+import 'package:fastkart/controllers/myWishList_controller.dart';
 import 'package:fastkart/controllers/mycart_controller.dart';
 import 'package:fastkart/views/pages/myWishList/util/myWishList_fontstyle.dart';
 import 'package:fastkart/views/pages/myWishList/util/myWishList_fontstyle.dart';
@@ -82,7 +83,7 @@ class MyWishListCard extends StatelessWidget {
                   children: [
                     MyWishListFontStyle().mulishtextLayout(
                         text:
-                            MyWishListFont().dollar + data['price'].toString(),
+                        MyWishListFont().dollar + data['price'].toString(),
                         fontSize: 12,
                         color: titleColor,
                         fontWeight: FontWeight.w700),
@@ -101,18 +102,18 @@ class MyWishListCard extends StatelessWidget {
                         color: discountTextColor,
                       ),
                     ),
-                    Space(45, 0),
+                    Space(40, 0),
                     Container(
                       padding: EdgeInsets.symmetric(
                           vertical: AppScreenUtil().screenHeight(8),
-                          horizontal: AppScreenUtil().screenWidth(8)),
+                          horizontal: AppScreenUtil().screenWidth(6)),
                       decoration: BoxDecoration(
                           color: discountTextColor,
                           borderRadius: BorderRadius.circular(
                               AppScreenUtil().borderRadius(5)),
                           border: Border.all(color: quantityBorderColor)),
-                      child: GetBuilder<MyCartListController>(
-                        builder: (controller) => Row(
+                      child: GetBuilder<MyWishListController>(
+                        builder: (ctrl) => Row(
                           children: [
                             InkWell(
                                 onTap: minusTap,

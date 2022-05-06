@@ -10,281 +10,285 @@ import '../../../config.dart';
 class SignUpScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   var signupCtrl = Get.put(SignupController());
-  var appCtrl = Get.isRegistered<AppController>()
-      ? Get.find<AppController>()
-      : Get.put(AppController());
 
   SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SignupController>(
-      builder: (controller) => Scaffold(
-        backgroundColor: appCtrl.appTheme.primary,
-        body: Container(
-            height: AppScreenUtil().screenActualHeight(),
-            child: NotificationListener<OverscrollIndicatorNotification>(
-                onNotification: (overscroll) {
-                  overscroll.disallowGlow();
-                  return false;
-                },
-                child: Stack(
-                  children: [
-                    //background Image layout
-                    SignupWidget().signupBackGroundImage(
-                        imageAssets.backgroundImage, context),
-                    Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        //white body container layout
-                        SignupWidget().bodyContainer(
-                            color: appCtrl.appTheme.whiteColor,
-                            context: context,
-                            child: SingleChildScrollView(
-                              child: Container(
-                                child: Stack(
-                                  alignment: Alignment.bottomCenter,
-                                  children: [
-                                    Form(
-                                      key: formKey,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
+    return GetBuilder<AppController>(
+      builder: (ctrl) {
+        return AppComponent(
+          child: GetBuilder<SignupController>(
+            builder: (controller) => Scaffold(
+              backgroundColor: signupCtrl.appCtrl.appTheme.primary,
+              body: Container(
+                  height: AppScreenUtil().screenActualHeight(),
+                  child: NotificationListener<OverscrollIndicatorNotification>(
+                      onNotification: (overscroll) {
+                        overscroll.disallowGlow();
+                        return false;
+                      },
+                      child: Stack(
+                        children: [
+                          //background Image layout
+                          SignupWidget().signupBackGroundImage(
+                              imageAssets.backgroundImage, context),
+                          Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              //white body container layout
+                              SignupWidget().bodyContainer(
+                                  color: signupCtrl.appCtrl.appTheme.whiteColor,
+                                  context: context,
+                                  child: SingleChildScrollView(
+                                    child: Container(
+                                      child: Stack(
+                                        alignment: Alignment.bottomCenter,
                                         children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              //logo image layout
-                                              appCtrl.isTheme ? Image.asset( imageAssets.themeLogo,fit: BoxFit.contain,height: AppScreenUtil().screenHeight(20),) :  Image.asset(
-                                                  imageAssets.smallLogoImage),
-                                              Space(0, 18),
+                                          Form(
+                                            key: formKey,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    //logo image layout
+                                                    signupCtrl.appCtrl.isTheme ? Image.asset( imageAssets.themeLogo,fit: BoxFit.contain,height: AppScreenUtil().screenHeight(20),) :  Image.asset(
+                                                        imageAssets.smallLogoImage),
+                                                    Space(0, 18),
 
-                                              //description text layout
-                                              SignupFontStyle()
-                                                  .nunitotextLayout(
-                                                      text: SignupFont()
-                                                          .description,
-                                                      color:
-                                                          appCtrl.appTheme
-                                                              .darkContentColor,
-                                                      fontSize:
-                                                          textSizeSMedium),
-                                              Space(0, 20),
+                                                    //description text layout
+                                                    SignupFontStyle()
+                                                        .nunitotextLayout(
+                                                            text: SignupFont()
+                                                                .description,
+                                                            color:
+                                                                signupCtrl.appCtrl.appTheme
+                                                                    .darkContentColor,
+                                                            fontSize:
+                                                                textSizeSMedium),
+                                                    Space(0, 20),
 
-                                              //register account text layout
-                                              SignupFontStyle()
-                                                  .mulishtextLayout(
-                                                      text: SignupFont()
-                                                          .registerAccount,
-                                                      color: appCtrl
-                                                          .appTheme.titleColor,
-                                                      fontSize: textSizeMedium,
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                              Space(0, 16),
+                                                    //register account text layout
+                                                    SignupFontStyle()
+                                                        .mulishtextLayout(
+                                                            text: SignupFont()
+                                                                .registerAccount,
+                                                            color: signupCtrl.appCtrl
+                                                                .appTheme.titleColor,
+                                                            fontSize: textSizeMedium,
+                                                            fontWeight:
+                                                                FontWeight.w700),
+                                                    Space(0, 16),
 
-                                              //fullname textformfiel layout
-                                              SignupWidget().textFieldLayout(
-                                                controller: signupCtrl.username,
-                                                keyboardType:
-                                                    TextInputType.name,
-                                                textInputAction:
-                                                    TextInputAction.next,
-                                                onFieldSubmitted: (value) {
-                                                  SignupWidget()
-                                                      .fieldFocusChange(
-                                                          context,
-                                                          signupCtrl
-                                                              .usernameFocus,
-                                                          signupCtrl
-                                                              .emailFocus);
-                                                },
-                                                focusNode:
-                                                    signupCtrl.usernameFocus,
-                                                validator: (value) =>
-                                                    SignupValidation()
-                                                        .checkUserNameValidation(
-                                                            value),
-                                                suffixIcon: Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      vertical: AppScreenUtil()
-                                                          .screenHeight(10)),
-                                                  child: Image.asset(
-                                                    iconAssets.profile,
-                                                    fit: BoxFit.contain,
-                                                    color: appCtrl
-                                                        .appTheme.titleColor,
-                                                    height: AppScreenUtil()
-                                                        .screenHeight(10),
-                                                    width: AppScreenUtil()
-                                                        .screenWidth(10),
-                                                  ),
-                                                ),
-                                                text: SignupFont().fullName,
-                                                borderColor: appCtrl
-                                                    .appTheme.primary
-                                                    .withOpacity(.3),
-                                                hintColor: appCtrl
-                                                    .appTheme.contentColor,
-                                                fillcolor: appCtrl
-                                                    .appTheme.textBoxColor,
-                                              ),
-                                              Space(0, 13),
+                                                    //fullname textformfiel layout
+                                                    SignupWidget().textFieldLayout(
+                                                      controller: signupCtrl.username,
+                                                      keyboardType:
+                                                          TextInputType.name,
+                                                      textInputAction:
+                                                          TextInputAction.next,
+                                                      onFieldSubmitted: (value) {
+                                                        SignupWidget()
+                                                            .fieldFocusChange(
+                                                                context,
+                                                                signupCtrl
+                                                                    .usernameFocus,
+                                                                signupCtrl
+                                                                    .emailFocus);
+                                                      },
+                                                      focusNode:
+                                                          signupCtrl.usernameFocus,
+                                                      validator: (value) =>
+                                                          SignupValidation()
+                                                              .checkUserNameValidation(
+                                                                  value),
+                                                      suffixIcon: Padding(
+                                                        padding: EdgeInsets.symmetric(
+                                                            vertical: AppScreenUtil()
+                                                                .screenHeight(10)),
+                                                        child: Image.asset(
+                                                          iconAssets.profile,
+                                                          fit: BoxFit.contain,
+                                                          color: signupCtrl.appCtrl
+                                                              .appTheme.titleColor,
+                                                          height: AppScreenUtil()
+                                                              .screenHeight(10),
+                                                          width: AppScreenUtil()
+                                                              .screenWidth(10),
+                                                        ),
+                                                      ),
+                                                      text: SignupFont().fullName,
+                                                      borderColor: signupCtrl.appCtrl
+                                                          .appTheme.primary
+                                                          .withOpacity(.3),
+                                                      hintColor: signupCtrl.appCtrl
+                                                          .appTheme.contentColor,
+                                                      fillcolor: signupCtrl.appCtrl
+                                                          .appTheme.textBoxColor,
+                                                    ),
+                                                    Space(0, 13),
 
-                                              //email textformfiel layout
-                                              SignupWidget().textFieldLayout(
-                                                controller: signupCtrl.email,
-                                                keyboardType:
-                                                    TextInputType.emailAddress,
-                                                textInputAction:
-                                                    TextInputAction.next,
-                                                onFieldSubmitted: (value) {
-                                                  SignupWidget()
-                                                      .fieldFocusChange(
-                                                          context,
+                                                    //email textformfiel layout
+                                                    SignupWidget().textFieldLayout(
+                                                      controller: signupCtrl.email,
+                                                      keyboardType:
+                                                          TextInputType.emailAddress,
+                                                      textInputAction:
+                                                          TextInputAction.next,
+                                                      onFieldSubmitted: (value) {
+                                                        SignupWidget()
+                                                            .fieldFocusChange(
+                                                                context,
+                                                                signupCtrl.emailFocus,
+                                                                signupCtrl
+                                                                    .passwordFocus);
+                                                      },
+                                                      focusNode:
                                                           signupCtrl.emailFocus,
-                                                          signupCtrl
-                                                              .passwordFocus);
-                                                },
-                                                focusNode:
-                                                    signupCtrl.emailFocus,
-                                                validator: (value) =>
-                                                    SignupValidation()
-                                                        .checkIDValidation(
-                                                            value),
-                                                text: SignupFont().emailHint,
-                                                suffixIcon: Image.asset(
-                                                    iconAssets.atsign,
-                                                    color: appCtrl
-                                                        .appTheme.titleColor),
-                                                borderColor: appCtrl
-                                                    .appTheme.primary
-                                                    .withOpacity(.3),
-                                                hintColor: appCtrl
-                                                    .appTheme.contentColor,
-                                                fillcolor: appCtrl
-                                                    .appTheme.textBoxColor,
-                                              ),
-                                              Space(0, 13),
-                                            ],
-                                          ),
+                                                      validator: (value) =>
+                                                          SignupValidation()
+                                                              .checkIDValidation(
+                                                                  value),
+                                                      text: SignupFont().emailHint,
+                                                      suffixIcon: Image.asset(
+                                                          iconAssets.atsign,
+                                                          color: signupCtrl.appCtrl
+                                                              .appTheme.titleColor),
+                                                      borderColor: signupCtrl.appCtrl
+                                                          .appTheme.primary
+                                                          .withOpacity(.3),
+                                                      hintColor: signupCtrl.appCtrl
+                                                          .appTheme.contentColor,
+                                                      fillcolor: signupCtrl.appCtrl
+                                                          .appTheme.textBoxColor,
+                                                    ),
+                                                    Space(0, 13),
+                                                  ],
+                                                ),
 
-                                          //email password layout
-                                          SignupWidget().textFieldLayout(
-                                            controller: signupCtrl.password,
-                                            keyboardType:
-                                                TextInputType.visiblePassword,
-                                            textInputAction:
-                                                TextInputAction.none,
-                                            obscureText:
-                                                signupCtrl.passwordVisible,
-                                            focusNode: signupCtrl.passwordFocus,
-                                            validator: (value) =>
-                                                SignupValidation()
-                                                    .checkPasswordValidation(
-                                                        value),
-                                            suffixIcon: InkWell(
-                                                onTap: () {
-                                                  signupCtrl.toggle();
-                                                },
-                                                child: Image.asset(
-                                                    signupCtrl.passwordVisible
-                                                        ? iconAssets.hide
-                                                        : iconAssets.view,
-                                                    color: appCtrl
-                                                        .appTheme.titleColor)),
-                                            text: SignupFont().password,
-                                            borderColor: appCtrl
-                                                .appTheme.primary
-                                                .withOpacity(.3),
-                                            hintColor: appCtrl
-                                                .appTheme.contentColor,
-                                            fillcolor: appCtrl
-                                                .appTheme.textBoxColor,
-                                          ),
-                                          Space(0, 20),
+                                                //email password layout
+                                                SignupWidget().textFieldLayout(
+                                                  controller: signupCtrl.password,
+                                                  keyboardType:
+                                                      TextInputType.visiblePassword,
+                                                  textInputAction:
+                                                      TextInputAction.none,
+                                                  obscureText:
+                                                      signupCtrl.passwordVisible,
+                                                  focusNode: signupCtrl.passwordFocus,
+                                                  validator: (value) =>
+                                                      SignupValidation()
+                                                          .checkPasswordValidation(
+                                                              value),
+                                                  suffixIcon: InkWell(
+                                                      onTap: () {
+                                                        signupCtrl.toggle();
+                                                      },
+                                                      child: Image.asset(
+                                                          signupCtrl.passwordVisible
+                                                              ? iconAssets.hide
+                                                              : iconAssets.view,
+                                                          color: signupCtrl.appCtrl
+                                                              .appTheme.titleColor)),
+                                                  text: SignupFont().password,
+                                                  borderColor: signupCtrl.appCtrl
+                                                      .appTheme.primary
+                                                      .withOpacity(.3),
+                                                  hintColor: signupCtrl.appCtrl
+                                                      .appTheme.contentColor,
+                                                  fillcolor: signupCtrl.appCtrl
+                                                      .appTheme.textBoxColor,
+                                                ),
+                                                Space(0, 20),
 
-                                          //signup button layout
-                                          SignupWidget().signUpButton(
-                                              color: appCtrl.appTheme.primary,
-                                              context: context,
-                                              fontColor:
-                                                  appCtrl.appTheme.whiteColor,
-                                              onTap: () {
-                                                if (formKey.currentState!
-                                                    .validate()) {
-                                                  print('Valid');
-                                                }
-                                              }),
-                                          Space(0, 25),
+                                                //signup button layout
+                                                SignupWidget().signUpButton(
+                                                    color: signupCtrl.appCtrl.appTheme.primary,
+                                                    context: context,
+                                                    fontColor:
+                                                        signupCtrl.appCtrl.appTheme.whiteColor,
+                                                    onTap: () {
+                                                      if (formKey.currentState!
+                                                          .validate()) {
+                                                        signupCtrl.signInClick(context: context);
+                                                      }
+                                                    }),
+                                                Space(0, 25),
 
-                                          //already account widget
-                                          SignupWidget().alreadyAccountWidget(
-                                              onTap: () {
-                                                Get.back();
-                                              },
-                                              color: appCtrl
-                                                  .appTheme.darkContentColor),
-                                          Space(0, 25),
+                                                //already account widget
+                                                SignupWidget().alreadyAccountWidget(
+                                                    onTap: () {
+                                                      Get.back();
+                                                    },
+                                                    color: signupCtrl.appCtrl
+                                                        .appTheme.darkContentColor),
+                                                Space(0, 25),
 
-                                          //signup with text layout
-                                          SignupWidget().loginWithLayout(
-                                              color:
-                                                  appCtrl.appTheme.contentColor,
-                                              fontColor:
-                                                  appCtrl.appTheme.primary),
-                                          Space(0, 35),
+                                                //signup with text layout
+                                                SignupWidget().loginWithLayout(
+                                                    color:
+                                                        signupCtrl.appCtrl.appTheme.contentColor,
+                                                    fontColor:
+                                                        signupCtrl.appCtrl.appTheme.primary),
+                                                Space(0, 35),
 
-                                          //continoue with phone layout
-                                          IconButtonWidget(
-                                            lefMargin: 0,
-                                            rightMargin: 0,
-                                            icon: iconAssets.mobileIcon,
-                                            textWidget: SignupFontStyle()
-                                                .mulishtextLayout(
-                                                    text: SignupFont()
-                                                        .continueWithPhone,
-                                                    color: appCtrl
-                                                        .appTheme.titleColor,
-                                                    fontSize: textSizeMedium,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                            type: SignupFont().phone,
-                                          ),
-                                          Space(0, 15),
+                                                //continoue with phone layout
+                                                IconButtonWidget(
+                                                  lefMargin: 0,
+                                                  rightMargin: 0,
+                                                  icon: iconAssets.mobileIcon,
+                                                  textWidget: SignupFontStyle()
+                                                      .mulishtextLayout(
+                                                          text: SignupFont()
+                                                              .continueWithPhone,
+                                                          color: signupCtrl.appCtrl
+                                                              .appTheme.titleColor,
+                                                          fontSize: textSizeMedium,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                  type: SignupFont().phone,
+                                                ),
+                                                Space(0, 15),
 
-                                          //continoue with google layout
-                                          IconButtonWidget(
-                                            lefMargin: 0,
-                                            rightMargin: 0,
-                                            icon: iconAssets.google,
-                                            textWidget: SignupFontStyle()
-                                                .mulishtextLayout(
-                                                    text: SignupFont()
-                                                        .continueWithGoogle,
-                                                    color: appCtrl
-                                                        .appTheme.titleColor,
-                                                    fontSize: textSizeMedium,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                            type: SignupFont().google,
+                                                //continoue with google layout
+                                                IconButtonWidget(
+                                                  onTap: () => signupCtrl.googleLogin(),
+                                                  lefMargin: 0,
+                                                  rightMargin: 0,
+                                                  icon: iconAssets.google,
+                                                  textWidget: SignupFontStyle()
+                                                      .mulishtextLayout(
+                                                          text: SignupFont()
+                                                              .continueWithGoogle,
+                                                          color: signupCtrl.appCtrl
+                                                              .appTheme.titleColor,
+                                                          fontSize: textSizeMedium,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                  type: SignupFont().google,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                            )),
-                        //continue as guest text layout
-                        SignupWidget()
-                            .continueAsGuest(color: appCtrl.appTheme.titleColor)
-                      ],
-                    )
-                  ],
-                ))),
-      ),
+                                  )),
+                              //continue as guest text layout
+                              SignupWidget()
+                                  .continueAsGuest(color: signupCtrl.appCtrl.appTheme.titleColor)
+                            ],
+                          )
+                        ],
+                      ))),
+            ),
+          ),
+        );
+      }
     );
   }
 }

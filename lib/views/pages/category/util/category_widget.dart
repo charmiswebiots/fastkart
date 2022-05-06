@@ -46,7 +46,7 @@ class CategoryWidget {
       {context, var listviewBGColor,child}) {
     return Container(
       width:
-          MediaQuery.of(context).size.width / AppScreenUtil().screenWidth(AppScreenUtil().screenActualWidth() > 370 ? 2.9 :3),
+          MediaQuery.of(context).size.width / AppScreenUtil().screenWidth(AppScreenUtil().screenActualWidth() > 377 ? 2.9 :3),
       decoration: BoxDecoration(
           color: listviewBGColor,
           borderRadius: BorderRadius.only(
@@ -124,7 +124,7 @@ class CategoryWidget {
           left: AppScreenUtil().screenWidth(10)),
 
       width: MediaQuery.of(context).size.width /
-          AppScreenUtil().screenWidth(AppScreenUtil().screenActualWidth() > 370 ?1.5 :1.7),
+          AppScreenUtil().screenWidth(AppScreenUtil().screenActualWidth() > 375 ?1.5 :1.7),
 
       child: child,
     );
@@ -139,34 +139,37 @@ class CategoryWidget {
         shrinkWrap: true,
         itemCount: data.length,
         itemBuilder: (context, index) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(10),horizontal: AppScreenUtil().screenWidth(10)),
-                height: AppScreenUtil().screenHeight(55),
-                width: AppScreenUtil().screenWidth(70),
-                decoration: BoxDecoration(
+          return InkWell(
+            onTap: ()=> Get.toNamed(routeName.shopScreen),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(10),horizontal: AppScreenUtil().screenWidth(10)),
+                  height: AppScreenUtil().screenHeight(55),
+                  width: AppScreenUtil().screenWidth(70),
+                  decoration: BoxDecoration(
 
-                    color: boxColor,
-                    borderRadius: BorderRadius.circular(5)),
-                child:  Image.asset(
-                  data[index]["image"].toString(),
-                  height: AppScreenUtil().screenHeight(40),
-                  width: AppScreenUtil().screenWidth(40),
-                  fit: BoxFit.contain,
+                      color: boxColor,
+                      borderRadius: BorderRadius.circular(5)),
+                  child:  Image.asset(
+                    data[index]["image"].toString(),
+                    height: AppScreenUtil().screenHeight(40),
+                    width: AppScreenUtil().screenWidth(40),
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-              Space(0, 5),
-              CategoryFontStyle().mulishtextLayout(
-                  color: textColor,
-                  text: data[index]['title'].toString(),
-                  textAlign: TextAlign.center,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 10,
-                  overflow: TextOverflow.clip)
-            ],
+                Space(0, 5),
+                CategoryFontStyle().mulishtextLayout(
+                    color: textColor,
+                    text: data[index]['title'].toString(),
+                    textAlign: TextAlign.center,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 10,
+                    overflow: TextOverflow.clip)
+              ],
+            ),
           );
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

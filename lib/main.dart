@@ -1,6 +1,7 @@
 import 'package:fastkart/common/font_name.dart';
 import 'package:fastkart/routes/index.dart';
 import 'package:fastkart/views/pages/splash_screen/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,6 +13,10 @@ import 'package:get_storage/get_storage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   await GetStorage.init();
   runApp(MyApp());
 }

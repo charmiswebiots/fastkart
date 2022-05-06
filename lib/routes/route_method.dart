@@ -25,5 +25,12 @@ class AppRoute {
     GetPage(name: _routeName.orderSuccess, page: () => OrderSuccess()),
     GetPage(name: _routeName.orderTrack, page: () => OrderTrack()),
     GetPage(name: _routeName.orderDetail, page: () => OrderDetail()),
+    GetPage(name: _routeName.myWishList, page: () => MyWishListScreen()),
+    GetPage(name: _routeName.orderHistory, page: () => OrderHistoryScreen()),
+    GetPage(name: _routeName.yourAccount, page: () => YourAccount()),
+    GetPage(name: _routeName.notification, page: () => Notification()),
+    GetPage(name: _routeName.setting, page: () => Setting()),
+    GetPage(name: _routeName.pageList, page: () => PagesList()),
+    GetPage(name: _routeName.aboutUs, page: () => AboutUs()),
   ];
 }

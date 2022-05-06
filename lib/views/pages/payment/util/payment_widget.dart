@@ -11,7 +11,7 @@ class PaymentWidget {
     return PaymentFontStyle().mulishtextLayout(
         text: text,
         color: color,
-        fontSize: PaymentFontSize.textSizeSMedium,
+        fontSize: PaymentFontSize.textSizeSmall,
         fontWeight: fontWeight);
   }
 
@@ -305,22 +305,22 @@ class PaymentWidget {
   }
 
   //price detail layout
-  Widget priceDetailLayout({var boxColor,Widget? child}){
+  Widget priceDetailLayout({var boxColor, Widget? child}) {
     return Container(
-      height: AppScreenUtil().screenHeight(220),
-      margin: EdgeInsets.only(
-          top: AppScreenUtil().screenHeight(15),
-          left: AppScreenUtil().screenWidth(15),
-          right: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(20)),
-      padding: EdgeInsets.symmetric(
-          vertical: AppScreenUtil().screenHeight(15),
-          horizontal: AppScreenUtil().screenWidth(15)),
-      decoration: BoxDecoration(
-          color: boxColor,
-          borderRadius: BorderRadius.circular(
-              AppScreenUtil().borderRadius(10))),
-      child: child
-    );
+        height: AppScreenUtil().screenHeight(
+            AppScreenUtil().screenActualWidth() > 370 ? 200 : 220),
+        margin: EdgeInsets.only(
+            top: AppScreenUtil().screenHeight(15),
+            left: AppScreenUtil().screenWidth(15),
+            right: AppScreenUtil().screenWidth(15),
+            bottom: AppScreenUtil().screenHeight(20)),
+        padding: EdgeInsets.symmetric(
+            vertical: AppScreenUtil().screenHeight(15),
+            horizontal: AppScreenUtil().screenWidth(15)),
+        decoration: BoxDecoration(
+            color: boxColor,
+            borderRadius:
+                BorderRadius.circular(AppScreenUtil().borderRadius(10))),
+        child: child);
   }
 }

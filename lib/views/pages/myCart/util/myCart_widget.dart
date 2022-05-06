@@ -51,10 +51,11 @@ class MyCartWidget {
         InkWell(
           onTap: onTap,
           child: Container(
+
             height: AppScreenUtil().screenHeight(
-                AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
+                AppScreenUtil().screenActualWidth() > 370 ? 21 : 27),
             width: AppScreenUtil().screenHeight(
-                AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
+                AppScreenUtil().screenActualWidth() > 370 ? 21 : 27),
             margin: EdgeInsets.only(
                 left: AppScreenUtil().screenWidth(15),
                 right: AppScreenUtil().screenWidth(8)),
@@ -88,16 +89,19 @@ class MyCartWidget {
 
 
   //appbar action layout
-  Widget appBarActionLayout() {
+  Widget appBarActionLayout({GestureTapCallback? onTap}) {
     return Padding(
       padding: EdgeInsets.only(
-          bottom: AppScreenUtil().screenHeight(8),
-          top: AppScreenUtil().screenHeight(10),
+          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 6: 0),
+          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 8 :2),
           right: AppScreenUtil().screenWidth(15)),
-      child: Image.asset(
-        iconAssets.drawerHome,
-        height: AppScreenUtil().screenHeight(20),
-        fit: BoxFit.contain,
+      child: InkWell(
+        onTap:onTap,
+        child: Image.asset(
+          iconAssets.drawerHome,
+          height: AppScreenUtil().screenHeight(20),
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
@@ -179,10 +183,10 @@ class MyCartWidget {
   }
 
   //aapbar
-  PreferredSizeWidget appBarLayout({var backgroundColor, String? image,GestureTapCallback? onTap,var titleColor,var darkContentColor}){
+  PreferredSizeWidget appBarLayout({var backgroundColor, String? image,GestureTapCallback? onTap,GestureTapCallback? actionOnTap,var titleColor,var darkContentColor}){
     return AppBar(
       titleSpacing: 5,
-      toolbarHeight: AppScreenUtil().screenHeight(40),
+      toolbarHeight: AppScreenUtil().screenHeight(30),
       elevation: 0,
       automaticallyImplyLeading: false,
       leadingWidth: AppScreenUtil().screenWidth(105),
@@ -199,8 +203,32 @@ class MyCartWidget {
           text: "(4 Items)",
           textColor: darkContentColor),
       actions: [
-        MyCartWidget().appBarActionLayout(),
+        MyCartWidget().appBarActionLayout(onTap: actionOnTap),
       ],
+    );
+  }
+
+  //procees to Checkout button
+  Widget proceedToCheckout({context,var containerColor, var textColor}) {
+    return  InkWell(
+      onTap: () => Get.toNamed(routeName.addAddress),
+      child: Container(
+        height: AppScreenUtil().screenHeight(45),
+        padding: EdgeInsets.symmetric(
+            vertical: AppScreenUtil().screenHeight(12)),
+        margin: EdgeInsets.symmetric(
+            horizontal: AppScreenUtil().screenHeight(15)),
+        alignment: Alignment.center,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            color: containerColor,
+            borderRadius: BorderRadius.circular(10)),
+        child: MyCartFontStyle().mulishtextLayout(
+            text: MyCartFont().proceedtoCheckout,
+            fontSize: 12,
+            color: textColor,
+            fontWeight: FontWeight.w700),
+      ),
     );
   }
 }

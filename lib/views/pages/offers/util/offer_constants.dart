@@ -7,6 +7,8 @@ class OfferFont{
    String termsConditions= 'Terms & conditions';
    String copyCode= "Copy Code";
    String filter= "Filter";
+   String close= "Close";
+   String apply= "Apply";
    String dollar = "\$";
 
 }

@@ -207,6 +207,10 @@ class AppArray {
       "icon": iconAssets.drawerHome,
     },
     {
+      "title": "Fastkart Pages list",
+      "icon": iconAssets.paper,
+    },
+    {
       "title": "Shop By Category",
       "icon": iconAssets.category,
     },
@@ -237,6 +241,10 @@ class AppArray {
     {
       "title": "Theme",
       "icon": iconAssets.darkTheme,
+    },
+    {
+      "title": "Logout",
+      "icon": iconAssets.logout,
     },
   ];
 
@@ -543,12 +551,11 @@ class AppArray {
     },
   ];
 
-
   //payment method list
   var paymentMethodList = [
     {
       'title': 'Select Card',
-      'child' :[
+      'child': [
         {
           'icon': imageAssets.masterCard1,
           'number': '9800 XXXX XXXX XXXX 0545',
@@ -587,4 +594,303 @@ class AppArray {
     },
     {'title': 'Cash on Delivery', 'child': 'textbox'},
   ];
+
+  //order detail
+  var orderDetailList = [
+    {
+      'quantity': 2,
+      'name': 'Assorted Capsicum Combo ',
+      'gram': '500g',
+      'price': ' \$25.00'
+    },
+    {
+      'quantity': 1,
+      'name': 'Assorted Capsicum Combo ',
+      'gram': '500g',
+      'price': ' \$25.00'
+    },
+    {
+      'quantity': 1,
+      'name': 'Assorted Capsicum Combo ',
+      'gram': '500g',
+      'price': ' \$25.00'
+    },
+  ];
+
+  //days list list
+  final daysList = [
+    {
+      'title': 'Processing',
+      'id': 1,
+    },
+    {
+      'title': 'Past 30 days',
+      'id': 2,
+    },
+    {
+      'title': 'November',
+      'id': 3,
+    },
+    {
+      'title': 'October',
+      'id': 4,
+    },
+  ];
+
+  //order history
+  var orderHistory = [
+    {
+      'orderId': '#5151515',
+      'date': '20 Dec, 2020',
+      'address': '8857 Morris Rd. ,Charlottesville..',
+      'price': '\$250.00',
+      'qty': '15',
+      'rating': 4
+    },
+    {
+      'orderId': '#5151515',
+      'date': '20 Dec, 2020',
+      'address': '8857 Morris Rd. ,Charlottesville..',
+      'price': '\$250.00',
+      'qty': '15',
+      'rating': 4
+    },
+    {
+      'orderId': '#5151515',
+      'date': '20 Dec, 2020',
+      'address': '8857 Morris Rd. ,Charlottesville..',
+      'price': '\$250.00',
+      'qty': '15',
+      'rating': 4
+    },
+    {
+      'orderId': '#5151515',
+      'date': '20 Dec, 2020',
+      'address': '8857 Morris Rd. ,Charlottesville..',
+      'price': '\$250.00',
+      'qty': '15',
+      'rating': 4
+    }
+  ];
+
+  //notification list
+  var notificationList = [
+    {
+      'day': 'Yesterday',
+      'child': [
+        {
+          'bgColor': Color(0xFFEDF8F8),
+          'title': 'UPTO 40% OFF, Sales Ends..',
+          'dateTime': '3.00pm, 10 July, 2021',
+          'type': 'offer',
+          'iconAssets': iconAssets.discount
+        },
+        {
+          'bgColor': Color(0xFFFFF8ED),
+          'title': 'FLAT 30% OFF, Sales Ends..',
+          'dateTime': '5.00pm, 10 July, 2021',
+          'type': 'offer',
+          'iconAssets': iconAssets.ticket
+        },
+      ]
+    },
+    {
+      'day': 'Last 7 Days',
+      'child': [
+        {
+          'bgColor': Color(0xFFFFF6F3),
+          'title': 'Password Succesfully Changed',
+          'dateTime': '8.00am, 15 Jan, 2021',
+          'type': 'Signin',
+          'iconAssets': iconAssets.password
+        },
+        {
+          'bgColor': Color(0xFFF9F9FF),
+          'title': '\$200 top up successfully',
+          'dateTime': '9.00am, 10 Jan, 2021',
+          'type': 'Topup',
+          'iconAssets': iconAssets.ticketStar
+        },
+        {
+          'bgColor': Color(0xFFEDF8F8),
+          'title': 'UPTO 40% OFF, Sales Ends..',
+          'dateTime': '3.00pm, 10 July, 2021',
+          'type': 'offer',
+          'iconAssets': iconAssets.discount
+        },
+        {
+          'bgColor': Color(0xFFFFF8ED),
+          'title': 'FLAT 30% OFF, Sales Ends..',
+          'dateTime': '5.00pm, 10 July, 2021',
+          'type': 'offer',
+          'iconAssets': iconAssets.ticket
+        },
+        {
+          'bgColor': Color(0xFFFFF6F3),
+          'title': 'Password Succesfully Changed',
+          'dateTime': '8.00am, 15 Jan, 2021',
+          'type': 'Signin',
+          'iconAssets': iconAssets.password
+        },
+        {
+          'bgColor': Color(0xFFF9F9FF),
+          'title': '\$200 top up successfully',
+          'dateTime': '9.00am, 10 Jan, 2021',
+          'type': 'Topup',
+          'iconAssets': iconAssets.ticketStar
+        },
+        {
+          'bgColor': Color(0xFFEDF8F8),
+          'title': 'UPTO 40% OFF, Sales Ends..',
+          'dateTime': '3.00pm, 10 July, 2021',
+          'type': 'offer',
+          'iconAssets': iconAssets.discount
+        }
+      ]
+    }
+  ];
+
+  //language list
+  var languageList = [
+    {'icon': iconAssets.us, 'name': 'English'},
+    {'icon': iconAssets.inImag, 'name': 'Indian'},
+    {'icon': iconAssets.it, 'name': 'Italian'},
+    {'icon': iconAssets.tf, 'name': 'French'},
+    {'icon': iconAssets.cn, 'name': 'Chinese'}
+  ];
+
+  //pages list
+  var pagesList = [
+    {'name': '404'},
+    {'name': 'About Us'},
+    {'name': 'Account'},
+    {'name': 'Address Type 1'},
+    {'name': 'Address Type 2'},
+    {'name': 'Cart'},
+    {'name': 'Category Wide'},
+    {'name': 'Home Page'},
+    {'name': 'Login'},
+    {'name': 'Notification'},
+    {'name': 'Offer'},
+    {'name': 'OnBoarding'},
+    {'name': 'Order Detail'},
+    {'name': 'Order History'},
+    {'name': 'Order Success'},
+    {'name': 'Order Tracking'},
+    {'name': 'Payment'},
+    {'name': 'Product'},
+    {'name': 'Register'},
+    {'name': 'Search'},
+    {'name': 'Setting'},
+    {'name': 'Shop'},
+    {'name': 'Wishlist'},
+  ];
+
+  //how to order list
+  var howToOrder = [
+    {
+      'id': "1",
+      "title": "Browse products using the search feature",
+      "desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    },
+    {
+      'id': "2",
+      "title": "Add item to your Shopping Cart",
+      "desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    },
+    {
+      'id': "3",
+      "title": "Choose a convenient delivery time",
+      "desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    },
+    {
+      'id': "4",
+      "title": "Select suitable payment option",
+      "desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    }
+  ];
+
+  //team list
+  var teamList = [
+    {"name": "Patty O'Furniture", 'image': imageAssets.team},
+    {"name": "Patty O'Furniture", 'image': imageAssets.team},
+    {"name": "Patty O'Furniture", 'image': imageAssets.team},
+    {"name": "Patty O'Furniture", 'image': imageAssets.team},
+  ];
+
+  //filter list
+  var filterList = [
+    {
+      'title': "All order",
+    },
+    {
+      'title': "Open Order",
+    },
+    {
+      'title': "Return Orders",
+    },
+    {
+      'title': "Cancelled Order",
+    }
+  ];
+  //time filter list
+  var timefilterList = [
+    {
+      'title': "Last 30days",
+    },
+    {
+      'title': "Last 6 Month",
+    },
+    {
+      'title': "2021",
+    },
+    {
+      'title': "2020",
+    }
+  ];
+
+
+  //shopFilter list
+  var shopFilterList = [
+    {
+      'title': "All Offer",
+    },
+    {
+      'title': "More Than 50%",
+    },
+    {
+      'title': "More Than 30%",
+    },
+    {
+      'title': "More Than 25%",
+    },
+    {
+      'title': "More Than 15%",
+    },
+    {
+      'title': "More Than 10%",
+    }
+  ];
+
+  //product detail list
+  var productDetailList = [
+    {
+      'title': 'Product Details',
+      'child': 'Refillable, Reusable, High Quality Glass Roll on Bottles with Silver cap For Essential Oil Blends DIY Perfume Cosmetics Beauty Products Ideal'
+    },
+    {
+      'title': 'Manufacturer Details',
+      'child': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'
+    },
+    {
+      'title': 'Product Disclaimer',
+      'child': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'
+    },
+    {'title': 'Features & details', 'child': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'},
+  ];
+
 }

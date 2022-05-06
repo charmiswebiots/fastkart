@@ -1,5 +1,6 @@
 import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 import 'package:fastkart/widgets/common_appbar_widget/util/appbar_constants.dart';
 import 'package:fastkart/widgets/common_appbar_widget/util/appbar_fontstyle.dart';
 import 'package:fastkart/widgets/common_appbar_widget/util/appbar_widget.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 
 class CommonAppBar1 extends StatelessWidget {
   GestureTapCallback? onTap;
+  GestureTapCallback? actionTap;
   bool? isLocation;
   bool? isCart;
   bool? isCategory;
@@ -20,6 +22,7 @@ class CommonAppBar1 extends StatelessWidget {
   CommonAppBar1(
       {Key? key,
       this.onTap,
+      this.actionTap,
       this.isCart,
       this.isLocation,
       this.isback,
@@ -31,9 +34,10 @@ class CommonAppBar1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       margin: EdgeInsets.only(
           top: MediaQuery.of(context).size.height /
-              AppScreenUtil().screenHeight(13),
+          AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() >370 ? 13 :22),
           bottom: AppScreenUtil().screenHeight(10),
           left: AppScreenUtil().screenHeight(15),
           right: AppScreenUtil().screenHeight(15)),
@@ -93,9 +97,13 @@ class CommonAppBar1 extends StatelessWidget {
                     .commonIconImage(image: iconAssets.user, height: 30),
               ],
             ),
-          if (isCart!) Image.asset(gifAssets.colorOffer, height: 30),
+          if (isCart!) InkWell(
+              onTap: actionTap,
+              child: Image.asset(gifAssets.colorOffer, height: 30)),
 
-          if (isHome!) Image.asset(iconAssets.colorHome, height: 20,fit: BoxFit.contain,),
+          if (isHome!) InkWell(
+            onTap: actionTap,
+              child: Image.asset(iconAssets.colorHome, height: 20,fit: BoxFit.contain,)),
         ],
       ),
     );

@@ -16,6 +16,7 @@ class MyCartCard extends StatelessWidget {
   var quantityBorderColor;
   GestureTapCallback? minusTap;
   GestureTapCallback? plusTap;
+  GestureTapCallback? onTap;
 
   MyCartCard({
     Key? key,
@@ -29,6 +30,7 @@ class MyCartCard extends StatelessWidget {
     this.quantityBorderColor,
     this.minusTap,
     this.plusTap,
+    this.onTap
   }) : super(key: key);
 
   @override
@@ -51,11 +53,14 @@ class MyCartCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.asset(
-              data['image'].toString(),
-              fit: BoxFit.fill,
-              height: AppScreenUtil().screenHeight(45),
-              width: AppScreenUtil().screenWidth(50),
+            InkWell(
+              onTap: onTap,
+              child: Image.asset(
+                data['image'].toString(),
+                fit: BoxFit.fill,
+                height: AppScreenUtil().screenHeight(45),
+                width: AppScreenUtil().screenWidth(50),
+              ),
             ),
             Space(5, 0),
             VerticalDivider(

@@ -82,24 +82,30 @@ class AddAddressWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({var iconColor}) {
+  Widget appBarActionLayout({var iconColor, GestureTapCallback? onTap}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(13),
-          top: AppScreenUtil().screenHeight(13),
+          bottom: AppScreenUtil().screenHeight(
+              AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
+          top: AppScreenUtil().screenHeight(
+              AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
           right: AppScreenUtil().screenWidth(15)),
-      child: Image.asset(
-        iconAssets.blacktextboxSearchIcon,
-        color: iconColor,
-        height: AppScreenUtil().screenHeight(20),
-        fit: BoxFit.contain,
+      child: InkWell(
+        onTap: onTap,
+        child: Image.asset(
+          iconAssets.blacktextboxSearchIcon,
+          color: iconColor,
+          height: AppScreenUtil().screenHeight(18),
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
 
   //confirm Location layout
-  Widget confirmLocationButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
+  Widget confirmLocationButtonLayout(
+      {context, var buttonColor, var itemColor, GestureTapCallback? onTap}) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -114,7 +120,8 @@ class AddAddressWidget {
             vertical: AppScreenUtil().screenHeight(10)),
         decoration: BoxDecoration(
             color: buttonColor,
-            borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))),
+            borderRadius:
+                BorderRadius.circular(AppScreenUtil().borderRadius(5))),
         child: AddAddressFontStyle().mulishtextLayout(
             text: AddAddressFont().confirmLocation,
             color: itemColor,
@@ -167,7 +174,7 @@ class AddAddressWidget {
         ),
         Positioned(
           right: 15,
-          top: MediaQuery.of(context).size.width /1.4,
+          top: MediaQuery.of(context).size.width / 1.4,
           child: FloatingActionButton(
               elevation: 0.0,
               child: Image.asset(
@@ -219,7 +226,7 @@ class AddAddressWidget {
       var darkContentColor,
       var dividerColor,
       int? lastIndex,
-        var iconColor,
+      var iconColor,
       int? index}) {
     return Padding(
       padding: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(15)),
@@ -254,6 +261,29 @@ class AddAddressWidget {
             )
         ],
       ),
+    );
+  }
+
+  //appbar layout
+  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor,var titleColor,String? image}) {
+    return AppBar(
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      backgroundColor: bgColor,
+      titleSpacing: 0,
+      centerTitle: false,
+      leading: AddAddressWidget().appBarLeadingLayput(
+          onTap: () => Get.back(),
+          borderColor: titleColor,
+          iconColor: titleColor,
+          image: image),
+      title: AddAddressWidget().appBarTitleLayout(
+          text: AddAddressFont().addAddress,
+          textColor: titleColor),
+      actions: [
+        AddAddressWidget().appBarActionLayout(
+            iconColor: titleColor,onTap: onTap),
+      ],
     );
   }
 }

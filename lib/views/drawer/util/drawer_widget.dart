@@ -2,9 +2,7 @@ import 'package:fastkart/utilities/responsive_layout.dart';
 import 'package:fastkart/views/drawer/util/drawer_constants.dart';
 import 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
 import 'package:fastkart/views/pages/dashboard/themeSwitcher.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
 import '../../../config.dart';
 
@@ -21,6 +19,25 @@ class DrawerWidget {
         fit: BoxFit.fill,
       ),
     );
+  }
+
+
+  //pop layout
+  Widget popLayout(
+      {Widget? child,
+        var
+        context}) {
+    return Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: AppScreenUtil().screenWidth(15),
+            vertical: AppScreenUtil().screenHeight(15)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
+              topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
+        ),
+        height: MediaQuery.of(context).size.height / 2.5,
+        child: child);
   }
 
   //username and email layout

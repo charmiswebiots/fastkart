@@ -42,13 +42,97 @@ class ProductDetailWidget {
     );
   }
 
+
+  //expandable list view
+  Widget expandableListView(
+      {context,
+        int? index,
+        String? title,
+        bool? isExpanded,
+        var lightPrimary,
+        var titleColor,
+        VoidCallback? onPressed,
+        Widget? child}) {
+    debugPrint('List item build $index $isExpanded');
+    return Column(
+      children: <Widget>[
+        Container(
+          padding:
+          EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              ProductDetailFontStyle().mulishtextLayout(
+                  text: title, fontWeight: FontWeight.normal, fontSize: ProductDetailFontSize.textSizeSMedium),
+              IconButton(
+                  icon: Container(
+                    height: AppScreenUtil().screenHeight(25),
+                    width: AppScreenUtil().screenWidth(25),
+                    decoration: BoxDecoration(
+                      color: lightPrimary,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      isExpanded!
+                          ? Icons.keyboard_arrow_down
+                          : Icons.arrow_forward_ios_outlined,
+                      color: titleColor,
+                      size: AppScreenUtil().size(isExpanded ? 18 : 13),
+                    ),
+                  ),
+                  onPressed: onPressed),
+            ],
+          ),
+        ),
+        childExpandable(
+            context: context,
+            collapsedHeight: 0.0,
+            expandedHeight: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 377 ? 72: 75),
+            expanded: isExpanded,
+            child: child)
+      ],
+    );
+  }
+
+  // child expandable layout
+  Widget childExpandable(
+      {context,
+        bool? expanded,
+        expandedHeight = 300.0,
+        collapsedHeight = 0.0,
+        Widget? child}) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+        AnimatedContainer(
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+          width: screenWidth,
+          height: expanded! ? expandedHeight : collapsedHeight,
+          child: Container(
+            child: child,
+            /*decoration:
+            BoxDecoration(border: Border.all(width: 0.5, color: borderColor)),*/
+          ),
+        ),
+        if (!expanded)
+          Divider(
+            height: 1,
+            indent: 15,
+            endIndent: 15,
+          )
+      ],
+    );
+  }
+
+
   //appbar action layout
   Widget appBarActionLayout({var iconColor}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(15),
-          top: AppScreenUtil().screenHeight(10),
+          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 15 : 20 ),
+          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 : 20),
           right: AppScreenUtil().screenWidth(15)),
       child: Image.asset(
         iconAssets.share,

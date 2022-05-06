@@ -23,7 +23,8 @@ class ProductDetailFontStyle {
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
     TextOverflow overflow = TextOverflow.ellipsis,
-    TextAlign textAlign = TextAlign.left
+    TextAlign textAlign = TextAlign.left,
+    double height =1
   }) {
     return InkWell(
       onTap: onTap,
@@ -32,6 +33,7 @@ class ProductDetailFontStyle {
           textAlign: textAlign,
           style: AppCss().mulishTextStyle(
               color: color,
+              height: height,
               fontWeight: fontWeight,
               fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),

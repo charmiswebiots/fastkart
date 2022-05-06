@@ -1,10 +1,17 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/offers/util/offer_constants.dart';
 import 'package:fastkart/views/pages/offers/util/offer_fontstyle.dart';
 import 'package:fastkart/views/pages/offers/util/offer_widget.dart';
 import 'package:flutter/material.dart';
 
 class OfferController extends GetxController {
+  var appCtrl = Get.isRegistered<AppController>()
+      ? Get.find<AppController>()
+      : Get.put(AppController());
+
+  int itemfilterIndex= 0;
+  //offer detail bottom sheet
   bottomSheet(
       {var primaryColor,
       data,
@@ -121,4 +128,113 @@ class OfferController extends GetxController {
       },
     );
   }
+
+
+  //bottom sheet for filter
+  filterbottomSheet(
+      {
+        context,
+        }) {
+    showModalBottomSheet<void>(
+      backgroundColor: appCtrl.appTheme.popUpColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
+            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
+      ),
+      // context and builder are
+      // required properties in this widget
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        // we set up a container inside which
+        // we create center column and display text
+        return GetBuilder<OfferController>(builder: (_) {
+          return OfferWidget().popLayout(
+              context: context,
+
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+
+                    OfferFontStyle().mulishtextLayout(
+                        text: OfferFont().filter,
+                        fontSize: OfferFontSize.textSizeMedium,
+                        color: appCtrl.appTheme.titleColor),
+                    Space(0, 20),
+                    Container(
+                      child: GridView.builder(
+                        padding: EdgeInsets.zero,
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: AppArray().shopFilterList.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () async {
+                              itemfilterIndex = index;
+                              update();
+                            },
+                            child: Container(
+                              height: AppScreenUtil().screenHeight(20),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: index == itemfilterIndex
+                                    ? appCtrl.appTheme.primary
+                                    : appCtrl.appTheme.wishtListBoxColor,
+                                borderRadius: BorderRadius.circular(
+                                    AppScreenUtil().borderRadius(5)),
+                                border: Border.all(
+                                    color: appCtrl.isTheme
+                                        ? appCtrl.appTheme.gray
+                                        : appCtrl.appTheme.primary
+                                        .withOpacity(.2),
+                                    width: .5), //border of dropdown button
+                              ),
+                              child: OfferFontStyle().mulishtextLayout(
+                                  text: AppArray()
+                                      .shopFilterList[index]['title']
+                                      .toString(),
+                                  fontSize:
+                                  OfferFontSize.textSizeSMedium,
+                                  color: index == itemfilterIndex
+                                      ? appCtrl.appTheme.white
+                                      : appCtrl.appTheme.darkContentColor),
+                            ),
+                          );
+                        },
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: MediaQuery.of(context).size.width /
+                              (MediaQuery.of(context).size.height / 7),
+                        ),
+                      ),
+                    ),
+                    Space(0, 30),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        OfferWidget().commonButtonWidget(
+                            containerColor: appCtrl.appTheme.popUpColor,
+                            context: context,
+                            borderColor: appCtrl.appTheme.primary,
+                            textColor: appCtrl.appTheme.primary,text: OfferFont().close),
+                        OfferWidget().commonButtonWidget(
+                            containerColor: appCtrl.appTheme.primary,
+                            context: context,
+                            borderColor: appCtrl.appTheme.primary,
+                            textColor: appCtrl.appTheme.whiteColor,text: OfferFont().apply),
+                      ],
+                    )
+                  ],
+                ),
+              ));
+        });
+      },
+    );
+  }
+
 }

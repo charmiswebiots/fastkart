@@ -42,7 +42,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             right: AppScreenUtil().screenHeight(15)),
                         child: CategoryWidget().textFieldLayout(
                           suffixIcon: Padding(
-                            padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(10)),
+                            padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() >370 ? 10 :15)),
                             child: Image.asset(iconAssets.voice,fit: BoxFit.contain,color: appCtrl.appTheme.titleColor     ,height: AppScreenUtil().screenHeight(10),width: AppScreenUtil().screenWidth(10),),
                           ),
                           prefixIcon: Image.asset(iconAssets.textboxSearchIcon,color: appCtrl.appTheme.titleColor,),

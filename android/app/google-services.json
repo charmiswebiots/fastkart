@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "442123674229",
+    "project_id": "fastkart-e69da",
+    "storage_bucket": "fastkart-e69da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442123674229:android:c386db6205944fcfc68e3c",
+        "android_client_info": {
+          "package_name": "com.fastkart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442123674229-ppuscmm0jtqe1v4np7trd98v43o21shg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV9JwTwNU6yGwqL6O6Je5Hzt2aobm8-FQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442123674229-ppuscmm0jtqe1v4np7trd98v43o21shg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

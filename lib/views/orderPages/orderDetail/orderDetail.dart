@@ -1,4 +1,6 @@
 import 'package:fastkart/controllers/order/orderDetail_controller.dart';
+import 'package:fastkart/utilities/app_array.dart';
+import 'package:fastkart/views/orderPages/orderDetail/itemListCard.dart';
 import 'package:fastkart/views/orderPages/orderDetail/util/orderDetail_constants.dart';
 import 'package:fastkart/views/orderPages/orderDetail/util/orderDetail_fontstyle.dart';
 import 'package:fastkart/views/orderPages/orderDetail/util/orderDetail_widget.dart';
@@ -17,27 +19,9 @@ class OrderDetail extends StatelessWidget {
       return AppComponent(
         child: GetBuilder<OrderDetailController>(builder: (_) {
           return Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
-              titleSpacing: 0,
-              centerTitle: false,
-              leading: OrderDetailWidget().appBarLeadingLayput(
-                  onTap: () => Get.back(),
-                  borderColor: orderDetailCtrl.appCtrl.appTheme.titleColor,
-                  iconColor: orderDetailCtrl.appCtrl.appTheme.titleColor,
-                  image: orderDetailCtrl.appCtrl.isTheme
-                      ? imageAssets.themeFkLogo
-                      : imageAssets.fkLogo),
-              title: OrderDetailWidget().appBarTitleLayout(
-                  text: OrderDetailFont().orderSummary,
-                  textColor: orderDetailCtrl.appCtrl.appTheme.titleColor),
-              actions: [
-                OrderDetailWidget().appBarActionLayout(
-                    iconColor: orderDetailCtrl.appCtrl.appTheme.titleColor),
-              ],
-            ),
+            appBar: OrderDetailWidget().appBarLayout(backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,titleColor: orderDetailCtrl.appCtrl.appTheme.titleColor,image: orderDetailCtrl.appCtrl.isTheme
+                ? imageAssets.themeFkLogo
+                : imageAssets.fkLogo,onTap:() => orderDetailCtrl.goToHome()),
             backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
@@ -50,55 +34,204 @@ class OrderDetail extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Stack(
-                      children: [
-                        Column(
+                    SingleChildScrollView(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            bottom: AppScreenUtil().screenHeight(80)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            //order id and status layout
+                            OrderDetailWidget().orderIdAndStatus(
+                                color: orderDetailCtrl.appCtrl.appTheme.primary,
+                                orderId: 'Order ID: #5151515',
+                                textColor:
+                                    orderDetailCtrl.appCtrl.appTheme.white),
+                            Space(0, 20),
+
+                            // items text layout
+                            OrderDetailWidget().commonTitleText(
+                                title: OrderDetailFont().items,
+                                color:
+                                    orderDetailCtrl.appCtrl.appTheme.primary),
+                            Space(0, 20),
+
+                            //item list layout
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-                              padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15),vertical: AppScreenUtil().screenHeight(10)),
-                              decoration: BoxDecoration(
-                                  color:
-                                      orderDetailCtrl.appCtrl.appTheme.primary,
-                                  borderRadius: BorderRadius.circular(
-                                      AppScreenUtil().borderRadius(10))),
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: AppScreenUtil().screenWidth( 15)),
+                              height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 170 :220),
+                              child: ListView.builder(
+                                itemCount: AppArray().orderDetailList.length,
+                                itemBuilder: (context, index) {
+                                  return ItemListCard(
+                                    data: AppArray().orderDetailList[index],
+                                    quantityLayoutColor: orderDetailCtrl
+                                        .appCtrl.appTheme.primary,
+                                    quantityTextColor:
+                                        orderDetailCtrl.appCtrl.appTheme.white,
+                                    titleColor: orderDetailCtrl
+                                        .appCtrl.appTheme.titleColor,
+                                    darkContentColor: orderDetailCtrl
+                                        .appCtrl.appTheme.darkContentColor,
+                                    contentColor: orderDetailCtrl
+                                        .appCtrl.appTheme.contentColor,
+                                    index: index,
+                                    lastIndex:
+                                        AppArray().orderDetailList.length - 1,
+                                  );
+                                },
+                              ),
+                            ),
+                            //payment detail text layout
+                            OrderDetailWidget().commonTitleText(
+                                title: OrderDetailFont().paymentDetails,
+                                color:
+                                    orderDetailCtrl.appCtrl.appTheme.primary),
+
+                            // payment detail layout
+                            OrderDetailWidget().priceDetailLayout(
+                                child: Container(
+                              margin: EdgeInsets.only(
+                                  bottom: AppScreenUtil().screenHeight(5)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  OrderDetailWidget().commonPriceDetail(
+                                      title: OrderDetailFont().bagTotal,
+                                      titleColor: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor,
+                                      val: OrderDetailFont().dollar + '220.00',
+                                      fontWeight: FontWeight.normal,
+                                      valColor: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor),
+                                  Space(0, 10),
+                                  OrderDetailWidget().commonPriceDetail(
+                                      title: OrderDetailFont().bagSavings,
+                                      titleColor: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor,
+                                      val: '-${OrderDetailFont().dollar}20.00',
+                                      fontWeight: FontWeight.normal,
+                                      valColor: orderDetailCtrl
+                                          .appCtrl.appTheme.primary),
+                                  Space(0, 10),
+                                  OrderDetailWidget().commonPriceDetail(
+                                      title: OrderDetailFont().couponDiscount,
+                                      titleColor: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor,
+                                      val: 'Apply Coupon',
+                                      fontWeight: FontWeight.normal,
+                                      valColor: orderDetailCtrl
+                                          .appCtrl.appTheme.redColor),
+                                  Space(0, 10),
+                                  OrderDetailWidget().commonPriceDetail(
+                                      title: OrderDetailFont().delivery,
+                                      titleColor: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor,
+                                      fontWeight: FontWeight.normal,
+                                      val: OrderDetailFont().dollar + '50.00',
+                                      valColor: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor),
+                                  Space(0, 10),
+                                  Divider(),
+                                  Space(0, 10),
+                                  OrderDetailWidget().commonPriceDetail(
+                                      title: OrderDetailFont().totalAmount,
+                                      titleColor: orderDetailCtrl
+                                          .appCtrl.appTheme.titleColor,
+                                      fontWeight: FontWeight.w600,
+                                      val: OrderDetailFont().dollar + '270.00',
+                                      valColor: orderDetailCtrl
+                                          .appCtrl.appTheme.titleColor),
+                                ],
+                              ),
+                            )),
+
+                            //address text layout
+                            OrderDetailWidget().commonTitleText(
+                                title: OrderDetailFont().address,
+                                color:
+                                    orderDetailCtrl.appCtrl.appTheme.primary),
+
+                            Space(0, 15),
+
+                            //address layout
+
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: AppScreenUtil().screenWidth(15)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  OrderDetailFontStyle().mulishtextLayout(
+                                      text: "Noah Hamilton",
+                                      fontSize:
+                                          OrderDetailFontSize.textSizeSMedium,
+                                      fontWeight: FontWeight.normal,
+                                      color: orderDetailCtrl
+                                          .appCtrl.appTheme.titleColor),
+                                  Space(0, 5),
+                                  OrderDetailFontStyle().mulishtextLayout(
+                                      text:
+                                          "8857 Morris Rd.,Charlottesville, VA 22901",
+                                      fontSize:
+                                          OrderDetailFontSize.textSizeSmall,
+                                      fontWeight: FontWeight.normal,
+                                      color: orderDetailCtrl
+                                          .appCtrl.appTheme.darkContentColor),
+                                ],
+                              ),
+                            ),
+                            Space(0, 3),
+
+                            Space(0, 20),
+                            //payment text layout
+                            OrderDetailWidget().commonTitleText(
+                                title: OrderDetailFont().paymentMethod,
+                                color:
+                                    orderDetailCtrl.appCtrl.appTheme.primary),
+
+                            Space(0, 15),
+                            //payment method layout
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: AppScreenUtil().screenWidth(15)),
                               child: Row(
                                 children: [
                                   Image.asset(
-                                    iconAssets.box,
+                                    imageAssets.masterCard1,
                                     height: AppScreenUtil().screenHeight(30),
                                   ),
-                                  Space(10, 0),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      OrderDetailFontStyle().mulishtextLayout(
-                                          text: 'Order ID: #5151515',
-                                          fontSize: OrderDetailFontSize
-                                              .textSizeSmall,
-                                          color: orderDetailCtrl
-                                              .appCtrl.appTheme.white),
-                                      Space(0, 5),
-                                      OrderDetailFontStyle().mulishtextLayout(
-                                          text: OrderDetailFont().orderDelivery,
-                                          letterSpacing: .5,
-                                          fontSize: OrderDetailFontSize
-                                              .textSizeMedium,
-                                          fontWeight: FontWeight.w700,
-                                          color: orderDetailCtrl
-                                              .appCtrl.appTheme.white),
-                                    ],
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            AppScreenUtil().screenWidth(15)),
+                                    child: OrderDetailFontStyle()
+                                        .mulishtextLayout(
+                                            text: "**** **** **** 6502",
+                                            fontSize: OrderDetailFontSize
+                                                .textSizeSmall,
+                                            fontWeight: FontWeight.normal,
+                                            color: orderDetailCtrl
+                                                .appCtrl.appTheme.titleColor),
                                   ),
                                 ],
                               ),
                             )
                           ],
-                        )
-                      ],
+                        ),
+                      ),
                     ),
-                    //button layoout
-                    OrderDetailWidget().orderTrackButtonLayout(
+                    //button layoot
+                    OrderDetailWidget().reorderButtonLayout(
                         context: context,
+                        onTap: () async {
+                          print('tt');
+                          await orderDetailCtrl.appCtrl.getStorage
+                              .write('selectedIndex', 0);
+                          orderDetailCtrl.appCtrl.selectedIndex = 0;
+                          Get.offAllNamed(routeName.dashboard);
+                        },
                         buttonColor: orderDetailCtrl.appCtrl.appTheme.primary,
                         itemColor: orderDetailCtrl.appCtrl.appTheme.white)
                   ],

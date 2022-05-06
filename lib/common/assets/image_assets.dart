@@ -5,6 +5,8 @@ class ImageAssets {
   final String usersquare = 'assets/images/usersquare.png';
   final String success = 'assets/images/success.png';
   final String mapSection = 'assets/images/mapSection.png';
+  final String aboutUs = 'assets/images/aboutUs.png';
+  final String team = 'assets/images/team.png';
 
   final String backgroundImage = 'assets/backgroundImages/backgroundImage.png';
   final String splashBGImage = 'assets/backgroundImages/splashBGImage.png';

@@ -9,6 +9,7 @@ class ShopFont{
    String filter= "Filter";
    String close= "Close";
    String cancel = "Cancel";
+   String apply= "Apply";
    String dollar = "\$";
 
 }

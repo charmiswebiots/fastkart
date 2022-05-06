@@ -1,5 +1,4 @@
 import 'package:fastkart/controllers/order/orderTrack_controller.dart';
-import 'package:fastkart/controllers/order/orderTrack_controller.dart';
 import 'package:fastkart/views/orderPages/orderTrack/util/orderTrack_constants.dart';
 import 'package:fastkart/views/orderPages/orderTrack/util/orderTrack_fontstyle.dart';
 import 'package:fastkart/views/orderPages/orderTrack/util/orderTrack_widget.dart';
@@ -18,28 +17,11 @@ class OrderTrack extends StatelessWidget {
       return AppComponent(
         child: GetBuilder<OrderTrackController>(builder: (_) {
           return Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,
-              titleSpacing: 0,
-              centerTitle: false,
-              leading: OrderTrackWidget().appBarLeadingLayput(
-                  onTap: () => Get.back(),
-                  borderColor: orderTrackCtrl.appCtrl.appTheme.titleColor,
-                  iconColor: orderTrackCtrl.appCtrl.appTheme.titleColor,
-                  image: orderTrackCtrl.appCtrl.isTheme
-                      ? imageAssets.themeFkLogo
-                      : imageAssets.fkLogo),
-              title: OrderTrackWidget().appBarTitleLayout(
-                  image: orderTrackCtrl.appCtrl.isTheme
-                      ? imageAssets.themeLogo
-                      : imageAssets.logo,
-                  textColor: orderTrackCtrl.appCtrl.appTheme.titleColor),
-              actions: [
-                OrderTrackWidget().appBarActionLayout(
-                    iconColor: orderTrackCtrl.appCtrl.appTheme.titleColor),
-              ],
+            appBar: OrderTrackWidget().appBarLayout(
+              bgColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,titleColor: orderTrackCtrl.appCtrl.appTheme.titleColor,image: orderTrackCtrl.appCtrl.isTheme
+                ? imageAssets.themeLogo
+                : imageAssets.logo,
+              onTap: ()=> orderTrackCtrl.goToHome()
             ),
             backgroundColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
@@ -56,7 +38,9 @@ class OrderTrack extends StatelessWidget {
                     Stack(
                       children: [
                         //success image layout
-                        SingleChildScrollView(child: OrderTrackWidget().backgroundLayout(context: context)),
+                        SingleChildScrollView(
+                            child: OrderTrackWidget()
+                                .backgroundLayout(context: context)),
                         OrderTrackWidget().contentBGLayout(
                             context: context,
                             color: orderTrackCtrl.appCtrl.appTheme.whiteColor,
@@ -88,19 +72,46 @@ class OrderTrack extends StatelessWidget {
 
                                   //user layout
                                   Padding(
-                                    padding:EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            AppScreenUtil().screenWidth(15)),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        OrderTrackWidget().userLayout(image: imageAssets.usersquare,titleColor: orderTrackCtrl
-                                            .appCtrl.appTheme.titleColor,darkContentColor: orderTrackCtrl
-                                            .appCtrl.appTheme.darkContentColor),
+                                        OrderTrackWidget().userLayout(
+                                            image: imageAssets.usersquare,
+                                            titleColor: orderTrackCtrl
+                                                .appCtrl.appTheme.titleColor,
+                                            darkContentColor: orderTrackCtrl
+                                                .appCtrl
+                                                .appTheme
+                                                .darkContentColor),
                                         Row(
                                           children: [
-                                           OrderTrackWidget().commonLayoutForIcon(image: iconAssets.call,boxColor: orderTrackCtrl.appCtrl.appTheme.primary,borderColor: orderTrackCtrl.appCtrl.appTheme.primary),
-                                           Space(15,0),
-                                           OrderTrackWidget().commonLayoutForIcon(image: iconAssets.chat,boxColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,borderColor: orderTrackCtrl.appCtrl.appTheme.primary),
+                                            OrderTrackWidget()
+                                                .commonLayoutForIcon(
+                                                    image: iconAssets.call,
+                                                    boxColor: orderTrackCtrl
+                                                        .appCtrl
+                                                        .appTheme
+                                                        .primary,
+                                                    borderColor: orderTrackCtrl
+                                                        .appCtrl
+                                                        .appTheme
+                                                        .primary),
+                                            Space(15, 0),
+                                            OrderTrackWidget()
+                                                .commonLayoutForIcon(
+                                                    image: iconAssets.chat,
+                                                    boxColor: orderTrackCtrl
+                                                        .appCtrl
+                                                        .appTheme
+                                                        .whiteColor,
+                                                    borderColor: orderTrackCtrl
+                                                        .appCtrl
+                                                        .appTheme
+                                                        .primary),
                                           ],
                                         )
                                       ],
@@ -118,71 +129,43 @@ class OrderTrack extends StatelessWidget {
 
                                   //address layout
                                   Padding(
-                                    padding:EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            AppScreenUtil().screenWidth(15)),
                                     child: Row(
                                       children: [
                                         Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Row(
-                                              children: [
-                                                OrderTrackWidget().commonLayoutForIcon(image: iconAssets.home,boxColor: orderTrackCtrl.appCtrl.appTheme.primary,borderColor: orderTrackCtrl.appCtrl.appTheme.primary),
-                                                Space(10,0),
-                                                Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    OrderTrackFontStyle().mulishtextLayout(
-                                                        text: "8857 Morris Rd. ,Charlottesville, VA 22901",
-                                                        fontWeight: FontWeight.w700,
-                                                        fontSize: OrderTrackFontSize
-                                                            .textSizeSmall,
-
-                                                        color: orderTrackCtrl
-                                                            .appCtrl.appTheme.titleColor),
-                                                    OrderTrackFontStyle().mulishtextLayout(
-                                                        text: "Store Location",
-                                                        fontWeight: FontWeight.normal,
-                                                        fontSize: OrderTrackFontSize
-                                                            .textXSizeSmall,
-
-                                                        color: orderTrackCtrl
-                                                            .appCtrl.appTheme.darkContentColor),
-
-                                                  ],
-                                                ),
-                                              ],
+                                            OrderTrackWidget().addressLayout(
+                                              titleColor: orderTrackCtrl
+                                                  .appCtrl
+                                                  .appTheme
+                                                  .titleColor,
+                                              containerColor:  orderTrackCtrl
+                                                  .appCtrl
+                                                  .appTheme
+                                                  .primary,
+                                              decColor: orderTrackCtrl
+                                                  .appCtrl
+                                                  .appTheme
+                                                  .darkContentColor
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.only(left: AppScreenUtil().screenWidth(20)),
-                                              child: Image.asset(iconAssets.line,height: AppScreenUtil().screenHeight(30),),
-                                            ),
-                                            Row(
-                                              children: [
-                                                OrderTrackWidget().commonLayoutForIcon(image: iconAssets.home,boxColor: orderTrackCtrl.appCtrl.appTheme.primary,borderColor: orderTrackCtrl.appCtrl.appTheme.primary),
-                                                Space(10,0),
-                                                Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    OrderTrackFontStyle().mulishtextLayout(
-                                                        text: "8857 Morris Rd. ,Charlottesville, VA 22901",
-                                                        fontWeight: FontWeight.w700,
-                                                        fontSize: OrderTrackFontSize
-                                                            .textSizeSmall,
-
-                                                        color: orderTrackCtrl
-                                                            .appCtrl.appTheme.titleColor),
-                                                    OrderTrackFontStyle().mulishtextLayout(
-                                                        text: "Store Location",
-                                                        fontWeight: FontWeight.normal,
-                                                        fontSize: OrderTrackFontSize
-                                                            .textXSizeSmall,
-
-                                                        color: orderTrackCtrl
-                                                            .appCtrl.appTheme.darkContentColor),
-
-                                                  ],
-                                                ),
-                                              ],
+                                            OrderTrackWidget().verticalLineDivider(),
+                                            OrderTrackWidget().addressLayout(
+                                                titleColor: orderTrackCtrl
+                                                    .appCtrl
+                                                    .appTheme
+                                                    .titleColor,
+                                                containerColor:  orderTrackCtrl
+                                                    .appCtrl
+                                                    .appTheme
+                                                    .primary,
+                                                decColor: orderTrackCtrl
+                                                    .appCtrl
+                                                    .appTheme
+                                                    .darkContentColor
                                             ),
                                             Space(0, 80)
                                           ],
@@ -195,8 +178,8 @@ class OrderTrack extends StatelessWidget {
                             ))
                       ],
                     ),
-                     //button layoout
-                     OrderTrackWidget().orderTrackButtonLayout(
+                    //button layout
+                    OrderTrackWidget().orderDetailButtonLayout(
                         context: context,
                         onTap: () => Get.toNamed(routeName.orderDetail),
                         buttonColor: orderTrackCtrl.appCtrl.appTheme.primary,
@@ -210,5 +193,4 @@ class OrderTrack extends StatelessWidget {
       );
     });
   }
-
 }

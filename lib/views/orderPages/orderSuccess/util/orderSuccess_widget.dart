@@ -10,8 +10,7 @@ class OrderSuccesWidget {
   Widget appBarLeadingLayput(
       {GestureTapCallback? onTap,
       var borderColor,
-      var iconColor,
-      String? image}) {
+      var iconColor,}) {
     return Row(
       children: [
         InkWell(
@@ -36,25 +35,28 @@ class OrderSuccesWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({var iconColor}) {
+  Widget appBarActionLayout({var iconColor,GestureTapCallback? onTap}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(13),
-          top: AppScreenUtil().screenHeight(13),
+          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370?  13 : 20),
+          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370?  13 : 20),
           right: AppScreenUtil().screenWidth(15)),
-      child: Image.asset(
-        iconAssets.drawerHome,
-        color: iconColor,
-        height: AppScreenUtil().screenHeight(20),
-        fit: BoxFit.contain,
+      child: InkWell(
+        onTap: onTap,
+        child: Image.asset(
+          iconAssets.drawerHome,
+          color: iconColor,
+          height: AppScreenUtil().screenHeight(20),
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
 
 
-  //orderTrack button layout
-  Widget orderTrackButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
+  //trackPackage button layout
+  Widget trackPackageButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -84,12 +86,12 @@ class OrderSuccesWidget {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(12),vertical: AppScreenUtil().screenHeight(8)),
+          padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(10),vertical: AppScreenUtil().screenHeight(8)),
           decoration: BoxDecoration(
               color: containerColor,
               borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))
           ),
-          child: Image.asset(image!,height: AppScreenUtil().screenHeight(20),fit: BoxFit.contain,),
+          child: Image.asset(image!,height: AppScreenUtil().screenHeight(18),fit: BoxFit.contain,),
         ),
         Space(10, 0),
         Column(
@@ -99,7 +101,9 @@ class OrderSuccesWidget {
                 text: title,
                 fontWeight: FontWeight.w700,
                 fontSize: OrderSuccessFontSize.textSizeSmall,
-                color: titleColor), OrderSuccessFontStyle().mulishtextLayout(
+                color: titleColor),
+            Space(0, 2),
+            OrderSuccessFontStyle().mulishtextLayout(
                 text: val,
                 fontWeight: FontWeight.normal,
                 fontSize: OrderSuccessFontSize.textSizeSmall,
@@ -114,7 +118,7 @@ class OrderSuccesWidget {
   //price detail layout
   Widget priceDetailLayout({var boxColor,Widget? child}){
     return Container(
-        height: AppScreenUtil().screenHeight(200),
+        height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 377 ? 180 : 200),
         margin: EdgeInsets.only(
             top: AppScreenUtil().screenHeight(15),
 
@@ -135,7 +139,7 @@ class OrderSuccesWidget {
     return OrderSuccessFontStyle().mulishtextLayout(
         text: text,
         color: color,
-        fontSize: OrderSuccessFontSize.textSizeSMedium,
+        fontSize: OrderSuccessFontSize.textSizeSmall,
         fontWeight: fontWeight);
   }
 
@@ -153,6 +157,28 @@ class OrderSuccesWidget {
             text: title, color: titleColor, fontWeight: fontWeight),
         OrderSuccesWidget().commonTextLayout(
             text: val, color: valColor, fontWeight: fontWeight),
+      ],
+    );
+  }
+
+  //app bar layout
+  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor,var titleColor,String? image,GestureTapCallback? actionTap}){
+    return AppBar(
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      backgroundColor: bgColor,
+      titleSpacing: 0,
+      centerTitle: false,
+      leading: OrderSuccesWidget().appBarLeadingLayput(
+          onTap:onTap,
+          borderColor: titleColor,
+          iconColor: titleColor,),
+      title: OrderSuccesWidget().appBarTitleLayout(
+          image: image,
+          textColor: titleColor),
+      actions: [
+        OrderSuccesWidget().appBarActionLayout(
+            iconColor: titleColor,onTap: actionTap),
       ],
     );
   }

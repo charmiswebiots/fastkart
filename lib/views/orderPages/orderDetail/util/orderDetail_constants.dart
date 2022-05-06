@@ -1,9 +1,18 @@
 //text constants
 class OrderDetailFont {
- String reorder ="Reorder";
- String estimateTime ="Estimated Delivery Time";
- String orderSummary ="Order Summary";
- String orderDelivery ="Order Delivered";
+  String reorder ="Reorder";
+  String estimateTime ="Estimated Delivery Time";
+  String orderSummary ="Order Summary";
+  String orderDelivery ="Order Delivered";
+  String items ="Items:";
+  String paymentDetails ="Payment Details";
+  String paymentMethod ="Payment Method";
+  String address ="Address";
+  String bagTotal= "Bag total";
+  String delivery= "Delivery";
+  String totalAmount= "Total Amount";
+  String couponDiscount= "Coupon Discount";
+  String bagSavings= "Bag savings";
   String dollar = "\$";
 }
 

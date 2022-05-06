@@ -5,10 +5,12 @@ class OnboardingFont{
   String continueWithPhone = 'Continue with Phone';
   String continueWithGoogle = 'Continue with Google';
   String phone = 'phone';
+  String skip = 'Skip';
   String google = 'google';
 }
 
 //font size
+const textSizexSmall = 10.0;
 const textSizeSmall = 12.0;
 const textSizeSMedium = 14.0;
 const textSizeMedium = 16.0;

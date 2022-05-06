@@ -16,5 +16,12 @@ class RouteName {
   final String orderSuccess = '/orderSuccess';
   final String orderTrack = '/orderTrack';
   final String orderDetail = '/orderDetail';
+  final String orderHistory = '/orderHistory';
+  final String myWishList = '/myWishList';
+  final String yourAccount = '/yourAccount';
+  final String notification = '/notification';
+  final String setting = '/setting';
+  final String pageList = '/pageList';
+  final String aboutUs = '/aboutUs';
   final noInternet = '/noInternet';
 }

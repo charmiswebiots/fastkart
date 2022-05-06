@@ -18,27 +18,13 @@ class AddAddress extends StatelessWidget {
       return AppComponent(
         child: GetBuilder<AddAddressController>(builder: (_) {
           return Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
-              titleSpacing: 0,
-              centerTitle: false,
-              leading: AddAddressWidget().appBarLeadingLayput(
-                  onTap: () => Get.back(),
-                  borderColor: addAddressCtrl.appCtrl.appTheme.titleColor,
-                  iconColor: addAddressCtrl.appCtrl.appTheme.titleColor,
-                  image: addAddressCtrl.appCtrl.isTheme
-                      ? imageAssets.themeFkLogo
-                      : imageAssets.fkLogo),
-              title: AddAddressWidget().appBarTitleLayout(
-                  text: AddAddressFont().addAddress,
-                  textColor: addAddressCtrl.appCtrl.appTheme.titleColor),
-              actions: [
-                AddAddressWidget().appBarActionLayout(
-                    iconColor: addAddressCtrl.appCtrl.appTheme.titleColor),
-              ],
-            ),
+            appBar: AddAddressWidget().appBarLayout(
+                bgColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
+                titleColor: addAddressCtrl.appCtrl.appTheme.titleColor,
+                image: addAddressCtrl.appCtrl.isTheme
+                    ? imageAssets.themeFkLogo
+                    : imageAssets.fkLogo,
+                onTap: () => addAddressCtrl.goToSearch()),
             backgroundColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
@@ -49,7 +35,6 @@ class AddAddress extends StatelessWidget {
                 color: addAddressCtrl.appCtrl.appTheme.whiteColor,
                 child: Stack(
                   alignment: Alignment.bottomCenter,
-
                   children: [
                     SingleChildScrollView(
                       child: Container(
@@ -82,7 +67,11 @@ class AddAddress extends StatelessWidget {
                                         prefixIcon: Padding(
                                           padding: EdgeInsets.symmetric(
                                               vertical: AppScreenUtil()
-                                                  .screenHeight(10)),
+                                                  .screenHeight(AppScreenUtil()
+                                                              .screenActualWidth() >
+                                                          370
+                                                      ? 10
+                                                      : 15)),
                                           child: Image.asset(
                                             iconAssets.voice,
                                             fit: BoxFit.contain,
@@ -176,6 +165,8 @@ class AddAddress extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    //confirm location and proceed button layout
                     AddAddressWidget().confirmLocationButtonLayout(
                         context: context,
                         onTap: () => Get.toNamed(routeName.paymentScreen),

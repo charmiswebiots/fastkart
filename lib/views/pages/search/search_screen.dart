@@ -48,12 +48,27 @@ class _SearchScreenState extends State<SearchScreen> {
                                 right: AppScreenUtil().screenHeight(15)),
                             child: SearchWidget().textFieldLayout(
                               suffixIcon: Padding(
-                                padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(10)),
-                                child: Image.asset(iconAssets.voice,fit: BoxFit.contain,color: appCtrl.appTheme.titleColor     ,height: AppScreenUtil().screenHeight(10),width: AppScreenUtil().screenWidth(10),),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: AppScreenUtil().screenHeight(
+                                        AppScreenUtil().screenActualWidth() >
+                                                370
+                                            ? 10
+                                            : 15)),
+                                child: Image.asset(
+                                  iconAssets.voice,
+                                  fit: BoxFit.contain,
+                                  color: appCtrl.appTheme.titleColor,
+                                  height: AppScreenUtil().screenHeight(10),
+                                  width: AppScreenUtil().screenWidth(10),
+                                ),
                               ),
-                              prefixIcon: Image.asset(iconAssets.textboxSearchIcon,color: appCtrl.appTheme.titleColor,),
+                              prefixIcon: Image.asset(
+                                iconAssets.textboxSearchIcon,
+                                color: appCtrl.appTheme.titleColor,
+                              ),
                               text: SearchFont().searchProduct,
-                              borderColor: appCtrl.appTheme.primary.withOpacity(.3),
+                              borderColor:
+                                  appCtrl.appTheme.primary.withOpacity(.3),
                               hintColor: appCtrl.appTheme.contentColor,
                               fillcolor: appCtrl.appTheme.textBoxColor,
                             ),
@@ -88,15 +103,17 @@ class _SearchScreenState extends State<SearchScreen> {
                               color: appCtrl.appTheme.titleColor),
 
                           //recent search list layout
-                          SearchWidget().trendingCategoryLayout(ListView.builder(
+                          SearchWidget()
+                              .trendingCategoryLayout(ListView.builder(
                             itemCount: AppArray().categoryData.length,
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return SearchWidget().trendingProductCard(
+                                  onTap: () =>
+                                      Get.toNamed(routeName.shopScreen),
                                   data: AppArray().categoryData[index]);
-
                             },
                           )),
                           Space(0, 20),
@@ -106,11 +123,13 @@ class _SearchScreenState extends State<SearchScreen> {
                               text: SearchFont().trendingProducts,
                               color: appCtrl.appTheme.titleColor),
                           Space(0, 15),
+
+                          //trending product list
                           Container(
                             width: MediaQuery.of(context).size.width,
                             color: appCtrl.appTheme.offerBoxColor,
                             padding: EdgeInsets.only(
-                              top: AppScreenUtil().screenHeight(10),
+                                top: AppScreenUtil().screenHeight(10),
                                 left: AppScreenUtil().screenHeight(15),
                                 right: AppScreenUtil().screenHeight(15)),
                             child: ListView.builder(
@@ -119,20 +138,26 @@ class _SearchScreenState extends State<SearchScreen> {
                               physics: NeverScrollableScrollPhysics(),
                               padding: EdgeInsets.zero,
                               itemBuilder: (context, index) {
-                                return TrendingProductCard(
-                                  data: searchCtrl.offerList[index],
-                                  containerboxColor: appCtrl.appTheme.whiteColor,
-                                  descriptionColor:
-                                      appCtrl.appTheme.darkContentColor,
-                                  discountBoxColor: appCtrl.appTheme.primary,
-                                  discountTextColor: appCtrl.appTheme.whiteColor,
-                                  dividerColor:
-                                      appCtrl.appTheme.contentColor.withOpacity(.5),
-                                  quantityBorderColor:
-                                      appCtrl.appTheme.lightPrimary,
-                                  titleColor: appCtrl.appTheme.titleColor,
-                                  plusTap: () => searchCtrl.plusTap(index),
-                                  minusTap: ()=> searchCtrl.minusTap(index),
+                                return InkWell(
+                                  onTap: () =>
+                                      Get.toNamed(routeName.productDetail),
+                                  child: TrendingProductCard(
+                                    data: searchCtrl.offerList[index],
+                                    containerboxColor:
+                                        appCtrl.appTheme.whiteColor,
+                                    descriptionColor:
+                                        appCtrl.appTheme.darkContentColor,
+                                    discountBoxColor: appCtrl.appTheme.primary,
+                                    discountTextColor:
+                                        appCtrl.appTheme.whiteColor,
+                                    dividerColor: appCtrl.appTheme.contentColor
+                                        .withOpacity(.5),
+                                    quantityBorderColor:
+                                        appCtrl.appTheme.lightPrimary,
+                                    titleColor: appCtrl.appTheme.titleColor,
+                                    plusTap: () => searchCtrl.plusTap(index),
+                                    minusTap: () => searchCtrl.minusTap(index),
+                                  ),
                                 );
                               },
                             ),

@@ -1,13 +1,74 @@
 
 import 'package:fastkart/common/app_screen_util.dart';
+import 'package:fastkart/common/assets/index.dart';
+import 'package:fastkart/views/pages/404_screen/util/404_constants.dart';
 import 'package:fastkart/views/pages/404_screen/util/404_fontstyle.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../config.dart';
+
 class Error404Widget{
 
+  //appbar leading layout
+  Widget appBarLeadingLayput(
+      {GestureTapCallback? onTap,
+        var borderColor,
+        var iconColor,
+        String? image}) {
+    return Row(
+      children: [
+        InkWell(
+          onTap: onTap,
+          child: Container(
+
+            margin: EdgeInsets.only(
+                left: AppScreenUtil().screenWidth(15),
+                bottom: AppScreenUtil().screenHeight(4)
+            ),
+
+            child: Image.asset(iconAssets.category,color: iconColor,),
+          ),
+        ),
+      ],
+    );
+  }
+
+  //appbar title layout
+  Widget appBarTitleLayout({String? image, var textColor,bool? isTheme}) {
+    return Image.asset(image!,width: AppScreenUtil().screenWidth(100),);
+  }
+
+
+  //appbar action layout
+  Widget appBarActionLayout({var iconColor}) {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: AppScreenUtil().screenWidth(15),
+          bottom: AppScreenUtil().screenHeight(15),
+          top: AppScreenUtil().screenHeight(13),
+          right: AppScreenUtil().screenWidth(15)),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Error404Widget()
+              .commonIconImage(image: iconAssets.location, height: 16,color: iconColor),
+          Space(5, 0),
+          Error404FontStyle().mulishtextLayout(
+              text: Error404Font().name,
+              fontSize: 14,
+              fontWeight: FontWeight.normal),
+          Space(5, 0),
+          Error404Widget()
+              .commonIconImage(image: iconAssets.user, height: 30),
+        ],
+      ),
+    );
+  }
+
   //common icon image layout
-  Widget commonIconImage({String? image,double? height}){
-    return Image.asset(image!,height: AppScreenUtil().screenHeight(height!)  ,);
+  Widget commonIconImage({String? image,double? height,var color}){
+    return Image.asset(image!,height: AppScreenUtil().screenHeight(height!) ,color: color ,);
   }
 
   //back to home widget

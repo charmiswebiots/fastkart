@@ -1,5 +1,7 @@
 import 'package:fastkart/controllers/myWishList_controller.dart';
 import 'package:fastkart/views/pages/myWishList/myWishListCard.dart';
+import 'package:fastkart/views/pages/myWishList/util/myWishList_widget.dart';
+import 'package:fastkart/views/pages/myWishList/util/mywishlist_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -7,38 +9,42 @@ import '../../../config.dart';
 
 class MyWishListScreen extends StatelessWidget {
   var wishListCtrl = Get.put(MyWishListController());
-   MyWishListScreen({Key? key}) : super(key: key);
+
+  MyWishListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
       builder: (ctrl) => AppComponent(
-        child: Scaffold(
-          backgroundColor: wishListCtrl.appCtrl.appTheme.whiteColor,
-          body: NotificationListener<OverscrollIndicatorNotification>(
-            onNotification: (overscroll) {
-              overscroll.disallowGlow();
-              return false;
-            },
-            child: GetBuilder<MyWishListController>(
-              builder: (_) => Container(
+        child: GetBuilder<MyWishListController>(builder: (_) {
+          return Scaffold(
+            appBar: MyWishListWidget().appbarLayout(
+                bgColor: wishListCtrl.appCtrl.appTheme.whiteColor,
+                titleColor: wishListCtrl.appCtrl.appTheme.titleColor,
+                text: MyWishListFont().myWishList,
+                onTap: () => Get.toNamed(routeName.myCart, arguments: true)),
+            backgroundColor: wishListCtrl.appCtrl.appTheme.whiteColor,
+            body: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overscroll) {
+                overscroll.disallowGlow();
+                return false;
+              },
+              child: Container(
                 child: Stack(
                   alignment: Alignment.bottomCenter,
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SingleChildScrollView(
                       child: Container(
-                        margin: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(50)),
+                        margin: EdgeInsets.only(
+                            bottom: AppScreenUtil().screenHeight(50)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Space(0, 20),
-
                             // wish list layout
                             Container(
+                              height: MediaQuery.of(context).size.height,
                               width: MediaQuery.of(context).size.width,
                               padding: EdgeInsets.only(
-                                  top: AppScreenUtil().screenHeight(10),
                                   left: AppScreenUtil().screenHeight(15),
                                   right: AppScreenUtil().screenHeight(15)),
                               child: ListView.builder(
@@ -50,6 +56,7 @@ class MyWishListScreen extends StatelessWidget {
                                   final item = wishListCtrl.offerList[index];
                                   return Slidable(
                                     endActionPane: ActionPane(
+                                      extentRatio: 0.32,
                                       motion: ScrollMotion(),
                                       children: [
                                         Expanded(
@@ -63,11 +70,9 @@ class MyWishListScreen extends StatelessWidget {
                                                   topRight: Radius.circular(
                                                       AppScreenUtil()
                                                           .borderRadius(10)),
-                                                  bottomRight:
-                                                  Radius.circular(
+                                                  bottomRight: Radius.circular(
                                                       AppScreenUtil()
-                                                          .borderRadius(
-                                                          10))),
+                                                          .borderRadius(10))),
                                             ),
                                             margin: EdgeInsets.symmetric(
                                               vertical: AppScreenUtil()
@@ -95,8 +100,8 @@ class MyWishListScreen extends StatelessWidget {
                                           .appCtrl.appTheme.wishtListBoxColor,
                                       descriptionColor: wishListCtrl
                                           .appCtrl.appTheme.darkContentColor,
-                                      discountBoxColor: wishListCtrl
-                                          .appCtrl.appTheme.primary,
+                                      discountBoxColor:
+                                          wishListCtrl.appCtrl.appTheme.primary,
                                       discountTextColor: wishListCtrl
                                           .appCtrl.appTheme.whiteColor,
                                       dividerColor: wishListCtrl
@@ -115,18 +120,16 @@ class MyWishListScreen extends StatelessWidget {
                                 },
                               ),
                             ),
-
                           ],
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
             ),
-          ),
-        ),
+          );
+        }),
       ),
     );
   }

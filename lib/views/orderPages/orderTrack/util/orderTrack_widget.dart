@@ -9,8 +9,7 @@ class OrderTrackWidget {
   Widget appBarLeadingLayput(
       {GestureTapCallback? onTap,
       var borderColor,
-      var iconColor,
-      String? image}) {
+      var iconColor,}) {
     return Row(
       children: [
         InkWell(
@@ -46,24 +45,27 @@ class OrderTrackWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({var iconColor}) {
+  Widget appBarActionLayout({var iconColor,GestureTapCallback? onTap}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(13),
-          top: AppScreenUtil().screenHeight(13),
+          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
+          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
           right: AppScreenUtil().screenWidth(15)),
-      child: Image.asset(
-        iconAssets.drawerHome,
-        color: iconColor,
-        height: AppScreenUtil().screenHeight(20),
-        fit: BoxFit.contain,
+      child: InkWell(
+        onTap: onTap,
+        child: Image.asset(
+          iconAssets.drawerHome,
+          color: iconColor,
+          height: AppScreenUtil().screenHeight(20),
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
 
-  //orderTrack button layout
-  Widget orderTrackButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
+  //orderDetail button layout
+  Widget orderDetailButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -150,8 +152,84 @@ class OrderTrackWidget {
           borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))),
       child: Image.asset(
         image!,
-        height: AppScreenUtil().screenHeight(20),
+        height: AppScreenUtil().screenHeight(16),
       ),
+    );
+  }
+
+  //address layout
+  Widget addressLayout({var titleColor,var containerColor,var decColor,}){
+    return Row(
+      children: [
+        OrderTrackWidget()
+            .commonLayoutForIcon(
+            image: iconAssets.home,
+            boxColor: containerColor,
+            borderColor:
+            containerColor),
+        Space(10, 0),
+        Column(
+          crossAxisAlignment:
+          CrossAxisAlignment.start,
+          children: [
+            OrderTrackFontStyle()
+                .mulishtextLayout(
+                text:
+                "8857 Morris Rd. ,Charlottesville, VA 22901",
+                fontWeight:
+                FontWeight.w700,
+                fontSize:
+                OrderTrackFontSize
+                    .textSizeSmall,
+                color: titleColor),
+            OrderTrackFontStyle().mulishtextLayout(
+                text: "Store Location",
+                fontWeight:
+                FontWeight.normal,
+                fontSize:
+                OrderTrackFontSize
+                    .textXSizeSmall,
+                color: decColor),
+          ],
+        ),
+      ],
+    );
+  }
+
+  // vertical line divider layout
+  Widget verticalLineDivider(){
+    return Padding(
+      padding: EdgeInsets.only(
+          left: AppScreenUtil()
+              .screenWidth(20)),
+      child: Image.asset(
+        iconAssets.line,
+        height: AppScreenUtil()
+            .screenHeight(30),
+      ),
+    );
+  }
+
+  //app bar layout
+  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor, var titleColor, String? image}){
+    return AppBar(
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      backgroundColor: bgColor,
+      titleSpacing: 0,
+      centerTitle: false,
+      leading: OrderTrackWidget().appBarLeadingLayput(
+          onTap: () => Get.back(),
+          borderColor: titleColor,
+          iconColor: titleColor,
+      ),
+      title: OrderTrackWidget().appBarTitleLayout(
+          image: image,
+          textColor: titleColor),
+      actions: [
+        OrderTrackWidget().appBarActionLayout(
+            iconColor: titleColor,onTap: onTap),
+      ],
     );
   }
 }

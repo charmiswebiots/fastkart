@@ -40,6 +40,50 @@ class OfferWidget {
     );
   }
 
+  //pop layout
+  Widget popLayout(
+      {Widget? child,
+        var categoryTextColor,
+
+        context}) {
+    return Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: AppScreenUtil().screenWidth(15),
+            vertical: AppScreenUtil().screenHeight(15)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
+              topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
+        ),
+        height: MediaQuery.of(context).size.height / 2.2,
+        child: child);
+  }
+
+
+  //common button widget
+  Widget commonButtonWidget({context, var containerColor,var borderColor,var textColor,String? text}) {
+    return Container(
+      width: MediaQuery.of(context).size.width / 2.5,
+      margin: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(10)),
+      padding: EdgeInsets.symmetric(
+          vertical: AppScreenUtil().screenWidth(13),
+          horizontal: AppScreenUtil().screenHeight(10)),
+      decoration: BoxDecoration(
+        color: containerColor,
+        borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
+        border: Border.all(
+            color: borderColor,
+            width: .5), //border of dropdown button
+      ),
+      child: OfferFontStyle().mulishtextLayout(
+          text: text,
+          textAlign: TextAlign.center,
+          fontSize: OfferFontSize.textSizeSmall,
+          color: textColor),
+    );
+  }
+
+
   //popup detail layout
   Widget bottomSheetLayout({Widget? child,var primaryColor}){
     return Container(

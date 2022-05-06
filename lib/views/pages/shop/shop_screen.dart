@@ -41,7 +41,13 @@ class _ShopScreenState extends State<ShopScreen> {
                   text: "Fresh Fruits& Vegetables",
                   textColor: shopCtrl.appCtrl.appTheme.darkContentColor),
               actions: [
-                ShopWidget().appBarActionLayout(),
+                ShopWidget().appBarActionLayout(onTap: ()async{
+                  await shopCtrl.appCtrl.getStorage.write(
+                      'selectedIndex', shopCtrl.appCtrl.selectedIndex);
+                  shopCtrl.appCtrl.selectedIndex = 3;
+                  shopCtrl.appCtrl.update();
+
+                }),
               ],
             ),
             backgroundColor: shopCtrl.appCtrl.appTheme.whiteColor,
@@ -106,7 +112,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                       suffixIcon: Padding(
                                         padding: EdgeInsets.symmetric(
                                             vertical:
-                                                AppScreenUtil().screenHeight(10)),
+                                                AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 :15)),
                                         child: ShopWidget().voiceIcon(
                                             shopCtrl.appCtrl.appTheme.titleColor,
                                             iconAssets.voice),
@@ -157,6 +163,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                   padding: EdgeInsets.zero,
                                   itemBuilder: (context, index) {
                                     return ShopListCard(
+                                      onTap: () => Get.toNamed(routeName.productDetail),
                                       index: index,
                                       data: shopCtrl.offerList[index],
                                       containerboxColor: shopCtrl
@@ -186,6 +193,7 @@ class _ShopScreenState extends State<ShopScreen> {
                     ),
                     ShopWidget().amountButtonLayout(
                         context: context,
+                        onTap: ()=> Get.toNamed(routeName.myCart,arguments: true),
                         buttonColor: shopCtrl.appCtrl.appTheme.primary,
                         itemColor: shopCtrl.appCtrl.appTheme.white)
                   ],

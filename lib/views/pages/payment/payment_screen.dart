@@ -1,11 +1,9 @@
 import 'package:fastkart/controllers/payment_controller.dart';
 import 'package:fastkart/utilities/app_array.dart';
-
 import 'package:fastkart/views/pages/payment/cardListCard.dart';
 import 'package:fastkart/views/pages/payment/cashOnDelivery.dart';
 import 'package:fastkart/views/pages/payment/creditDebitCard.dart';
 import 'package:fastkart/views/pages/payment/util/netBankingListCard.dart';
-
 import 'package:fastkart/views/pages/payment/util/payment_constants.dart';
 import 'package:fastkart/views/pages/payment/util/payment_fontstyle.dart';
 import 'package:fastkart/views/pages/payment/util/payment_widget.dart';
@@ -65,6 +63,7 @@ class PaymentScreen extends StatelessWidget {
                           children: [
                             Column(
                               children: [
+                                // add address button layout
                                 PaymentWidget().addAddressLayout(
                                   onTap: () => paymentCtrl.addCardBottomSheet(context: context),
                                     context: context,
@@ -78,7 +77,7 @@ class PaymentScreen extends StatelessWidget {
                                 Container(
 
                                   height: AppScreenUtil().screenHeight(
-                                      paymentCtrl.expand ? 350 : 200),
+                                      paymentCtrl.expand ? (AppScreenUtil().screenActualWidth() > 370 ? 350 :400) : (AppScreenUtil().screenActualWidth() > 370 ? 200 : 250)),
                                   child: ListView.builder(
                                     physics: NeverScrollableScrollPhysics(),
                                     itemBuilder:
@@ -353,6 +352,8 @@ class PaymentScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    //confirm payment layout
                     PaymentWidget().proceedPaymentButtonLayout(
                         context: context,
                         onTap: () => Get.toNamed(routeName.orderSuccess),
