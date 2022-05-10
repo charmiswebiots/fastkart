@@ -110,17 +110,20 @@ class ShopWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout() {
+  Widget appBarActionLayout({GestureTapCallback? onTap}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(10),
-          bottom: AppScreenUtil().screenHeight(10),
-          top: AppScreenUtil().screenHeight(10),
+          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 :15),
+          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 :15),
           right: AppScreenUtil().screenWidth(10)),
-      child: Image.asset(
-        gifAssets.colorOffer,
-        height: AppScreenUtil().screenHeight(25),
-        fit: BoxFit.contain,
+      child: InkWell(
+        onTap: onTap,
+        child: Image.asset(
+          gifAssets.colorOffer,
+          height: AppScreenUtil().screenHeight(25),
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
@@ -144,9 +147,9 @@ class ShopWidget {
   }
 
   //amount button layout
-  Widget amountButtonLayout({context, var buttonColor, var itemColor}) {
+  Widget amountButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
     return Container(
-      height: AppScreenUtil().screenHeight(53),
+      height: AppScreenUtil().screenHeight( AppScreenUtil().screenActualWidth() > 377 ? 53: 57),
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(15),
@@ -167,25 +170,29 @@ class ShopWidget {
                   text: '2 Items',
                   color: itemColor,
                   fontSize: ShopFontSize.textSizeSmall),
+              Space(0, 5),
               ShopFontStyle().mulishtextLayout(
                   text: ShopFont().dollar + "250.00",
                   color: itemColor,
                   fontSize: ShopFontSize.textSizeSMedium),
             ],
           ),
-          Row(
-            children: [
-              ShopFontStyle().mulishtextLayout(
-                  text: ShopFont().viewCart,
+          InkWell(
+            onTap:onTap,
+            child: Row(
+              children: [
+                ShopFontStyle().mulishtextLayout(
+                    text: ShopFont().viewCart,
+                    color: itemColor,
+                    fontSize: ShopFontSize.textSizeSMedium),
+                Space(5, 0),
+                Icon(
+                  Icons.arrow_forward_ios_outlined,
                   color: itemColor,
-                  fontSize: ShopFontSize.textSizeSMedium),
-              Space(5, 0),
-              Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: itemColor,
-                size: AppScreenUtil().size(18),
-              )
-            ],
+                  size: AppScreenUtil().size(18),
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -248,45 +255,47 @@ class ShopWidget {
               topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
         ),
         height: MediaQuery.of(context).size.height / 1.5,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ShopFontStyle().mulishtextLayout(
-                    text: ShopFont().category,
-                    fontSize: ShopFontSize.textSizeSMedium,
-                    fontWeight: FontWeight.w600,
-                    color: categoryTextColor),
-                ShopFontStyle().mulishtextLayout(
-                    text: ShopFont().reset,
-                    fontSize: ShopFontSize.textSizeSMedium,
-                    fontWeight: FontWeight.w600,
-                    color: primaryColor),
-              ],
-            ),
-            Space(0, 20),
-            child!,
-            Space(0, 20),
-            ShopFontStyle().mulishtextLayout(
-                text: ShopFont().packSize,
-                fontSize: ShopFontSize.textSizeSMedium,
-                fontWeight: FontWeight.w600,
-                color: categoryTextColor),
-            Space(0, 20),
-            packageSize!,
-            Space(0, 20),
-            ShopFontStyle().mulishtextLayout(
-                text: ShopFont().priceRange,
-                fontSize: ShopFontSize.textSizeSMedium,
-                fontWeight: FontWeight.w600,
-                color: categoryTextColor),
-            Space(0, 20),
-            rangeSlider!,
-            Space(0, 20),
-            buttonLayout!
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ShopFontStyle().mulishtextLayout(
+                      text: ShopFont().category,
+                      fontSize: ShopFontSize.textSizeSMedium,
+                      fontWeight: FontWeight.w600,
+                      color: categoryTextColor),
+                  ShopFontStyle().mulishtextLayout(
+                      text: ShopFont().reset,
+                      fontSize: ShopFontSize.textSizeSMedium,
+                      fontWeight: FontWeight.w600,
+                      color: primaryColor),
+                ],
+              ),
+              Space(0, 20),
+              child!,
+              Space(0, 20),
+              ShopFontStyle().mulishtextLayout(
+                  text: ShopFont().packSize,
+                  fontSize: ShopFontSize.textSizeSMedium,
+                  fontWeight: FontWeight.w600,
+                  color: categoryTextColor),
+              Space(0, 20),
+              packageSize!,
+              Space(0, 20),
+              ShopFontStyle().mulishtextLayout(
+                  text: ShopFont().priceRange,
+                  fontSize: ShopFontSize.textSizeSMedium,
+                  fontWeight: FontWeight.w600,
+                  color: categoryTextColor),
+              Space(0, 20),
+              rangeSlider!,
+              Space(0, 20),
+              buttonLayout!
+            ],
+          ),
         ));
   }
 

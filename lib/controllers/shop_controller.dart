@@ -12,6 +12,7 @@ class ShopController extends GetxController {
       : Get.put(AppController());
 
   int selectIndex = 0;
+  int itemfilterIndex = 0;
   List offerList = [];
   String dropDownval = "Fresh Fruits& Vegetables";
   int packSizeIndex = 0;
@@ -165,7 +166,7 @@ class ShopController extends GetxController {
                         update();
                       },
                       child: Container(
-                        height: AppScreenUtil().screenHeight(2),
+                        height: AppScreenUtil().screenHeight(20),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: index == packSizeIndex
@@ -266,6 +267,7 @@ class ShopController extends GetxController {
       },
     );
   }
+
 
   @override
   void onReady() {

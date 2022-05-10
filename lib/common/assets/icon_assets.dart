@@ -35,4 +35,27 @@ class IconAssets {
   final String crosshair = 'assets/icons/crosshair.png';
   final String work = 'assets/icons/work.png';
   final String map1 = 'assets/icons/map1.png';
+  final String calendar = 'assets/icons/calendar.png';
+  final String paper = 'assets/icons/paper.png';
+  final String call = 'assets/icons/call.png';
+  final String chat = 'assets/icons/chat.png';
+  final String line = 'assets/icons/line.png';
+  final String box = 'assets/icons/box.png';
+  final String bag = 'assets/icons/bag.png';
+  final String discount = 'assets/icons/discount.png';
+  final String password = 'assets/icons/password.png';
+  final String ticket = 'assets/icons/ticket.png';
+  final String ticketStar = 'assets/icons/ticketStar.png';
+  final String check = 'assets/icons/check.png';
+  final String edit = 'assets/icons/edit.png';
+  final String lock = 'assets/icons/lock.png';
+  final String cn = 'assets/icons/cn.png';
+  final String inImag = 'assets/icons/in.png';
+  final String it = 'assets/icons/it.png';
+  final String tf = 'assets/icons/tf.png';
+  final String us = 'assets/icons/us.png';
+  final String facebook = 'assets/icons/facebook.png';
+  final String linkedIn = 'assets/icons/linkedin.png';
+  final String twitter = 'assets/icons/twitter.png';
+  final String logout = 'assets/icons/logout.png';
 }

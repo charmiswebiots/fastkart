@@ -16,9 +16,7 @@ class OfferScreen extends StatefulWidget {
 }
 
 class _OfferScreenState extends State<OfferScreen> {
-  var appCtrl = Get.isRegistered<AppController>()
-      ? Get.find<AppController>()
-      : Get.put(AppController());
+
 
   var offerCtrl = Get.put(OfferController());
 
@@ -27,7 +25,7 @@ class _OfferScreenState extends State<OfferScreen> {
     return GetBuilder<AppController>(builder: (ctrl)  {
         return GetBuilder<OfferController>(builder: (_) {
           return Scaffold(
-            backgroundColor: appCtrl.appTheme.blackColor,
+            backgroundColor: offerCtrl.appCtrl.appTheme.blackColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
                 overscroll.disallowGlow();
@@ -55,32 +53,37 @@ class _OfferScreenState extends State<OfferScreen> {
                                       child: OfferWidget().textFieldLayout(
                                         suffixIcon: Padding(
                                           padding: EdgeInsets.symmetric(
-                                              vertical: AppScreenUtil().screenHeight(10)),
+                                              vertical: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() >370 ? 10 :15)),
                                           child: Image.asset(
                                             iconAssets.voice,
                                             fit: BoxFit.contain,
-                                            color: appCtrl.appTheme.titleColor,
+                                            color: offerCtrl.appCtrl.appTheme.titleColor,
                                             height: AppScreenUtil().screenHeight(10),
                                             width: AppScreenUtil().screenWidth(10),
                                           ),
                                         ),
                                         prefixIcon: Image.asset(
                                           iconAssets.textboxSearchIcon,
-                                          color: appCtrl.appTheme.titleColor,
+                                          color: offerCtrl.appCtrl.appTheme.titleColor,
                                         ),
                                         text: OfferFont().searchProduct,
                                         borderColor:
-                                            appCtrl.appTheme.primary.withOpacity(.3),
-                                        hintColor: appCtrl.appTheme.contentColor,
-                                        fillcolor: appCtrl.appTheme.textBoxColor,
+                                            offerCtrl.appCtrl.appTheme.primary.withOpacity(.3),
+                                        hintColor: offerCtrl.appCtrl.appTheme.contentColor,
+                                        fillcolor: offerCtrl.appCtrl.appTheme.textBoxColor,
                                       ),
                                     ),
                                     Space(15, 0),
-                                    OfferFontStyle().mulishtextLayout(
-                                        text: OfferFont().filter,
-                                        fontSize: 16,
-                                        color: appCtrl.appTheme.primary,
-                                        fontWeight: FontWeight.w600
+                                    InkWell(
+                                      onTap: () => offerCtrl.filterbottomSheet(
+                                        context: context
+                                      ),
+                                      child: OfferFontStyle().mulishtextLayout(
+                                          text: OfferFont().filter,
+                                          fontSize: 16,
+                                          color: offerCtrl.appCtrl.appTheme.primary,
+                                          fontWeight: FontWeight.w600
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -98,22 +101,22 @@ class _OfferScreenState extends State<OfferScreen> {
                                   physics: NeverScrollableScrollPhysics(),
                                   itemBuilder: (context, index) {
                                     return OfferListCard(
-                                      isTheme: appCtrl.isTheme,
+                                      isTheme: offerCtrl.appCtrl.isTheme,
                                       onTap: () => offerCtrl.bottomSheet(
                                         context: context,
-                                          primaryColor: appCtrl.appTheme.primary,
+                                          primaryColor: offerCtrl.appCtrl.appTheme.primary,
                                           data: AppArray().myOfferList[index],
-                                          whiteColor: appCtrl.appTheme.white,
-                                          termConditionColor: appCtrl.appTheme.darkContentColor,
-                                          lightPrimary: appCtrl
+                                          whiteColor: offerCtrl.appCtrl.appTheme.white,
+                                          termConditionColor: offerCtrl.appCtrl.appTheme.darkContentColor,
+                                          lightPrimary: offerCtrl.appCtrl
                                               .appTheme.white
                                               .withOpacity(.3)),
                                       data: AppArray().myOfferList[index],
-                                      primaryColor: appCtrl.appTheme.primary,
-                                      titleColor: appCtrl.appTheme.titleColor,
+                                      primaryColor: offerCtrl.appCtrl.appTheme.primary,
+                                      titleColor: offerCtrl.appCtrl.appTheme.titleColor,
                                       darkContentColor:
-                                          appCtrl.appTheme.darkContentColor,
-                                      whiteColor: appCtrl.appTheme.whiteColor,
+                                          offerCtrl.appCtrl.appTheme.darkContentColor,
+                                      whiteColor: offerCtrl.appCtrl.appTheme.whiteColor,
                                     );
                                   },
                                 ),

@@ -1,19 +1,20 @@
 //text constants
 class MyWishListFont{
-   String searchProduct= 'Search Products here..';
-   String recentlySearch= 'Recently Search';
-   String trendingCategory= 'Trending category';
-   String trendingProducts= 'Trending Products';
-   String termsConditions= 'Terms & conditions';
-   String copyCode= "Copy Code";
-   String orderDetails= "Order Details";
-   String bagTotal= "Bag total";
-   String delivery= "Delivery";
-   String totalAmount= "Total Amount";
-   String couponDiscount= "Coupon Discount";
-   String bagSavings= "Bag savings";
-   String proceedtoCheckout= "Proceed to Checkout";
-   String dollar = "\$";
+  String searchProduct= 'Search Products here..';
+  String recentlySearch= 'Recently Search';
+  String trendingCategory= 'Trending category';
+  String trendingProducts= 'Trending Products';
+  String termsConditions= 'Terms & conditions';
+  String copyCode= "Copy Code";
+  String orderDetails= "Order Details";
+  String myWishList= "My WishList";
+  String bagTotal= "Bag total";
+  String delivery= "Delivery";
+  String totalAmount= "Total Amount";
+  String couponDiscount= "Coupon Discount";
+  String bagSavings= "Bag savings";
+  String proceedtoCheckout= "Proceed to Checkout";
+  String dollar = "\$";
 
 }
 

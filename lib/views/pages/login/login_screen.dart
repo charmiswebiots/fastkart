@@ -18,14 +18,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: appCtrl.appTheme.primary,
-      body: const ResponsiveWidget(
-        //if screen height is large
-        largeScreen: LargeScreen(),
-        //if screen height in medium
-        mediumScreen: MediumScreen(),
+    return WillPopScope(
+      onWillPop: () async{
+        return Future(() => false);
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: appCtrl.appTheme.primary,
+        body: const ResponsiveWidget(
+          //if screen height is large
+          largeScreen: LargeScreen(),
+          //if screen height in medium
+          mediumScreen: MediumScreen(),
+        ),
       ),
     );
   }

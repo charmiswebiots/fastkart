@@ -11,30 +11,31 @@ class IconButtonWidget extends StatelessWidget {
   String? type;
   double? lefMargin;
   double? rightMargin;
+  GestureTapCallback? onTap;
 
 
-  IconButtonWidget({Key? key, this.icon, this.textWidget, this.type,this.lefMargin,this.rightMargin}) : super(key: key);
+  IconButtonWidget({Key? key, this.icon, this.textWidget, this.type,this.lefMargin,this.rightMargin,this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(AppScreenUtil().size(12)),
-      decoration: BoxDecoration(
-          color: appCtrl.appTheme.socialColor,
-          borderRadius: BorderRadius.circular(5)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(icon!,height: AppScreenUtil().screenHeight(20),),
-          Space(10, 0),
-          textWidget!
+    return InkWell(
+      onTap: onTap,
+      child: Container(
 
-        ],
-      ),
-    ).marginOnly(left: AppScreenUtil().screenWidth(lefMargin!), right: AppScreenUtil().screenWidth(rightMargin!)).gestures(onTap: () {
-      if (type == 'phone') {
-        Get.toNamed(routeName.login);
-      }
-    });
+        padding: EdgeInsets.all(AppScreenUtil().size(12)),
+        decoration: BoxDecoration(
+            color: appCtrl.appTheme.socialColor,
+            borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(icon!,height: AppScreenUtil().screenHeight(20),),
+            Space(10, 0),
+            textWidget!
+
+          ],
+        ),
+      ).marginOnly(left: AppScreenUtil().screenWidth(lefMargin!), right: AppScreenUtil().screenWidth(rightMargin!)),
+    );
   }
 }

@@ -126,21 +126,24 @@ class SearchWidget {
   }
 
   //trending product list card
-  Widget trendingProductCard({data,color}){
-    return Container(
-      color: color,
-      height: AppScreenUtil().screenHeight(50),
-      width: AppScreenUtil().screenWidth(90),
-      margin: EdgeInsets.only(right: AppScreenUtil().screenWidth(20)),
-      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(12),vertical: AppScreenUtil().screenHeight(10)),
-      decoration: BoxDecoration(
-          border: Border.all(
-              color: data.color,
-              width: 2),
-          color: data.containercolor,
-          borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))
+  Widget trendingProductCard({data,color,GestureTapCallback? onTap}){
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        color: color,
+        height: AppScreenUtil().screenHeight(50),
+        width: AppScreenUtil().screenWidth(90),
+        margin: EdgeInsets.only(right: AppScreenUtil().screenWidth(20)),
+        padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(12),vertical: AppScreenUtil().screenHeight(10)),
+        decoration: BoxDecoration(
+            border: Border.all(
+                color: data.color,
+                width: 2),
+            color: data.containercolor,
+            borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))
+        ),
+        child: Image.asset(data.image,fit: BoxFit.contain,),
       ),
-      child: Image.asset(data.image,fit: BoxFit.contain,),
     );
   }
 }

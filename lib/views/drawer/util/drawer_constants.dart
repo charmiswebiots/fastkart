@@ -14,6 +14,7 @@ class DrawerFont{
    String contactSupportDesc = 'If you have any problem,queries or questions feel free to reach out';
    String contactUs = 'Contact Us';
    String darkTheme = 'Dark Theme';
+   String selectLanguage = 'Select Language';
 
 }
 

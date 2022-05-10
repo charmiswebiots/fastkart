@@ -1,5 +1,4 @@
 import 'package:fastkart/controllers/productdetail_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/pages/productDetail/gridviewLayout.dart';
 import 'package:fastkart/views/pages/productDetail/util/productDetail_constants.dart';
 import 'package:fastkart/views/pages/productDetail/util/productDetail_fontstyle.dart';

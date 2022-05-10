@@ -29,16 +29,21 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (cntrl) {
-        return Scaffold(
-          body: GetBuilder<SplashController>(builder: (_) => Stack(
-            children:  [
-              //Back Image Layout
-              SplashWidget().backgroundImage(image: imageAssets.splashBGImage,height: 1.6,context: context),
-              //splash logo Layout
-              appCtrl.isTheme ?SplashWidget().splashLogo(image: imageAssets.themeLogo,width: 3.5,context: context) :SplashWidget().splashLogo(image: imageAssets.logo,width: 4,context: context)
+        return WillPopScope(
+          onWillPop: () async{
+            return Future(() => false);
+          },
+          child: Scaffold(
+            body: GetBuilder<SplashController>(builder: (_) => Stack(
+              children:  [
+                //Back Image Layout
+                SplashWidget().backgroundImage(image: imageAssets.splashBGImage,height: 1.6,context: context),
+                //splash logo Layout
+                appCtrl.isTheme ?SplashWidget().splashLogo(image: imageAssets.themeLogo,width: 3.5,context: context) :SplashWidget().splashLogo(image: imageAssets.logo,width: 4,context: context)
 
-            ],
-          ),),
+              ],
+            ),),
+          ),
         );
       }
     );

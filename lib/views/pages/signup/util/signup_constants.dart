@@ -7,6 +7,7 @@ class SignupFont{
    String fullName = 'Full Name';
    String forgotPassword = 'Forgot password';
    String signup = 'Sign Up';
+
    String alreadyAccount = 'Already have an Account?  ';
    String signIn = 'Sign In';
    String signInWith = 'Or login with';
@@ -19,7 +20,7 @@ class SignupFont{
    String emailNameRequired = 'Email is Required';
    String passwordNameRequired = 'Password is Required';
    String inCorrectUsername = "Incorrect Email";
-   String passwordMininumValueEnter = "Please enter mininmum 8 characters";
+   String passwordMininumValueEnter = "Please enter mininmum 6 characters";
 }
 
 

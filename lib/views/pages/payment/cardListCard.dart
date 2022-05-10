@@ -51,7 +51,7 @@ class CardList extends StatelessWidget {
                     AppScreenUtil()
                         .screenWidth(10),
                     vertical: AppScreenUtil()
-                        .screenHeight(15)),
+                        .screenHeight(12)),
                 child: Row(
                   mainAxisAlignment:
                   MainAxisAlignment
@@ -63,12 +63,13 @@ class CardList extends StatelessWidget {
                       height: AppScreenUtil()
                           .screenHeight(20),
                     ),
+                    Space(10, 0),
                     PaymentFontStyle().nunitotextLayout(
                         text: data['number'],
                         fontWeight:
                         FontWeight.w700,
                         fontSize: PaymentFontSize
-                            .textSizeSMedium,
+                            .textSizeSmall,
                         color: titleColor),
                   ],
                 )),

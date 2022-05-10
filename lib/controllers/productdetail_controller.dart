@@ -12,8 +12,11 @@ class ProductDetailController extends GetxController {
       : Get.put(AppController());
   int quantityIndex = 0;
   int quantity = 0;
+  bool expand = false;
+  int? tapped = 0;
   List detailList = [];
   List reviewList = [];
+  List detail = [];
   int deliveryIndex = 0;
   double rating = 2.5;
   bool isShow = false;
@@ -36,6 +39,17 @@ class ProductDetailController extends GetxController {
      quantity = 0;
      update();
    }
+  }
+
+
+  //expanded
+  expandBox(index) {
+    expand =
+    ((tapped == null) || ((index == tapped) || !expand)) ? !expand : expand;
+
+    tapped = index;
+    debugPrint('current expand state: ${expand}');
+    update();
   }
 
   //quantity select bottom sheet
@@ -185,6 +199,7 @@ class ProductDetailController extends GetxController {
     super.onInit();
     detailList = AppArray().detailList;
     reviewList = AppArray().reviewList;
+    detail = AppArray().productDetailList;
     update();
   }
 }

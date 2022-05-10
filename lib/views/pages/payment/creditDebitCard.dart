@@ -1,58 +1,35 @@
-import 'package:fastkart/views/pages/payment/util/payment_constants.dart';
 import 'package:fastkart/views/pages/payment/util/payment_fontstyle.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../config.dart';
+import '../../../../config.dart';
 
 class CreditDebitCard extends StatelessWidget {
+  var data;
+  GestureTapCallback? onTap;
   var titleColor;
-  var contentColor;
-  Widget? child;
-  ValueChanged<bool>? onExpansionChanged;
-  bool? isShow;
-  String? text;
-  var keys;
-  CreditDebitCard({Key? key,this.titleColor,this.child,this.onExpansionChanged,this.isShow,this.contentColor,this.text,this.keys}) : super(key: key);
+  var primaryColor;
+  int? index;
+  int? selectindex;
+  CreditDebitCard({Key? key,this.data,this.onTap,this.titleColor,this.index,this.selectindex,this.primaryColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: Theme.of(context)
-          .copyWith(dividerColor: Colors.transparent),
-      child: Column(
+    return InkWell(
+      onTap: onTap,
+      child: Row(
         children: [
-          ExpansionTile(
-            key: Key(keys.toString()),
-            tilePadding: EdgeInsets.only(
-                left: AppScreenUtil().screenWidth(15),
-                right: AppScreenUtil().screenWidth(15)),
-            childrenPadding: EdgeInsets.symmetric(
-                horizontal:
-                AppScreenUtil().screenWidth(5),
-                vertical: 0),
-            title: PaymentFontStyle().mulishtextLayout(
-                text: text,
-                fontWeight: FontWeight.w700,
-                color: titleColor,
-                fontSize:
-                PaymentFontSize.textSizeSMedium),
-            trailing: Icon(
-              Icons.arrow_forward_ios_outlined,
-              size: AppScreenUtil().size(16),
-            ),
-            onExpansionChanged: onExpansionChanged,
-            children: [
-              child!
-            ],
-          ),
-
-          Divider(
-            color: contentColor,
-            thickness: .5,
-            indent: 15,
-            endIndent: 15,
-            height: 0,
-          )
+          Icon(selectindex == index ? Icons
+              .radio_button_checked : CupertinoIcons.circle,size: AppScreenUtil().size(18),color: primaryColor,),
+          Space(8, 0),
+          PaymentFontStyle().mulishtextLayout(
+              text: data['title'],
+              fontSize:
+              9,
+              color: titleColor,
+              overflow: TextOverflow.clip,
+              fontWeight:
+              FontWeight.w600)
         ],
       ),
     );

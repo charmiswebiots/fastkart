@@ -44,7 +44,7 @@ class SignupWidget {
 
   //textformfield layout
   Widget textFieldLayout(
-      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,bool obscureText = true,
+      {String? text, fillcolor, borderColor, hintColor,TextEditingController? controller, Widget? suffixIcon,FormFieldValidator<String>? validator,ValueChanged<String>? onFieldSubmitted,FocusNode? focusNode,bool obscureText = false,
         TextInputAction? textInputAction,
         TextInputType? keyboardType,}) {
     return TextFormField(

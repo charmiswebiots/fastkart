@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fastkart/config.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashController extends GetxController {
   bool isTheme = false;
@@ -17,7 +19,7 @@ class SplashController extends GetxController {
 
   void checkLogin() async {
 
-
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     // check which Language is selected
     String? languageCode = getStorage(Session.languageCode);
     String? countryCode = getStorage(Session.countryCode);
@@ -28,13 +30,23 @@ class SplashController extends GetxController {
     } else {
       Get.updateLocale(Get.deviceLocale ?? const Locale('en', 'US'));
     }
+
     update();
-    bool? isLogin = await getStorage('isLogin');
-    print(isLogin);
-    if (isLogin != null && isLogin == true) {
-      Get.toNamed(routeName.dashboard);
-    } else {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
+    String? isIntro = await storage.read('isIntro');
+    print("AAA");
+    print("isIntro : $isIntro");
+    print(user);
+    if (isIntro == "false" || isIntro == null) {
       Get.toNamed(routeName.onBoarding);
+    } else {
+      if (user == null) {
+        // Cheking if user is already login or not
+        Get.toNamed(routeName.login);
+      } else {
+        Get.toNamed(routeName.dashboard);
+      }
     }
 
   }

@@ -39,7 +39,7 @@ class SignupValidation {
   String? checkPasswordValidation(value) {
     if (value.isEmpty) {
       return SignupFont().passwordNameRequired;
-    } else if (value.length <= 8) {
+    } else if (value.length <= 5) {
       return SignupFont().passwordMininumValueEnter;
     } else {
       return null;

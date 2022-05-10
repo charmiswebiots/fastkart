@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fastkart/config.dart';
 import 'package:fastkart/utilities/app_array.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/views/pages/home_screen/banner_list.dart';
 import 'package:fastkart/views/pages/home_screen/offer_list.dart';
@@ -30,6 +31,7 @@ class _HomeMediumScreenState extends State<HomeMediumScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return GetBuilder<AppController>(
       builder: (_) => GetBuilder<HomeController>(builder: (cntx) {
         return Container(
@@ -45,7 +47,7 @@ class _HomeMediumScreenState extends State<HomeMediumScreen> {
                     child: HomeWidget().textFieldLayout(
                       suffixIcon: Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: AppScreenUtil().screenHeight(10)),
+                            vertical: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() >370 ? 10 :15)),
                         child: Image.asset(
                           iconAssets.voice,
                           fit: BoxFit.contain,
@@ -111,6 +113,12 @@ class _HomeMediumScreenState extends State<HomeMediumScreen> {
                           //offer list
                           ...homeCtrl.offerList.asMap().entries.map((e) {
                             return OfferListCard(
+                              onTap: ()async {
+                                await appCtrl.getStorage.write(
+                                    'selectedIndex', appCtrl.selectedIndex);
+                                appCtrl.selectedIndex = 3;
+                                appCtrl.update();
+                              },
                               data: e.value,
                               minusTap: () => homeCtrl.minusTap(e.key),
                               plusTap: () => homeCtrl.plusTap(e.key),
@@ -220,7 +228,12 @@ class _HomeMediumScreenState extends State<HomeMediumScreen> {
                           HomeWidget().browseCategoryButtonLayout(
                               buttonColor: appCtrl.appTheme.primary,
                               textColor: appCtrl.appTheme.whiteColor,
-                              onTap: () {})
+                              onTap: ()async {
+                                await appCtrl.getStorage.write(
+                                    'selectedIndex', appCtrl.selectedIndex);
+                                appCtrl.selectedIndex = 1;
+                                appCtrl.update();
+                              })
                         ],
                       )),
                 ],

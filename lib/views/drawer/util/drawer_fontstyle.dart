@@ -11,7 +11,7 @@ class DrawerFontStyle {
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
-            color: color, fontWeight: fontWeight, fontSize: textSizeMedium));
+            color: color, fontWeight: fontWeight, fontSize: AppScreenUtil().fontSize(fontSize)));
   }
 
 //mulish font family text layout
@@ -38,20 +38,4 @@ class DrawerFontStyle {
     );
   }
 
-  //quicksand font family text layout
-  Widget quicksandtextLayout(
-      {String? text,
-        color,
-        double fontSize = textSizeMedium,
-        FontWeight fontWeight = FontWeight.normal}) {
-    return Text(
-      text!,
-      textAlign: TextAlign.center,
-      style: AppCss().quicksandTextStyle(
-          color: color,
-          fontSize: fontSize,
-          fontWeight:fontWeight
-      ),
-    );
-  }
 }

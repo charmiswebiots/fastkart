@@ -15,8 +15,10 @@ class LoginFont{
    String phone = 'phone';
    String google = 'google';
    String userFieldError = "Email is Required";
+
    String passwordFieldError = "Password is Required";
    String inCorrectUsername = "Incorrect Email";
+
    String passwordMininumValueEnter = "Please enter mininmum 8 characters";
 }
 

@@ -27,6 +27,13 @@ class _DashboardState extends State<Dashboard> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
       builder: (ctrl) => WillPopScope(
@@ -44,13 +51,19 @@ class _DashboardState extends State<Dashboard> {
                 onTap: () async {
                   print('tap');
                   print(appCtrl.selectedIndex);
-                  if (appCtrl.selectedIndex == 3) {
+                  if (appCtrl.selectedIndex == 3 ||
+                      appCtrl.selectedIndex == 1) {
                     int index = await appCtrl.getStorage.read('selectedIndex');
                     print(index);
                     appCtrl.selectedIndex = index;
                     appCtrl.update();
                   } else {
                     _scaffoldKey.currentState!.openDrawer();
+                  }
+                },
+                actionTap: () {
+                  if (appCtrl.selectedIndex == 1) {
+                    Get.toNamed(routeName.myCart, arguments: true);
                   }
                 },
                 isTheme: appCtrl.isTheme,
@@ -62,15 +75,15 @@ class _DashboardState extends State<Dashboard> {
                     (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
                         ? true
                         : false,
-                isback:
-                    (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4)
-                        ? true
-                        : false,
-                isCategory: (appCtrl.selectedIndex == 0 ||
-                        appCtrl.selectedIndex == 1 ||
-                        appCtrl.selectedIndex == 2)
+                isback: (appCtrl.selectedIndex == 1 ||
+                        appCtrl.selectedIndex == 3 ||
+                        appCtrl.selectedIndex == 4)
                     ? true
                     : false,
+                isCategory:
+                    (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
+                        ? true
+                        : false,
                 isHome:
                     (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4)
                         ? true
