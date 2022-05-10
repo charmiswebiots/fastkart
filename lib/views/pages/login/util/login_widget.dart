@@ -1,11 +1,6 @@
 import 'dart:io';
-
-import 'package:dotted_line/dotted_line.dart';
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/login/util/login_constants.dart';
-import 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
 class LoginWidget {
@@ -25,82 +20,15 @@ class LoginWidget {
     );
   }
 
-  //White body Container Layout
-  Widget bodyContainer({Widget? child, BuildContext? context, color}) {
-    return Container(
-      margin: EdgeInsets.only(
-          top: MediaQuery.of(context!).size.height /
-              (Platform.isIOS ? 9.2 : AppScreenUtil().size(7.2))),
-      padding: EdgeInsets.symmetric(
-          horizontal: AppScreenUtil().size(15),
-          vertical: AppScreenUtil().size(25)),
-      width: MediaQuery.of(context).size.width,
-      height: AppScreenUtil().screenActualHeight(),
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(AppScreenUtil().borderRadius(22)),
-              topRight: Radius.circular(AppScreenUtil().borderRadius(22)))),
-      child: child,
-    );
-  }
-
-  //textformfield layout
-  Widget textFieldLayout({
-    String? text,
-    fillcolor,
-    borderColor,
-    hintColor,
-    TextEditingController? controller,
-    Widget? suffixIcon,
-    FormFieldValidator<String>? validator,
-    ValueChanged<String>? onFieldSubmitted,
-    FocusNode? focusNode,
-    bool isLargeScreen = false,
-    bool obscureText = true,
-    TextInputAction? textInputAction,
-    TextInputType? keyboardType,
-  }) {
-    return TextFormField(
-      controller: controller,
-      keyboardType: keyboardType,
-      obscureText: obscureText,
-      focusNode: focusNode,
-      textInputAction: textInputAction,
-      onFieldSubmitted: onFieldSubmitted,
-      validator: validator,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(
-            vertical: AppScreenUtil().screenHeight(14),
-            horizontal: AppScreenUtil().size(20)),
-        suffixIcon: suffixIcon,
-        fillColor: fillcolor,
-        filled: true,
-        border: OutlineInputBorder(borderSide: BorderSide(color: borderColor)),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: borderColor,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: borderColor,
-          ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: borderColor,
-          ),
-        ),
-        focusedErrorBorder:
-            OutlineInputBorder(borderSide: BorderSide(color: borderColor)),
-        hintText: text,
-        hintStyle: TextStyle(
-            fontSize: 15,
-            color: hintColor,
-            fontFamily: GoogleFonts.mulish().fontFamily),
-      ),
-    );
+  //logo
+  Widget logoImage(isTheme) {
+    return isTheme
+        ? Image.asset(
+            imageAssets.themeLogo,
+            fit: BoxFit.contain,
+            height: AppScreenUtil().screenHeight(20),
+          )
+        : Image.asset(imageAssets.smallLogoImage);
   }
 
   //sign in button
@@ -169,40 +97,6 @@ class LoginWidget {
     );
   }
 
-  //login with layout
-  Widget loginWithLayout({color, fontColor, fontWeight}) {
-    return Row(
-      children: [
-        Expanded(
-          child: DottedLine(
-            direction: Axis.horizontal,
-            dashLength: 5,
-            dashColor: color,
-            lineThickness: 2,
-            dashRadius: 2,
-          ),
-        ),
-        Space(10, 0),
-        LoginFontStyle().mulishtextLayout(
-          color: fontColor,
-          text: LoginFont().signInWith,
-          fontWeight: fontWeight,
-          fontSize: textSizeSMedium,
-        ),
-        Space(10, 0),
-        Expanded(
-          child: DottedLine(
-            direction: Axis.horizontal,
-            dashLength: 5,
-            dashColor: color,
-            lineThickness: 2,
-            dashRadius: 2,
-          ),
-        )
-      ],
-    );
-  }
-
 //contiune as guest
   Widget continueAsGuest({color}) {
     return Padding(
@@ -211,7 +105,7 @@ class LoginWidget {
           .mulishtextLayout(
               text: LoginFont().continueAsGuest,
               color: color,
-              fontSize: textSizeSMedium,
+              fontSize: LoginFontSize.textSizeSMedium,
               textDecoration: TextDecoration.underline)
           .marginOnly(bottom: 10),
     );

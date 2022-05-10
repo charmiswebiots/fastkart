@@ -7,6 +7,7 @@ class CommonTextFormField extends StatelessWidget {
   final Color? fillcolor;
   final Color? borderColor;
   final Color? hintColor;
+  final bool obscureText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final FormFieldValidator<String>? validator;
@@ -22,6 +23,7 @@ class CommonTextFormField extends StatelessWidget {
       this.fillcolor,
       this.borderColor,
       this.hintColor,
+        this.obscureText = true,
       this.controller,
       this.suffixIcon,
       this.validator,
@@ -37,6 +39,7 @@ class CommonTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
+      obscureText: obscureText,
       focusNode: focusNode,
       textInputAction: textInputAction,
       onFieldSubmitted: onFieldSubmitted,
@@ -65,7 +68,7 @@ class CommonTextFormField extends StatelessWidget {
           ),
         ),
         focusedErrorBorder:
-            OutlineInputBorder(borderSide: BorderSide(color: borderColor!)),
+        OutlineInputBorder(borderSide: BorderSide(color: borderColor!)),
         hintText: text,
         hintStyle: TextStyle(
             fontSize: 15,

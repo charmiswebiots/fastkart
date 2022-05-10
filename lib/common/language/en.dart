@@ -1,3 +1,3 @@
 final dynamic en = {
-  'hello': 'Hello World',
+  'Home': 'Home',
 };

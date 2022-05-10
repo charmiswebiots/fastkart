@@ -56,38 +56,41 @@ class ProductDetailWidget {
     debugPrint('List item build $index $isExpanded');
     return Column(
       children: <Widget>[
-        Container(
-          padding:
-          EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              ProductDetailFontStyle().mulishtextLayout(
-                  text: title, fontWeight: FontWeight.normal, fontSize: ProductDetailFontSize.textSizeSMedium),
-              IconButton(
-                  icon: Container(
-                    height: AppScreenUtil().screenHeight(25),
-                    width: AppScreenUtil().screenWidth(25),
-                    decoration: BoxDecoration(
-                      color: lightPrimary,
-                      shape: BoxShape.circle,
+        InkWell(
+          onTap: onPressed,
+          child: Container(
+            padding:
+            EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ProductDetailFontStyle().mulishtextLayout(
+                    text: title, fontWeight: FontWeight.normal, fontSize: ProductDetailFontSize.textSizeSMedium),
+                IconButton(
+                    icon: Container(
+                      height: AppScreenUtil().screenHeight(25),
+                      width: AppScreenUtil().screenWidth(25),
+                      decoration: BoxDecoration(
+                        color: lightPrimary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        isExpanded!
+                            ? Icons.keyboard_arrow_down
+                            : Icons.arrow_forward_ios_outlined,
+                        color: titleColor,
+                        size: AppScreenUtil().size(isExpanded ? 18 : 13),
+                      ),
                     ),
-                    child: Icon(
-                      isExpanded!
-                          ? Icons.keyboard_arrow_down
-                          : Icons.arrow_forward_ios_outlined,
-                      color: titleColor,
-                      size: AppScreenUtil().size(isExpanded ? 18 : 13),
-                    ),
-                  ),
-                  onPressed: onPressed),
-            ],
+                    onPressed: onPressed),
+              ],
+            ),
           ),
         ),
         childExpandable(
             context: context,
             collapsedHeight: 0.0,
-            expandedHeight: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 377 ? 72: 75),
+            expandedHeight: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 377 ? 72: 82),
             expanded: isExpanded,
             child: child)
       ],
@@ -399,7 +402,7 @@ class ProductDetailWidget {
       color: containerColor,
       width: MediaQuery.of(context!).size.width,
       height: MediaQuery.of(context).size.height *
-          (AppScreenUtil().screenActualWidth() > 370 ? 35 : 40) /
+          (AppScreenUtil().screenActualWidth() > 377 ? 35 : 42) /
           100,
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(15),
@@ -419,6 +422,7 @@ class ProductDetailWidget {
             fontWeight: FontWeight.w700,
             fontSize: ProductDetailFontSize.textSizeSMedium,
             color: textColor),
+
         ProductDetailFontStyle().mulishtextLayout(
             text: seeAllText, fontSize: 12, color: seeAllColor,fontWeight: FontWeight.w700),
       ],
@@ -458,14 +462,14 @@ class ProductDetailWidget {
             title: title,
             seeAllText: seeAllText,
             seeAllColor: lowestPriceColor),
-
+        Space(0, 5),
         //popular offers of the day text widget
         commonDescriptionTextWidget(
             text: ProductDetailFont().payLessGetMore, color: payLessColor),
         //lowest price list
         Container(
           height: MediaQuery.of(context!).size.height *
-              (AppScreenUtil().screenActualWidth() > 370 ? 27 : 32) /
+              (AppScreenUtil().screenActualWidth() > 377 ? 27 : 30) /
               100,
           child: ListView.builder(
             itemCount: data.length,

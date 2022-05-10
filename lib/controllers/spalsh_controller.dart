@@ -21,8 +21,10 @@ class SplashController extends GetxController {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // check which Language is selected
-    String? languageCode = getStorage(Session.languageCode);
-    String? countryCode = getStorage(Session.countryCode);
+    String? languageCode = storage.read(Session.languageCode);
+    String? countryCode = storage.read(Session.countryCode);
+    print('languageCode : $languageCode');
+    print('countryCode : $countryCode');
     if (languageCode != null && countryCode != null) {
       var locale = Locale(languageCode, countryCode);
       Get.updateLocale(locale);

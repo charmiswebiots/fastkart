@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/login/util/login_constants.dart';
+import 'package:fastkart/views/pages/404_screen/util/404_constants.dart';
 import 'package:flutter/material.dart';
 
 class Error404FontStyle {
@@ -7,7 +7,7 @@ class Error404FontStyle {
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = textSizeMedium,
+      double fontSize = Error404FontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
@@ -18,7 +18,7 @@ class Error404FontStyle {
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = textSizeMedium,
+    double fontSize = Error404FontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -38,7 +38,7 @@ class Error404FontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = Error404FontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,

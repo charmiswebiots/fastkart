@@ -1,12 +1,8 @@
 import 'package:fastkart/controllers/aboutUs_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/aboutUs/howDoOrderCard.dart';
-import 'package:fastkart/views/pages/aboutUs/teamListCard.dart';
 import 'package:fastkart/views/pages/aboutUs/util/aboutUs_constants.dart';
 import 'package:fastkart/views/pages/aboutUs/util/aboutUs_fontstyle.dart';
 import 'package:fastkart/views/pages/aboutUs/util/aboutUs_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class AboutUs extends StatelessWidget {
@@ -20,27 +16,14 @@ class AboutUs extends StatelessWidget {
       return AppComponent(
         child: GetBuilder<AboutUsController>(builder: (_) {
           return Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: aboutUsCtrl.appCtrl.appTheme.whiteColor,
-              titleSpacing: 0,
-              centerTitle: false,
-              leading: AboutUsWidget().appBarLeadingLayput(
-                  onTap: () => Get.back(),
-                  borderColor: aboutUsCtrl.appCtrl.appTheme.titleColor,
-                  iconColor: aboutUsCtrl.appCtrl.appTheme.titleColor,
-                  image: aboutUsCtrl.appCtrl.isTheme
-                      ? imageAssets.themeFkLogo
-                      : imageAssets.fkLogo),
-              title: AboutUsWidget().appBarTitleLayout(
-                  text: AboutUsFont().aboutUs,
-                  textColor: aboutUsCtrl.appCtrl.appTheme.titleColor),
-              actions: [
-                AboutUsWidget().appBarActionLayout(
-                    iconColor: aboutUsCtrl.appCtrl.appTheme.titleColor,onTap: () => aboutUsCtrl.goToHome()),
-              ],
-            ),
+            //app bar layout
+            appBar: AboutUsWidget().appBarLayout(
+                bgColor: aboutUsCtrl.appCtrl.appTheme.whiteColor,
+                titleColor: aboutUsCtrl.appCtrl.appTheme.titleColor,
+                image: aboutUsCtrl.appCtrl.isTheme
+                    ? imageAssets.themeFkLogo
+                    : imageAssets.fkLogo,
+                onTap: () => aboutUsCtrl.goToHome()),
             backgroundColor: aboutUsCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
@@ -81,28 +64,14 @@ class AboutUs extends StatelessWidget {
                             color: aboutUsCtrl.appCtrl.appTheme.titleColor),
                         Space(0, 20),
                         //how do order list layout
-                        Container(
-                          height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 430: 450),
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: AppArray().howToOrder.length,
-                            itemBuilder: (context, index) {
-                              return HowDoOrderCard(
-                                data: AppArray().howToOrder[index],
-                                containerColor: aboutUsCtrl
-                                    .appCtrl.appTheme.wishtListBoxColor,
-                                titleColor:
-                                    aboutUsCtrl.appCtrl.appTheme.titleColor,
-                                darkContentColor: aboutUsCtrl
-                                    .appCtrl.appTheme.darkContentColor,
-                                primaryColor:
-                                    aboutUsCtrl.appCtrl.appTheme.primary,
-                                whiteColor: aboutUsCtrl.appCtrl.appTheme.white,
-                              );
-                            },
-                          ),
-                        ),
+                        AboutUsWidget().howDoOrderLayout(
+                            containerColor:
+                                aboutUsCtrl.appCtrl.appTheme.wishtListBoxColor,
+                            titleColor: aboutUsCtrl.appCtrl.appTheme.titleColor,
+                            darkContentColor:
+                                aboutUsCtrl.appCtrl.appTheme.darkContentColor,
+                            primaryColor: aboutUsCtrl.appCtrl.appTheme.primary,
+                            whiteColor: aboutUsCtrl.appCtrl.appTheme.white),
 
                         Space(0, 30),
                         //People who Build Fastkart text layout
@@ -113,27 +82,12 @@ class AboutUs extends StatelessWidget {
 
                         //team list
                         Container(
-                          child: GridView.builder(
-                            padding: EdgeInsets.zero,
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: AppArray().teamList.length,
-                            itemBuilder: (context, index) {
-                              return TeamListCard(data: AppArray().teamList[index],lightPrimaryColor: aboutUsCtrl
-                                  .appCtrl.appTheme.lightPrimary,titleColor: aboutUsCtrl
-                                  .appCtrl.appTheme.titleColor,);
-                            },
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 4,
-                                    mainAxisSpacing: 10,
-                                    childAspectRatio: MediaQuery.of(context)
-                                            .size
-                                            .width /
-                                        (MediaQuery.of(context).size.height /
-                                            1.6)),
-                          ),
+                          child: AboutUsWidget().teamListLayout(
+                              lightPrimaryColor:
+                                  aboutUsCtrl.appCtrl.appTheme.lightPrimary,
+                              titleColor:
+                                  aboutUsCtrl.appCtrl.appTheme.titleColor,
+                              context: context),
                         )
                       ],
                     ),

@@ -19,9 +19,13 @@ class OrderDetail extends StatelessWidget {
       return AppComponent(
         child: GetBuilder<OrderDetailController>(builder: (_) {
           return Scaffold(
-            appBar: OrderDetailWidget().appBarLayout(backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,titleColor: orderDetailCtrl.appCtrl.appTheme.titleColor,image: orderDetailCtrl.appCtrl.isTheme
-                ? imageAssets.themeFkLogo
-                : imageAssets.fkLogo,onTap:() => orderDetailCtrl.goToHome()),
+            appBar: OrderDetailWidget().appBarLayout(
+                backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
+                titleColor: orderDetailCtrl.appCtrl.appTheme.titleColor,
+                image: orderDetailCtrl.appCtrl.isTheme
+                    ? imageAssets.themeFkLogo
+                    : imageAssets.fkLogo,
+                onTap: () => orderDetailCtrl.goToHome()),
             backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
@@ -57,32 +61,18 @@ class OrderDetail extends StatelessWidget {
                             Space(0, 20),
 
                             //item list layout
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: AppScreenUtil().screenWidth( 15)),
-                              height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 170 :220),
-                              child: ListView.builder(
-                                itemCount: AppArray().orderDetailList.length,
-                                itemBuilder: (context, index) {
-                                  return ItemListCard(
-                                    data: AppArray().orderDetailList[index],
-                                    quantityLayoutColor: orderDetailCtrl
-                                        .appCtrl.appTheme.primary,
-                                    quantityTextColor:
-                                        orderDetailCtrl.appCtrl.appTheme.white,
-                                    titleColor: orderDetailCtrl
-                                        .appCtrl.appTheme.titleColor,
-                                    darkContentColor: orderDetailCtrl
-                                        .appCtrl.appTheme.darkContentColor,
-                                    contentColor: orderDetailCtrl
-                                        .appCtrl.appTheme.contentColor,
-                                    index: index,
-                                    lastIndex:
-                                        AppArray().orderDetailList.length - 1,
-                                  );
-                                },
-                              ),
-                            ),
+                            OrderDetailWidget().itemListLayout(
+                                quantityLayoutColor:
+                                    orderDetailCtrl.appCtrl.appTheme.primary,
+                                quantityTextColor:
+                                    orderDetailCtrl.appCtrl.appTheme.white,
+                                titleColor:
+                                    orderDetailCtrl.appCtrl.appTheme.titleColor,
+                                darkContentColor: orderDetailCtrl
+                                    .appCtrl.appTheme.darkContentColor,
+                                contentColor: orderDetailCtrl
+                                    .appCtrl.appTheme.contentColor),
+                            
                             //payment detail text layout
                             OrderDetailWidget().commonTitleText(
                                 title: OrderDetailFont().paymentDetails,

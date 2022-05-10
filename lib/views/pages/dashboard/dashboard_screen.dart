@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:fastkart/views/drawer/drawer_screen.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
 import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class Dashboard extends StatefulWidget {
@@ -36,77 +34,82 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
-      builder: (ctrl) => WillPopScope(
-        onWillPop: () {
-          return Future(() => false);
-        },
-        child: Scaffold(
-          key: _scaffoldKey,
-          drawer: DrawerScreen(),
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(AppScreenUtil().screenHeight(300)),
-            child: Offstage(
-              offstage: appCtrl.selectedIndex == 4 ? true : false,
-              child: CommonAppBar1(
-                onTap: () async {
-                  print('tap');
-                  print(appCtrl.selectedIndex);
-                  if (appCtrl.selectedIndex == 3 ||
-                      appCtrl.selectedIndex == 1) {
-                    int index = await appCtrl.getStorage.read('selectedIndex');
-                    print(index);
-                    appCtrl.selectedIndex = index;
-                    appCtrl.update();
-                  } else {
-                    _scaffoldKey.currentState!.openDrawer();
-                  }
-                },
-                actionTap: () {
-                  if (appCtrl.selectedIndex == 1) {
-                    Get.toNamed(routeName.myCart, arguments: true);
-                  }
-                },
-                isTheme: appCtrl.isTheme,
-                borderColor: appCtrl.appTheme.titleColor,
-                color: appCtrl.appTheme.titleColor,
-                isWishListText: appCtrl.selectedIndex == 4 ? true : false,
-                isCart: appCtrl.selectedIndex == 1 ? true : false,
-                isLocation:
+      builder: (ctrl) =>
+          WillPopScope(
+            onWillPop: () {
+              return Future(() => false);
+            },
+            child: Scaffold(
+              key: _scaffoldKey,
+              drawer: DrawerScreen(),
+              appBar: PreferredSize(
+                preferredSize: Size.fromHeight(
+                    AppScreenUtil().screenHeight(300)),
+                child: Offstage(
+                  offstage: appCtrl.selectedIndex == 4 ? true : false,
+                  child: CommonAppBar1(
+                    onTap: () async {
+                      print('tap');
+                      print(appCtrl.selectedIndex);
+                      if (appCtrl.selectedIndex == 3 ||
+                          appCtrl.selectedIndex == 1) {
+                        int index = await appCtrl.getStorage.read(
+                            'selectedIndex');
+                        print(index);
+                        appCtrl.selectedIndex = index;
+                        appCtrl.update();
+                      } else {
+                        _scaffoldKey.currentState!.openDrawer();
+                      }
+                    },
+                    actionTap: () {
+                      if (appCtrl.selectedIndex == 0){
+                        Get.toNamed(routeName.setting);
+                      }else if (appCtrl.selectedIndex == 1) {
+                        Get.toNamed(routeName.myCart, arguments: true);
+                      }
+                    },
+                    isTheme: appCtrl.isTheme,
+                    borderColor: appCtrl.appTheme.titleColor,
+                    color: appCtrl.appTheme.titleColor,
+                    isWishListText: appCtrl.selectedIndex == 4 ? true : false,
+                    isCart: appCtrl.selectedIndex == 1 ? true : false,
+                    isLocation:
                     (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
                         ? true
                         : false,
-                isback: (appCtrl.selectedIndex == 1 ||
+                    isback: (appCtrl.selectedIndex == 1 ||
                         appCtrl.selectedIndex == 3 ||
                         appCtrl.selectedIndex == 4)
-                    ? true
-                    : false,
-                isCategory:
+                        ? true
+                        : false,
+                    isCategory:
                     (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
                         ? true
                         : false,
-                isHome:
+                    isHome:
                     (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4)
                         ? true
                         : false,
+                  ),
+                ),
               ),
+              bottomNavigationBar: BottomNavigatorCard(
+                selectedIndex: appCtrl.selectedIndex,
+                onTap: (val) async {
+                  if (appCtrl.selectedIndex == 4) {
+                    Get.toNamed(routeName.myCart, arguments: false);
+                  } else {
+                    await appCtrl.getStorage
+                        .write('selectedIndex', appCtrl.selectedIndex);
+                    appCtrl.selectedIndex = val;
+                    appCtrl.update();
+                  }
+                },
+              ),
+              body: appCtrl.widgetOptions.elementAt(appCtrl.selectedIndex),
             ),
           ),
-          bottomNavigationBar: BottomNavigatorCard(
-            selectedIndex: appCtrl.selectedIndex,
-            onTap: (val) async {
-              if (appCtrl.selectedIndex == 4) {
-                Get.toNamed(routeName.myCart, arguments: false);
-              } else {
-                await appCtrl.getStorage
-                    .write('selectedIndex', appCtrl.selectedIndex);
-                appCtrl.selectedIndex = val;
-                appCtrl.update();
-              }
-            },
-          ),
-          body: appCtrl.widgetOptions.elementAt(appCtrl.selectedIndex),
-        ),
-      ),
     );
   }
 }

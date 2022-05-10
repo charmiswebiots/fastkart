@@ -36,6 +36,5 @@ class LoginValidation {
     }else{
       return null;
     }
-
   }
 }

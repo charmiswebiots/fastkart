@@ -64,10 +64,11 @@ class DrawerScreen extends StatelessWidget {
                                   color: appCtrl.appTheme.borderGray),
 
                               //drawer list
-                              ...AppArray().drawerList.asMap().entries.map((e) {
+                              ...appCtrl.drawerList.asMap().entries.map((e) {
+                                print(e.value['title'].toString().tr);
                                 return DrawerWidget().commonDrawerListTile(
                                     image: e.value['icon'],
-                                    title: e.value['title'].toString(),
+                                    title: e.value['title'].toString().tr,
                                     color: e.key == appCtrl.drawerSelectedIndex
                                         ? appCtrl.appTheme.whiteColor
                                         : appCtrl.appTheme.arrowSelectColor,

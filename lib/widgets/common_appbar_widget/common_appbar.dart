@@ -92,9 +92,12 @@ class CommonAppBar1 extends StatelessWidget {
                     text: AppBarFont().name,
                     fontSize: 14,
                     fontWeight: FontWeight.normal),
-                Space(5, 0),
-                AppBarWidget()
-                    .commonIconImage(image: iconAssets.user, height: 30),
+                Space(10, 0),
+                InkWell(
+                  onTap: actionTap,
+                  child: AppBarWidget()
+                      .commonIconImage(image: iconAssets.user, height: 30),
+                ),
               ],
             ),
           if (isCart!) InkWell(

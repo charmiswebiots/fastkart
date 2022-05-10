@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/views/drawer/util/drawer_constants.dart';
 import 'package:fastkart/views/pages/login/util/login_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -7,24 +8,25 @@ class DrawerFontStyle {
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = textSizeMedium,
+      double fontSize = DrawerFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
-            color: color, fontWeight: fontWeight, fontSize: AppScreenUtil().fontSize(fontSize)));
+            color: color,
+            fontWeight: fontWeight,
+            fontSize: AppScreenUtil().fontSize(fontSize)));
   }
 
 //mulish font family text layout
-  Widget mulishtextLayout({
-    String? text,
-    color,
-    double fontSize = textSizeMedium,
-    FontWeight fontWeight = FontWeight.normal,
-    TextDecoration textDecoration = TextDecoration.none,
-    GestureTapCallback? onTap,
-    TextOverflow overflow = TextOverflow.ellipsis,
-    TextAlign textAlign = TextAlign.left
-  }) {
+  Widget mulishtextLayout(
+      {String? text,
+      color,
+      double fontSize = DrawerFontSize.textSizeMedium,
+      FontWeight fontWeight = FontWeight.normal,
+      TextDecoration textDecoration = TextDecoration.none,
+      GestureTapCallback? onTap,
+      TextOverflow overflow = TextOverflow.ellipsis,
+      TextAlign textAlign = TextAlign.left}) {
     return InkWell(
       onTap: onTap,
       child: Text(text!,
@@ -37,5 +39,4 @@ class DrawerFontStyle {
               textDecoration: textDecoration)),
     );
   }
-
 }

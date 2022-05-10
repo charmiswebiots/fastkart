@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/config.dart';
 import 'package:fastkart/views/drawer/drawer_screen.dart';
 import 'package:fastkart/views/pages/404_screen/util/404_constants.dart';
@@ -80,13 +78,13 @@ class Error404Page extends StatelessWidget {
                         Space(0, 15),
                         Error404FontStyle().quicksandtextLayout(
                             text: Error404Font().pageNotFound,
-                            fontSize: Error404FontSize().textSizeNormal,
+                            fontSize: Error404FontSize.textSizeNormal,
                             color: appCtrl.appTheme.titleColor,
                             fontWeight: FontWeight.w600),
                         Space(0, 15),
                         Error404FontStyle().quicksandtextLayout(
                             text: Error404Font().description,
-                            fontSize: Error404FontSize().textSizeSMedium,
+                            fontSize: Error404FontSize.textSizeSMedium,
                             color: appCtrl.appTheme.darkContentColor,
                             fontWeight: FontWeight.normal),
                         Space(0, 15),

@@ -1,4 +1,5 @@
 import 'package:fastkart/common/font_name.dart';
+import 'package:fastkart/common/language/index.dart';
 import 'package:fastkart/routes/index.dart';
 import 'package:fastkart/views/pages/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         fallbackLocale: Locale('en', 'US'), // tran
         title: FontName().appName,
         home: SplashScreen(),
+        translations: Language(),
         getPages: appRoute.getPages,
         theme: AppTheme.fromType(ThemeType.light).themeData,
         darkTheme: AppTheme.fromType(ThemeType.dark).themeData,

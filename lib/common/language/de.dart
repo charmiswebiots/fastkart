@@ -1,3 +1,3 @@
 final dynamic de = {
-  'hello': 'Hallo Welt',
+  'Home': 'Home',
 };

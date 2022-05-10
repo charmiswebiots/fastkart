@@ -163,34 +163,37 @@ class PaymentWidget {
     debugPrint('List item build $index $isExpanded');
     return Column(
       children: <Widget>[
-        Container(
-          padding:
-              EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              PaymentFontStyle().mulishtextLayout(
-                  text: title,
-                  fontSize: PaymentFontSize.textSizeSMedium,
-                  fontWeight: FontWeight.w700),
-              IconButton(
-                  icon: Container(
-                    height: AppScreenUtil().screenHeight(25),
-                    width: AppScreenUtil().screenWidth(25),
-                    decoration: BoxDecoration(
-                      color: lightPrimary,
-                      shape: BoxShape.circle,
+        InkWell(
+          onTap: onPressed,
+          child: Container(
+            padding:
+                EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                PaymentFontStyle().mulishtextLayout(
+                    text: title,
+                    fontSize: PaymentFontSize.textSizeSMedium,
+                    fontWeight: FontWeight.w700),
+                IconButton(
+                    icon: Container(
+                      height: AppScreenUtil().screenHeight(25),
+                      width: AppScreenUtil().screenWidth(25),
+                      decoration: BoxDecoration(
+                        color: lightPrimary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        isExpanded!
+                            ? Icons.keyboard_arrow_down
+                            : Icons.arrow_forward_ios_outlined,
+                        color: titleColor,
+                        size: AppScreenUtil().size(isExpanded ? 18 : 13),
+                      ),
                     ),
-                    child: Icon(
-                      isExpanded!
-                          ? Icons.keyboard_arrow_down
-                          : Icons.arrow_forward_ios_outlined,
-                      color: titleColor,
-                      size: AppScreenUtil().size(isExpanded ? 18 : 13),
-                    ),
-                  ),
-                  onPressed: onPressed),
-            ],
+                    onPressed: onPressed),
+              ],
+            ),
           ),
         ),
         childExpandable(

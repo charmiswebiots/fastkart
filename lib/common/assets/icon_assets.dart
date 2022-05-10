@@ -58,4 +58,5 @@ class IconAssets {
   final String linkedIn = 'assets/icons/linkedin.png';
   final String twitter = 'assets/icons/twitter.png';
   final String logout = 'assets/icons/logout.png';
+  final String logout1 = 'assets/icons/logout1.png';
 }

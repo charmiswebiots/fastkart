@@ -47,7 +47,7 @@ class EveryDayEssentialCard extends StatelessWidget {
             Stack(
               alignment: Alignment.topRight,
               children: [
-                Image.asset(iconAssets.heart),
+                Image.asset(iconAssets.heart,color: priceColor,),
                 Padding(
                   padding: EdgeInsets.fromLTRB(
                       AppScreenUtil().screenWidth(8),
@@ -77,13 +77,13 @@ class EveryDayEssentialCard extends StatelessWidget {
                           fontSize: 11,
                           text: data
                           ['name']),
-                      Space(0, 5),
+                      Space(0, 8),
                       HomeFontStyle().mulishtextLayout(
                           fontSize: 10,
                           color: descriptionColor,
                           text: data
                           ['description']),
-                      Space(0, 5),
+                      Space(0, 8),
                       HomeFontStyle().mulishtextLayout(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,

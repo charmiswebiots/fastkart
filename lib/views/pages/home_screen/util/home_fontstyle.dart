@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/login/util/login_constants.dart';
+import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeFontStyle {
@@ -7,7 +7,7 @@ class HomeFontStyle {
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = textSizeMedium,
+      double fontSize = HomeFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
@@ -18,7 +18,7 @@ class HomeFontStyle {
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = textSizeMedium,
+    double fontSize = HomeFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -42,7 +42,7 @@ class HomeFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = HomeFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,

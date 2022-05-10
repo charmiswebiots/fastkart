@@ -1,4 +1,6 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/app_array.dart';
+import 'package:fastkart/views/orderPages/orderDetail/itemListCard.dart';
 import 'package:fastkart/views/orderPages/orderDetail/util/orderDetail_constants.dart';
 import 'package:fastkart/views/orderPages/orderDetail/util/orderDetail_fontstyle.dart';
 import 'package:flutter/material.dart';
@@ -208,6 +210,31 @@ class OrderDetailWidget {
         OrderDetailWidget().appBarActionLayout(
             iconColor: titleColor,onTap: onTap),
       ],
+    );
+  }
+
+  //item List Layout
+  Widget itemListLayout({var quantityLayoutColor,var quantityTextColor,var titleColor,var darkContentColor,var contentColor}){
+    return Container(
+      margin: EdgeInsets.symmetric(
+          horizontal: AppScreenUtil().screenWidth( 15)),
+      height: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 170 :220),
+      child: ListView.builder(
+        itemCount: AppArray().orderDetailList.length,
+        itemBuilder: (context, index) {
+          return ItemListCard(
+            data: AppArray().orderDetailList[index],
+            quantityLayoutColor: quantityLayoutColor,
+            quantityTextColor: quantityTextColor,
+            titleColor: titleColor,
+            darkContentColor: darkContentColor,
+            contentColor: contentColor,
+            index: index,
+            lastIndex:
+            AppArray().orderDetailList.length - 1,
+          );
+        },
+      ),
     );
   }
 }

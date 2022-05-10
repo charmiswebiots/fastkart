@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/login/util/login_constants.dart';
+import 'package:fastkart/widgets/common_appbar_widget/util/appbar_constants.dart';
 import 'package:flutter/material.dart';
 
 class AppBarFontStyle {
@@ -7,18 +7,18 @@ class AppBarFontStyle {
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = textSizeMedium,
+      double fontSize = AppBarFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
-            color: color, fontWeight: fontWeight, fontSize: textSizeMedium));
+            color: color, fontWeight: fontWeight, fontSize: AppScreenUtil().fontSize(fontSize)));
   }
 
 //mulish font family text layout
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = textSizeMedium,
+    double fontSize = AppBarFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -29,7 +29,7 @@ class AppBarFontStyle {
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: textSizeMedium,
+              fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
   }
@@ -38,14 +38,14 @@ class AppBarFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = AppBarFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,
       textAlign: TextAlign.center,
       style: AppCss().quicksandTextStyle(
           color: color,
-          fontSize: fontSize,
+          fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight:fontWeight
       ),
     );

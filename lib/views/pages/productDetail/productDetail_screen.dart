@@ -195,7 +195,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                                       .screenActualWidth() >
                                                   377
                                               ? 250
-                                              : 400)
+                                              : 350)
                                           : (AppScreenUtil()
                                                       .screenActualWidth() >
                                                   377

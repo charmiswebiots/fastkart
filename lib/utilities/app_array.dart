@@ -243,8 +243,8 @@ class AppArray {
       "icon": iconAssets.darkTheme,
     },
     {
-      "title": "Logout",
-      "icon": iconAssets.logout,
+      "title": "Sign Out",
+      "icon": iconAssets.logout1,
     },
   ];
 
@@ -752,11 +752,11 @@ class AppArray {
 
   //language list
   var languageList = [
-    {'icon': iconAssets.us, 'name': 'English'},
-    {'icon': iconAssets.inImag, 'name': 'Indian'},
-    {'icon': iconAssets.it, 'name': 'Italian'},
-    {'icon': iconAssets.tf, 'name': 'French'},
-    {'icon': iconAssets.cn, 'name': 'Chinese'}
+    {'icon': iconAssets.us, 'name': 'English','locale': Locale('en','US')},
+    {'icon': iconAssets.inImag, 'name': 'Indian','locale': Locale('en','US')},
+    {'icon': iconAssets.it, 'name': 'Arabic','locale': Locale('ar','AE')},
+    {'icon': iconAssets.tf, 'name': 'French','locale': Locale('en','US')},
+    {'icon': iconAssets.cn, 'name': 'Chinese','locale': Locale('en','US')}
   ];
 
   //pages list

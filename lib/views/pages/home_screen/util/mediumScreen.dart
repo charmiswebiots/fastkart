@@ -1,16 +1,12 @@
-import 'dart:io';
 
 import 'package:fastkart/config.dart';
 import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/utilities/responsive_layout.dart';
-import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/views/pages/home_screen/banner_list.dart';
 import 'package:fastkart/views/pages/home_screen/offer_list.dart';
 import 'package:fastkart/views/pages/home_screen/recentBought_list.dart';
 import 'package:fastkart/views/pages/home_screen/shop_by_category.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 import 'package:fastkart/views/pages/home_screen/util/home_widget.dart';
-import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../controllers/home_controller.dart';
