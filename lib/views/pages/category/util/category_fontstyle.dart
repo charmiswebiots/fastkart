@@ -1,13 +1,11 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/category/util/category_constants.dart';
 
 class CategoryFontStyle {
 //nunito font family text layout
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = textSizeMedium,
+      double fontSize = CategoryFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
@@ -18,7 +16,7 @@ class CategoryFontStyle {
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = textSizeMedium,
+    double fontSize = CategoryFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -42,7 +40,7 @@ class CategoryFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = CategoryFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,

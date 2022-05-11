@@ -74,7 +74,7 @@ class CardList extends StatelessWidget {
                   ],
                 )),
             if(selectedIndex == index)
-              PaymentWidget().checkIcon(iconColor: containerColor,containerColor: primary)
+              PaymentStyle().checkIcon(iconColor: containerColor,containerColor: primary)
           ],
         ),
       ),

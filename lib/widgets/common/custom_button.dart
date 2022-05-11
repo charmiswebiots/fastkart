@@ -14,6 +14,7 @@ class CustomButton extends StatelessWidget {
   final String title;
   final double padding;
   final double radius;
+  final double? height;
   final GestureTapCallback? onTap;
   final TextStyle? style;
   final Color? color;
@@ -34,6 +35,7 @@ class CustomButton extends StatelessWidget {
     this.icon,
     this.width,
     this.border,
+    this.height
   }) : super(key: key);
 
   @override
@@ -41,8 +43,9 @@ class CustomButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        height: AppScreenUtil().screenHeight(height!),
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: AppScreenUtil().size(10)),
+        padding: EdgeInsets.symmetric(vertical: AppScreenUtil().size(10),),
         width: MediaQuery.of(context).size.width,
         decoration:
         BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),

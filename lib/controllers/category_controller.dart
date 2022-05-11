@@ -5,6 +5,10 @@ class CategoryController extends GetxController {
   int selectIndex = 1;
   List subCategoryList =[];
 
+  var appCtrl = Get.isRegistered<AppController>()
+      ? Get.find<AppController>()
+      : Get.put(AppController());
+
   //ontap category index change
   onTap(index) {
     subCategoryList =[];

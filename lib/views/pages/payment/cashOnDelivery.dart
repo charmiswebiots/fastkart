@@ -6,64 +6,68 @@ import 'package:flutter/material.dart';
 import '../../../config.dart';
 
 class CashOnDeliveryLayout extends StatelessWidget {
-  var titleColor;
-  var contentColor;
-  var wishtListBoxColor;
-  var containerColor;
-  var primary;
-  CashOnDeliveryLayout({Key? key,this.titleColor,this.contentColor,this.wishtListBoxColor,this.primary,this.containerColor}) : super(key: key);
+
+  CashOnDeliveryLayout({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      margin: EdgeInsets.only(
-        left: AppScreenUtil()
-            .screenWidth(15),
-        right: AppScreenUtil()
-            .screenWidth(15),
-        top: AppScreenUtil()
-            .screenHeight(12.0),
-      ),
-      decoration: BoxDecoration(
-          color: wishtListBoxColor,
-          borderRadius: BorderRadius.circular(
-              AppScreenUtil()
-                  .borderRadius(
+    return  GetBuilder<AppController>(
+      builder: (appCtrl) {
+        return Container(
+          margin: EdgeInsets.only(
+            left: AppScreenUtil()
+                .screenWidth(15),
+            right: AppScreenUtil()
+                .screenWidth(15),
+            top: AppScreenUtil()
+                .screenHeight(12.0),
+          ),
+          decoration: BoxDecoration(
+              color: appCtrl
+                  .appTheme
+                  .wishtListBoxColor,
+              borderRadius: BorderRadius.circular(
                   AppScreenUtil()
                       .borderRadius(
-                      5))),
-          border: Border.all(
-              color:  primary)),
-      child: Stack(
-        alignment: Alignment.topRight,
-        children: [
-          Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.symmetric(
-                  horizontal:
-                  AppScreenUtil()
-                      .screenWidth(10),
-                  vertical: AppScreenUtil()
-                      .screenHeight(15)),
-              child: Row(
-                mainAxisAlignment:
-                MainAxisAlignment
-                    .center,
-                children: [
+                      AppScreenUtil()
+                          .borderRadius(
+                          5))),
+              border: Border.all(
+                  color:  appCtrl.appTheme.primary)),
+          child: Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(
+                      horizontal:
+                      AppScreenUtil()
+                          .screenWidth(10),
+                      vertical: AppScreenUtil()
+                          .screenHeight(15)),
+                  child: Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment
+                        .center,
+                    children: [
 
-                  PaymentFontStyle().nunitotextLayout(
-                      text: PaymentFont().cashonDelivery,
-                      fontWeight:
-                      FontWeight.w700,
-                      fontSize: PaymentFontSize
-                          .textSizeSMedium,
-                      color: titleColor),
-                ],
-              )),
+                      PaymentFontStyle().nunitotextLayout(
+                          text: PaymentFont().cashonDelivery,
+                          fontWeight:
+                          FontWeight.w700,
+                          fontSize: PaymentFontSize
+                              .textSizeSMedium,
+                          color: appCtrl.appTheme.titleColor),
+                    ],
+                  )),
 
-          PaymentWidget().checkIcon(iconColor: containerColor,containerColor: primary)
-        ],
-      ),
+              PaymentStyle().checkIcon(iconColor: appCtrl
+                  .appTheme
+                  .wishtListBoxColor,containerColor: appCtrl.appTheme.primary)
+            ],
+          ),
+        );
+      }
     );
   }
 }

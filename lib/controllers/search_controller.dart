@@ -2,6 +2,9 @@ import 'package:fastkart/config.dart';
 import 'package:fastkart/utilities/app_array.dart';
 
 class SearchController extends GetxController{
+  var appCtrl = Get.isRegistered<AppController>()
+      ? Get.find<AppController>()
+      : Get.put(AppController());
 
   List offerList = [];
 

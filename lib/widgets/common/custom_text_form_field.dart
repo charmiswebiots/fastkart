@@ -10,6 +10,7 @@ class CommonTextFormField extends StatelessWidget {
   final bool obscureText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onFieldSubmitted;
   final FocusNode? focusNode;
@@ -23,7 +24,7 @@ class CommonTextFormField extends StatelessWidget {
       this.fillcolor,
       this.borderColor,
       this.hintColor,
-        this.obscureText = true,
+        this.obscureText = false,
       this.controller,
       this.suffixIcon,
       this.validator,
@@ -31,6 +32,7 @@ class CommonTextFormField extends StatelessWidget {
       this.focusNode,
       this.isLargeScreen = false,
       this.textInputAction,
+      this.prefixIcon,
       this.keyboardType})
       : super(key: key);
 
@@ -49,6 +51,7 @@ class CommonTextFormField extends StatelessWidget {
             vertical: AppScreenUtil().screenHeight(14),
             horizontal: AppScreenUtil().size(20)),
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
         fillColor: fillcolor,
         filled: true,
         border: OutlineInputBorder(borderSide: BorderSide(color: borderColor!)),

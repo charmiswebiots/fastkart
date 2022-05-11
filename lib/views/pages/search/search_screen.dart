@@ -1,9 +1,6 @@
-import 'package:fastkart/controllers/search_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/search/trendingProductCard.dart';
-import 'package:fastkart/views/pages/search/util/search_constants.dart';
-import 'package:fastkart/views/pages/search/util/search_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:fastkart/views/pages/category/util/recentSearchLayout.dart';
+import 'package:fastkart/views/pages/category/util/trendingCategoryLayout.dart';
+import 'package:fastkart/views/pages/category/util/trendingProductLayout.dart';
 
 import '../../../config.dart';
 
@@ -15,10 +12,6 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  var appCtrl = Get.isRegistered<AppController>()
-      ? Get.find<AppController>()
-      : Get.put(AppController());
-
   var searchCtrl = Get.put(SearchController());
 
   @override
@@ -37,133 +30,46 @@ class _SearchScreenState extends State<SearchScreen> {
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SingleChildScrollView(
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //search product textformfield layout
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: AppScreenUtil().screenHeight(15),
-                                right: AppScreenUtil().screenHeight(15)),
-                            child: SearchWidget().textFieldLayout(
-                              suffixIcon: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: AppScreenUtil().screenHeight(
-                                        AppScreenUtil().screenActualWidth() >
-                                                370
-                                            ? 10
-                                            : 15)),
-                                child: Image.asset(
-                                  iconAssets.voice,
-                                  fit: BoxFit.contain,
-                                  color: appCtrl.appTheme.titleColor,
-                                  height: AppScreenUtil().screenHeight(10),
-                                  width: AppScreenUtil().screenWidth(10),
-                                ),
-                              ),
-                              prefixIcon: Image.asset(
-                                iconAssets.textboxSearchIcon,
-                                color: appCtrl.appTheme.titleColor,
-                              ),
-                              text: SearchFont().searchProduct,
-                              borderColor:
-                                  appCtrl.appTheme.primary.withOpacity(.3),
-                              hintColor: appCtrl.appTheme.contentColor,
-                              fillcolor: appCtrl.appTheme.textBoxColor,
-                            ),
-                          ),
-                          Space(0, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //search product textformfield layout
+                        CommonSearchTextForm(
+                          text: CategoryFont().searchProduct,
+                          borderColor: searchCtrl.appCtrl.appTheme.primary
+                              .withOpacity(.3),
+                          hintColor: searchCtrl.appCtrl.appTheme.contentColor,
+                          fillcolor: searchCtrl.appCtrl.appTheme.textBoxColor,
+                          titleColor: searchCtrl.appCtrl.appTheme.titleColor,
+                        ),
+                        Space(0, 20),
+                        //recent search text layout
+                        SearchWidget().recentSearchText(
+                            text: SearchFont().recentlySearch,
+                            color: searchCtrl.appCtrl.appTheme.titleColor),
 
-                          //recent search text layout
-                          SearchWidget().recentSearchText(
-                              text: SearchFont().recentlySearch,
-                              color: appCtrl.appTheme.titleColor),
+                        //recent search list layout
+                        const RecentSearchLayout(),
+                        Space(0, 20),
 
-                          //recent search list layout
-                          SearchWidget().recentSearchLayout(
-                              ListView.builder(
-                                itemCount: AppArray().recentSearch.length,
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return SearchWidget().recentListCard(
-                                    data: AppArray().recentSearch[index],
-                                    color: appCtrl.appTheme.arrowSelectColor,
-                                  );
-                                },
-                              ),
-                              context),
-                          Space(0, 20),
+                        //trending category text layout
+                        SearchWidget().trendingCategoryText(
+                            text: SearchFont().trendingCategory,
+                            color: searchCtrl.appCtrl.appTheme.titleColor),
 
-                          //trending category text layout
-                          SearchWidget().trendingCategoryText(
-                              text: SearchFont().trendingCategory,
-                              color: appCtrl.appTheme.titleColor),
+                        //recent search list layout
+                        const TrendingCategoryLayout(),
+                        Space(0, 20),
 
-                          //recent search list layout
-                          SearchWidget()
-                              .trendingCategoryLayout(ListView.builder(
-                            itemCount: AppArray().categoryData.length,
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return SearchWidget().trendingProductCard(
-                                  onTap: () =>
-                                      Get.toNamed(routeName.shopScreen),
-                                  data: AppArray().categoryData[index]);
-                            },
-                          )),
-                          Space(0, 20),
+                        //trending product text layout
+                        SearchWidget().trendingProductText(
+                            text: SearchFont().trendingProducts,
+                            color: searchCtrl.appCtrl.appTheme.titleColor),
+                        Space(0, 15),
 
-                          //trending product text layout
-                          SearchWidget().trendingProductText(
-                              text: SearchFont().trendingProducts,
-                              color: appCtrl.appTheme.titleColor),
-                          Space(0, 15),
-
-                          //trending product list
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            color: appCtrl.appTheme.offerBoxColor,
-                            padding: EdgeInsets.only(
-                                top: AppScreenUtil().screenHeight(10),
-                                left: AppScreenUtil().screenHeight(15),
-                                right: AppScreenUtil().screenHeight(15)),
-                            child: ListView.builder(
-                              itemCount: 2,
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.zero,
-                              itemBuilder: (context, index) {
-                                return InkWell(
-                                  onTap: () =>
-                                      Get.toNamed(routeName.productDetail),
-                                  child: TrendingProductCard(
-                                    data: searchCtrl.offerList[index],
-                                    containerboxColor:
-                                        appCtrl.appTheme.whiteColor,
-                                    descriptionColor:
-                                        appCtrl.appTheme.darkContentColor,
-                                    discountBoxColor: appCtrl.appTheme.primary,
-                                    discountTextColor:
-                                        appCtrl.appTheme.whiteColor,
-                                    dividerColor: appCtrl.appTheme.contentColor
-                                        .withOpacity(.5),
-                                    quantityBorderColor:
-                                        appCtrl.appTheme.lightPrimary,
-                                    titleColor: appCtrl.appTheme.titleColor,
-                                    plusTap: () => searchCtrl.plusTap(index),
-                                    minusTap: () => searchCtrl.minusTap(index),
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        ],
-                      ),
+                        //trending product list
+                      const  TrendingProductLayout()
+                      ],
                     ),
                   )
                 ],

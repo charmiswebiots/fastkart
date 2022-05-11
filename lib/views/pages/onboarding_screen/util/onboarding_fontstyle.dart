@@ -1,6 +1,3 @@
-import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_constants.dart';
-import 'package:flutter/material.dart';
-
 import '../../../../config.dart';
 
 //Quick Sand Text Style Widget
@@ -82,18 +79,18 @@ class OnboardingFontStyle{
   Widget nunitoAndQuicksandtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = OnboardingFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal,String? type}) {
     return Text(
       text!,
       textAlign: TextAlign.center,
       style: type == 'nunito' ? AppCss().nunitoTextStyle(
           color: color,
-          fontSize: fontSize,
+          fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight:fontWeight
       ) :AppCss().quicksandTextStyle(
           color: color,
-          fontSize: fontSize,
+          fontSize: AppScreenUtil().fontSize(fontSize),
           fontWeight:fontWeight
       ),
     );
@@ -104,7 +101,7 @@ class OnboardingFontStyle{
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = textSizeMedium,
+    double fontSize = OnboardingFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
@@ -115,7 +112,7 @@ class OnboardingFontStyle{
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: textSizeMedium,
+              fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
   }

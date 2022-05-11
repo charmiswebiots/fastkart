@@ -8,8 +8,7 @@ class BannerList extends StatelessWidget {
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
-  GestureTapCallback? onTap;
-  BannerList({Key? key,this.onTap}) : super(key: key);
+  BannerList({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +63,7 @@ class BannerList extends StatelessWidget {
                                 color:  itemIndex.isEven ? appCtrl.appTheme.darkContentColor : appCtrl.appTheme.white),
                             Space(0, 15),
                             InkWell(
-                              onTap: onTap,
+                              onTap: () => Get.toNamed(routeName.shopScreen),
                               child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),

@@ -1,10 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/controllers/onboarding_controller.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_constants.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_fontstyle.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_widget.dart';
-import 'package:fastkart/widgets/common/icon_button_widget.dart';
-import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   var onboardCtrl = Get.put(OnboardingController());
@@ -53,7 +47,7 @@ class OnBoardingScreen extends StatelessWidget {
                                       text: OnboardingFont().continueWithPhone,
                                       color: onboardCtrl
                                           .appCtrl.appTheme.titleColor,
-                                      fontSize: textSizeMedium,
+                                      fontSize: OnboardingFontSize.textSizeMedium,
                                       fontWeight: FontWeight.bold),
                               type: OnboardingFont().phone,
                             ),
@@ -69,7 +63,7 @@ class OnBoardingScreen extends StatelessWidget {
                                       text: OnboardingFont().continueWithGoogle,
                                       color: onboardCtrl
                                           .appCtrl.appTheme.titleColor,
-                                      fontSize: textSizeMedium,
+                                      fontSize: OnboardingFontSize.textSizeMedium,
                                       fontWeight: FontWeight.bold),
                               type: OnboardingFont().google,
                             ),
@@ -79,7 +73,7 @@ class OnBoardingScreen extends StatelessWidget {
                               child: OnboardingFontStyle().mulishtextLayout(
                                   text: OnboardingFont().skip,
                                   color: onboardCtrl.appCtrl.appTheme.primary,
-                                  fontSize: textSizexSmall,
+                                  fontSize: OnboardingFontSize.textSizeSmall,
                                   textDecoration: TextDecoration.underline,
                                   fontWeight: FontWeight.bold),
                             )

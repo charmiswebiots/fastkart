@@ -1,23 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_widget.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_widget.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:fastkart/views/pages/offers/util/offer_detail.dart';
 import 'package:get_storage/get_storage.dart';
 
 class MyCartListController extends GetxController {
@@ -34,6 +16,18 @@ class MyCartListController extends GetxController {
     await getStorage.write('selectedIndex', 0);
     appCtrl.selectedIndex = 0;
     update();
+  }
+
+  //leading tap
+  leadingTap() async {
+    print('tap');
+    if (isAppBar) {
+      Get.back();
+    } else {
+      await appCtrl.getStorage.write('selectedIndex', 0);
+      appCtrl.selectedIndex = 0;
+      appCtrl.update();
+    }
   }
 
   //quantity increment function
@@ -79,10 +73,7 @@ class MyCartListController extends GetxController {
 
   //offer detail bottom sheet
   bottomSheet(
-      {var primaryColor,
-        var whiteColor,
-        var lightPrimary,
-        var termConditionColor,context}) {
+      {data, context}) {
     showModalBottomSheet<void>(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -95,101 +86,9 @@ class MyCartListController extends GetxController {
       builder: (BuildContext context) {
         // we set up a container inside which
         // we create center column and display text
-        return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-                  topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-            ),
-            height: AppScreenUtil().screenHeight(500),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MyCartWidget().bottomSheetLayout(
-                    primaryColor: primaryColor,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        MyCartFontStyle().quicksandtextLayout(
-                            text: "Flat ${AppArray().myOfferList[0]['discount']}% off",
-                            color: whiteColor,
-                            fontSize: MyCartFontSize.textSizeNormal,
-                            fontWeight: FontWeight.bold),
-                        Space(0, 10),
-                        MyCartFontStyle().quicksandtextLayout(
-                            text: AppArray().myOfferList[0]['des'].toString(),
-                            color: whiteColor,
-                            fontSize: MyCartFontSize.textSizeSMedium,
-                            fontWeight: FontWeight.normal),
-                        Space(0, 10),
-                        MyCartWidget().codeLayout(lightPrimary: lightPrimary,child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                MyCartFontStyle().mulishtextLayout(
-                                    text: "Code:",
-                                    color: whiteColor,
-                                    fontSize: MyCartFontSize.textSizeSMedium,
-                                    fontWeight: FontWeight.normal),
-                                Space(5, 0),
-                                MyCartFontStyle().mulishtextLayout(
-                                    text: AppArray().myOfferList[0]['code'].toString(),
-                                    color: whiteColor,
-                                    fontSize: MyCartFontSize.textSizeSMedium,
-                                    fontWeight: FontWeight.bold),
-                              ],
-                            ),
-                            MyCartWidget().copyCodeButton(
-                                text: MyCartFont().copyCode,
-                                whiteColor: whiteColor,
-                                primaryColor: primaryColor
-                            )
-                          ],
-                        ))
-                      ],
-                    )),
-                Space(0, 10),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppScreenUtil().screenWidth(20),
-                      right: AppScreenUtil().screenWidth(20)),
-                  child: MyCartFontStyle().mulishtextLayout(
-                      text: MyCartFont().termsConditions,
-                      color: termConditionColor,
-                      fontSize: MyCartFontSize.textSizeSMedium,
-                      fontWeight: FontWeight.w600),
-                ),
-                Space(0, 10),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppScreenUtil().screenWidth(20),
-                      right: AppScreenUtil().screenWidth(20)),
-                  child: MyCartFontStyle().mulishtextLayout(
-                      text:
-                      "1. Information on how to participate forms part of these Terms & Conditions. By participating, claimants agree to be bound by these Terms & Conditions. Claimants must comply with these Terms & Conditions for a coupon to be valid.",
-                      color: termConditionColor,
-                      fontSize: MyCartFontSize.textSizeSmall,
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.start,
-                      fontWeight: FontWeight.normal),
-                ),
-                Space(0, 20),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppScreenUtil().screenWidth(20),
-                      right: AppScreenUtil().screenWidth(20)),
-                  child: MyCartFontStyle().mulishtextLayout(
-                      text:
-                      "2. Each claimant is entitled to one coupon per accommodation establishment. Coupons are not transferable and are not redeemable for cash and cannot be combined with any other coupons or any other offer or discounts or promotions offered ",
-                      color: termConditionColor,
-                      fontSize: MyCartFontSize.textSizeSmall,
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.start,
-                      fontWeight: FontWeight.normal),
-                ),
-              ],
-            ));
+        return OfferDetail(
+          data: data,
+        );
       },
     );
   }

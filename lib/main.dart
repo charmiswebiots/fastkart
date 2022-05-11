@@ -11,11 +11,9 @@ import 'package:fastkart/common/theme/app_theme.dart';
 import 'package:fastkart/common/theme/theme_service.dart';
 import 'package:get_storage/get_storage.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
   await GetStorage.init();
@@ -26,7 +24,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     lockScreenPortrait();
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top,SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     return ScreenUtilInit(
       designSize: Size(360, 690),
       builder: () => GetMaterialApp(
@@ -40,7 +39,8 @@ class MyApp extends StatelessWidget {
         },
         debugShowCheckedModeBanner: false,
         locale: Locale('en', 'US'),
-        fallbackLocale: Locale('en', 'US'), // tran
+        fallbackLocale: Locale('en', 'US'),
+        // tran
         title: FontName().appName,
         home: SplashScreen(),
         translations: Language(),

@@ -1,12 +1,9 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
-import 'package:flutter/material.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
+
 
 class ShopByCategory extends StatelessWidget {
-  var fontColor;
-bool? isBigScreen;
-  ShopByCategory({Key? key, this.fontColor,this.isBigScreen}) : super(key: key);
+  ShopByCategory({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +56,7 @@ bool? isBigScreen;
                     ),
                     Space(0, 5),
                     HomeFontStyle().mulishtextLayout(
-                        color: fontColor,
+                        color: ctrl.appTheme.titleColor,
                         text: AppArray().categoryData[index].title.toString(),
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w700,
@@ -72,7 +69,7 @@ bool? isBigScreen;
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
               childAspectRatio: MediaQuery.of(context).size.width /
-                  (MediaQuery.of(context).size.height /(isBigScreen! ? 1.6: 1.4)),
+                  (MediaQuery.of(context).size.height /(ResponsiveWidget.isSmallScreen(context) ? 1.4: 1.6)),
             ),
           ),
         );

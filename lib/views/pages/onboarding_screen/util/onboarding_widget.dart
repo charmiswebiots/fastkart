@@ -1,10 +1,7 @@
-import 'package:fastkart/common/app_screen_util.dart';
+
 import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_constants.dart';
 import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_fontstyle.dart';
-import 'package:flutter/material.dart';
-
 import '../../../../config.dart';
-import '../../../../widgets/common/icon_button_widget.dart';
 
 class OnboardingWidget{
   //background Image
@@ -41,7 +38,7 @@ class OnboardingWidget{
           OnboardingFontStyle().nunitoAndQuicksandtextLayout(
               text: OnboardingFont().getSafeDelivery,
               color: titleColor,
-              fontSize: textSizeNormal,
+              fontSize: OnboardingFontSize.textSizeNormal,
               fontWeight: FontWeight.w500,type: 'quicksand'),
           Space(0, 5),
 
@@ -49,7 +46,7 @@ class OnboardingWidget{
           OnboardingFontStyle().nunitoAndQuicksandtextLayout(
               text: OnboardingFont().description,
               color: contentColor,
-              fontSize: textSizeSMedium,
+              fontSize: OnboardingFontSize.textSizeSMedium,
               fontWeight: FontWeight.normal,type: 'nunito'),
         ],
       ),

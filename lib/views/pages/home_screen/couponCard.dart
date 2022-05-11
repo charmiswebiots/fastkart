@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class CouponCard extends StatelessWidget {
   int? index;
   var primaryColor;
-  var dottedLineColor;
   var titleColor;
   var decriptionColor;
   CouponModel? couponModel;
@@ -18,7 +17,6 @@ class CouponCard extends StatelessWidget {
       this.index,
       this.primaryColor,
       this.titleColor,
-      this.dottedLineColor,
       this.couponModel,
       this.decriptionColor,
       this.isTheme})

@@ -9,6 +9,9 @@ class OfferFont{
    String filter= "Filter";
    String close= "Close";
    String apply= "Apply";
+   String useCode = "Use Code:";
+   String desc1 =  "1. Information on how to participate forms part of these Terms & Conditions. By participating, claimants agree to be bound by these Terms & Conditions. Claimants must comply with these Terms & Conditions for a coupon to be valid.";
+   String desc2 =  "2. Each claimant is entitled to one coupon per accommodation establishment. Coupons are not transferable and are not redeemable for cash and cannot be combined with any other coupons or any other offer or discounts or promotions offered ";
    String dollar = "\$";
 
 }

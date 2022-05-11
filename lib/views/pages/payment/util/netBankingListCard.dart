@@ -1,7 +1,5 @@
-import 'package:fastkart/views/pages/payment/util/payment_fontstyle.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/cupertino.dart';
 import '../../../../config.dart';
 
 class NetBankingListCard extends StatelessWidget {

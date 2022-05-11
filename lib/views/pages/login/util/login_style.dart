@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../config.dart';
 import '../../../../utilities/responsive_layout.dart';
 import '../../../../widgets/common/icon_button_widget.dart';
@@ -29,7 +30,7 @@ class LoginStyle {
             Container(
               height: MediaQuery.of(context).size.height /
                   AppScreenUtil().screenHeight(
-                      (ResponsiveWidget.isSmallScreen(context)) ? 1.52 : 1.20),
+                      (ResponsiveWidget.isSmallScreen(context)) ? 1.52 : 1.14),
               child: child,
             ),
           ],
@@ -58,11 +59,12 @@ class LoginStyle {
       rightMargin: 0,
       icon: icon,
       type: text,
-      textWidget: LoginFontStyle().mulishtextLayout(
-          text: text,
-          color: titleColor,
-          fontSize: LoginFontSize.textSizeMedium,
-          fontWeight: FontWeight.bold),
+      textWidget: Text(text!,style: TextStyle(
+        color: titleColor,
+        fontFamily: GoogleFonts.mulish().fontFamily,
+        fontSize: AppScreenUtil().fontSize(LoginFontSize.textSizeSMedium),
+        fontWeight: FontWeight.bold, )),
+
     );
   }
 

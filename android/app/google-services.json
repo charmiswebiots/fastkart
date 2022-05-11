@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "442123674229-b1c4ujrm5ttd06vokonsr1385oavh6q3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fastkart",
+            "certificate_hash": "5dc4eefd147741939978bcd403f44d9c88856294"
+          }
+        },
+        {
           "client_id": "442123674229-ppuscmm0jtqe1v4np7trd98v43o21shg.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "442123674229-ppuscmm0jtqe1v4np7trd98v43o21shg.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "442123674229-1kee6iki2qt59psr6921l4osrk98octv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fastkart"
+              }
             }
           ]
         }
