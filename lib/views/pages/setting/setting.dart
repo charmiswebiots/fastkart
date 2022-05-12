@@ -252,7 +252,7 @@ class Setting extends StatelessWidget {
                          color: settingCtrl.appCtrl.appTheme.primary,
                          onTap: (){
                            if(formKey.currentState!.validate()){
-                             print('done');
+
                            }
                          }
                        )

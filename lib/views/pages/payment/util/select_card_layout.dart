@@ -1,9 +1,8 @@
-
 import '../../../../config.dart';
 
 class SelectCardList extends StatelessWidget {
-  var data;
-  SelectCardList({Key? key,this.data}) : super(key: key);
+  final dynamic data;
+  const SelectCardList({Key? key,this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class SelectCardList extends StatelessWidget {
                       onTap: () => paymentCtrl
                           .selectCard(indexs),
                       data:data[indexs],
-                      wishtListBoxColor: paymentCtrl
+                      wishListBoxColor: paymentCtrl
                           .appCtrl
                           .appTheme
                           .wishtListBoxColor,

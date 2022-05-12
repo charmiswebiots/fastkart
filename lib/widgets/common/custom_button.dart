@@ -1,15 +1,7 @@
-import 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/common/theme/app_css.dart';
-import 'package:fastkart/controllers/common/app_controller.dart';
-import 'package:fastkart/extensions/spacing.dart';
-import 'package:fastkart/extensions/textstyle_extensions.dart';
-import 'package:get/get.dart';
-
 import '../../config.dart';
 
 class CustomButton extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());
+  final appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());
 
   final String title;
   final double padding;
@@ -23,7 +15,7 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final Border? border;
 
-  CustomButton({
+   CustomButton({
     Key? key,
     required this.title,
     this.padding = 15,

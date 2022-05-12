@@ -1,12 +1,11 @@
-import 'package:fastkart/widgets/common/common_horizontal_list/common_font.dart';
 
 import '../../../config.dart';
 
 class CommonHorizontalList extends StatelessWidget {
-  String? title;
-  String? text;
-  var data;
-  CommonHorizontalList({Key? key,this.title,this.data,this.text}) : super(key: key);
+  final String? title;
+  final String? text;
+  final dynamic data;
+  const CommonHorizontalList({Key? key,this.title,this.data,this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +49,7 @@ class CommonHorizontalList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return EveryDayEssentialCard(
                       index: index,
-                      boxColor: appCtrl.appTheme.whiteColor,
-                      shadowColor: appCtrl.appTheme.contentColor,
-                      data: data[index],
-                      containerBorderColor: appCtrl.appTheme.greyBGColor,
-                      descriptionColor: appCtrl.appTheme.darkContentColor,
-                      priceColor: appCtrl.appTheme.titleColor,
-                      primaryColor: appCtrl.appTheme.primary,
-                      iconColor: appCtrl.appTheme.whiteColor);
+                      data: data[index],);
                 },
               ),
             )

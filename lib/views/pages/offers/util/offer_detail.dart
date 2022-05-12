@@ -1,9 +1,8 @@
 import '../../../../config.dart';
 
 class OfferDetail extends StatelessWidget {
-  var data;
-
-  OfferDetail({Key? key, this.data}) : super(key: key);
+  final dynamic data;
+  const OfferDetail({Key? key, this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

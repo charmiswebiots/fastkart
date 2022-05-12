@@ -1,6 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/category/util/imageBgLayout.dart';
-import 'package:fastkart/views/pages/category/util/subcategoryList.dart';
+
 
 //Widget Layout
 class CategoryWidget {

@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
 
 class CategoryController extends GetxController {
   int selectIndex = 1;

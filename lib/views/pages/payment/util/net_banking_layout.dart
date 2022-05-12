@@ -1,8 +1,8 @@
 import '../../../../config.dart';
 
 class NetBakingListLayout extends StatelessWidget {
-  var data;
-  NetBakingListLayout({Key? key,this.data}) : super(key: key);
+  final dynamic data;
+  const NetBakingListLayout({Key? key,this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

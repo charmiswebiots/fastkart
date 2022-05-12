@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:fastkart/controllers/dashboard_controller.dart';
-import 'package:fastkart/views/drawer/drawer_screen.dart';
 import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
 import '../../../config.dart';
@@ -14,12 +13,11 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   Timer? timer;
-  var dashboardCtrl = Get.put(DashboardController());
+  final dashboardCtrl = Get.put(DashboardController());
 
   @override
   void initState() {
     // TODO: implement initState
-    print('index : ${AppScreenUtil().screenActualWidth()}');
     super.initState();
   }
 
@@ -60,7 +58,7 @@ class _DashboardState extends State<Dashboard> {
                           dashboardCtrl.appCtrl.selectedIndex == 2)
                       ? true
                       : false,
-                  isback: (dashboardCtrl.appCtrl.selectedIndex == 1 ||
+                  isBack: (dashboardCtrl.appCtrl.selectedIndex == 1 ||
                           dashboardCtrl.appCtrl.selectedIndex == 3 ||
                           dashboardCtrl.appCtrl.selectedIndex == 4)
                       ? true

@@ -200,9 +200,9 @@ class AppTheme {
       colorScheme: ColorScheme(
         brightness: isDark ? Brightness.dark : Brightness.light,
         primary: primary,
-        primaryVariant: shiftHsl(primary, -.2),
+        primaryContainer: shiftHsl(primary, -.2),
         secondary: secondary,
-        secondaryVariant: shiftHsl(secondary, -.2),
+        secondaryContainer: shiftHsl(secondary, -.2),
         background: whiteColor,
         surface: surface,
         onBackground: txt,
@@ -220,7 +220,7 @@ class AppTheme {
         selectionHandleColor: Colors.transparent,
         cursorColor: primary,
       ),
-      buttonColor: primary,
+      buttonTheme: ButtonThemeData(buttonColor: primary),
       highlightColor: primary,
       toggleableActiveColor: primary,
     );

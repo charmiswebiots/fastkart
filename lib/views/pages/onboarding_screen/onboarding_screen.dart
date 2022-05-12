@@ -1,7 +1,7 @@
 import 'package:fastkart/config.dart';
 
 class OnBoardingScreen extends StatelessWidget {
-  var onboardCtrl = Get.put(OnboardingController());
+  final onboardCtrl = Get.put(OnboardingController());
   OnBoardingScreen({Key? key}) : super(key: key);
 
   @override

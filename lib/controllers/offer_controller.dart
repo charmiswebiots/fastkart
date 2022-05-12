@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/offers/util/filterLayout.dart';
+import 'package:fastkart/views/pages/offers/util/filter_layout.dart';
 import 'package:fastkart/views/pages/offers/util/offer_detail.dart';
 
 class OfferController extends GetxController {

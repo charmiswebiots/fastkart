@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:fastkart/config.dart';
 
 class ChangeTheme extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());
+  final appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());
 
   @override
   Widget build(BuildContext context) {

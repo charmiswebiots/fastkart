@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/payment/addCardLayout.dart';
+import 'package:fastkart/views/pages/payment/add_card_layout.dart';
 
 class PaymentController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()
@@ -49,7 +49,6 @@ class PaymentController extends GetxController {
         ((tapped == null) || ((index == tapped) || !expand)) ? !expand : expand;
 
     tapped = index;
-    debugPrint('current expand state: ${expand}');
     update();
   }
 

@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/payment/util/payment_constants.dart';
-import 'package:flutter/material.dart';
 
 class PaymentFontStyle {
 //nunito font family text layout

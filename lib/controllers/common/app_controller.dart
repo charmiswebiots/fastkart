@@ -1,15 +1,13 @@
 import 'package:fastkart/routes/screen_list.dart';
-import 'package:fastkart/utilities/app_array.dart';
 import 'package:fastkart/views/drawer/util/drawer_constants.dart';
 import 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
 import 'package:fastkart/views/drawer/util/drawer_widget.dart';
 import 'package:fastkart/views/pages/category/category_screen.dart';
 import 'package:fastkart/views/pages/home_screen/home.dart';
-import 'package:fastkart/views/pages/myCart/myCart_screen.dart';
+import 'package:fastkart/views/pages/myCart/mycart_screen.dart';
 import 'package:fastkart/views/pages/offers/offers_screen.dart';
 import 'package:fastkart/views/pages/search/search_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,10 +32,10 @@ class AppController extends GetxController {
   //list of bottomnavigator page
   List<Widget> widgetOptions = <Widget>[
     HomeLayout(),
-    CategoryScreen(),
+    const CategoryScreen(),
     SearchScreen(),
-    OfferScreen(),
-    MyCartListScreen(),
+    const OfferScreen(),
+    const MyCartListScreen(),
   ];
 
   @override
@@ -51,8 +49,7 @@ class AppController extends GetxController {
 
   //get theme value
   getData() async {
-    bool _loadThemeFromStorage = await getStorage.read('isDarkMode') ?? false;
-    print('isDarkMode L ${_loadThemeFromStorage}');
+    bool _loadThemeFromStorage = getStorage.read('isDarkMode') ?? false;
     if (_loadThemeFromStorage) {
       isTheme = true;
     } else {
@@ -60,17 +57,13 @@ class AppController extends GetxController {
     }
     update();
     await getStorage.write("isDarkMode", isTheme);
-
     ThemeService().switchTheme(isTheme);
-
     Get.forceAppUpdate();
     bool dddd = await getStorage.read('isDarkMode');
-    print('ddddd ${dddd}');
   }
 
   //google Login function
   googleLogin() async {
-    print('tap');
     showLoading();
     update();
     final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -85,7 +78,7 @@ class AppController extends GetxController {
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );
-      User? user = (await _auth.signInWithCredential(credential)).user;
+      (await _auth.signInWithCredential(credential)).user;
       hideLoading();
       update();
       saveData(googleSignInAccount.id);
@@ -93,7 +86,7 @@ class AppController extends GetxController {
     } on FirebaseAuthException catch (e) {
       hideLoading();
       update();
-      throw e;
+      rethrow;
     } finally {
       hideLoading();
       update();

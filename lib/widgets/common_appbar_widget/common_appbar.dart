@@ -1,43 +1,40 @@
-import 'package:fastkart/common/assets/index.dart';
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/responsive_layout.dart';
-import 'package:fastkart/widgets/common_appbar_widget/util/appbar_constants.dart';
-import 'package:fastkart/widgets/common_appbar_widget/util/appbar_fontstyle.dart';
-import 'package:fastkart/widgets/common_appbar_widget/util/appbar_widget.dart';
-import 'package:flutter/material.dart';
 
 class CommonAppBar1 extends StatelessWidget {
-  GestureTapCallback? onTap;
-  GestureTapCallback? actionTap;
-  bool? isLocation;
-  bool? isCart;
-  bool? isCategory;
-  bool? isback;
-  bool? isWishListText;
-  bool? isHome;
-  var color;
-  bool? isTheme;
-  var borderColor;
+  final GestureTapCallback? onTap;
+  final GestureTapCallback? actionTap;
+  final bool? isLocation;
+  final bool? isCart;
+  final bool? isCategory;
+  final bool? isBack;
+  final bool? isWishListText;
+  final bool? isHome;
+  final Color? color;
+  final bool? isTheme;
+  final Color? borderColor;
 
-  CommonAppBar1(
+  const CommonAppBar1(
       {Key? key,
       this.onTap,
       this.actionTap,
       this.isCart,
       this.isLocation,
-      this.isback,
-      this.isHome,this.borderColor,
-        this.isWishListText,
-      this.isCategory,this.color,this.isTheme})
+      this.isBack,
+      this.isHome,
+      this.borderColor,
+      this.isWishListText,
+      this.isCategory,
+      this.color,
+      this.isTheme})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       margin: EdgeInsets.only(
           top: MediaQuery.of(context).size.height /
-          AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() >370 ? 13 :22),
+              AppScreenUtil().screenHeight(
+                  AppScreenUtil().screenActualWidth() > 370 ? 13 : 22),
           bottom: AppScreenUtil().screenHeight(10),
           left: AppScreenUtil().screenHeight(15),
           right: AppScreenUtil().screenHeight(15)),
@@ -49,8 +46,11 @@ class CommonAppBar1 extends StatelessWidget {
             children: [
               if (isCategory!)
                 AppBarWidget().commonIconImage(
-                    onTap: onTap, image: iconAssets.category, height: 20,color: color),
-              if (isback!)
+                    onTap: onTap,
+                    image: iconAssets.category,
+                    height: 20,
+                    color: color),
+              if (isBack!)
                 InkWell(
                   onTap: onTap,
                   child: Container(
@@ -58,9 +58,8 @@ class CommonAppBar1 extends StatelessWidget {
                         AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
                     width: AppScreenUtil().screenHeight(
                         AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
-
                     decoration: BoxDecoration(
-                        border: Border.all(color: borderColor, width: 1.5),
+                        border: Border.all(color: borderColor!, width: 1.5),
                         borderRadius: BorderRadius.circular(8)),
                     child: Icon(
                       Icons.arrow_back_sharp,
@@ -71,9 +70,12 @@ class CommonAppBar1 extends StatelessWidget {
                 ),
               Space(10, 0),
               AppBarWidget().commonIconImage(
-                  image: isTheme! ? imageAssets.themeLogo : imageAssets.smallLogoImage, height: 16),
+                  image: isTheme!
+                      ? imageAssets.themeLogo
+                      : imageAssets.smallLogoImage,
+                  height: 16),
               Space(10, 0),
-              if(isWishListText!)
+              if (isWishListText!)
                 AppBarFontStyle().mulishtextLayout(
                     text: "(4 Items)",
                     fontSize: 14,
@@ -85,8 +87,8 @@ class CommonAppBar1 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                AppBarWidget()
-                    .commonIconImage(image: iconAssets.location, height: 16,color: color),
+                AppBarWidget().commonIconImage(
+                    image: iconAssets.location, height: 16, color: color),
                 Space(5, 0),
                 AppBarFontStyle().mulishtextLayout(
                     text: AppBarFont().name,
@@ -100,13 +102,18 @@ class CommonAppBar1 extends StatelessWidget {
                 ),
               ],
             ),
-          if (isCart!) InkWell(
-              onTap: actionTap,
-              child: Image.asset(gifAssets.colorOffer, height: 30)),
-
-          if (isHome!) InkWell(
-            onTap: actionTap,
-              child: Image.asset(iconAssets.colorHome, height: 20,fit: BoxFit.contain,)),
+          if (isCart!)
+            InkWell(
+                onTap: actionTap,
+                child: Image.asset(gifAssets.colorOffer, height: 30)),
+          if (isHome!)
+            InkWell(
+                onTap: actionTap,
+                child: Image.asset(
+                  iconAssets.colorHome,
+                  height: 20,
+                  fit: BoxFit.contain,
+                )),
         ],
       ),
     );

@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
 class NotificationController extends GetxController{

@@ -2,15 +2,15 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../config.dart';
 
 class CommonSearchTextForm extends StatelessWidget {
-  String? text;
-  var fillcolor;
-  var borderColor;
-  var hintColor;
-  var titleColor;
-  Widget? suffixIcon;
-  Widget? prefixIcon;
+  final String? text;
+  final Color? fillcolor;
+  final Color? borderColor;
+  final Color? hintColor;
+  final Color? titleColor;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
 
-  CommonSearchTextForm({Key? key,this.text,this.borderColor,this.suffixIcon,this.hintColor,this.fillcolor,this.prefixIcon,this.titleColor}) : super(key: key);
+  const CommonSearchTextForm({Key? key,this.text,this.borderColor,this.suffixIcon,this.hintColor,this.fillcolor,this.prefixIcon,this.titleColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +41,12 @@ class CommonSearchTextForm extends StatelessWidget {
             filled: true,
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: borderColor,
+                color: borderColor!,
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: borderColor,
+                color: borderColor!,
               ),
             ),
             hintText: text,

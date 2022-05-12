@@ -17,8 +17,6 @@ class LoginValidation {
 
 // Check Id Validation
   String? checkIDValidation(value) {
-    print('chek  : $value');
-    print('chek  : ${LoginValidation().isEmail(value)}');
     if (value.isEmpty) {
       return LoginFont().userFieldError;
     } else if (LoginValidation().isEmail(value) == false) {
@@ -30,7 +28,6 @@ class LoginValidation {
 
 // Check Password Validation
   String? checkPasswordValidation(value) {
-    print(value);
     if (value.isEmpty) {
       return LoginFont().passwordFieldError;
     }else{

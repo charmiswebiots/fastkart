@@ -1,8 +1,8 @@
 import 'package:fastkart/config.dart';
 
 class CreditDebitLayout extends StatelessWidget {
-  var data;
-  CreditDebitLayout({Key? key,this.data}) : super(key: key);
+  final dynamic data;
+  const CreditDebitLayout({Key? key,this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

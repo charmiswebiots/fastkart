@@ -1,8 +1,7 @@
-import 'package:fastkart/common/assets/index.dart';
+
 import 'package:fastkart/config.dart';
 import 'package:fastkart/views/pages/bottom_navigation/util/bottom_navigation_constants.dart';
 import 'package:fastkart/views/pages/bottom_navigation/util/bottom_navigation_widget.dart';
-import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 
 class BottomNavigatorCard extends StatelessWidget {
@@ -21,7 +20,6 @@ class BottomNavigatorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(selectedIndex);
     return GetBuilder<AppController>(
       builder: (_) => Platform.isIOS
           ? Offstage(

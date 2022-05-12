@@ -1,8 +1,6 @@
 //text constants
 class CategoryFont{
    String searchProduct= 'Search Products here..';
-
-
 }
 
 

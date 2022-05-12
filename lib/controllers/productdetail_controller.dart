@@ -1,10 +1,7 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/productDetail/contentBottomSheet.dart';
-import 'package:fastkart/views/pages/productDetail/reviewCard.dart';
-import 'package:fastkart/views/pages/productDetail/util/productDetail_constants.dart';
-import 'package:fastkart/views/pages/productDetail/util/productDetail_fontstyle.dart';
-import 'package:flutter/material.dart';
+import 'package:fastkart/views/pages/productDetail/content_bottom_sheet.dart';
+import 'package:fastkart/views/pages/productDetail/review_card.dart';
+import 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
 
 class ProductDetailController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()
@@ -48,7 +45,6 @@ class ProductDetailController extends GetxController {
     ((tapped == null) || ((index == tapped) || !expand)) ? !expand : expand;
 
     tapped = index;
-    debugPrint('current expand state: ${expand}');
     update();
   }
 

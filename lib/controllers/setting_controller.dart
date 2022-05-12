@@ -1,6 +1,5 @@
 import 'package:fastkart/config.dart';
 import 'package:fastkart/views/pages/setting/util/setting_constants.dart';
-import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
@@ -57,8 +56,6 @@ class SettingController extends GetxController{
       selectedDate = selected;
     dateCtrl.text = DateFormat('dd/MM/yyyy').format(selectedDate);
     update();
-    print(selectedDate);
-    print(dateCtrl.text);
   }
 
 }

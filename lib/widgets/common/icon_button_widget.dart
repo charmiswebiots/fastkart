@@ -1,17 +1,15 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/onboarding_screen/util/onboarding_fontstyle.dart';
-import 'package:flutter/material.dart';
 
 class IconButtonWidget extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>()
+  final appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
-  String? icon;
-  Widget? textWidget;
-  String? type;
-  double? lefMargin;
-  double? rightMargin;
-  GestureTapCallback? onTap;
+  final String? icon;
+  final Widget? textWidget;
+  final String? type;
+  final double? lefMargin;
+  final double? rightMargin;
+  final GestureTapCallback? onTap;
 
 
   IconButtonWidget({Key? key, this.icon, this.textWidget, this.type,this.lefMargin,this.rightMargin,this.onTap}) : super(key: key);

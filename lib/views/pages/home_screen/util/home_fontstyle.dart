@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
-import 'package:flutter/material.dart';
 
 class HomeFontStyle {
 //nunito font family text layout

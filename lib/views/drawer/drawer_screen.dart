@@ -1,10 +1,10 @@
-import 'package:fastkart/utilities/app_array.dart';
+
 import 'package:fastkart/views/drawer/contact_us.dart';
 import 'package:fastkart/views/drawer/util/drawer_constants.dart';
 import 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
 import 'package:fastkart/views/drawer/util/drawer_header.dart';
 import 'package:fastkart/views/drawer/util/drawer_widget.dart';
-import 'package:flutter/material.dart';
+
 
 import '../../config.dart';
 
@@ -65,7 +65,6 @@ class DrawerScreen extends StatelessWidget {
 
                               //drawer list
                               ...appCtrl.drawerList.asMap().entries.map((e) {
-                                print(e.value['title'].toString().tr);
                                 return DrawerWidget().commonDrawerListTile(
                                     image: e.value['icon'],
                                     title: e.value['title'].toString().tr,
@@ -83,7 +82,6 @@ class DrawerScreen extends StatelessWidget {
                                     },
                                     activeIconColor: appCtrl.appTheme.green,
                                     onTap: () async {
-                                      print('tap');
                                       appCtrl.selectPage(index: e.key,context: context);
                                     },
                                     textColor: e.key == 9 ? appCtrl.appTheme.titleColor : e.key == appCtrl.drawerSelectedIndex

@@ -1,4 +1,4 @@
-import 'package:fastkart/views/pages/signup/util/dottedLine.dart';
+import 'package:fastkart/views/pages/signup/util/dotted_line.dart';
 
 import '../../../../config.dart';
 

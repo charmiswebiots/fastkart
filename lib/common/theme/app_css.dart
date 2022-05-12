@@ -7,7 +7,7 @@ part 'scale.dart';
 
 class AppCss {
   static const TextStyle poppins = TextStyle(
-    fontFamily: Fonts.Poppins,
+    fontFamily: Fonts.poppins,
     fontWeight: FontWeight.w400,
     letterSpacing: 0,
     height: 1,

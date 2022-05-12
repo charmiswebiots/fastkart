@@ -32,7 +32,7 @@ class SignupWidget {
   }
 
   //White body Container Layout
-  Widget bodyContainer({Widget? child, BuildContext? context, color,formKey}) {
+  Widget bodyContainer({Widget? child, BuildContext? context, color}) {
     return Container(
       margin: EdgeInsets.only(top: MediaQuery.of(context!).size.height / (Platform.isIOS ? 9.2 : 8.5)),
       padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15), vertical: AppScreenUtil().screenHeight(40)),
@@ -46,10 +46,7 @@ class SignupWidget {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Form(
-                key: formKey,
-                child: child! ,
-              ),
+              child!,
             ],
           ),
         ),

@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/offers/util/offer_constants.dart';
 
 class OfferFontStyle {
 //nunito font family text layout

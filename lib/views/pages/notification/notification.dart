@@ -1,6 +1,6 @@
 import 'package:fastkart/controllers/notification_controller.dart';
 import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/notification/notificationCard.dart';
+import 'package:fastkart/views/pages/notification/notification_card.dart';
 import 'package:fastkart/views/pages/notification/util/notification_constants.dart';
 import 'package:fastkart/views/pages/notification/util/notification_fontstyle.dart';
 import 'package:fastkart/views/pages/notification/util/notification_widget.dart';

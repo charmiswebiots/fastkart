@@ -1,9 +1,7 @@
 import 'package:fastkart/utilities/responsive_layout.dart';
 import 'package:fastkart/views/drawer/util/drawer_constants.dart';
 import 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
-import 'package:fastkart/views/pages/dashboard/themeSwitcher.dart';
-import 'package:flutter/material.dart';
-
+import 'package:fastkart/views/pages/dashboard/theme_switcher.dart';
 import '../../../config.dart';
 
 class DrawerWidget {

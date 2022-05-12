@@ -1,7 +1,3 @@
-import 'package:fastkart/views/pages/category/util/recentSearchLayout.dart';
-import 'package:fastkart/views/pages/category/util/trendingCategoryLayout.dart';
-import 'package:fastkart/views/pages/category/util/trendingProductLayout.dart';
-
 import '../../../config.dart';
 
 class SearchScreen extends StatefulWidget {

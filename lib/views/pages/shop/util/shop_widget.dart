@@ -146,59 +146,6 @@ class ShopWidget {
     );
   }
 
-  //amount button layout
-  Widget amountButtonLayout({context, var buttonColor, var itemColor,GestureTapCallback? onTap}) {
-    return Container(
-      height: AppScreenUtil().screenHeight( AppScreenUtil().screenActualWidth() > 377 ? 53: 57),
-      width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.symmetric(
-          horizontal: AppScreenUtil().screenWidth(15),
-          vertical: AppScreenUtil().screenHeight(10)),
-      padding: EdgeInsets.symmetric(
-          horizontal: AppScreenUtil().screenWidth(20),
-          vertical: AppScreenUtil().screenHeight(10)),
-      decoration: BoxDecoration(
-          color: buttonColor,
-          borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ShopFontStyle().mulishtextLayout(
-                  text: '2 Items',
-                  color: itemColor,
-                  fontSize: ShopFontSize.textSizeSmall),
-              Space(0, 5),
-              ShopFontStyle().mulishtextLayout(
-                  text: ShopFont().dollar + "250.00",
-                  color: itemColor,
-                  fontSize: ShopFontSize.textSizeSMedium),
-            ],
-          ),
-          InkWell(
-            onTap:onTap,
-            child: Row(
-              children: [
-                ShopFontStyle().mulishtextLayout(
-                    text: ShopFont().viewCart,
-                    color: itemColor,
-                    fontSize: ShopFontSize.textSizeSMedium),
-                Space(5, 0),
-                Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  color: itemColor,
-                  size: AppScreenUtil().size(18),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
   //range value common
   Widget rangeValue(
       {String? text, var containerColor, var borderColor, var textColor}) {
@@ -319,6 +266,15 @@ class ShopWidget {
           textAlign: TextAlign.center,
           fontSize: ShopFontSize.textSizeSmall,
           color: textColor),
+    );
+  }
+
+  //aapbar
+  PreferredSizeWidget appBarLayout(
+      {GestureTapCallback? onTap, GestureTapCallback? actionOnTap}) {
+    return AppBarLayoutCustom(
+      onTap: onTap,
+      actionOnTap: actionOnTap,
     );
   }
 }

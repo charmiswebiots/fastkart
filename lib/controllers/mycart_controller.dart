@@ -20,7 +20,6 @@ class MyCartListController extends GetxController {
 
   //leading tap
   leadingTap() async {
-    print('tap');
     if (isAppBar) {
       Get.back();
     } else {
@@ -32,7 +31,6 @@ class MyCartListController extends GetxController {
 
   //quantity increment function
   plusTap(index) {
-    print(offerList[index]['quantity']);
     int count = int.parse(offerList[index]['quantity'].toString());
     count = count + 1;
     offerList[index]['quantity'] = count.toString();
@@ -42,7 +40,6 @@ class MyCartListController extends GetxController {
   //quantity decrement function
   minusTap(index) {
     if (offerList[index]['quantity'] != 0) {
-      print(offerList[index]['quantity']);
       if (offerList[index]['quantity'] == "0") {
         offerList[index]['quantity'] = "0";
         update();
@@ -64,7 +61,6 @@ class MyCartListController extends GetxController {
 
 //get data
   getData() {
-    print(Get.arguments);
     offerList = AppArray().offerList;
     update();
     appCtrl.hideLoading();

@@ -22,37 +22,6 @@ class PaymentStyle{
         child: child);
   }
 
-  //common button widget
-  Widget commonButtonWidget(
-      {context,
-        var containerColor,
-        var borderColor,
-        var textColor,
-        String? text,
-        GestureTapCallback? onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        width: MediaQuery.of(context).size.width / 2.5,
-
-        padding: EdgeInsets.symmetric(
-            vertical: AppScreenUtil().screenWidth(13),
-            horizontal: AppScreenUtil().screenHeight(10)),
-        decoration: BoxDecoration(
-          color: containerColor,
-          borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
-          border: Border.all(
-              color: borderColor, width: .5), //border of dropdown button
-        ),
-        child: PaymentFontStyle().mulishtextLayout(
-            text: text,
-            textAlign: TextAlign.center,
-            fontSize: PaymentFontSize.textSizeSmall,
-            color: textColor),
-      ),
-    );
-  }
-
   //add card Layout
   Widget addCardLayout({Widget? child,context}){
     return Container(

@@ -2,7 +2,7 @@ import '../../../config.dart';
 
 class SignUpScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
-  var signupCtrl = Get.put(SignupController());
+  final signupCtrl = Get.put(SignupController());
 
   SignUpScreen({Key? key}) : super(key: key);
 

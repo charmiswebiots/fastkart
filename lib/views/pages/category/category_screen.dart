@@ -1,7 +1,7 @@
 import '../../../config.dart';
 
 class CategoryScreen extends StatefulWidget {
-  CategoryScreen({Key? key}) : super(key: key);
+  const CategoryScreen({Key? key}) : super(key: key);
 
   @override
   State<CategoryScreen> createState() => _CategoryScreenState();

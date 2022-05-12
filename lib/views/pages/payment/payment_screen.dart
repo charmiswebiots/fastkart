@@ -1,7 +1,7 @@
 import '../../../config.dart';
 
 class PaymentScreen extends StatelessWidget {
-  var paymentCtrl = Get.put(PaymentController());
+  final paymentCtrl = Get.put(PaymentController());
 
   PaymentScreen({Key? key}) : super(key: key);
 
@@ -35,7 +35,7 @@ class PaymentScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: AppScreenUtil().screenWidth(15)),
                       child: CustomButton(
-                        height: 45,
+                        height: 40,
                         title: PaymentFont().confirmPayment,
                         color: paymentCtrl.appCtrl.appTheme.primary,
                         fontColor: paymentCtrl.appCtrl.appTheme.whiteColor,

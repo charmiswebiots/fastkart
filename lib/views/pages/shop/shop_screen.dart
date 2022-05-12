@@ -1,10 +1,3 @@
-import 'package:fastkart/controllers/shop_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/shop/shopListCard.dart';
-import 'package:fastkart/views/pages/shop/util/shop_constants.dart';
-import 'package:fastkart/views/pages/shop/util/shop_fontstyle.dart';
-import 'package:fastkart/views/pages/shop/util/shop_widget.dart';
-import 'package:flutter/material.dart';
 
 import '../../../config.dart';
 
@@ -24,31 +17,9 @@ class _ShopScreenState extends State<ShopScreen> {
       return AppComponent(
         child: GetBuilder<ShopController>(builder: (_) {
           return Scaffold(
-
-            appBar: AppBar(
-              elevation: 0,
-              automaticallyImplyLeading: false,
-              backgroundColor: shopCtrl.appCtrl.appTheme.whiteColor,
-              leadingWidth: AppScreenUtil().screenWidth(100),
-              leading: ShopWidget().appBarLeadingLayput(
-                  onTap: () => Get.back(),
-                  borderColor: shopCtrl.appCtrl.appTheme.titleColor,
-                  iconColor: shopCtrl.appCtrl.appTheme.titleColor,
-                  image: shopCtrl.appCtrl.isTheme
-                      ? imageAssets.themeFkLogo
-                      : imageAssets.fkLogo),
-              title: ShopWidget().appBarTitleLayout(
-                  text: "Fresh Fruits& Vegetables",
-                  textColor: shopCtrl.appCtrl.appTheme.darkContentColor),
-              actions: [
-                ShopWidget().appBarActionLayout(onTap: ()async{
-                  await shopCtrl.appCtrl.getStorage.write(
-                      'selectedIndex', shopCtrl.appCtrl.selectedIndex);
-                  shopCtrl.appCtrl.selectedIndex = 3;
-                  shopCtrl.appCtrl.update();
-
-                }),
-              ],
+            appBar: ShopWidget().appBarLayout(
+              onTap: () =>Get.back(),
+              actionOnTap: () => shopCtrl.actionButtonTap(),
             ),
             backgroundColor: shopCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
@@ -81,15 +52,20 @@ class _ShopScreenState extends State<ShopScreen> {
                                         left: AppScreenUtil()
                                             .screenWidth(index == 0 ? 15 : 0)),
                                     child: InkWell(
-                                      onTap: () => shopCtrl.selectCategory(index,AppArray().shopCategoryList[index]
-                                      ['id']),
+                                      onTap: () => shopCtrl.selectCategory(
+                                          index,
+                                          AppArray().shopCategoryList[index]
+                                              ['id']),
                                       child: ShopFontStyle().mulishtextLayout(
-                                          text: AppArray().shopCategoryList[index]
-                                              ['title'].toString(),
-                                          fontSize: ShopFontSize.textSizeSMedium,
+                                          text: AppArray()
+                                              .shopCategoryList[index]['title']
+                                              .toString(),
+                                          fontSize:
+                                              ShopFontSize.textSizeSMedium,
                                           fontWeight: FontWeight.normal,
                                           color: shopCtrl.selectIndex == index
-                                              ? shopCtrl.appCtrl.appTheme.primary
+                                              ? shopCtrl
+                                                  .appCtrl.appTheme.primary
                                               : shopCtrl
                                                   .appCtrl.appTheme.titleColor),
                                     ),
@@ -111,42 +87,50 @@ class _ShopScreenState extends State<ShopScreen> {
                                     child: ShopWidget().textFieldLayout(
                                       suffixIcon: Padding(
                                         padding: EdgeInsets.symmetric(
-                                            vertical:
-                                                AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 :15)),
+                                            vertical: AppScreenUtil()
+                                                .screenHeight(AppScreenUtil()
+                                                            .screenActualWidth() >
+                                                        370
+                                                    ? 10
+                                                    : 15)),
                                         child: ShopWidget().voiceIcon(
-                                            shopCtrl.appCtrl.appTheme.titleColor,
+                                            shopCtrl
+                                                .appCtrl.appTheme.titleColor,
                                             iconAssets.voice),
                                       ),
                                       prefixIcon: Image.asset(
                                         iconAssets.textboxSearchIcon,
-                                        color:
-                                            shopCtrl.appCtrl.appTheme.titleColor,
+                                        color: shopCtrl
+                                            .appCtrl.appTheme.titleColor,
                                       ),
                                       text: ShopFont().searchProduct,
                                       borderColor: shopCtrl
                                           .appCtrl.appTheme.primary
                                           .withOpacity(.3),
-                                      hintColor:
-                                          shopCtrl.appCtrl.appTheme.contentColor,
-                                      fillcolor:
-                                          shopCtrl.appCtrl.appTheme.textBoxColor,
+                                      hintColor: shopCtrl
+                                          .appCtrl.appTheme.contentColor,
+                                      fillcolor: shopCtrl
+                                          .appCtrl.appTheme.textBoxColor,
                                     ),
                                   ),
                                   Space(15, 0),
                                   InkWell(
-                                    onTap: () =>shopCtrl.bottomSheet(
+                                    onTap: () => shopCtrl.bottomSheet(
                                         context: context,
-                                        primaryColor: shopCtrl.appCtrl.appTheme.primary,
-
-                                        categoryTextColor: shopCtrl.appCtrl.appTheme.titleColor,
-                                        termConditionColor: shopCtrl.appCtrl.appTheme.darkContentColor,
-                                        lightPrimary: shopCtrl.appCtrl
-                                            .appTheme.white
+                                        primaryColor:
+                                            shopCtrl.appCtrl.appTheme.primary,
+                                        categoryTextColor: shopCtrl
+                                            .appCtrl.appTheme.titleColor,
+                                        termConditionColor: shopCtrl
+                                            .appCtrl.appTheme.darkContentColor,
+                                        lightPrimary: shopCtrl
+                                            .appCtrl.appTheme.white
                                             .withOpacity(.3)),
                                     child: ShopFontStyle().mulishtextLayout(
                                         text: ShopFont().filter,
                                         fontSize: 16,
-                                        color: shopCtrl.appCtrl.appTheme.primary,
+                                        color:
+                                            shopCtrl.appCtrl.appTheme.primary,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ],
@@ -163,7 +147,8 @@ class _ShopScreenState extends State<ShopScreen> {
                                   padding: EdgeInsets.zero,
                                   itemBuilder: (context, index) {
                                     return ShopListCard(
-                                      onTap: () => Get.toNamed(routeName.productDetail),
+                                      onTap: () =>
+                                          Get.toNamed(routeName.productDetail),
                                       index: index,
                                       data: shopCtrl.offerList[index],
                                       containerboxColor: shopCtrl
@@ -177,8 +162,8 @@ class _ShopScreenState extends State<ShopScreen> {
                                       dividerColor: shopCtrl
                                           .appCtrl.appTheme.contentColor
                                           .withOpacity(.5),
-                                      quantityBorderColor:
-                                          shopCtrl.appCtrl.appTheme.lightPrimary,
+                                      quantityBorderColor: shopCtrl
+                                          .appCtrl.appTheme.lightPrimary,
                                       titleColor:
                                           shopCtrl.appCtrl.appTheme.titleColor,
                                       plusTap: () => shopCtrl.plusTap(index),
@@ -191,11 +176,10 @@ class _ShopScreenState extends State<ShopScreen> {
                         ),
                       ),
                     ),
-                    ShopWidget().amountButtonLayout(
-                        context: context,
-                        onTap: ()=> Get.toNamed(routeName.myCart,arguments: true),
-                        buttonColor: shopCtrl.appCtrl.appTheme.primary,
-                        itemColor: shopCtrl.appCtrl.appTheme.white)
+                    //amount and item button layout
+                    AmountItemButton(
+                        onTap: () =>
+                            Get.toNamed(routeName.myCart, arguments: true),)
                   ],
                 ),
               ),

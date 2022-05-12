@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 import 'package:fastkart/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class CommonTextFormField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final TextInputType? keyboardType;
 
-  CommonTextFormField(
+  const CommonTextFormField(
       {Key? key,
       this.text,
       this.fillcolor,

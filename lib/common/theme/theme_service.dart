@@ -25,8 +25,6 @@ class ThemeService {
 
   /// Switch theme and save to local storage
   switchTheme(_loadThemeFromStorage) async {
-    print('save');
-
       if (_loadThemeFromStorage) {
       Get.changeThemeMode(ThemeMode.dark);
       await appCtrl.updateTheme(AppTheme.fromType(ThemeType.dark));

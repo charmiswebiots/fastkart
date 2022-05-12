@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
 
 //Widget Layout
 class LoginWidget {

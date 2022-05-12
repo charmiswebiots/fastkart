@@ -150,5 +150,5 @@ deleteConfirmation({context, title, message, onConfirm, bool barrierDismissible 
     },
   );
 
-  // ex: helper.deleteConfirmation(context, (){ print('clicked'); });
+  // ex: helper.deleteConfirmation(context, (){ 'clicked'); });
 }

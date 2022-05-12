@@ -20,7 +20,6 @@ class OnboardingController extends GetxController{
 
   //google Login function
   googleLogin() async {
-    print('tap');
     appCtrl.showLoading();
     update();
     final FirebaseAuth _auth = FirebaseAuth.instance;

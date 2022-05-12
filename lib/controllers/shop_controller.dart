@@ -1,9 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/shop/util/shop_constants.dart';
-import 'package:fastkart/views/pages/shop/util/shop_fontstyle.dart';
-import 'package:fastkart/views/pages/shop/util/shop_widget.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ShopController extends GetxController {
@@ -20,17 +15,23 @@ class ShopController extends GetxController {
 
   //quantity increment function
   plusTap(index) {
-    print(offerList[index]['quantity']);
     int count = int.parse(offerList[index]['quantity'].toString());
     count = count + 1;
     offerList[index]['quantity'] = count.toString();
     update();
   }
 
+  //action button tap
+  actionButtonTap() async {
+    await appCtrl.getStorage
+        .write('selectedIndex', appCtrl.selectedIndex);
+    appCtrl.selectedIndex = 3;
+    appCtrl.update();
+  }
+
   //quantity decrement function
   minusTap(index) {
     if (offerList[index]['quantity'] != 0) {
-      print(offerList[index]['quantity']);
       if (offerList[index]['quantity'] == "0") {
         offerList[index]['quantity'] = "0";
         update();
@@ -64,7 +65,6 @@ class ShopController extends GetxController {
 
   //select category function
   selectCategory(index, id) {
-    print(index);
     appCtrl.showLoading();
     selectIndex = index;
     appCtrl.hideLoading();
@@ -135,7 +135,6 @@ class ShopController extends GetxController {
                           //get value when changed
                           dropDownval = value.toString();
                           update();
-                          print("You have selected $value");
                         },
                         icon: Icon(
                           Icons.keyboard_arrow_down_outlined,
@@ -217,7 +216,6 @@ class ShopController extends GetxController {
                         _currentRangeValues.end.round().toString(),
                       ),
                       onChanged: (RangeValues values) {
-                        print(values);
                         _currentRangeValues = values;
                         update();
                       },

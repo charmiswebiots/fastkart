@@ -79,4 +79,13 @@ class PaymentWidget {
           text: PaymentFont().addPaymentMethod, textColor: titleColor),
     );
   }
+
+  //add card text
+  Widget addCardText(titleColor) {
+    return PaymentFontStyle().mulishtextLayout(
+        text: PaymentFont().addCard,
+        fontWeight: FontWeight.w600,
+        fontSize: ProductDetailFontSize.textSizeSMedium,
+        color: titleColor);
+  }
 }

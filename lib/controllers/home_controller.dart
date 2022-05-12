@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
 import 'package:flutter/services.dart';
 
 class HomeController extends GetxController {
@@ -12,7 +11,6 @@ class HomeController extends GetxController {
 
 //quantity increment function
   plusTap(index) {
-    print(offerList[index]['quantity']);
     int count = int.parse(offerList[index]['quantity'].toString());
     count = count + 1;
     offerList[index]['quantity'] = count.toString();
@@ -22,7 +20,6 @@ class HomeController extends GetxController {
   //quantity decrement function
   minusTap(index) {
     if (offerList[index]['quantity'] != 0) {
-      print(offerList[index]['quantity']);
       if (offerList[index]['quantity'] == "0") {
         offerList[index]['quantity'] = "0";
         update();
@@ -50,10 +47,9 @@ class HomeController extends GetxController {
           await rootBundle.loadString('assets/jsonFile/userlist.json');
 
       List<dynamic> result = json.decode(response);
-      print('result : $result');
       return result.map((n) => RecipeModel.fromJson(n)).toList();
     } catch (e) {
-      throw Padding(
+      throw const Padding(
         padding: EdgeInsets.only(top: 50),
         child: Center(
           child: Text('Convert Error'),

@@ -3,7 +3,7 @@ import 'package:fastkart/utilities/responsive_layout.dart';
 
 
 class ShopByCategory extends StatelessWidget {
-  ShopByCategory({Key? key,}) : super(key: key);
+ const ShopByCategory({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

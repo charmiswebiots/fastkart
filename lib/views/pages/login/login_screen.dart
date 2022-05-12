@@ -2,14 +2,14 @@ import 'package:fastkart/config.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var loginCtrl = Get.put(LoginController());
+  final loginCtrl = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
