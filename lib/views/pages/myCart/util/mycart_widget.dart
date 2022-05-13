@@ -1,6 +1,5 @@
 import 'package:fastkart/config.dart';
 
-
 //Widget Layout
 class MyCartWidget {
   //appbar leading layout
@@ -67,7 +66,7 @@ class MyCartWidget {
     );
   }
 
-  //aapbar
+  //appbar
   PreferredSizeWidget appBarLayout(
       {GestureTapCallback? onTap, GestureTapCallback? actionOnTap}) {
     return AppBarLayoutCustom(
@@ -77,19 +76,17 @@ class MyCartWidget {
   }
 
   //common text
-  Widget commonText({String? text, var titleColor}){
-    return MyCartFontStyle().mulishtextLayout(
-        text: text, fontSize: 13, color: titleColor);
+  Widget commonText({String? text, var titleColor}) {
+    return MyCartFontStyle()
+        .mulishtextLayout(text: text, fontSize: 13, color: titleColor);
   }
 
   //discount layout
-  Widget discountLayout({discountBoxColor, Widget? child}){
+  Widget discountLayout({discountBoxColor, Widget? child}) {
     return Container(
       decoration: BoxDecoration(
-          color: discountBoxColor,
-          borderRadius: BorderRadius.circular(20)),
-      margin: EdgeInsets.only(
-          left: AppScreenUtil().screenHeight(5)),
+          color: discountBoxColor, borderRadius: BorderRadius.circular(20)),
+      margin: EdgeInsets.only(left: AppScreenUtil().screenHeight(5)),
       padding: EdgeInsets.symmetric(
           horizontal: AppScreenUtil().screenWidth(10),
           vertical: AppScreenUtil().screenHeight(3)),

@@ -1,7 +1,4 @@
 import 'package:fastkart/routes/screen_list.dart';
-import 'package:fastkart/views/drawer/util/drawer_constants.dart';
-import 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
-import 'package:fastkart/views/drawer/util/drawer_widget.dart';
 import 'package:fastkart/views/pages/category/category_screen.dart';
 import 'package:fastkart/views/pages/home_screen/home.dart';
 import 'package:fastkart/views/pages/myCart/mycart_screen.dart';
@@ -31,9 +28,9 @@ class AppController extends GetxController {
 
   //list of bottomnavigator page
   List<Widget> widgetOptions = <Widget>[
-    HomeLayout(),
+    const HomeLayout(),
     const CategoryScreen(),
-    SearchScreen(),
+    const SearchScreen(),
     const OfferScreen(),
     const MyCartListScreen(),
   ];
@@ -145,54 +142,52 @@ class AppController extends GetxController {
         return GetBuilder<AppController>(builder: (_) {
           return DrawerWidget().popLayout(
               context: context,
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DrawerFontStyle().mulishtextLayout(
-                        text: DrawerFont().selectLanguage,
-                        fontSize: DrawerFontSize.textSizeSMedium,
-                        color: appTheme.titleColor),
-                    Space(0, 20),
-                    ...AppArray().languageList.map((e) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: AppScreenUtil().screenHeight(10)),
-                        child: InkWell(
-                          onTap: () async {
-                            if (e['name'] == "English") {
-                              var locale = Locale("en", 'US');
-                              Get.updateLocale(locale);
-                              getStorage.write(Session.languageCode, "en");
-                              getStorage.write(Session.countryCode, "US");
-                            } else if (e['name'] == "Arabic") {
-                              var locale = Locale("ar", 'AE');
-                              Get.updateLocale(locale);
-                              getStorage.write(Session.languageCode, "ar");
-                              getStorage.write(Session.countryCode, "AE");
-                            }
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DrawerFontStyle().mulishtextLayout(
+                      text: DrawerFont().selectLanguage,
+                      fontSize: DrawerFontSize.textSizeSMedium,
+                      color: appTheme.titleColor),
+                  Space(0, 20),
+                  ...AppArray().languageList.map((e) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: AppScreenUtil().screenHeight(10)),
+                      child: InkWell(
+                        onTap: () async {
+                          if (e['name'] == "English") {
+                            var locale = Locale("en", 'US');
+                            Get.updateLocale(locale);
+                            getStorage.write(Session.languageCode, "en");
+                            getStorage.write(Session.countryCode, "US");
+                          } else if (e['name'] == "Arabic") {
+                            var locale = Locale("ar", 'AE');
+                            Get.updateLocale(locale);
+                            getStorage.write(Session.languageCode, "ar");
+                            getStorage.write(Session.countryCode, "AE");
+                          }
 
-                            update();
-                            Get.back();
-                          },
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                e['icon'].toString(),
-                                height: AppScreenUtil().screenHeight(20),
-                              ),
-                              Space(10, 0),
-                              DrawerFontStyle().mulishtextLayout(
-                                  text: e['name'].toString(),
-                                  fontSize: DrawerFontSize.textSizeSMedium,
-                                  color: appTheme.titleColor),
-                            ],
-                          ),
+                          update();
+                          Get.back();
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              e['icon'].toString(),
+                              height: AppScreenUtil().screenHeight(20),
+                            ),
+                            Space(10, 0),
+                            DrawerFontStyle().mulishtextLayout(
+                                text: e['name'].toString(),
+                                fontSize: DrawerFontSize.textSizeSMedium,
+                                color: appTheme.titleColor),
+                          ],
                         ),
-                      );
-                    }).toList()
-                  ],
-                ),
+                      ),
+                    );
+                  }).toList()
+                ],
               ));
         });
       },

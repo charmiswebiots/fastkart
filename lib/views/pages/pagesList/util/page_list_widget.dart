@@ -1,7 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/pagesList/util/page_list_constants.dart';
-import 'package:fastkart/views/pages/pagesList/util/page_list_fontstyle.dart';
-import 'package:flutter/material.dart';
 
 //Widget Layout
 class PageListWidget {

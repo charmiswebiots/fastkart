@@ -22,55 +22,51 @@ class _OfferScreenState extends State<OfferScreen> {
               return false;
             },
             child: SingleChildScrollView(
-              child: Container(
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SingleChildScrollView(
-                      child: Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //search product textformfield layout
-                            Padding(
-                              padding: EdgeInsets.only(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //search product textformfield layout
+                        Padding(
+                          padding: EdgeInsets.only(
 
-                                  right: AppScreenUtil().screenHeight(15)),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: CommonSearchTextForm(
-                                      text: CategoryFont().searchProduct,
-                                      borderColor: offerCtrl
-                                          .appCtrl.appTheme.primary
-                                          .withOpacity(.3),
-                                      hintColor: offerCtrl
-                                          .appCtrl.appTheme.contentColor,
-                                      fillcolor: offerCtrl
-                                          .appCtrl.appTheme.textBoxColor,
-                                      titleColor:
-                                          offerCtrl.appCtrl.appTheme.titleColor,
-                                    ),
-                                  ),
-
-                                  OfferWidget().filterText(
-                                      onTap: () => offerCtrl.filterbottomSheet(
-                                          context: context),
-                                      color:
-                                          offerCtrl.appCtrl.appTheme.primary),
-                                ],
+                              right: AppScreenUtil().screenHeight(15)),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CommonSearchTextForm(
+                                  text: CategoryFont().searchProduct,
+                                  borderColor: offerCtrl
+                                      .appCtrl.appTheme.primary
+                                      .withOpacity(.3),
+                                  hintColor: offerCtrl
+                                      .appCtrl.appTheme.contentColor,
+                                  fillcolor: offerCtrl
+                                      .appCtrl.appTheme.textBoxColor,
+                                  titleColor:
+                                      offerCtrl.appCtrl.appTheme.titleColor,
+                                ),
                               ),
-                            ),
 
-                            Space(0, 20),
-                            OfferListLayout()
-                          ],
+                              OfferWidget().filterText(
+                                  onTap: () => offerCtrl.filterbottomSheet(
+                                      context: context),
+                                  color:
+                                      offerCtrl.appCtrl.appTheme.primary),
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
+
+                        Space(0, 20),
+                       const OfferListLayout()
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),

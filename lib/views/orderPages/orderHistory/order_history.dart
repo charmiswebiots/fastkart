@@ -1,15 +1,7 @@
-import 'package:fastkart/controllers/order/order_history_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/orderPages/orderHistory/order_history_card.dart';
-import 'package:fastkart/views/orderPages/orderHistory/util/order_history_constants.dart';
-import 'package:fastkart/views/orderPages/orderHistory/util/order_history_fontstyle.dart';
-import 'package:fastkart/views/orderPages/orderHistory/util/order_history_widget.dart';
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class OrderHistoryScreen extends StatelessWidget {
-  var orderHistoryCtrl = Get.put(OrderHistoryController());
+  final orderHistoryCtrl = Get.put(OrderHistoryController());
 
   OrderHistoryScreen({Key? key}) : super(key: key);
 
@@ -24,7 +16,8 @@ class OrderHistoryScreen extends StatelessWidget {
                 titleColor: orderHistoryCtrl.appCtrl.appTheme.titleColor,
                 image: orderHistoryCtrl.appCtrl.isTheme
                     ? imageAssets.themeFkLogo
-                    : imageAssets.fkLogo,onTap: ()=>orderHistoryCtrl.goToHome()),
+                    : imageAssets.fkLogo,
+                onTap: () => orderHistoryCtrl.goToHome()),
             backgroundColor: orderHistoryCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
@@ -37,54 +30,18 @@ class OrderHistoryScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       //category layout
-                      OrderHistoryWidget().categoryLayout(
-                        child: ListView.builder(
-                          itemCount: AppArray().daysList.length,
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return OrderHistoryWidget().daysListCard(
-                                data: AppArray().daysList[index],
-                                index: index,
-                                selectIndex: orderHistoryCtrl.selectIndex,
-                                onTap: () => orderHistoryCtrl.selectCategory(
-                                    index, AppArray().daysList[index]['id']),
-                                color: orderHistoryCtrl.selectIndex == index
-                                    ? orderHistoryCtrl.appCtrl.appTheme.primary
-                                    : orderHistoryCtrl
-                                        .appCtrl.appTheme.titleColor);
-                          },
-                        ),
-                        context: context,
-                        color: orderHistoryCtrl.appCtrl.appTheme.textBoxColor,
-                      ),
+                      const OrderHistoryDaysList(),
 
                       //search product textformfield layout
                       Padding(
                         padding: EdgeInsets.only(
                             top: AppScreenUtil().screenHeight(15),
-                            left: AppScreenUtil().screenWidth(15),
                             right: AppScreenUtil().screenWidth(15)),
                         child: Row(
                           children: [
                             Expanded(
-                              child: OrderHistoryWidget().textFieldLayout(
-                                suffixIcon: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical:
-                                          AppScreenUtil().screenHeight(10)),
-                                  child: OrderHistoryWidget().voiceIcon(
-                                      orderHistoryCtrl
-                                          .appCtrl.appTheme.titleColor,
-                                      iconAssets.voice),
-                                ),
-                                prefixIcon: Image.asset(
-                                  iconAssets.textboxSearchIcon,
-                                  color: orderHistoryCtrl
-                                      .appCtrl.appTheme.titleColor,
-                                ),
-                                text: OrderHistoryFont().searchProduct,
+                              child: CommonSearchTextForm(
+                                text: CategoryFont().searchProduct,
                                 borderColor: orderHistoryCtrl
                                     .appCtrl.appTheme.primary
                                     .withOpacity(.3),
@@ -92,21 +49,13 @@ class OrderHistoryScreen extends StatelessWidget {
                                     .appCtrl.appTheme.contentColor,
                                 fillcolor: orderHistoryCtrl
                                     .appCtrl.appTheme.textBoxColor,
+                                titleColor: orderHistoryCtrl
+                                    .appCtrl.appTheme.titleColor,
                               ),
                             ),
-                            Space(15, 0),
                             InkWell(
                               onTap: () => orderHistoryCtrl.bottomSheet(
-                                  context: context,
-                                  primaryColor:
-                                      orderHistoryCtrl.appCtrl.appTheme.primary,
-                                  titleColor: orderHistoryCtrl
-                                      .appCtrl.appTheme.titleColor,
-                                  termConditionColor: orderHistoryCtrl
-                                      .appCtrl.appTheme.darkContentColor,
-                                  lightPrimary: orderHistoryCtrl
-                                      .appCtrl.appTheme.white
-                                      .withOpacity(.3)),
+                                  context: context),
                               child: OrderHistoryFontStyle().mulishtextLayout(
                                   text: OrderHistoryFont().filter,
                                   fontSize: 16,
@@ -125,31 +74,12 @@ class OrderHistoryScreen extends StatelessWidget {
                             horizontal: AppScreenUtil().screenWidth(15)),
                         child: ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: AppArray().orderHistory.length,
                           itemBuilder: (context, index) {
                             return OrderHistoryCard(
-                              onTap: () => Get.toNamed(routeName.addressList),
-                              priceTap: () =>
-                                  Get.toNamed(routeName.orderDetail),
                               data: AppArray().orderHistory[index],
                               index: index,
-                              containerColor: orderHistoryCtrl
-                                  .appCtrl.appTheme.wishtListBoxColor,
-                              titleColor:
-                                  orderHistoryCtrl.appCtrl.appTheme.titleColor,
-                              primaryColor:
-                                  orderHistoryCtrl.appCtrl.appTheme.primary,
-                              dividerColor: orderHistoryCtrl
-                                  .appCtrl.appTheme.contentColor,
-                              darkContentColor: orderHistoryCtrl
-                                  .appCtrl.appTheme.darkContentColor,
-                              glowColor:
-                                  orderHistoryCtrl.appCtrl.appTheme.primary,
-                              unratedColor: orderHistoryCtrl
-                                  .appCtrl.appTheme.contentColor,
-                              ratingColor:
-                                  orderHistoryCtrl.appCtrl.appTheme.ratingColor,
                             );
                           },
                         ),

@@ -45,10 +45,11 @@ class AddAddress extends StatelessWidget {
 
                     //confirm location and proceed button layout
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: AppScreenUtil().screenWidth(15)),
                       child: CustomButton(
                         height: 45,
-                        title: AddAddressFont().  confirmLocation,
+                        title: AddAddressFont().confirmLocation,
                         color: addAddressCtrl.appCtrl.appTheme.primary,
                         fontColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
                         onTap: () => Get.toNamed(routeName.paymentScreen),

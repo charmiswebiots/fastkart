@@ -28,7 +28,7 @@ class PaymentScreen extends StatelessWidget {
                   //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     //payment card list layout
-                    PaymentDetailLayout(),
+                    const PaymentDetailLayout(),
 
                     //confirm payment layout
                     Padding(

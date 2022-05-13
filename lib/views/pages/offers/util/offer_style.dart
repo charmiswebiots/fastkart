@@ -80,4 +80,5 @@ class OfferStyle{
           fontWeight: FontWeight.normal),
     );
   }
+
 }

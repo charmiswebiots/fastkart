@@ -1,7 +1,7 @@
 import '../../../config.dart';
 
 class SearchScreen extends StatefulWidget {
-  SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({Key? key}) : super(key: key);
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         Space(0, 15),
 
                         //trending product list
-                      const  TrendingProductLayout()
+                        const TrendingProductLayout()
                       ],
                     ),
                   )

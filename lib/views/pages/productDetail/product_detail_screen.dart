@@ -1,13 +1,7 @@
-import 'package:fastkart/controllers/productdetail_controller.dart';
-import 'package:fastkart/views/pages/productDetail/banner_layout.dart';
-import 'package:fastkart/views/pages/productDetail/review_card.dart';
-import 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
-import 'package:fastkart/views/pages/productDetail/util/product_detail_widget.dart';
-
 import '../../../config.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  ProductDetailScreen({Key? key}) : super(key: key);
+  const ProductDetailScreen({Key? key}) : super(key: key);
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -18,7 +12,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).copyWith(dividerColor: Colors.transparent);
     return GetBuilder<AppController>(
       builder: (ctrl) => Scaffold(
         backgroundColor: productDetailCtrl.appCtrl.appTheme.wishtListBoxColor,
@@ -26,13 +19,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: productDetailCtrl.appCtrl.appTheme.wishtListBoxColor,
-          leading: ProductDetailWidget().appBarLeadingLayput(
-              onTap: () => Get.back(),
-              borderColor: productDetailCtrl.appCtrl.appTheme.titleColor,
-              iconColor: productDetailCtrl.appCtrl.appTheme.titleColor,
-              image: productDetailCtrl.appCtrl.isTheme
-                  ? imageAssets.themeFkLogo
-                  : imageAssets.fkLogo),
+          leading: CommonAppBarLeading(
+            onTap: () => Get.back(),
+            isImage: false,
+          ),
           actions: [
             ProductDetailWidget().appBarActionLayout(
               iconColor: productDetailCtrl.appCtrl.appTheme.titleColor,
@@ -47,302 +37,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           child: GetBuilder<ProductDetailController>(
             builder: (_) => Stack(
               alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      child: Column(
-                        children: [
-                          //banner layout
-                          BannerLayout(
-                            BGcolor: productDetailCtrl
-                                .appCtrl.appTheme.wishtListBoxColor,
-                            activeDotColor:
-                                productDetailCtrl.appCtrl.appTheme.primary,
-                            dotColor:
-                                productDetailCtrl.appCtrl.appTheme.primary,
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(
-                                top: AppScreenUtil().screenHeight(10)),
-                            decoration: BoxDecoration(
-                                color: productDetailCtrl
-                                    .appCtrl.appTheme.whiteColor,
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(
-                                        AppScreenUtil().borderRadius(20)),
-                                    topLeft: Radius.circular(
-                                        AppScreenUtil().borderRadius(20)))),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                //product name layout
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          AppScreenUtil().screenWidth(15)),
-                                  child: ProductDetailFontStyle().mulishtextLayout(
-                                      text:
-                                          'Assorted Capsicum Combo-  (Red, Yellow, Green)',
-                                      fontSize:
-                                          ProductDetailFontSize.textSizeSMedium,
-                                      fontWeight: FontWeight.w800,
-                                      overflow: TextOverflow.clip),
-                                ),
-
-                                //rating layout
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          AppScreenUtil().screenWidth(15)),
-                                  child: Row(
-                                    children: [
-                                      ProductDetailWidget().ratingLayout(
-                                          glowColor: productDetailCtrl
-                                              .appCtrl.appTheme.primary,
-                                          unratedColor: productDetailCtrl
-                                              .appCtrl.appTheme.contentColor,
-                                          ratingColor: productDetailCtrl
-                                              .appCtrl.appTheme.ratingColor,
-                                          value: productDetailCtrl.rating,
-                                          onRatingUpdate: (rating) {
-                                          }),
-                                      Space(5, 0),
-                                      ProductDetailFontStyle().mulishtextLayout(
-                                          text: '(150 Ratings)',
-                                          fontSize: ProductDetailFontSize
-                                              .textSizeSmall,
-                                          color: productDetailCtrl.appCtrl
-                                              .appTheme.darkContentColor,
-                                          fontWeight: FontWeight.w600,
-                                          overflow: TextOverflow.clip),
-                                    ],
-                                  ),
-                                ),
-                                //price layout
-                                ProductDetailWidget().priceLayout(
-                                    dicountPric: '25.00',
-                                    discountPriceColor: productDetailCtrl
-                                        .appCtrl.appTheme.titleColor,
-                                    totalPrice: '45.00',
-                                    totalPriceColor: productDetailCtrl
-                                        .appCtrl.appTheme.darkContentColor,
-                                    discountText: '25% off',
-                                    discountTextColor: productDetailCtrl
-                                        .appCtrl.appTheme.primary),
-
-                                Space(0, 15),
-                                // select quantity and delivery time
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          AppScreenUtil().screenWidth(15)),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: ProductDetailWidget()
-                                            .commonLayoyt(
-                                                textColor:
-                                                    productDetailCtrl.appCtrl
-                                                        .appTheme.titleColor,
-                                                text:
-                                                    productDetailCtrl
-                                                        .selectedQuantity,
-                                                containerColor:
-                                                    productDetailCtrl
-                                                        .appCtrl
-                                                        .appTheme
-                                                        .wishtListBoxColor,
-                                                onTap: () => productDetailCtrl
-                                                    .quantityBottomSheet(
-                                                        context: context)),
-                                      ),
-                                      Space(10, 0),
-                                      Expanded(
-                                        child: ProductDetailWidget()
-                                            .commonLayoyt(
-                                                textColor:
-                                                    productDetailCtrl.appCtrl
-                                                        .appTheme.titleColor,
-                                                text:
-                                                    productDetailCtrl
-                                                        .selectedDeliveryTime,
-                                                containerColor:
-                                                    productDetailCtrl
-                                                        .appCtrl
-                                                        .appTheme
-                                                        .wishtListBoxColor,
-                                                onTap: () => productDetailCtrl
-                                                    .deliveryBottomSheet(
-                                                        context: context)),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Space(0, 15),
-                                //detail layout
-
-                                Container(
-                                  height: AppScreenUtil().screenHeight(
-                                      productDetailCtrl.expand
-                                          ? (AppScreenUtil()
-                                                      .screenActualWidth() >
-                                                  377
-                                              ? 250
-                                              : 350)
-                                          : (AppScreenUtil()
-                                                      .screenActualWidth() >
-                                                  377
-                                              ? 200
-                                              : 250)),
-                                  child: ListView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return GestureDetector(
-                                          onTap: () => productDetailCtrl
-                                              .expandBox(index),
-                                          child: ProductDetailWidget()
-                                              .expandableListView(
-                                                  context: context,
-                                                  lightPrimary:
-                                                      productDetailCtrl.appCtrl
-                                                          .appTheme.iconBgColor,
-                                                  titleColor: productDetailCtrl
-                                                      .appCtrl
-                                                      .appTheme
-                                                      .titleColor,
-                                                  onPressed: () =>
-                                                      productDetailCtrl
-                                                          .expandBox(index),
-                                                  index: index,
-                                                  isExpanded: index ==
-                                                          productDetailCtrl
-                                                              .tapped
-                                                      ? productDetailCtrl.expand
-                                                      : false,
-                                                  title: productDetailCtrl
-                                                      .detail[index]['title'],
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal:
-                                                                AppScreenUtil()
-                                                                    .screenWidth(
-                                                                        15)),
-                                                    child: ProductDetailFontStyle()
-                                                        .mulishtextLayout(
-                                                            text: productDetailCtrl
-                                                                    .detail[index]
-                                                                ['child'],
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            height: 1.5,
-                                                            fontSize:
-                                                                ProductDetailFontSize
-                                                                    .textSizeSmall,
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .clip),
-                                                  )));
-                                    },
-                                    itemCount: productDetailCtrl.detail.length,
-                                  ),
-                                ),
-
-                                Space(0, 15),
-                                //product review count and see All text
-                                ProductDetailWidget().reviewCountAndSeeAll(
-                                    text: 'Product Review(15)',
-                                    onTap: () =>
-                                        productDetailCtrl.reviewListBottomSheet(
-                                            context: context),
-                                    seeAll: ProductDetailFont().seeAll,
-                                    textColor: productDetailCtrl
-                                        .appCtrl.appTheme.titleColor,
-                                    seeAllColor: productDetailCtrl
-                                        .appCtrl.appTheme.primary),
-
-                                Space(0, 20),
-                                //reviewList layout
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          AppScreenUtil().screenWidth(15)),
-                                  height: AppScreenUtil().screenHeight(320),
-                                  child: ListView.builder(
-                                    itemCount: 2,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    shrinkWrap: true,
-                                    itemBuilder: (context, index) {
-                                      return ReviewCard(
-                                        data:
-                                            productDetailCtrl.reviewList[index],
-                                        glowColor: productDetailCtrl
-                                            .appCtrl.appTheme.primary,
-                                        unratedColor: productDetailCtrl
-                                            .appCtrl.appTheme.contentColor,
-                                        ratingColor: productDetailCtrl
-                                            .appCtrl.appTheme.ratingColor,
-                                        color: productDetailCtrl
-                                            .appCtrl.appTheme.wishtListBoxColor,
-                                        descColor: productDetailCtrl
-                                            .appCtrl.appTheme.darkContentColor,
-                                        nameColor: productDetailCtrl
-                                            .appCtrl.appTheme.titleColor,
-                                      );
-                                    },
-                                  ),
-                                ),
-                                Space(0, 20),
-
-                                //lowest price
-                                ProductDetailWidget().lowestPrice(
-                                  isBigScreen: true,
-                                  containerColor: productDetailCtrl
-                                      .appCtrl.appTheme.lowestBgColor,
-                                  context: context,
-                                  child: ProductDetailWidget().commonHorizontalListLayout(
-                                      isBigScreen: true,
-                                      context: context,
-                                      title: ProductDetailFont().lowestPrice,
-                                      seeAllText: ProductDetailFont().seeAll,
-                                      data: AppArray().lowerPriceList,
-
-                                      lowestPriceColor: productDetailCtrl
-                                          .appCtrl.appTheme.primary,
-                                      payLessColor: productDetailCtrl
-                                          .appCtrl.appTheme.darkContentColor,
-                                     ),
-                                ),
-                                Space(0, 50),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+              children: const [
+                //main layout
+                ProductDetailMainLayout(),
 
                 //amount and quantity layout
-                ProductDetailWidget().amountButtonLayout(
-                    context: context,
-                    quantityColor:
-                        productDetailCtrl.appCtrl.appTheme.titleColor,
-                    plusTap: () => productDetailCtrl.increaseQuantity(),
-                    minusTap: () => productDetailCtrl.decreaseQuantity(),
-                    onTap: () {
-                      Get.toNamed(routeName.myCart, arguments: true);
-                    },
-                    buttonColor: productDetailCtrl.appCtrl.appTheme.primary,
-                    quantity: productDetailCtrl.quantity,
-                    itemColor: productDetailCtrl.appCtrl.appTheme.white,
-                    qunatityBoxColor:
-                        productDetailCtrl.appCtrl.appTheme.whiteColor)
+                AmountButtonLayout()
               ],
             ),
           ),

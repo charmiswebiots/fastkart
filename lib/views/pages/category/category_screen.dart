@@ -27,7 +27,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         //search product textformfield layout
                         CommonSearchTextForm(
                           text: CategoryFont().searchProduct,
-                          borderColor: categoryCtrl.appCtrl.appTheme.primary.withOpacity(.3),
+                          borderColor: categoryCtrl.appCtrl.appTheme.primary
+                              .withOpacity(.3),
                           hintColor: categoryCtrl.appCtrl.appTheme.contentColor,
                           fillcolor: categoryCtrl.appCtrl.appTheme.textBoxColor,
                           titleColor: categoryCtrl.appCtrl.appTheme.titleColor,

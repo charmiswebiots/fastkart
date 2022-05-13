@@ -19,6 +19,7 @@ export 'package:fastkart/widgets/common/common_horizontal_list/common_font.dart'
 export 'package:fastkart/widgets/common/common_horizontal_list/everyday_essential_Card.dart';
 export 'package:fastkart/widgets/common/common_offer_list.dart';
 export 'package:fastkart/widgets/common/quantityLayout.dart';
+export 'package:fastkart/widgets/common/common_appbar_leading.dart';
 export 'package:fastkart/widgets/common/common_horizontal_list/common_container_layout.dart';
 
 //appbar
@@ -42,27 +43,26 @@ export 'package:fastkart/views/pages/login/util/login_widget.dart';
 export 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
 export 'package:fastkart/views/pages/login/login_with_layout.dart';
 
-
 //signup page list
 export 'package:fastkart/controllers/signup_controller.dart';
-export 'package:fastkart/views/pages/signup/util/email_text_form.dart';
-export 'package:fastkart/views/pages/signup/util/password_text_form.dart';
-export 'package:fastkart/views/pages/signup/util/signup_body_layout.dart';
 export 'package:fastkart/views/pages/signup/util/signup_constants.dart';
 export 'package:fastkart/views/pages/signup/util/signup_validation.dart';
 export 'package:fastkart/views/pages/signup/util/signup_widget.dart';
-export 'package:fastkart/views/pages/signup/util/user_text_form.dart';
+export 'package:fastkart/views/pages/signup/signup_layout/email_text_form.dart';
+export 'package:fastkart/views/pages/signup/signup_layout/password_text_form.dart';
+export 'package:fastkart/views/pages/signup/signup_layout/signup_body_layout.dart';
+export 'package:fastkart/views/pages/signup/signup_layout/user_text_form.dart';
 export 'package:fastkart/views/pages/signup/util/signup_style.dart';
 export 'package:fastkart/views/pages/signup/util/signup_fontstyle.dart';
 
 //category page list
 export 'package:fastkart/views/pages/category/util/category_fontstyle.dart';
 export 'package:fastkart/controllers/category_controller.dart';
-export 'package:fastkart/views/pages/category/category_data_card.dart';
+export 'package:fastkart/views/pages/category/category_layout/category_data_card.dart';
 export 'package:fastkart/views/pages/category/util/category_widget.dart';
 export 'package:fastkart/views/pages/category/util/category_constants.dart';
-export 'package:fastkart/views/pages/category/util/image_bg_layout.dart';
-export 'package:fastkart/views/pages/category/util/subcategory_list.dart';
+export 'package:fastkart/views/pages/category/category_layout/image_bg_layout.dart';
+export 'package:fastkart/views/pages/category/category_layout/subcategory_list.dart';
 
 //home page List
 export 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
@@ -70,14 +70,15 @@ export 'package:fastkart/views/pages/home_screen/util/home_constants.dart';
 export 'package:fastkart/views/pages/home_screen/util/home_style.dart';
 export 'package:fastkart/views/pages/home_screen/util/home_widget.dart';
 export 'package:fastkart/controllers/home_controller.dart';
-export 'package:fastkart/views/pages/home_screen/banner_list.dart';
-export 'package:fastkart/views/pages/home_screen/recent_bought_list.dart';
-export 'package:fastkart/views/pages/home_screen/shop_by_category.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/coupon_card.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/banner_list.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/coupon_layout.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/lowestprice_browsecategory.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/recent_bought_list.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/shop_by_category.dart';
 export 'package:fastkart/views/pages/home_screen/util/offer_list_and_content.dart';
 export 'package:fastkart/views/pages/home_screen/util/shop_by_category_text.dart';
 export 'package:fastkart/widgets/common/common_horizontal_list/common_horizontal_list.dart';
-export 'package:fastkart/views/pages/home_screen/coupon_layout.dart';
-export 'package:fastkart/views/pages/home_screen/lowestprice_browsecategory.dart';
 export 'package:fastkart/widgets/common/common_popup_button.dart';
 export 'package:fastkart/models/coupon_model.dart';
 
@@ -86,9 +87,9 @@ export 'package:fastkart/controllers/search_controller.dart';
 export 'package:fastkart/views/pages/search/util/search_constants.dart';
 export 'package:fastkart/views/pages/search/util/search_widget.dart';
 export 'package:fastkart/views/pages/search/util/search_fontstyle.dart';
-export 'package:fastkart/views/pages/category/util/recent_search_layout.dart';
-export 'package:fastkart/views/pages/category/util/trending_category_layout.dart';
-export 'package:fastkart/views/pages/category/util/trending_product_layout.dart';
+export 'package:fastkart/views/pages/search/search_layout/recent_search_layout.dart';
+export 'package:fastkart/views/pages/search/search_layout/trending_category_layout.dart';
+export 'package:fastkart/views/pages/search/search_layout/trending_product_layout.dart';
 
 //offer page list
 export 'package:fastkart/controllers/offer_controller.dart';
@@ -103,44 +104,45 @@ export 'package:fastkart/views/pages/offers/offer_list_card.dart';
 export 'package:fastkart/views/pages/myCart/util/mycart_constants.dart';
 export 'package:fastkart/views/pages/myCart/util/mycart_widget.dart';
 export 'package:fastkart/controllers/mycart_controller.dart';
-export 'package:fastkart/views/pages/myCart/mycart_card.dart';
-export 'package:fastkart/views/pages/myCart/offer_ui_card.dart';
+export 'package:fastkart/views/pages/myCart/mycart_layout/cart_list_layout.dart';
+export 'package:fastkart/views/pages/myCart/mycart_layout/offer_ui_card.dart';
 export 'package:fastkart/views/pages/myCart/util/mycart_fontstyle.dart';
 export 'package:fastkart/views/pages/myCart/util/mycart_style.dart';
 export 'package:fastkart/controllers/mywish_list_controller.dart';
-export 'package:fastkart/views/pages/myCart/util/cart_list_layout.dart';
+export 'package:fastkart/views/pages/myCart/mycart_layout/mycart_card.dart';
 export 'package:fastkart/widgets/common/price_detail_layout.dart';
-export 'package:fastkart/views/pages/myCart/app_bar_layout.dart';
+export 'package:fastkart/views/pages/myCart/mycart_layout/app_bar_layout.dart';
 
 //add address page list
 export 'package:fastkart/views/pages/addAddress/util/add_address_constants.dart';
 export 'package:fastkart/views/pages/addAddress/util/add_address_fontstyle.dart';
 export 'package:fastkart/controllers/add_address_controller.dart';
-export 'package:fastkart/views/pages/addAddress/background_layout.dart';
 export 'package:fastkart/views/pages/addAddress/util/add_address_widget.dart';
-export 'package:fastkart/views/pages/addAddress/address_card.dart';
+export 'package:fastkart/views/pages/addAddress/add_address_layout/address_card.dart';
 export 'package:fastkart/views/pages/addAddress/util/add_address_style.dart';
-export 'package:fastkart/views/pages/addAddress/util/content_bg_layout.dart';
-
+export 'package:fastkart/views/pages/addAddress/add_address_layout/background_layout.dart';
+export 'package:fastkart/views/pages/addAddress/add_address_layout/content_bg_layout.dart';
 
 //payment page list
 export 'package:fastkart/controllers/payment_controller.dart';
-export 'package:fastkart/views/pages/payment/card_list_card.dart';
-export 'package:fastkart/views/pages/payment/cash_on_delivery.dart';
-export 'package:fastkart/views/pages/payment/credit_debit_card.dart';
-export 'package:fastkart/views/pages/payment/util/net_banking_list_card.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/cash_on_delivery.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/expandable_list.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/child_expandable.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/net_banking_list_card.dart';
 export 'package:fastkart/views/pages/payment/util/payment_constants.dart';
 export 'package:fastkart/views/pages/payment/util/payment_fontstyle.dart';
 export 'package:fastkart/views/pages/payment/util/payment_widget.dart';
-export 'package:fastkart/views/pages/payment/util/payment_detail_layout.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/payment_detail_layout.dart';
 export 'package:fastkart/views/pages/payment/util/payment_style.dart';
-export 'package:fastkart/views/pages/payment/util/add_address_button.dart';
-export 'package:fastkart/views/pages/payment/util/credit_debit_layout.dart';
-export 'package:fastkart/views/pages/payment/util/net_banking_layout.dart';
-export 'package:fastkart/views/pages/payment/util/select_card_layout.dart';
-export 'package:fastkart/views/pages/payment/util/price_layout.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/card_list_card.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/add_address_button.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/credit_debit_layout.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/net_banking_layout.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/price_layout.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/select_cardlist_layout.dart';
 export 'package:fastkart/views/pages/productDetail/util/product_detail_constants.dart';
-
+export 'package:fastkart/views/pages/payment/payment_layout/credit_debit_card.dart';
+export 'package:fastkart/views/pages/payment/payment_layout/add_card_layout.dart';
 
 //order success page list
 export 'package:fastkart/controllers/order/order_success_controller.dart';
@@ -176,11 +178,70 @@ export 'package:fastkart/views/orderPages/orderDetail/data_layout.dart';
 
 //shop page list
 export 'package:fastkart/controllers/shop_controller.dart';
-export 'package:fastkart/views/pages/shop/shop_list_card.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/amout_item_button.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/main_layout.dart';
 export 'package:fastkart/views/pages/shop/util/shop_constants.dart';
 export 'package:fastkart/views/pages/shop/util/shop_fontstyle.dart';
 export 'package:fastkart/views/pages/shop/util/shop_widget.dart';
-export 'package:fastkart/views/pages/shop/amout_item_button.dart';
-export 'package:fastkart/views/pages/shop/util/appbar_widget_layout.dart';
+export 'package:fastkart/views/pages/shop/util/shop_style.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/shop_category.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/range_value.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/shop_list_card.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/button.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/category_selection_layout.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/package_size_selection.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/price_range_selection.dart';
+export 'package:fastkart/views/pages/shop/shop_layout/shop_filter_bottom_sheet.dart';
 
+//product detail list
+export 'package:fastkart/controllers/productdetail_controller.dart';
+export 'package:fastkart/views/pages/productDetail/review_card.dart';
+export 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
+export 'package:fastkart/views/pages/productDetail/util/product_detail_widget.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/amount_button_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/product_detail_main_layout.dart';
+export 'package:fastkart/views/pages/productDetail/util/selection_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/product_detail_expandable_list.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/product_detail_child_expandable.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/common_detail_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/banner_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/product_review_seeall_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/quantity_delivery_time_layout.dart';
+export 'package:fastkart/views/pages/productDetail/util/product_detail_style.dart';
+export 'package:fastkart/widgets/common/common_rating_layout.dart';
+export 'package:fastkart/controllers/productdetail_controller.dart';
+export 'package:fastkart/views/pages/productDetail/util/product_detail_constants.dart';
+export 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
+export 'package:fastkart/views/pages/productDetail/util/product_detail_widget.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/gridview_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/product_review_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/price_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/all_review_layout.dart';
+export 'package:fastkart/views/pages/productDetail/layout_pages/content_bottom_sheet.dart';
 
+//drawer page list
+export 'package:fastkart/views/drawer/util/drawer_widget.dart';
+export 'package:fastkart/views/drawer/contact_us.dart';
+export 'package:fastkart/views/drawer/util/drawer_constants.dart';
+export 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
+export 'package:fastkart/views/drawer/util/drawer_header.dart';
+export 'package:fastkart/views/drawer/drawer_layout/common_drawer_list.dart';
+export 'package:fastkart/views/drawer/drawer_layout/contact_button.dart';
+
+//page screen list
+export 'package:fastkart/controllers/pages_list_controller.dart';
+export 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
+export 'package:fastkart/views/pages/pagesList/util/page_list_constants.dart';
+export 'package:fastkart/views/pages/pagesList/util/page_list_widget.dart';
+export 'package:fastkart/views/pages/pagesList/util/page_list_fontstyle.dart';
+
+//order history page list
+export 'package:fastkart/controllers/order/order_history_controller.dart';
+export 'package:fastkart/views/orderPages/orderHistory/util/order_history_widget.dart';
+export 'package:fastkart/views/orderPages/orderHistory/order_history_card.dart';
+export 'package:fastkart/views/orderPages/orderHistory/order_history_layout/order_history_days_list.dart';
+export 'package:fastkart/views/orderPages/orderHistory/util/order_history_constants.dart';
+export 'package:fastkart/views/orderPages/orderHistory/util/order_history_fontstyle.dart';
+export 'package:fastkart/views/orderPages/orderHistory/order_history_layout/filter_list_layout.dart';
+export 'package:fastkart/views/orderPages/orderHistory/order_history_layout/time_filter_list.dart';
+export 'package:fastkart/views/orderPages/orderHistory/util/order_history_style.dart';

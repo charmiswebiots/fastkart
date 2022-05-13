@@ -51,7 +51,7 @@ class OfferController extends GetxController {
         return GetBuilder<OfferController>(builder: (_) {
           return OfferWidget().popLayout(
               context: context,
-              child: FilterLayout());
+              child: const FilterLayout());
         });
       },
     );

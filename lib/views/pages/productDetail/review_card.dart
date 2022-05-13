@@ -1,17 +1,16 @@
-import 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
-import 'package:fastkart/views/pages/productDetail/util/product_detail_widget.dart';
 
+import 'package:fastkart/widgets/common/common_rating_layout.dart';
 import '../../../config.dart';
 
 class ReviewCard extends StatelessWidget {
-  var data;
-  var glowColor;
-  var unratedColor;
-  var ratingColor;
-  var color;
-  var nameColor;
-  var descColor;
-  ReviewCard({Key? key,this.data,this.glowColor,this.descColor,this.nameColor,this.ratingColor,this.color,this.unratedColor}) : super(key: key);
+  final dynamic data;
+  final Color? glowColor;
+  final Color? unratedColor;
+  final Color? ratingColor;
+  final Color? color;
+  final Color? nameColor;
+  final Color? descColor;
+  const ReviewCard({Key? key,this.data,this.glowColor,this.descColor,this.nameColor,this.ratingColor,this.color,this.unratedColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +35,7 @@ class ReviewCard extends StatelessWidget {
                     padding: EdgeInsets.only(left: AppScreenUtil().screenWidth(5)),
                     child: ProductDetailFontStyle().mulishtextLayout(text:data['name'],textAlign: TextAlign.start,fontSize: 14,color: nameColor,fontWeight: FontWeight.w600),
                   ),
-                  ProductDetailWidget().ratingLayout(
-                      glowColor: glowColor,
-                      unratedColor: unratedColor,
-                      ratingColor: ratingColor,
+                  CommonRatingLayout(
                       value: double.parse(data['rating'].toString()),
                       onRatingUpdate: (rating) {
 

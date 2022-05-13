@@ -1,7 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/productDetail/content_bottom_sheet.dart';
-import 'package:fastkart/views/pages/productDetail/review_card.dart';
-import 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
+
 
 class ProductDetailController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()
@@ -22,36 +20,33 @@ class ProductDetailController extends GetxController {
       AppArray().deliveryTimeList[0]['title'].toString();
 
   //increase quantity
-  increaseQuantity(){
+  increaseQuantity() {
     quantity++;
     update();
   }
 
   //decrease quantity
-  decreaseQuantity(){
-   if(quantity !=0 ){
-     quantity--;
-     update();
-   }else {
-     quantity = 0;
-     update();
-   }
+  decreaseQuantity() {
+    if (quantity != 0) {
+      quantity--;
+      update();
+    } else {
+      quantity = 0;
+      update();
+    }
   }
-
 
   //expanded
   expandBox(index) {
     expand =
-    ((tapped == null) || ((index == tapped) || !expand)) ? !expand : expand;
+        ((tapped == null) || ((index == tapped) || !expand)) ? !expand : expand;
 
     tapped = index;
     update();
   }
 
-  //quantity select bottom sheet
-  quantityBottomSheet({
-    context,
-  }) {
+  //common select bottom sheet
+  commonBottomSheet({context, index}) {
     showModalBottomSheet<void>(
       backgroundColor: appCtrl.appTheme.popUpColor,
       shape: RoundedRectangleBorder(
@@ -64,126 +59,24 @@ class ProductDetailController extends GetxController {
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
         return GetBuilder<ProductDetailController>(builder: (_) {
-          return QuantityBottomSheet(
-            data: AppArray().quantityList,
-            primaryColor: appCtrl.appTheme.primary,
-            borderColor: appCtrl.appTheme.contentColor.withOpacity(.5),
-            textColor: appCtrl.appTheme.titleColor,
-            containerColor: appCtrl.appTheme.wishtListBoxColor,
-            iconColor: appCtrl.appTheme.white,
-            cancelTextColor: appCtrl.appTheme.white,
-            closeContainerColor: appCtrl.appTheme.whiteColor,
-            closeTap: () => Get.back(),
-            applyTap: () => Get.back(),
-            isQuantity: true,
-          );
-        });
-      },
-    );
-  }
-
-  //delivery time select bottom sheet
-  deliveryBottomSheet({
-    context,
-  }) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      // context and builder are
-      // required properties in this widget
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
-        return GetBuilder<ProductDetailController>(builder: (_) {
-          return QuantityBottomSheet(
-            primaryColor: appCtrl.appTheme.primary,
-            borderColor: appCtrl.appTheme.contentColor.withOpacity(.5),
-            textColor: appCtrl.appTheme.titleColor,
-            containerColor: appCtrl.appTheme.wishtListBoxColor,
-            iconColor: appCtrl.appTheme.white,
-            cancelTextColor: appCtrl.appTheme.white,
-            closeContainerColor: appCtrl.appTheme.whiteColor,
-            data: AppArray().deliveryTimeList,
-            closeTap: () => Get.back(),
-            applyTap: () => Get.back(),
-            isQuantity: false,
-          );
-        });
-      },
-    );
-  }
-
-  //review list
-  //delivery time select bottom sheet
-  reviewListBottomSheet({
-    context,
-  }) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      // context and builder are
-      // required properties in this widget
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
-        return GetBuilder<ProductDetailController>(builder: (_) {
-          return Container(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppScreenUtil().screenWidth(15),
-                vertical: AppScreenUtil().screenHeight(15)),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-                  topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-            ),
-            height: MediaQuery.of(context).size.height /
-                AppScreenUtil().screenHeight(1.5),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ProductDetailFontStyle().mulishtextLayout(
-                      text: ProductDetailFont().selectQuantity,
-                      fontWeight: FontWeight.w600,
-                      fontSize: ProductDetailFontSize.textSizeSMedium,
-                      color: appCtrl.appTheme.titleColor),
-                  Space(0, 10),
-                  ListView.builder(
-                    itemCount: reviewList.length,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return ReviewCard(
-                        data: reviewList[index],
-
-                        glowColor: appCtrl.appTheme.primary,
-                        unratedColor: appCtrl.appTheme.contentColor,
-                        ratingColor: appCtrl.appTheme.ratingColor,
-                        color: appCtrl.appTheme.wishtListBoxColor,
-                        descColor: appCtrl.appTheme.darkContentColor,
-                        nameColor: appCtrl.appTheme.titleColor,
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-          );
+          return index == 0
+              ? QuantityBottomSheet(
+                  data: AppArray().quantityList,
+                  closeTap: () => Get.back(),
+                  applyTap: () => Get.back(),
+                  isQuantity: true,
+                )
+              : index == 1
+                  ? QuantityBottomSheet(
+                      data: AppArray().deliveryTimeList,
+                      closeTap: () => Get.back(),
+                      applyTap: () => Get.back(),
+                      isQuantity: false,
+                    )
+                  : AllReviewLayout(
+                      reviewList: reviewList,
+                    );
         });
       },
     );

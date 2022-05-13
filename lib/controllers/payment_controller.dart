@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/payment/add_card_layout.dart';
+
 
 class PaymentController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()

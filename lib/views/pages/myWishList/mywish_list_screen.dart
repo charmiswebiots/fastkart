@@ -1,8 +1,7 @@
-import 'package:fastkart/controllers/mywish_list_controller.dart';
+
 import 'package:fastkart/views/pages/myWishList/mywish_list_card.dart';
 import 'package:fastkart/views/pages/myWishList/util/mywish_list_widget.dart';
 import 'package:fastkart/views/pages/myWishList/util/mywish_list_constants.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../../config.dart';
@@ -57,7 +56,7 @@ class MyWishListScreen extends StatelessWidget {
                                   return Slidable(
                                     endActionPane: ActionPane(
                                       extentRatio: 0.32,
-                                      motion: ScrollMotion(),
+                                      motion: const ScrollMotion(),
                                       children: [
                                         Expanded(
                                           flex: 2,

@@ -196,6 +196,7 @@ class AppTheme {
 
   ThemeData get themeData {
     var t = ThemeData.from(
+
       textTheme: (isDark ? ThemeData.dark() : ThemeData.light()).textTheme,
       colorScheme: ColorScheme(
         brightness: isDark ? Brightness.dark : Brightness.light,
@@ -225,6 +226,7 @@ class AppTheme {
       toggleableActiveColor: primary,
     );
   }
+
 
 //Color shift(Color c, double d) => shiftHsl(c, d * (isDark ? -1 : 1));
 }

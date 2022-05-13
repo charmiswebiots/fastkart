@@ -12,6 +12,7 @@ class ProductDetailFont{
    String lowestPrice = 'Lowest Price';
    String payLessGetMore = 'Pay less, Get More';
    String selectQuantity = "Select Quantity";
+   String allReview = "All Review";
    String dollar = "\$";
 
 }
