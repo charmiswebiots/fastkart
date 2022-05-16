@@ -22,7 +22,7 @@ class ProductPriceLayout extends StatelessWidget {
                   color: appCtrl.appTheme.titleColor,
                   fontWeight: FontWeight.w600,
                   overflow: TextOverflow.clip),
-              Space(10, 0),
+              const Space(10, 0),
               ProductDetailFontStyle().mulishtextLayout(
                   text: ProductDetailFont().dollar + totalPrice!,
                   fontSize: ProductDetailFontSize.textSizeSMedium,
@@ -30,7 +30,7 @@ class ProductPriceLayout extends StatelessWidget {
                   color: appCtrl.appTheme.darkContentColor,
                   fontWeight: FontWeight.normal,
                   overflow: TextOverflow.clip),
-              Space(10, 0),
+              const  Space(10, 0),
               ProductDetailFontStyle().mulishtextLayout(
                   text: discountText,
                   fontSize: ProductDetailFontSize.textSizeSMedium,

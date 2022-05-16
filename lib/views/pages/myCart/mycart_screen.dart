@@ -46,7 +46,7 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
               backgroundColor: wishListCtrl.appCtrl.appTheme.blackColor,
               body: NotificationListener<OverscrollIndicatorNotification>(
                 onNotification: (overscroll) {
-                  overscroll.disallowGlow();
+                  overscroll.disallowIndicator();
                   return false;
                 },
                 child: MyCartStyle().bodyComponentLayout(
@@ -58,7 +58,7 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // wish list layout
-                            CartListLayout(),
+                            const CartListLayout(),
                             //offer ui card
                             OfferUICard(
                               onTap: () => wishListCtrl.bottomSheet(
@@ -66,7 +66,7 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
                                 data: AppArray().myOfferList[0],
                               ),
                             ),
-                            Space(0, 5),
+                            const Space(0, 5),
                             //price detail layout
                             const PriceDetailLayout(isOrderDetail: true,)
                           ],

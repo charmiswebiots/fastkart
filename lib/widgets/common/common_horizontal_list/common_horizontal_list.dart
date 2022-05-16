@@ -30,7 +30,7 @@ class CommonHorizontalList extends StatelessWidget {
                     fontWeight: FontWeight.w700),
               ],
             ),
-            Space(0, 5),
+            const Space(0, 5),
             //popular offers of the day text widget
             HomeFontStyle().mulishtextLayout(
                 text: title,
@@ -38,7 +38,7 @@ class CommonHorizontalList extends StatelessWidget {
                 fontSize: HomeFontSize.textSizeSmall,
                 color: appCtrl.appTheme.darkContentColor),
             //lowest price list
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height *
                   (AppScreenUtil().screenActualWidth() > 370 ? 27 : 30) /
                   100,

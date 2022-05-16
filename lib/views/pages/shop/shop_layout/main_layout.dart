@@ -57,7 +57,7 @@ class MainLayout extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: shopCtrl.offerList.length,
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) {
                           return ShopListCard(
@@ -79,7 +79,7 @@ class MainLayout extends StatelessWidget {
                           );
                         },
                       )),
-                  Space(0, 60),
+                  const Space(0, 60),
                 ],
               ),
             );

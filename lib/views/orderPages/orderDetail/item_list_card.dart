@@ -42,9 +42,9 @@ class ItemListCard extends StatelessWidget {
                         color: quantityTextColor,
                         fontSize: OrderDetailFontSize.textSizeSmall),
                   ),
-                  Space(10, 0),
+                  const Space(10, 0),
                   OrderDetailWidget().multiplyIconLayout(titleColor),
-                  Space(10, 0),
+                  const Space(10, 0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -52,7 +52,7 @@ class ItemListCard extends StatelessWidget {
                           text: data['name'].toString(),
                           color: titleColor,
                           fontSize: OrderDetailFontSize.textSizeSmall),
-                      Space(0, 5),
+                      const Space(0, 5),
                       OrderDetailFontStyle().mulishtextLayout(
                           text: data['gram'].toString(),
                           color: darkContentColor,
@@ -67,7 +67,7 @@ class ItemListCard extends StatelessWidget {
                   fontSize: OrderDetailFontSize.textSizeSMedium),
             ],
           ),
-          Space(0, 8),
+          const Space(0, 8),
           if (index != lastIndex)
             Divider(
               color: contentColor,

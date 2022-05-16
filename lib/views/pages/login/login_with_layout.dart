@@ -20,14 +20,14 @@ class LoginWithLayout extends StatelessWidget {
             dashRadius: 2,
           ),
         ),
-        Space(10, 0),
+        const Space(10, 0),
         LoginFontStyle().mulishtextLayout(
           color: fontColor,
           text: LoginFont().signInWith,
           fontWeight: fontWeight!,
           fontSize: LoginFontSize.textSizeSMedium,
         ),
-        Space(10, 0),
+        const Space(10, 0),
         Expanded(
           child: DottedLine(
             direction: Axis.horizontal,

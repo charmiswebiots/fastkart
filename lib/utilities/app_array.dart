@@ -4,6 +4,7 @@ import 'package:fastkart/models/category_model.dart';
 import 'package:fastkart/models/coupon_model.dart';
 import 'package:fastkart/views/pages/offers/util/offer_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppArray {
   //recent bought list
@@ -29,93 +30,93 @@ class AppArray {
   var categoryData = <CategoryModel>[
     CategoryModel(
       1,
-      "Oils,Refined & Ghee",
-      Color(0xFFE5FDFA),
+      "Oils,Refined & Ghee".tr,
+      const Color(0xFFE5FDFA),
       imageAssets.category1,
-      Color(0xFFE0FFFB),
+      const Color(0xFFE0FFFB),
     ),
     CategoryModel(
       2,
-      "Rice, Flour & Grains",
-      Color(0xFFFFF9D8),
+      "Rice, Flour & Grains".tr,
+      const Color(0xFFFFF9D8),
       imageAssets.category2,
-      Color(0xFFFFF6C3),
+      const Color(0xFFFFF6C3),
     ),
     CategoryModel(
       3,
-      "Food \nCupboard",
-      Color(0xFFFFF2EC),
+      "Food \nCupboard".tr,
+      const Color(0xFFFFF2EC),
       imageAssets.category3,
-      Color(0xFFFFEAE0),
+      const Color(0xFFFFEAE0),
     ),
     CategoryModel(
       4,
-      "Fresh Fruits & Vegetables",
-      Color(0xFFFFF2F2),
+      "Fresh Fruits & Vegetables".tr,
+      const Color(0xFFFFF2F2),
       imageAssets.category4,
-      Color(0xFFFFFE5E5),
+      const Color(0xFFFFE5E5),
     ),
     CategoryModel(
       5,
-      "Drinks & Beverages",
-      Color(0xFFFCF1FF),
+      "Drinks & Beverages".tr,
+      const Color(0xFFFCF1FF),
       imageAssets.category5,
-      Color(0xFFFAEAFF),
+      const Color(0xFFFAEAFF),
     ),
     CategoryModel(
       6,
-      "Instant \nMixes",
-      Color(0xFFE8FFFC),
+      "Instant \nMixes".tr,
+      const Color(0xFFE8FFFC),
       imageAssets.category6,
-      Color(0xFFDBFFFA),
+      const Color(0xFFDBFFFA),
     ),
     CategoryModel(
       7,
-      "Ready to \nEat",
-      Color(0xFFFFF9D8),
+      "Ready to \nEat".tr,
+      const Color(0xFFFFF9D8),
       imageAssets.category7,
-      Color(0xFFFFF6C3),
+      const Color(0xFFFFF6C3),
     ),
     CategoryModel(
       8,
-      "Dals & \nPulses",
-      Color(0xFFFFF8F0),
+      "Dals & \nPulses".tr,
+      const Color(0xFFFFF8F0),
       imageAssets.category8,
-      Color(0xFFFFF1E1),
+      const Color(0xFFFFF1E1),
     )
   ];
 
   //banner list
   var bannerList = <BannerModel>[
-    BannerModel('Farm Fresh Vegies', 'Get instant delivery',
+    BannerModel('Farm Fresh Vegies'.tr, 'Get instant delivery'.tr,
         imageAssets.banner1, 'Shop Now'),
-    BannerModel('Farm Fresh Vegies', 'Get instant delivery',
-        imageAssets.banner2, 'Shop Now'),
+    BannerModel('Farm Fresh Vegies'.tr, 'Get instant delivery'.tr,
+          imageAssets.banner2, 'Shop Now'.tr),
   ];
 
   //offer lists
   var offerList = [
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
-      'discount': '50% off',
+      'discount': ('50% ' + 'off'.tr),
       'image': imageAssets.offer1,
       'quantity': 0
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
-      'discount': '50% off',
+      'discount': ('50% ' + 'off'.tr),
       'image': imageAssets.offer2,
       'quantity': 0
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
-      'discount': '50% off',
+      'discount': ('50% ' + 'off'.tr),
       'image': imageAssets.offer3,
       'quantity': 0
     }
@@ -125,31 +126,31 @@ class AppArray {
   //lower price lists
   var lowerPriceList = [
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice2
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice3
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay2
@@ -159,31 +160,31 @@ class AppArray {
   //everyday Essential lists
   var everyDayEssentialList = [
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay2
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay3
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice2
@@ -192,12 +193,12 @@ class AppArray {
 
   //coupon List
   var couponData = <CouponModel>[
-    CouponModel("50% OFF", 'UPTO \$20.00', imageAssets.coupon1,
-        Color(0xFFFFF4F3), imageAssets.offerBG1, imageAssets.themeOfferBG1),
-    CouponModel("50% OFF", 'UPTO \$20.00', imageAssets.coupon2,
-        Color(0xFFFFFFFF), imageAssets.offerBG2, imageAssets.themeOfferBG2),
-    CouponModel("50% OFF", 'UPTO \$20.00', imageAssets.coupon3,
-        Color(0xFFFFFDE9), imageAssets.offerBG3, imageAssets.themeOfferBG3),
+    CouponModel(("50% " + "OFF".tr), ('UPTO'.tr +' \$20.00'), imageAssets.coupon1,
+        const Color(0xFFFFF4F3), imageAssets.offerBG1, imageAssets.themeOfferBG1),
+    CouponModel(("50% " + "OFF".tr),  ('UPTO'.tr +' \$20.00'), imageAssets.coupon2,
+        const Color(0xFFFFFFFF), imageAssets.offerBG2, imageAssets.themeOfferBG2),
+    CouponModel(("50% " + "OFF".tr),  ('UPTO'.tr +' \$20.00'), imageAssets.coupon3,
+        const Color(0xFFFFFDE9), imageAssets.offerBG3, imageAssets.themeOfferBG3),
   ];
 
   //drawer list
@@ -351,7 +352,7 @@ class AppArray {
   //shop lists
   var shopList = [
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -360,7 +361,7 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -369,7 +370,7 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -383,7 +384,7 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -392,7 +393,7 @@ class AppArray {
       'categoryId': 2
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -401,7 +402,7 @@ class AppArray {
       'categoryId': 2
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -410,7 +411,7 @@ class AppArray {
       'categoryId': 3
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -419,7 +420,7 @@ class AppArray {
       'categoryId': 3
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -679,14 +680,14 @@ class AppArray {
       'day': 'Yesterday',
       'child': [
         {
-          'bgColor': Color(0xFFEDF8F8),
+          'bgColor': const Color(0xFFEDF8F8),
           'title': 'UPTO 40% OFF, Sales Ends..',
           'dateTime': '3.00pm, 10 July, 2021',
           'type': 'offer',
           'iconAssets': iconAssets.discount
         },
         {
-          'bgColor': Color(0xFFFFF8ED),
+          'bgColor': const Color(0xFFFFF8ED),
           'title': 'FLAT 30% OFF, Sales Ends..',
           'dateTime': '5.00pm, 10 July, 2021',
           'type': 'offer',
@@ -698,49 +699,49 @@ class AppArray {
       'day': 'Last 7 Days',
       'child': [
         {
-          'bgColor': Color(0xFFFFF6F3),
+          'bgColor': const Color(0xFFFFF6F3),
           'title': 'Password Succesfully Changed',
           'dateTime': '8.00am, 15 Jan, 2021',
           'type': 'Signin',
           'iconAssets': iconAssets.password
         },
         {
-          'bgColor': Color(0xFFF9F9FF),
+          'bgColor': const Color(0xFFF9F9FF),
           'title': '\$200 top up successfully',
           'dateTime': '9.00am, 10 Jan, 2021',
           'type': 'Topup',
           'iconAssets': iconAssets.ticketStar
         },
         {
-          'bgColor': Color(0xFFEDF8F8),
+          'bgColor': const Color(0xFFEDF8F8),
           'title': 'UPTO 40% OFF, Sales Ends..',
           'dateTime': '3.00pm, 10 July, 2021',
           'type': 'offer',
           'iconAssets': iconAssets.discount
         },
         {
-          'bgColor': Color(0xFFFFF8ED),
+          'bgColor': const Color(0xFFFFF8ED),
           'title': 'FLAT 30% OFF, Sales Ends..',
           'dateTime': '5.00pm, 10 July, 2021',
           'type': 'offer',
           'iconAssets': iconAssets.ticket
         },
         {
-          'bgColor': Color(0xFFFFF6F3),
+          'bgColor': const Color(0xFFFFF6F3),
           'title': 'Password Succesfully Changed',
           'dateTime': '8.00am, 15 Jan, 2021',
           'type': 'Signin',
           'iconAssets': iconAssets.password
         },
         {
-          'bgColor': Color(0xFFF9F9FF),
+          'bgColor': const Color(0xFFF9F9FF),
           'title': '\$200 top up successfully',
           'dateTime': '9.00am, 10 Jan, 2021',
           'type': 'Topup',
           'iconAssets': iconAssets.ticketStar
         },
         {
-          'bgColor': Color(0xFFEDF8F8),
+          'bgColor': const Color(0xFFEDF8F8),
           'title': 'UPTO 40% OFF, Sales Ends..',
           'dateTime': '3.00pm, 10 July, 2021',
           'type': 'offer',
@@ -752,11 +753,10 @@ class AppArray {
 
   //language list
   var languageList = [
-    {'icon': iconAssets.us, 'name': 'English','locale': Locale('en','US')},
-    {'icon': iconAssets.inImag, 'name': 'Indian','locale': Locale('en','US')},
-    {'icon': iconAssets.it, 'name': 'Arabic','locale': Locale('ar','AE')},
-    {'icon': iconAssets.tf, 'name': 'French','locale': Locale('en','US')},
-    {'icon': iconAssets.cn, 'name': 'Chinese','locale': Locale('en','US')}
+    {'icon': iconAssets.us, 'name': 'English','locale': const Locale('en','US')},
+    {'icon': iconAssets.ar, 'name': 'Arabic','locale': const Locale('ar','AE')},
+    {'icon': iconAssets.inImag, 'name': 'Hindi','locale': const Locale('hi','IN')},
+    {'icon': iconAssets.kr, 'name': 'Korean','locale': const Locale('ko','KR')}
   ];
 
   //pages list

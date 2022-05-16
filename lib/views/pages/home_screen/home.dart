@@ -20,7 +20,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         resizeToAvoidBottomInset: false,
         body: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overscroll) {
-            overscroll.disallowGlow();
+            overscroll.disallowIndicator();
             return false;
           },
           child: GetBuilder<AppController>(
@@ -30,31 +30,31 @@ class _HomeLayoutState extends State<HomeLayout> {
                   children: [
                     //search textformfield layout
                     CommonSearchTextForm(
-                      text: CategoryFont().searchProduct,
+                      text: HomeFont().searchProduct,
                       borderColor:
                           homeCtrl.appCtrl.appTheme.primary.withOpacity(.3),
                       hintColor: homeCtrl.appCtrl.appTheme.contentColor,
                       fillcolor: homeCtrl.appCtrl.appTheme.textBoxColor,
                       titleColor: homeCtrl.appCtrl.appTheme.titleColor,
                     ),
-                    Space(0, 20),
+                    const Space(0, 20),
                     //Banner
                     BannerList(),
-                    Space(0, 20),
+                    const Space(0, 20),
                     //recent bought widget
                     RecentBoughtList(
                       list: AppArray().recentBoughtList,
                     ),
-                    Space(0, 10),
+                    const Space(0, 10),
                     //recent bought widget
                     const ShopByCategoryText(),
-                    Space(0, 10),
+                    const Space(0, 10),
                     //shop by category list
                     const ShopByCategory(),
-                    Space(0, 20),
+                    const Space(0, 20),
                     //offer list widget
                     const OfferListAndContent(),
-                    Space(0, 20),
+                    const Space(0, 20),
                     //lowest price and everyday essential layout
                     HomeStyle().lowestPriceAndEveryDayEssentialWidget(
                         containerColor:
@@ -70,7 +70,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                               data: AppArray().lowerPriceList,
                             ),
 
-                            Space(0, 20),
+                            const Space(0, 20),
                             //Everyday Essentials layout
                             CommonHorizontalList(
                               text: HomeFont().everydayEssentials,
@@ -81,7 +81,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                         )),
                     //coupons layout
                     const CouponLayout(),
-                    Space(0, 20),
+                    const Space(0, 20),
                     //lowest price and browse category layout
                     const LowestPriceAndButton(),
                   ],

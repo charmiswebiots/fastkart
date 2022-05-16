@@ -36,7 +36,7 @@ class QuantityBottomSheet extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontSize: ProductDetailFontSize.textSizeSMedium,
                   color: ctrl.appCtrl.appTheme.titleColor),
-              Space(20, 0),
+              const Space(20, 0),
               GridView.builder(
                 padding: EdgeInsets.symmetric(
                     vertical: AppScreenUtil().screenHeight(20)),

@@ -15,20 +15,20 @@ class OrderTrackDetail extends StatelessWidget {
                 children: [
                   //estimated delivery text layout
                   OrderTrackStyle().estimatedDeliveryText(orderTrackCtrl.appCtrl.appTheme.darkContentColor),
-                  Space(0, 5),
+                  const Space(0, 5),
                   //estimated delivery text value layout
                  OrderTrackStyle().estimatedDelivery(orderTrackCtrl.appCtrl.appTheme.primary),
-                  Space(0, 5),
+                  const Space(0, 5),
                   //line divider layout
                   OrderTrackStyle().dividerLayout( orderTrackCtrl.appCtrl.appTheme.contentColor),
-                  Space(0, 5),
+                  const  Space(0, 5),
 
                   //user layout
-                  UserLayout(),
-                  Space(0, 5),
+                  const UserLayout(),
+                  const Space(0, 5),
                   //line divider layout
                   OrderTrackStyle().dividerLayout( orderTrackCtrl.appCtrl.appTheme.contentColor),
-                  Space(0, 5),
+                  const Space(0, 5),
 
                   //address layout
                   Padding(
@@ -41,10 +41,10 @@ class OrderTrackDetail extends StatelessWidget {
                           crossAxisAlignment:
                           CrossAxisAlignment.start,
                           children: [
-                           AddressLayout(),
+                           const AddressLayout(),
                             OrderTrackStyle().verticalLineDivider(),
-                            AddressLayout(),
-                            Space(0, 80)
+                            const AddressLayout(),
+                            const Space(0, 80)
                           ],
                         ),
                       ],

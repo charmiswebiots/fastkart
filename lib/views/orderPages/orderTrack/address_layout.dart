@@ -19,7 +19,7 @@ class AddressLayout extends StatelessWidget {
                 appCtrl
                     .appTheme
                     .primary),
-            Space(10, 0),
+            const  Space(10, 0),
             Column(
               crossAxisAlignment:
               CrossAxisAlignment.start,

@@ -36,7 +36,7 @@ class OfferListCardLayout extends StatelessWidget {
                         color: primaryColor,
                         fontSize: OfferFontSize.textSizeXLarge,
                         fontWeight: FontWeight.bold),
-                    Space(5, 0),
+                    const Space(5, 0),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +53,7 @@ class OfferListCardLayout extends StatelessWidget {
                             fontWeight: FontWeight.normal)
                       ],
                     ),
-                    Space(5, 0),
+                    const Space(5, 0),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +63,7 @@ class OfferListCardLayout extends StatelessWidget {
                             color: titleColor,
                             fontSize: OfferFontSize.textSizeSmall,
                             fontWeight: FontWeight.normal),
-                        Space(0, 2),
+                        const Space(0, 2),
                         OfferFontStyle().quicksandtextLayout(
                             text: data['des'],
                             color: darkContentColor,
@@ -79,7 +79,7 @@ class OfferListCardLayout extends StatelessWidget {
                   children: [
                     OfferStyle().useCodeText(
                         text: OfferFont().useCode, titleColor: titleColor),
-                    Space(0, 2),
+                    const Space(0, 2),
                     OfferStyle().codeValueLayout(
                         text: data['code'],
                         whiteColor: whiteColor,

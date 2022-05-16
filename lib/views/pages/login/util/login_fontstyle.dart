@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-
 class LoginFontStyle {
 
   //nunito font family text layout

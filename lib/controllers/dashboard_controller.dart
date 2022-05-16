@@ -8,21 +8,7 @@ class DashboardController extends GetxController {
   String alertCount = '';
   var appCtrl = Get.put(AppController());
 
-  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  @override
-  void onInit() {
-    // TODO: implement onInit
-
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    // TODO: implement onReady
-
-    super.onReady();
-  }
+  final GlobalKey<ScaffoldState> scaffoldKey =  GlobalKey<ScaffoldState>();
 
   //appbar leading function
   appBarLeadingFunction() async {

@@ -27,13 +27,13 @@ class OfferDetail extends StatelessWidget {
                           color: appCtrl.appTheme.white,
                           fontSize: OfferFontSize.textSizeNormal,
                           fontWeight: FontWeight.bold),
-                      Space(0, 10),
+                      const Space(0, 10),
                       OfferFontStyle().quicksandtextLayout(
                           text: data['des'],
                           color: appCtrl.appTheme.white,
                           fontSize: OfferFontSize.textSizeSMedium,
                           fontWeight: FontWeight.normal),
-                      Space(0, 10),
+                      const Space(0, 10),
                       OfferWidget().codeLayout(
                           lightPrimary: appCtrl.appTheme.white.withOpacity(.3),
                           child: Row(
@@ -46,7 +46,7 @@ class OfferDetail extends StatelessWidget {
                                       color: appCtrl.appTheme.white,
                                       fontSize: OfferFontSize.textSizeSMedium,
                                       fontWeight: FontWeight.normal),
-                                  Space(5, 0),
+                                  const Space(5, 0),
                                   OfferFontStyle().mulishtextLayout(
                                       text: data['code'],
                                       color: appCtrl.appTheme.white,
@@ -62,13 +62,13 @@ class OfferDetail extends StatelessWidget {
                           ))
                     ],
                   )),
-              Space(0, 10),
+              const Space(0, 10),
               OfferStyle().termsAndCondition(appCtrl.appTheme.darkContentColor),
-              Space(0, 10),
+              const  Space(0, 10),
               OfferStyle().commonDescriptionText(
                   color: appCtrl.appTheme.darkContentColor,
                   text: OfferFont().desc1),
-              Space(0, 20),
+              const Space(0, 20),
               OfferStyle().commonDescriptionText(
                   color: appCtrl.appTheme.darkContentColor,
                   text: OfferFont().desc2),

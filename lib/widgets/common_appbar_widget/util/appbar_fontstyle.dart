@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/widgets/common_appbar_widget/util/appbar_constants.dart';
-import 'package:flutter/material.dart';
 
 class AppBarFontStyle {
 //nunito font family text layout

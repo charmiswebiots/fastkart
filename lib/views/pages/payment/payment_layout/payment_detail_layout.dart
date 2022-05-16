@@ -19,7 +19,7 @@ class PaymentDetailLayout extends StatelessWidget {
                     AddAddressButton(
                         onTap: () =>
                             paymentCtrl.addCardBottomSheet(context: context)),
-                    Space(0, 20),
+                    const Space(0, 20),
 
                     //select card Layout
                     SizedBox(

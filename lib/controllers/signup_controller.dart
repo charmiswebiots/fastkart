@@ -1,7 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 import '../config.dart';
 
@@ -50,9 +49,9 @@ class SignupController extends GetxController {
       saveData(googleSignInAccount.id);
       Get.toNamed(routeName.dashboard);
     } on FirebaseAuthException catch (e) {
+      showToast(e.toString());
       appCtrl.hideLoading();
       update();
-      throw e;
     }
   }
 
@@ -76,8 +75,7 @@ class SignupController extends GetxController {
     try {
       var user = await auth.createUserWithEmailAndPassword(
           email: email.text, password: password.text);
-      assert(user != null);
-      assert(await user.user!.getIdToken() != null);
+      await user.user!.getIdToken();
       appCtrl.hideLoading();
       update();
       email.text = "";

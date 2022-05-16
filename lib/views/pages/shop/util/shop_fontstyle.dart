@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/shop/util/shop_constants.dart';
 
 class ShopFontStyle {
 //nunito font family text layout

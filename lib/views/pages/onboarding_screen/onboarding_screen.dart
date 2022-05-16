@@ -14,7 +14,7 @@ class OnBoardingScreen extends StatelessWidget {
         builder: (ctrl) => Scaffold(
           body: AppComponent(
             child: GetBuilder<OnboardingController>(builder: (_) {
-              return Container(
+              return SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
@@ -23,7 +23,7 @@ class OnBoardingScreen extends StatelessWidget {
                         image: imageAssets.onboardingImage,
                         height: 2.3,
                         context: context),
-                    Space(0, 5),
+                    const Space(0, 5),
                     //image, title and description layout
                     OnboardingWidget().layout(
                         context: context,
@@ -51,7 +51,7 @@ class OnBoardingScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold),
                               type: OnboardingFont().phone,
                             ),
-                            Space(0, 10),
+                            const Space(0, 10),
                             //continoue with google layout
                             IconButtonWidget(
                               onTap: () => onboardCtrl.googleLogin(),
@@ -67,7 +67,7 @@ class OnBoardingScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold),
                               type: OnboardingFont().google,
                             ),
-                            Space(0, 10),
+                            const Space(0, 10),
                             InkWell(
                               onTap: () => onboardCtrl.onBoardingRead(),
                               child: OnboardingFontStyle().mulishtextLayout(

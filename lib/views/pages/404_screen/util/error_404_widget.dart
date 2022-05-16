@@ -1,32 +1,24 @@
-
-import 'package:fastkart/common/app_screen_util.dart';
-import 'package:fastkart/common/assets/index.dart';
-import 'package:fastkart/views/pages/404_screen/util/error_404_constants.dart';
-import 'package:fastkart/views/pages/404_screen/util/error_404_fontstyle.dart';
-import 'package:flutter/material.dart';
-
 import '../../../../config.dart';
 
-class Error404Widget{
-
+class Error404Widget {
   //appbar leading layout
-  Widget appBarLeadingLayput(
+  Widget appBarLeadingLayout(
       {GestureTapCallback? onTap,
-        var borderColor,
-        var iconColor,
-        String? image}) {
+      var borderColor,
+      var iconColor,
+      String? image}) {
     return Row(
       children: [
         InkWell(
           onTap: onTap,
           child: Container(
-
             margin: EdgeInsets.only(
                 left: AppScreenUtil().screenWidth(15),
-                bottom: AppScreenUtil().screenHeight(4)
+                bottom: AppScreenUtil().screenHeight(4)),
+            child: Image.asset(
+              iconAssets.category,
+              color: iconColor,
             ),
-
-            child: Image.asset(iconAssets.category,color: iconColor,),
           ),
         ),
       ],
@@ -34,10 +26,12 @@ class Error404Widget{
   }
 
   //appbar title layout
-  Widget appBarTitleLayout({String? image, var textColor,bool? isTheme}) {
-    return Image.asset(image!,width: AppScreenUtil().screenWidth(100),);
+  Widget appBarTitleLayout({String? image, var textColor, bool? isTheme}) {
+    return Image.asset(
+      image!,
+      width: AppScreenUtil().screenWidth(100),
+    );
   }
-
 
   //appbar action layout
   Widget appBarActionLayout({var iconColor}) {
@@ -51,36 +45,48 @@ class Error404Widget{
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Error404Widget()
-              .commonIconImage(image: iconAssets.location, height: 16,color: iconColor),
-          Space(5, 0),
+          Error404Widget().commonIconImage(
+              image: iconAssets.location, height: 16, color: iconColor),
+          const  Space(5, 0),
           Error404FontStyle().mulishtextLayout(
               text: Error404Font().name,
               fontSize: 14,
               fontWeight: FontWeight.normal),
-          Space(5, 0),
-          Error404Widget()
-              .commonIconImage(image: iconAssets.user, height: 30),
+          const Space(5, 0),
+          Error404Widget().commonIconImage(image: iconAssets.user, height: 30),
         ],
       ),
     );
   }
 
   //common icon image layout
-  Widget commonIconImage({String? image,double? height,var color}){
-    return Image.asset(image!,height: AppScreenUtil().screenHeight(height!) ,color: color ,);
+  Widget commonIconImage({String? image, double? height, var color}) {
+    return Image.asset(
+      image!,
+      height: AppScreenUtil().screenHeight(height!),
+      color: color,
+    );
   }
 
   //back to home widget
-Widget backToHomeWidget({String? text,color,GestureTapCallback? onTap,fontColor,BuildContext? context}){
+  Widget backToHomeWidget(
+      {String? text,
+      color,
+      GestureTapCallback? onTap,
+      fontColor,
+      BuildContext? context}) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: MediaQuery.of(context!).size.width / AppScreenUtil().screenWidth(2.5),
+        width: MediaQuery.of(context!).size.width /
+            AppScreenUtil().screenWidth(2.5),
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(12)),
-        decoration:
-        BoxDecoration(color: color, borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))),
+        padding:
+            EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(12)),
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius:
+                BorderRadius.circular(AppScreenUtil().borderRadius(5))),
         child: Error404FontStyle().mulishtextLayout(
             text: text,
             fontSize: 15,
@@ -88,6 +94,5 @@ Widget backToHomeWidget({String? text,color,GestureTapCallback? onTap,fontColor,
             color: fontColor),
       ),
     );
-
-}
+  }
 }

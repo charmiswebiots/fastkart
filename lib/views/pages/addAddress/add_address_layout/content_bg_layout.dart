@@ -41,14 +41,14 @@ class ContentBgLayout extends StatelessWidget {
                   fillcolor: addAddressCtrl.appCtrl.appTheme.textBoxColor,
                 ),
               ),
-              Space(0, 20),
+              const Space(0, 20),
               Row(
                 children: [
                   //send location layout
                   AddAddressWidget().sendLocationLayout(
                       boxColor: addAddressCtrl.appCtrl.appTheme.primary,
                       icon: iconAssets.send),
-                  Space(10, 0),
+                  const Space(10, 0),
                   //use current location text layout
                   AddAddressStyle().useCurrentLocation(
                       addAddressCtrl.appCtrl.appTheme.titleColor)

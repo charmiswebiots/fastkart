@@ -26,7 +26,7 @@ class ContactUsLayout extends StatelessWidget {
                   title: DrawerFont().contactSupport,
                   fontSize: 13,
                   color: appCtrl.appTheme.titleColor),
-              Space(0, 5),
+              const Space(0, 5),
 
               //contact support description
               DrawerFontStyle().mulishtextLayout(
@@ -34,7 +34,7 @@ class ContactUsLayout extends StatelessWidget {
                   fontSize: 12,
                   color: appCtrl.appTheme.darkContentColor,
                   overflow: TextOverflow.clip),
-              Space(0, 15),
+              const Space(0, 15),
 
               //contact us button
               ContactButton(

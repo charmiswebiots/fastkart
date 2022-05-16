@@ -25,7 +25,7 @@ class OrderIdStatus extends StatelessWidget {
                 iconAssets.box,
                 height: AppScreenUtil().screenHeight(30),
               ),
-              Space(10, 0),
+              const Space(10, 0),
               Column(
                 crossAxisAlignment:
                 CrossAxisAlignment.start,
@@ -35,7 +35,7 @@ class OrderIdStatus extends StatelessWidget {
                       fontSize:
                       OrderDetailFontSize.textSizeSmall,
                       color: appCtrl.appTheme.white),
-                  Space(0, 5),
+                  const Space(0, 5),
                   OrderDetailFontStyle().mulishtextLayout(
                       text: OrderDetailFont().orderDelivery,
                       letterSpacing: .5,

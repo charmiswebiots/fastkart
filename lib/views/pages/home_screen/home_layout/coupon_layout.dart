@@ -24,12 +24,12 @@ class CouponLayout extends StatelessWidget {
                 title: HomeFont().coupensForYou,
                 seeAllText: HomeFont().seeAll,
                 seeAllColor: appCtrl.appTheme.primary),
-            Space(0, 5),
+            const Space(0, 5),
             //popular offers of the day text widget
             HomeWidget().commonDescriptionTextWidget(
                 text: HomeFont().payLessGetMore,
                 color: appCtrl.appTheme.darkContentColor),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 20 / 100,
               child: ListView.builder(
                 itemCount: AppArray().couponData.length,

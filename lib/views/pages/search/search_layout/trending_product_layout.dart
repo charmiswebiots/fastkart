@@ -17,7 +17,7 @@ class TrendingProductLayout extends StatelessWidget {
           child: ListView.builder(
             itemCount: 2,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
               return InkWell(

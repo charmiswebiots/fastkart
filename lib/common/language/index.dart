@@ -1,13 +1,15 @@
 import 'package:fastkart/common/language/ar.dart';
 import 'package:get/get.dart';
 import 'en.dart';
-import 'de.dart';
+import 'hi.dart';
+import 'kr.dart';
 
 class Language extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': en,
-        'de_DE': de,
-        'ar_AE': ar
+        'hi_IN': hi,
+        'ar_AE': ar,
+        'ko_KR': kr,
       };
 }

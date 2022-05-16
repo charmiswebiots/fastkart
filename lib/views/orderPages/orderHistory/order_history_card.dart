@@ -58,13 +58,13 @@ class OrderHistoryCard extends StatelessWidget {
                                   orderHistoryCtrl.appCtrl.appTheme.titleColor),
                         ],
                       ),
-                      Space(0, 8),
+                      const Space(0, 8),
                       OrderHistoryStyle().commonTextLayout(
                           text: data['address'],
                           color: orderHistoryCtrl
                               .appCtrl.appTheme.darkContentColor,
                           fontWeight: FontWeight.normal),
-                      Space(0, 8),
+                      const Space(0, 8),
                       Row(
                         children: [
                           OrderHistoryStyle().commonTextLayout(
@@ -103,11 +103,11 @@ class OrderHistoryCard extends StatelessWidget {
                   )
                 ],
               ),
-              Space(0, 5),
+              const Space(0, 5),
               Divider(
                 color: orderHistoryCtrl.appCtrl.appTheme.contentColor,
               ),
-              Space(0, 5),
+              const Space(0, 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

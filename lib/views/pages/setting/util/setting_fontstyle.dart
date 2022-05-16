@@ -1,8 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/setting/util/setting_constants.dart';
-import 'package:fastkart/views/pages/setting/util/setting_constants.dart';
-import 'package:fastkart/views/pages/setting/util/setting_constants.dart';
-import 'package:flutter/material.dart';
 
 class SettingFontStyle {
 //nunito font family text layout

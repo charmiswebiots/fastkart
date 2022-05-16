@@ -17,11 +17,11 @@ class DataLayout extends StatelessWidget {
                 const OrderIdStatus(
                   orderId: 'Order ID: #5151515',
                 ),
-                Space(0, 20),
+                const Space(0, 20),
                 // items text layout
                 OrderDetailStyle()
                     .commonTextLayout(OrderDetailFont().items,orderDetailCtrl.appCtrl.appTheme.primary),
-                Space(0, 20),
+                const  Space(0, 20),
 
                 //item list layout
                 const ItemListLayout(),
@@ -36,7 +36,7 @@ class DataLayout extends StatelessWidget {
                 //address text layout
                 OrderDetailStyle()
                     .commonTextLayout(OrderDetailFont().address,orderDetailCtrl.appCtrl.appTheme.primary),
-                Space(0, 15),
+                const Space(0, 15),
 
                 //address layout
                 Padding(
@@ -50,7 +50,7 @@ class DataLayout extends StatelessWidget {
                           fontSize: OrderDetailFontSize.textSizeSMedium,
                           fontWeight: FontWeight.normal,
                           color: orderDetailCtrl.appCtrl.appTheme.titleColor),
-                      Space(0, 5),
+                      const Space(0, 5),
                       OrderDetailFontStyle().mulishtextLayout(
                           text: "8857 Morris Rd.,Charlottesville, VA 22901",
                           fontSize: OrderDetailFontSize.textSizeSmall,
@@ -60,12 +60,12 @@ class DataLayout extends StatelessWidget {
                     ],
                   ),
                 ),
-                Space(0, 20),
+                const Space(0, 20),
                 //payment text layout
                 OrderDetailStyle()
                     .commonTextLayout(OrderDetailFont().paymentMethod,orderDetailCtrl.appCtrl.appTheme.primary),
 
-                Space(0, 15),
+                const Space(0, 15),
                 //payment method layout
                OrderDetailStyle().paymentMethodLayout(orderDetailCtrl.appCtrl.appTheme.titleColor)
               ],

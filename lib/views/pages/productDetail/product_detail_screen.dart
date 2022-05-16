@@ -31,7 +31,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ),
         body: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overscroll) {
-            overscroll.disallowGlow();
+            overscroll.disallowIndicator();
             return false;
           },
           child: GetBuilder<ProductDetailController>(

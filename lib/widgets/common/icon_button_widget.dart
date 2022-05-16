@@ -28,7 +28,7 @@ class IconButtonWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(icon!,height: AppScreenUtil().screenHeight(20),),
-            Space(10, 0),
+            const Space(10, 0),
             textWidget!
 
           ],

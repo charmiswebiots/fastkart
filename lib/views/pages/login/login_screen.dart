@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
           backgroundColor: loginCtrl.appCtrl.appTheme.primary,
           body: AppComponent(
             child: GetBuilder<LoginController>(
-              builder: (_) => Container(
+              builder: (_) => SizedBox(
                 height: AppScreenUtil().screenActualHeight(),
                 child: Stack(
                   children: [

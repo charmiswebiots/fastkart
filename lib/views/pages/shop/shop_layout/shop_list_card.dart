@@ -70,7 +70,7 @@ class ShopListCard extends StatelessWidget {
                     height: AppScreenUtil().screenHeight(45),
                     width: AppScreenUtil().screenWidth(50),
                   ),
-                  Space(5, 0),
+                  const  Space(5, 0),
                   VerticalDivider(
                     color: dividerColor,
                     width: 5,
@@ -78,13 +78,13 @@ class ShopListCard extends StatelessWidget {
                     endIndent: 10,
                     thickness: .5,
                   ),
-                  Space(5, 0),
+                  const Space(5, 0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ShopFontStyle().mulishtextLayout(
                           text: data['name'], fontSize: 13, color: titleColor),
-                      Space(0, 2),
+                      const  Space(0, 2),
                       ShopFontStyle().mulishtextLayout(
                           text: data['description'],
                           fontSize: 13,
@@ -112,7 +112,7 @@ class ShopListCard extends StatelessWidget {
                               color: discountTextColor,
                             ),
                           ),
-                          Space(45, 0),
+                          const  Space(45, 0),
                           Container(
                             padding: EdgeInsets.symmetric(
                                 vertical: AppScreenUtil().screenHeight(8),
@@ -127,16 +127,16 @@ class ShopListCard extends StatelessWidget {
                                 children: [
                                   InkWell(
                                       onTap: minusTap,
-                                      child: const Icon(
+                                      child:  Icon(
                                         Icons.remove,
-                                        size: 18,
+                                        size: AppScreenUtil().size(18),
                                       )),
-                                  Space(10, 0),
+                                  const Space(10, 0),
                                   Text(data['quantity'].toString()),
-                                  Space(10, 0),
+                                  const  Space(10, 0),
                                   InkWell(
                                       onTap: plusTap,
-                                      child: Icon(Icons.add, size: 18)),
+                                      child: Icon(Icons.add, size: AppScreenUtil().size(18)),)
                                 ],
                               ),
                             ),

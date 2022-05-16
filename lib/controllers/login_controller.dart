@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -8,7 +7,7 @@ class LoginController extends GetxController {
       ? Get.find<AppController>()
       : Get.put(AppController());
 
-  GlobalKey<FormState> loginformKey = new GlobalKey<FormState>();
+  GlobalKey<FormState> loginformKey =  GlobalKey<FormState>();
   final FocusNode userFocus = FocusNode();
   final FocusNode passwordFocus = FocusNode();
   TextEditingController email = TextEditingController();
@@ -44,9 +43,8 @@ class LoginController extends GetxController {
     try {
       var user = await auth.signInWithEmailAndPassword(
           email: email.text, password: password.text);
-      assert(user != null);
-      assert(await user.user!.getIdToken() != null);
-      final User? currentUser = await auth.currentUser;
+      await user.user!.getIdToken();
+      final User? currentUser =  auth.currentUser;
       assert(user.user!.uid == currentUser!.uid);
       appCtrl.hideLoading();
       update();
@@ -76,10 +74,4 @@ class LoginController extends GetxController {
     Fluttertoast.showToast(msg: error);
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-
-    super.onInit();
-  }
 }

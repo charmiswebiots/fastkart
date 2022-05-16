@@ -21,7 +21,7 @@ class UserLayout extends StatelessWidget {
                     imageAssets.usersquare,
                     height: AppScreenUtil().screenHeight(50),
                   ),
-                  Space(10, 0),
+                  const Space(10, 0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -50,7 +50,7 @@ class UserLayout extends StatelessWidget {
                       borderColor: appCtrl
                           .appTheme
                           .primary),
-                  Space(15, 0),
+                  const Space(15, 0),
                   OrderTrackStyle()
                       .commonLayoutForIcon(
                       image: iconAssets.chat,

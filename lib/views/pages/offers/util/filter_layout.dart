@@ -14,7 +14,7 @@ class FilterLayout extends StatelessWidget {
                 text: OfferFont().filter,
                 fontSize: OfferFontSize.textSizeMedium,
                 color: appCtrl.appTheme.titleColor),
-            Space(0, 20),
+            const Space(0, 20),
             GridView.builder(
               padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),
@@ -23,14 +23,14 @@ class FilterLayout extends StatelessWidget {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () async {
-                    offerCtrl.itemfilterIndex = index;
+                    offerCtrl.itemFilterIndex = index;
                     offerCtrl.update();
                   },
                   child: Container(
                     height: AppScreenUtil().screenHeight(20),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: index == offerCtrl.itemfilterIndex
+                      color: index == offerCtrl.itemFilterIndex
                           ? appCtrl.appTheme.primary
                           : appCtrl.appTheme.wishtListBoxColor,
                       borderRadius: BorderRadius.circular(
@@ -46,7 +46,7 @@ class FilterLayout extends StatelessWidget {
                             .shopFilterList[index]['title']
                             .toString(),
                         fontSize: OfferFontSize.textSizeSMedium,
-                        color: index == offerCtrl.itemfilterIndex
+                        color: index == offerCtrl.itemFilterIndex
                             ? appCtrl.appTheme.white
                             : appCtrl.appTheme.darkContentColor),
                   ),
@@ -60,7 +60,7 @@ class FilterLayout extends StatelessWidget {
                     (MediaQuery.of(context).size.height / 7),
               ),
             ),
-            Space(0, 30),
+            const Space(0, 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

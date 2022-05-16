@@ -1,8 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/myWishList/util/mywish_list_constants.dart';
-import 'package:fastkart/views/pages/myWishList/util/mywish_list_constants.dart';
-import 'package:fastkart/views/pages/myWishList/util/mywish_list_constants.dart';
-import 'package:flutter/material.dart';
 
 class MyWishListFontStyle {
 //nunito font family text layout

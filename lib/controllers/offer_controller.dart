@@ -7,7 +7,7 @@ class OfferController extends GetxController {
       ? Get.find<AppController>()
       : Get.put(AppController());
 
-  int itemfilterIndex = 0;
+  int itemFilterIndex = 0;
 
   //offer detail bottom sheet
   bottomSheet({data, context}) {
@@ -17,12 +17,8 @@ class OfferController extends GetxController {
             topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
             topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
       ),
-      // context and builder are
-      // required properties in this widget
       context: context,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
         return OfferDetail(
           data: data,
         );
@@ -41,17 +37,12 @@ class OfferController extends GetxController {
             topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
             topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
       ),
-      // context and builder are
-      // required properties in this widget
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
         return GetBuilder<OfferController>(builder: (_) {
-          return OfferWidget().popLayout(
-              context: context,
-              child: const FilterLayout());
+          return OfferWidget()
+              .popLayout(context: context, child: const FilterLayout());
         });
       },
     );

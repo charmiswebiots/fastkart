@@ -13,11 +13,11 @@ class SignUpScreen extends StatelessWidget {
         child: GetBuilder<SignupController>(
           builder: (controller) => Scaffold(
             backgroundColor: signupCtrl.appCtrl.appTheme.primary,
-            body: Container(
+            body: SizedBox(
                 height: AppScreenUtil().screenActualHeight(),
                 child: NotificationListener<OverscrollIndicatorNotification>(
                     onNotification: (overscroll) {
-                      overscroll.disallowGlow();
+                      overscroll.disallowIndicator();
                       return false;
                     },
                     child: Stack(

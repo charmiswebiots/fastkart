@@ -57,7 +57,7 @@ class ProductDetailWidget {
             title: title,
             seeAllText: seeAllText,
             seeAllColor: lowestPriceColor),
-        Space(0, 5),
+        const Space(0, 5),
         //popular offers of the day text widget
         ProductDetailStyle().commonDescriptionTextWidget(
             text: ProductDetailFont().payLessGetMore, color: payLessColor),

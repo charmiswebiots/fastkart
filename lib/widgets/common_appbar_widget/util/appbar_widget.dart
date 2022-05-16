@@ -18,7 +18,7 @@ Widget backToHomeWidget({String? text,color,GestureTapCallback? onTap,fontColor,
       child: Container(
         width: MediaQuery.of(context!).size.width / 2.5,
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         decoration:
         BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
         child: AppBarFontStyle().mulishtextLayout(

@@ -17,17 +17,18 @@ void main() async {
   await Firebase.initializeApp();
 
   await GetStorage.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     lockScreenPortrait();
-    SystemChrome.setEnabledSystemUIOverlays(
-        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       builder: () => GetMaterialApp(
         builder: (context, widget) {
           ScreenUtil.setContext(context);
@@ -38,12 +39,13 @@ class MyApp extends StatelessWidget {
           );
         },
         debugShowCheckedModeBanner: false,
-        locale: Locale('en', 'US'),
-        fallbackLocale: Locale('en', 'US'),
+        locale: const Locale('en', 'US'),
+        fallbackLocale: const Locale('en', 'US'),
         // tran
         title: FontName().appName,
-        home: SplashScreen(),
+        home: const SplashScreen(),
         translations: Language(),
+
         getPages: appRoute.getPages,
         theme: AppTheme.fromType(ThemeType.light).themeData,
         darkTheme: AppTheme.fromType(ThemeType.dark).themeData,

@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/productDetail/util/product_detail_constants.dart';
 
 class ProductDetailFontStyle {
 //nunito font family text layout

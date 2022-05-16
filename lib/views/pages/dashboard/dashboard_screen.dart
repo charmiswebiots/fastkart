@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:fastkart/controllers/dashboard_controller.dart';
-import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
 import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
 import '../../../config.dart';
 

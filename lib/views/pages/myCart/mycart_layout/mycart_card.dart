@@ -13,7 +13,7 @@ class MyCartCard extends StatelessWidget {
   final GestureTapCallback? plusTap;
   final GestureTapCallback? onTap;
 
-  const MyCartCard(
+  const   MyCartCard(
       {Key? key,
       this.data,
       this.titleColor,
@@ -50,15 +50,15 @@ class MyCartCard extends StatelessWidget {
           children: [
             MyCartStyle()
                 .imageLayout(image: data['image'].toString(), onTap: onTap),
-            Space(5, 0),
+            const Space(5, 0),
             MyCartStyle().verticalDivider(dividerColor),
-            Space(5, 0),
+            const Space(5, 0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyCartWidget()
                     .commonText(titleColor: titleColor, text: data['name']),
-                Space(0, 2),
+                const Space(0, 2),
                 MyCartWidget().commonText(
                     titleColor: descriptionColor, text: data['description']),
                 Row(
@@ -75,7 +75,7 @@ class MyCartCard extends StatelessWidget {
                           fontSize: 10,
                           color: discountTextColor,
                         )),
-                    Space(45, 0),
+                    const Space(45, 0),
                     QuantityLayout(
                       minusTap: minusTap,
                       plusTap: plusTap,

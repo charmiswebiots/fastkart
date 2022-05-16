@@ -20,7 +20,7 @@ class OrderDateAndId extends StatelessWidget {
               ),
               child: Image.asset(image!,height: AppScreenUtil().screenHeight(18),fit: BoxFit.contain,),
             ),
-            Space(10, 0),
+            const  Space(10, 0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -29,7 +29,7 @@ class OrderDateAndId extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     fontSize: OrderSuccessFontSize.textSizeSmall,
                     color: appCtrl.appTheme.titleColor),
-                Space(0, 2),
+                const Space(0, 2),
                 OrderSuccessFontStyle().mulishtextLayout(
                     text: val,
                     fontWeight: FontWeight.normal,

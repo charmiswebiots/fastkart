@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/orderPages/orderDetail/item_list_card.dart';
 
 class ItemListLayout extends StatelessWidget {
   const ItemListLayout({Key? key}) : super(key: key);

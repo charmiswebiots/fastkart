@@ -1,8 +1,8 @@
 import 'package:fastkart/config.dart';
 
 class RecentBoughtList extends StatelessWidget {
-  var list;
-  RecentBoughtList({
+  final dynamic list;
+  const RecentBoughtList({
     Key? key,
     this.list,
   }) : super(key: key);
@@ -66,8 +66,8 @@ class RecentBoughtList extends StatelessWidget {
                   //recent bought widget
                   HomeStyle().recentlyBought(
                       text: HomeFont().recentBought, color: appCtrl.appTheme.titleColor),
-                  Space(0, 20),
-                  Container(
+                  const  Space(0, 20),
+                  SizedBox(
                     height: AppScreenUtil().screenHeight(50),
                     child: ListView.builder(
                       itemCount: list.length,

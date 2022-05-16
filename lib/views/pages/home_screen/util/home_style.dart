@@ -28,7 +28,7 @@ class HomeStyle{
     return Container(
       child: SizedBox(
         width:
-        MediaQuery.of(context!).size.width / AppScreenUtil().screenWidth(4),
+        MediaQuery.of(context!).size.width / AppScreenUtil().screenWidth(5),
       ),
       decoration: BoxDecoration(
         border: Border(
@@ -47,7 +47,7 @@ class HomeStyle{
       ),
       child: HomeStyle().commonTitleAndSeeAllWidget(
           title: HomeFont().sayHelloToOffer,
-          seeAllText: HomeFont().seeAll,
+          seeAllText: HomeFont().seeAll.tr,
           textColor: textColor,
           seeAllColor: seeAllColor),
     );

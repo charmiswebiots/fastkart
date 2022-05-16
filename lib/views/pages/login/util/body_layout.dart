@@ -27,22 +27,22 @@ class BodyLayout extends StatelessWidget {
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 //logo image layout
                 imageLayout!,
-                Space(0, 15),
+                const Space(0, 15),
                 //description text layout
                 LoginStyle().descLayout(loginCtrl.appCtrl.appTheme.darkContentColor),
-                Space(0, 15),
+                const  Space(0, 15),
 
                 //login account text layout
                 LoginStyle().loginText(loginCtrl.appCtrl.appTheme.titleColor),
-                Space(0, 15),
+                const Space(0, 15),
 
                 //email textformfield layout
                 usertextForm!,
 
-                Space(0, 12),
+                const Space(0, 12),
                 // password layout
                 passwordTextForm!,
-                Space(0, 10),
+                const Space(0, 10),
                 //forgot password text layout
                 Align(
                   alignment: Alignment.centerRight,
@@ -58,28 +58,28 @@ class BodyLayout extends StatelessWidget {
                   onTap: () => loginCtrl.signIn(context),
                   fontColor: loginCtrl.appCtrl.appTheme.whiteColor,
                 ),
-                Space(0, 15),
+                const Space(0, 15),
 
                 //create user layout
                 LoginWidget().createUserWidget(
                     fontWeight: FontWeight.w600,
                     onTap: () => Get.toNamed(routeName.signup),
                     color: loginCtrl.appCtrl.appTheme.darkContentColor),
-                Space(0, 10),
+                const Space(0, 10),
 
                 //signup with text layout
                 LoginWithLayout(
                     fontWeight: FontWeight.w700,
                     color: loginCtrl.appCtrl.appTheme.contentColor,
                     fontColor: loginCtrl.appCtrl.appTheme.primary),
-                Space(0, 25),
+                const Space(0, 25),
                 //continue with phone
                 LoginStyle().socialButton(
                     titleColor: loginCtrl.appCtrl.appTheme.titleColor,
                     icon: iconAssets.mobileIcon,
                     type: LoginFont().phone,
                     text: LoginFont().continueWithPhone),
-                Space(0, 10),
+                const Space(0, 10),
 
                 // continue with google layout
                 LoginStyle().socialButton(

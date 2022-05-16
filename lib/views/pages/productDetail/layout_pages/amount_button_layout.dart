@@ -42,13 +42,13 @@ class AmountButtonLayout extends StatelessWidget {
                         child: Icon(CupertinoIcons.minus,
                             color:
                                 productDetailCtrl.appCtrl.appTheme.titleColor)),
-                    Space(15, 0),
+                    const Space(15, 0),
                     ProductDetailFontStyle().mulishtextLayout(
                         text: productDetailCtrl.quantity.toString(),
                         fontWeight: FontWeight.normal,
                         fontSize: ProductDetailFontSize.textSizeSMedium,
                         color: productDetailCtrl.appCtrl.appTheme.primary),
-                    Space(15, 0),
+                    const Space(15, 0),
                     InkWell(
                         onTap: () => productDetailCtrl.increaseQuantity(),
                         child: Icon(Icons.add,
@@ -66,7 +66,7 @@ class AmountButtonLayout extends StatelessWidget {
                       text: ProductDetailFont().addToCart,
                       color: productDetailCtrl.appCtrl.appTheme.white,
                       fontSize: ProductDetailFontSize.textSizeSMedium),
-                  Space(5, 0),
+                  const Space(5, 0),
                   Icon(
                     Icons.arrow_forward_ios_outlined,
                     color: productDetailCtrl.appCtrl.appTheme.white,

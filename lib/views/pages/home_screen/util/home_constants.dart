@@ -1,18 +1,20 @@
 //text constants
+import 'package:get/get.dart';
+
 class HomeFont{
-   String searchProduct= 'Search Products here..';
-   String recentBought= 'Buy from Recently Bought';
-   String shopByCategory = 'Shop by Category';
-   String sayHelloToOffer = 'Say hello to Offers!';
-   String bestPriceEverOfAllTheTime = 'Best price ever of all the time';
-   String popularOffersOfTheDay = 'Popular Offers of the Day';
-   String payLessGetMore = 'Pay less, Get More';
-   String seeAll = 'See all';
-   String lowestPrice = 'Lowest Price';
-   String everydayEssentials = 'Everyday Essentials';
-   String coupensForYou = 'Coupons For You';
-   String didntFindWhatYouWereLookingFor = 'Didn’t find what you were looking for?';
-   String browseCategory = 'Browse Category';
+   String searchProduct = 'searchProduct'.tr;
+   String recentBought= 'recentBought'.tr;
+   String shopByCategory = 'shopByCategory'.tr;
+   String sayHelloToOffer = 'sayHelloToOffer'.tr;
+   String bestPriceEverOfAllTheTime = 'bestPriceEverOfAllTheTime'.tr;
+   String popularOffersOfTheDay = 'popularOffersOfTheDay'.tr;
+   String payLessGetMore = 'payLessGetMore'.tr;
+   String seeAll = 'seeAll'.tr;
+   String lowestPrice = 'lowestPrice'.tr;
+   String everydayEssentials = 'everydayEssentials'.tr;
+   String coupensForYou = 'coupensForYou'.tr;
+   String didntFindWhatYouWereLookingFor = 'didntFindWhatYouWereLookingFor'.tr;
+   String browseCategory = 'browseCategory'.tr;
    String dollar = "\$";
 
 }

@@ -18,7 +18,7 @@ class PaymentScreen extends StatelessWidget {
             backgroundColor: paymentCtrl.appCtrl.appTheme.paymentBgColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(

@@ -5,12 +5,12 @@ import 'package:fastkart/views/pages/bottom_navigation/util/bottom_navigation_wi
 import 'dart:io' show Platform;
 
 class BottomNavigatorCard extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>()
+  final appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
 
-  int? selectedIndex;
-  ValueChanged<int>? onTap;
+  final int? selectedIndex;
+  final ValueChanged<int>? onTap;
 
   BottomNavigatorCard({
     Key? key,
@@ -88,7 +88,7 @@ class BottomNavigatorCard extends StatelessWidget {
             )
           : Offstage(
               offstage: selectedIndex == 4 ? true : false,
-              child: Container(
+              child: SizedBox(
                 height: AppScreenUtil().screenHeight(
                     AppScreenUtil().screenActualWidth() > 370 ? 58 : 65),
                 child: BottomNavigationBar(

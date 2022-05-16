@@ -2,7 +2,7 @@ import '../../../config.dart';
 
 class OrderSuccess extends StatelessWidget {
   final orderSuccessCtrl = Get.put(OrderSuccessController());
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
 
   OrderSuccess({Key? key}) : super(key: key);
 
@@ -25,7 +25,7 @@ class OrderSuccess extends StatelessWidget {
             backgroundColor: orderSuccessCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(

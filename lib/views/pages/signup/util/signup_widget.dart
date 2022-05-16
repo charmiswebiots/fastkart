@@ -42,32 +42,16 @@ class SignupWidget {
           borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(22), topRight: Radius.circular(22))),
       child: SingleChildScrollView(
-        child: Container(
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              child!,
-            ],
-          ),
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            child!,
+          ],
         ),
       ),
     );
   }
 
-  //fogot password widget
-  Widget forgotPasswordWidget({color}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        SignupFontStyle().mulishtextLayout(
-            text: SignupFont().forgotPassword,
-            color: color,
-            fontSize: 12,
-            fontWeight: FontWeight.normal),
-        Space(0, 20),
-      ],
-    );
-  }
 
 //contiune as guest
   Widget continueAsGuest({color}) {

@@ -27,7 +27,7 @@ class AddCardLayout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PaymentWidget().addCardText(appCtrl.appTheme.titleColor),
-                Space(0, 20),
+                const Space(0, 20),
                 //card holder name textformfield layout
                 CommonTextFormField(
                   controller: txtName,
@@ -36,7 +36,7 @@ class AddCardLayout extends StatelessWidget {
                   hintColor: appCtrl.appTheme.contentColor,
                   fillcolor: appCtrl.appTheme.textBoxColor,
                 ),
-                Space(0, 15),
+                const Space(0, 15),
                 //card holder name textformfield layout
                 CommonTextFormField(
                   controller: txtnumber,
@@ -45,7 +45,7 @@ class AddCardLayout extends StatelessWidget {
                   hintColor: appCtrl.appTheme.contentColor,
                   fillcolor: appCtrl.appTheme.textBoxColor,
                 ),
-                Space(0, 15),
+                const Space(0, 15),
                 //card holder name textformfield layout
                 Row(
                   children: [
@@ -61,7 +61,7 @@ class AddCardLayout extends StatelessWidget {
                         fillcolor: appCtrl.appTheme.textBoxColor,
                       ),
                     ),
-                    Space(10, 0),
+                    const Space(10, 0),
                     Expanded(
                       child: CommonTextFormField(
                         controller: txtCV,
@@ -73,7 +73,7 @@ class AddCardLayout extends StatelessWidget {
                     ),
                   ],
                 ),
-                Space(0, 15),
+                const  Space(0, 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

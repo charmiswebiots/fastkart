@@ -42,12 +42,6 @@ class ShopController extends GetxController {
     }
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
-  }
-
   //get shop data
   getData() {
     appCtrl.showLoading();

@@ -16,11 +16,20 @@ export 'package:fastkart/widgets/common/icon_button_widget.dart';
 export 'package:fastkart/utilities/app_array.dart';
 export 'package:fastkart/widgets/common/common_search_textform.dart';
 export 'package:fastkart/widgets/common/common_horizontal_list/common_font.dart';
-export 'package:fastkart/widgets/common/common_horizontal_list/everyday_essential_Card.dart';
+export 'package:fastkart/widgets/common/common_horizontal_list/everyday_essential_card.dart';
 export 'package:fastkart/widgets/common/common_offer_list.dart';
-export 'package:fastkart/widgets/common/quantityLayout.dart';
+export 'package:fastkart/widgets/common/quantity_layout.dart';
 export 'package:fastkart/widgets/common/common_appbar_leading.dart';
 export 'package:fastkart/widgets/common/common_horizontal_list/common_container_layout.dart';
+export 'package:fastkart/views/drawer/drawer_layout/language_bottomsheet.dart';
+export 'package:fastkart/views/pages/category/category_screen.dart';
+export 'package:fastkart/views/pages/home_screen/home.dart';
+export 'package:fastkart/views/pages/myCart/mycart_screen.dart';
+export 'package:fastkart/views/pages/offers/offers_screen.dart';
+export 'package:fastkart/views/pages/search/search_screen.dart';
+export 'package:firebase_auth/firebase_auth.dart';
+export 'package:google_sign_in/google_sign_in.dart';
+export 'package:shared_preferences/shared_preferences.dart';
 
 //appbar
 export 'package:fastkart/widgets/common_appbar_widget/util/appbar_constants.dart';
@@ -162,7 +171,7 @@ export 'package:fastkart/views/orderPages/orderTrack/util/order_track_constants.
 export 'package:fastkart/views/orderPages/orderTrack/util/order_track_fontstyle.dart';
 export 'package:fastkart/views/orderPages/orderTrack/util/order_track_widget.dart';
 export 'package:fastkart/views/orderPages/orderTrack/util/order_track_style.dart';
-export 'package:fastkart/views/orderPages/orderTrack/userLayout.dart';
+export 'package:fastkart/views/orderPages/orderTrack/user_layout.dart';
 export 'package:fastkart/views/orderPages/orderTrack/address_layout.dart';
 
 //order detail page list
@@ -245,3 +254,67 @@ export 'package:fastkart/views/orderPages/orderHistory/util/order_history_fontst
 export 'package:fastkart/views/orderPages/orderHistory/order_history_layout/filter_list_layout.dart';
 export 'package:fastkart/views/orderPages/orderHistory/order_history_layout/time_filter_list.dart';
 export 'package:fastkart/views/orderPages/orderHistory/util/order_history_style.dart';
+
+//wish list page list
+export 'package:fastkart/views/pages/myWishList/util/mywish_list_widget.dart';
+export 'package:fastkart/views/pages/myWishList/util/mywish_list_constants.dart';
+export 'package:fastkart/views/pages/myWishList/mywish_list_layout/mywish_list_layout.dart';
+export 'package:fastkart/views/pages/myWishList/util/mywish_list_fontstyle.dart';
+
+//your account page list
+export 'package:fastkart/controllers/your_account_controller.dart';
+export 'package:fastkart/views/pages/yourAccount/util/your_account_widget.dart';
+export 'package:fastkart/views/pages/yourAccount/util/your_account_constants.dart';
+export 'package:fastkart/views/pages/yourAccount/util/your_account_style.dart';
+export 'package:fastkart/views/pages/yourAccount/util/your_account_fontstyle.dart';
+export 'package:fastkart/views/pages/yourAccount/your_account_layout/logout_button.dart';
+export 'package:fastkart/views/pages/yourAccount/your_account_layout/your_account_common_list.dart';
+
+//notification page list
+export 'package:fastkart/controllers/notification_controller.dart';
+export 'package:fastkart/views/pages/notification/notification_card.dart';
+export 'package:fastkart/views/pages/notification/util/notification_constants.dart';
+export 'package:fastkart/views/pages/notification/util/notification_fontstyle.dart';
+export 'package:fastkart/views/pages/notification/util/notification_widget.dart';
+export 'package:fastkart/views/pages/notification/notification_layout/notification_category_layout.dart';
+export 'package:fastkart/views/pages/notification/notification_layout/notification_tabbar_layout.dart';
+export 'package:fastkart/views/pages/notification/util/notification_style.dart';
+
+//setting page list
+export 'package:fastkart/controllers/setting_controller.dart';
+export 'package:fastkart/views/pages/setting/util/setting_constants.dart';
+export 'package:fastkart/views/pages/setting/util/setting_widget.dart';
+export 'package:fastkart/views/pages/setting/util/setting_validation.dart';
+export 'package:fastkart/views/pages/setting/setting_layout/password_layout_textform.dart';
+export 'package:fastkart/views/pages/setting/util/setting_style.dart';
+export 'package:fastkart/views/pages/setting/util/setting_fontstyle.dart';
+export 'package:fastkart/views/pages/setting/setting_layout/email_layout_textform.dart';
+export 'package:fastkart/views/pages/setting/setting_layout/fullname_layout_textform.dart';
+export 'package:fastkart/views/pages/setting/setting_layout/date_layout_textform.dart';
+export 'package:fastkart/views/pages/setting/setting_layout/phone_layout_textform.dart';
+export 'package:fastkart/views/pages/setting/setting_layout/update_button.dart';
+
+//address list
+export 'package:fastkart/controllers/address_list_controller.dart';
+export 'package:fastkart/views/pages/addressList/address_list_card.dart';
+export 'package:fastkart/views/pages/addressList/util/address_list_constants.dart';
+export 'package:fastkart/views/pages/addressList/util/address_list_widget.dart';
+export 'package:fastkart/views/pages/addressList/util/address_list_fontstyle.dart';
+
+//team page list
+export 'package:fastkart/views/pages/aboutUs/util/about_us_constants.dart';
+export 'package:fastkart/views/pages/aboutUs/util/about_us_widget.dart';
+export 'package:fastkart/views/pages/aboutUs/util/about_us_fontstyle.dart';
+export 'package:fastkart/views/pages/aboutUs/how_do_order_card.dart';
+export 'package:fastkart/views/pages/aboutUs/team_list_card.dart';
+
+//error page list
+export 'package:fastkart/views/pages/404_screen/util/error_404_constants.dart';
+export 'package:fastkart/views/pages/404_screen/util/error_404_fontstyle.dart';
+export 'package:fastkart/views/pages/404_screen/util/error_404_widget.dart';
+
+//about us page list
+export 'package:fastkart/controllers/about_us_controller.dart';
+export 'package:fastkart/views/pages/aboutUs/util/about_us_style.dart';
+export 'package:fastkart/views/pages/aboutUs/about_us_layout/how_do_order.dart';
+export 'package:fastkart/views/pages/aboutUs/about_us_layout/team_list_layout.dart';

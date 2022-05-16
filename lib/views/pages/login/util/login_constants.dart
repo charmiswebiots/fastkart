@@ -1,39 +1,39 @@
 //text constants
-class LoginFont{
-   String description= 'Online Supermarket for all your daily needs. you are just One Click away from your all needs at your door step.';
-   String loginAccount = 'Login Account';
-   String emailHint = 'Email address';
-   String password = 'Password';
-   String forgotPassword = 'Forgot password ?';
-   String signIn = 'Sign in';
-   String creatUser = 'If you are new,  ';
-   String createNow = 'Create Now';
-   String signInWith = 'Or login with';
-   String continueWithPhone = 'Continue with Phone';
-   String continueWithGoogle = 'Continue with Google';
-   String continueAsGuest = 'Continue as guest';
-   String phone = 'phone';
-   String google = 'google';
-   String userFieldError = "Email is Required";
+import 'package:get/get.dart';
 
-   String passwordFieldError = "Password is Required";
-   String inCorrectUsername = "Incorrect Email";
+class LoginFont {
+  String description = 'description'.tr;
+  String loginAccount = 'loginAccount'.tr;
+  String emailHint = 'emailHint'.tr;
+  String password = 'password'.tr;
+  String forgotPassword = 'forgotPassword'.tr;
+  String signIn = 'signIn'.tr;
+  String creatUser = 'creatUser'.tr;
+  String createNow = 'createNow'.tr;
+  String signInWith = 'signInWith'.tr;
+  String continueWithPhone = 'continueWithPhone'.tr;
+  String continueWithGoogle = 'continueWithGoogle'.tr;
+  String continueAsGuest = 'continueAsGuest'.tr;
+  String phone = 'phone'.tr;
+  String google = 'google'.tr;
+  String userFieldError = "userFieldError".tr;
 
-   String passwordMininumValueEnter = "Please enter mininmum 8 characters";
+  String passwordFieldError = "passwordFieldError".tr;
+  String inCorrectUsername = "inCorrectUsername".tr;
+
+  String passwordMininumValueEnter = "passwordMininumValueEnter".tr;
 }
 
-
 //font size
 
-
 //font size
-class LoginFontSize{
-   static const  double textXSizeSmall = 10.0;
-   static const  double textSizeSmall = 12.0;
-   static const  double textSizeSMedium = 14.0;
-   static const double textSizeMedium = 16.0;
-   static const  double textSizeLargeMedium = 18.0;
-   static const double textSizeNormal = 20.0;
-   static const double textSizeLarge = 24.0;
-   static const  double textSizeXLarge = 34.0;
+class LoginFontSize {
+  static const double textXSizeSmall = 10.0;
+  static const double textSizeSmall = 12.0;
+  static const double textSizeSMedium = 14.0;
+  static const double textSizeMedium = 16.0;
+  static const double textSizeLargeMedium = 18.0;
+  static const double textSizeNormal = 20.0;
+  static const double textSizeLarge = 24.0;
+  static const double textSizeXLarge = 34.0;
 }

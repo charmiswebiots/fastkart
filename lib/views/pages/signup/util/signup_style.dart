@@ -62,14 +62,14 @@ class SignupStyle {
     return Row(
       children: [
         DottedLineLayout(color: color,),
-        Space(10, 0),
+        const  Space(10, 0),
         SignupFontStyle().mulishtextLayout(
           color: fontColor,
           text: SignupFont().signInWith,
           fontWeight: FontWeight.w700,
           fontSize: SignupFontSize.textSizeSMedium,
         ),
-        Space(10, 0),
+        const Space(10, 0),
         DottedLineLayout(color: color,),
       ],
     );

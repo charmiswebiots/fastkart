@@ -1,7 +1,5 @@
-import 'dart:convert';
 
 import 'package:fastkart/config.dart';
-import 'package:flutter/services.dart';
 
 class HomeController extends GetxController {
   List offerList = [];
@@ -37,11 +35,11 @@ class HomeController extends GetxController {
     // TODO: implement onInit
     offerList = AppArray().offerList;
     update();
-    loadLocalRecipe();
+    //loadLocalRecipe();
     super.onInit();
   }
 
-  Future<List<RecipeModel>> loadLocalRecipe() async {
+ /* Future<List<RecipeModel>> loadLocalRecipe() async {
     try {
       String response =
           await rootBundle.loadString('assets/jsonFile/userlist.json');
@@ -56,7 +54,7 @@ class HomeController extends GetxController {
         ),
       );
     }
-  }
+  }*/
 
   @override
   void onReady() {
@@ -67,6 +65,7 @@ class HomeController extends GetxController {
   }
 }
 
+/*
 class RecipeModel {
   RecipeModel({
     required this.image,
@@ -78,3 +77,4 @@ class RecipeModel {
         image: json["image"] == null ? null : json["image"],
       );
 }
+*/

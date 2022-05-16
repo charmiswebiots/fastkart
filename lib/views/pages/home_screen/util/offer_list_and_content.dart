@@ -21,7 +21,7 @@ class OfferListAndContent extends StatelessWidget {
               //say hello and see all  widget
               HomeStyle().sayHelloLayout(
                   appCtrl.appTheme.titleColor, appCtrl.appTheme.primary),
-              Space(0, 5),
+              const Space(0, 5),
               //best price widget
               HomeWidget().commonDescriptionTextWidget(
                   text: HomeFont().bestPriceEverOfAllTheTime,

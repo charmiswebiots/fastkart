@@ -1,15 +1,12 @@
-import 'package:fastkart/views/pages/aboutUs/util/about_us_constants.dart';
-import 'package:fastkart/views/pages/aboutUs/util/about_us_widget.dart';
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class TeamListCard extends StatelessWidget {
-  var data;
-  var lightPrimaryColor;
-  var titleColor;
+  final dynamic data;
+  final Color? lightPrimaryColor;
+  final Color? titleColor;
 
-  TeamListCard({Key? key, this.data, this.lightPrimaryColor, this.titleColor})
+  const TeamListCard(
+      {Key? key, this.data, this.lightPrimaryColor, this.titleColor})
       : super(key: key);
 
   @override
@@ -32,17 +29,17 @@ class TeamListCard extends StatelessWidget {
             )
           ],
         ),
-        Space(0, 10),
-        AboutUsWidget()
+        const Space(0, 10),
+        AboutUsStyle()
             .commonTitle(text: AboutUsFont().howDoOrder, color: titleColor),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AboutUsWidget().commonImage(image: iconAssets.facebook),
-            Space(5, 0),
-            AboutUsWidget().commonImage(image: iconAssets.linkedIn),
-            Space(5, 0),
-            AboutUsWidget().commonImage(image: iconAssets.twitter),
+            AboutUsStyle().commonImage(image: iconAssets.facebook),
+            const Space(5, 0),
+            AboutUsStyle().commonImage(image: iconAssets.linkedIn),
+            const Space(5, 0),
+            AboutUsStyle().commonImage(image: iconAssets.twitter),
           ],
         )
       ],

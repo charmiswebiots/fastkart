@@ -24,19 +24,19 @@ class AddressCard extends StatelessWidget {
                   height: AppScreenUtil().screenHeight(16),
                   color: appCtrl.appTheme.titleColor,
                 ),
-                Space(8, 0),
+                const Space(8, 0),
                 AddAddressFontStyle().mulishtextLayout(
                     text: data['address'],
                     fontSize: AddAddressFontSize.textSizeSMedium,
                     color: appCtrl.appTheme.titleColor)
               ],
             ),
-            Space(0, 8),
+            const Space(0, 8),
             AddAddressFontStyle().mulishtextLayout(
                 text: data['area'],
                 fontSize: AddAddressFontSize.textSizeSmall,
                 color: appCtrl.appTheme.darkContentColor),
-            Space(0, 10),
+            const Space(0, 10),
             if (index != lastIndex)
               Divider(
                 color: appCtrl.appTheme.contentColor,

@@ -19,7 +19,7 @@ class QuantityDeliverTimeLayout extends StatelessWidget {
                   onTap: () =>
                       productDetailCtrl.commonBottomSheet(context: context,index: 0)),
             ),
-            Space(10, 0),
+            const Space(10, 0),
             Expanded(
               child: SelectionLayout(
                   text: productDetailCtrl.selectedDeliveryTime,

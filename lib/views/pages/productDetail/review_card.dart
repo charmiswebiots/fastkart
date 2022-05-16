@@ -1,5 +1,4 @@
 
-import 'package:fastkart/widgets/common/common_rating_layout.dart';
 import '../../../config.dart';
 
 class ReviewCard extends StatelessWidget {
@@ -26,7 +25,7 @@ class ReviewCard extends StatelessWidget {
           Row(
             children: [
               Image.asset(imageAssets.usersquare,height: AppScreenUtil().screenHeight(50),),
-              Space(10, 0),
+              const  Space(10, 0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +43,7 @@ class ReviewCard extends StatelessWidget {
               )
             ],
           ),
-          Space(0, 10),
+          const  Space(0, 10),
           ProductDetailFontStyle().mulishtextLayout(text:data['desc'],fontSize: 13,color: descColor,overflow: TextOverflow.clip,fontWeight: FontWeight.w600),
         ],
       ),

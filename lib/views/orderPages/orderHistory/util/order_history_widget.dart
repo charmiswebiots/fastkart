@@ -1,8 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/orderPages/orderHistory/util/order_history_constants.dart';
-import 'package:fastkart/views/orderPages/orderHistory/util/order_history_fontstyle.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
 class OrderHistoryWidget {

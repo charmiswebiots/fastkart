@@ -36,7 +36,7 @@ class _ShopScreenState extends State<ShopScreen> {
             backgroundColor: shopCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(

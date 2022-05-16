@@ -15,7 +15,7 @@ class PriceRangeSelection extends StatelessWidget {
                 activeTrackColor: shopCtrl.appCtrl.appTheme.primary,
                 inactiveTrackColor: shopCtrl.appCtrl.appTheme.wishtListBoxColor,
                 thumbColor: shopCtrl.appCtrl.appTheme.primary,
-                thumbShape: RoundSliderThumbShape(enabledThumbRadius: 6),
+                thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
               ),
               child: RangeSlider(
                 values: shopCtrl.currentRangeValues,

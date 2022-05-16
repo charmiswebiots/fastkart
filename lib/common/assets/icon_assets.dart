@@ -54,6 +54,8 @@ class IconAssets {
   final String it = 'assets/icons/it.png';
   final String tf = 'assets/icons/tf.png';
   final String us = 'assets/icons/us.png';
+  final String ar = 'assets/icons/ar.png';
+  final String kr = 'assets/icons/kr.png';
   final String facebook = 'assets/icons/facebook.png';
   final String linkedIn = 'assets/icons/linkedin.png';
   final String twitter = 'assets/icons/twitter.png';

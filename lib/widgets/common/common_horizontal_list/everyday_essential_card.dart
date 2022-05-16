@@ -42,7 +42,7 @@ class EveryDayEssentialCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Space(0, 5),
+              const Space(0, 5),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -52,12 +52,12 @@ class EveryDayEssentialCard extends StatelessWidget {
                       children: [
                         HomeFontStyle()
                             .mulishtextLayout(fontSize: 11, text: data['name']),
-                        Space(0, 8),
+                        const  Space(0, 8),
                         HomeFontStyle().mulishtextLayout(
                             fontSize: 10,
                             color: appCtrl.appTheme.darkContentColor,
                             text: data['description']),
-                        Space(0, 8),
+                        const Space(0, 8),
                         HomeFontStyle().mulishtextLayout(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,

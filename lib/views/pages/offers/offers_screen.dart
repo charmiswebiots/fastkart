@@ -18,7 +18,7 @@ class _OfferScreenState extends State<OfferScreen> {
           backgroundColor: offerCtrl.appCtrl.appTheme.blackColor,
           body: NotificationListener<OverscrollIndicatorNotification>(
             onNotification: (overscroll) {
-              overscroll.disallowGlow();
+              overscroll.disallowIndicator();
               return false;
             },
             child: SingleChildScrollView(
@@ -61,7 +61,7 @@ class _OfferScreenState extends State<OfferScreen> {
                           ),
                         ),
 
-                        Space(0, 20),
+                        const Space(0, 20),
                        const OfferListLayout()
                       ],
                     ),

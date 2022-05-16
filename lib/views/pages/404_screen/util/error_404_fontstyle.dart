@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/404_screen/util/error_404_constants.dart';
-import 'package:flutter/material.dart';
 
 class Error404FontStyle {
 //nunito font family text layout

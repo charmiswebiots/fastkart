@@ -30,7 +30,7 @@ class AmountItemButton extends StatelessWidget {
                       text: '2 Items',
                       color: appCtrl.appTheme.white,
                       fontSize: ShopFontSize.textSizeSmall),
-                  Space(0, 5),
+                  const  Space(0, 5),
                   ShopFontStyle().mulishtextLayout(
                       text: ShopFont().dollar + "250.00",
                       color: appCtrl.appTheme.white,
@@ -45,7 +45,7 @@ class AmountItemButton extends StatelessWidget {
                         text: ShopFont().viewCart,
                         color: appCtrl.appTheme.white,
                         fontSize: ShopFontSize.textSizeSMedium),
-                    Space(5, 0),
+                    const  Space(5, 0),
                     Icon(
                       Icons.arrow_forward_ios_outlined,
                       color: appCtrl.appTheme.white,

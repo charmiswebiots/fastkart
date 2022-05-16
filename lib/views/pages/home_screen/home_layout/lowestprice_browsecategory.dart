@@ -25,13 +25,13 @@ class LowestPriceAndButton extends StatelessWidget {
                 title: HomeFont().payLessGetMore,
                 data: AppArray().lowerPriceList,
               ),
-              Space(0, 20),
+              const Space(0, 20),
 
               //didn't find what you were looking for text
               HomeStyle().didntFindWhatLookingForLayout(
                   fontColor: appCtrl.appTheme.contentColor,
                   text: HomeFont().didntFindWhatYouWereLookingFor),
-              Space(0, 10),
+              const Space(0, 10),
 
               //browse category button layout
               HomeWidget().browseCategoryButtonLayout(

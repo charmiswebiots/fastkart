@@ -1,10 +1,7 @@
 import 'dart:io';
-import 'package:fastkart/views/pages/login/util/login_fontstyle.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../config.dart';
 import '../../../../utilities/responsive_layout.dart';
-import '../../../../widgets/common/icon_button_widget.dart';
 
 class LoginStyle {
   //body style
@@ -27,7 +24,7 @@ class LoginStyle {
         key: loginformKey,
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height /
                   AppScreenUtil().screenHeight(
                       (ResponsiveWidget.isSmallScreen(context)) ? 1.52 : 1.14),
@@ -42,7 +39,7 @@ class LoginStyle {
   //description text layout
   Widget descLayout(darkContentColor) {
     return LoginFontStyle().nunitotextLayout(
-        text: LoginFont().description,
+        text: LoginFont().description.tr,
         color: darkContentColor,
         fontSize: LoginFontSize.textSizeSmall);
   }

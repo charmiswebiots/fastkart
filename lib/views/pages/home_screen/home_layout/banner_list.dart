@@ -51,14 +51,14 @@ class BannerList extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 color: itemIndex.isEven ?appCtrl.appTheme.bannerTitleColor  : appCtrl.appTheme.white),
-                            Space(0, 5),
+                            const Space(0, 5),
                             HomeFontStyle().quicksandtextLayout(
                                 text: AppArray()
                                     .bannerList[itemIndex].description,
                                 fontWeight: FontWeight.normal,
                                 fontSize: 14,
                                 color:  itemIndex.isEven ? appCtrl.appTheme.darkContentColor : appCtrl.appTheme.white),
-                            Space(0, 15),
+                            const Space(0, 15),
                             InkWell(
                               onTap: () => Get.toNamed(routeName.shopScreen),
                               child: Container(

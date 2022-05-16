@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/notification/util/notification_constants.dart';
-import 'package:flutter/material.dart';
 
 class NotificationFontStyle {
 //nunito font family text layout

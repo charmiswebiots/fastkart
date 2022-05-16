@@ -37,7 +37,7 @@ class CategoryWidget {
         child: Column(
           children: [
             //Image layout
-            ImageBgLayout(),
+            const ImageBgLayout(),
 
             //subCategory list layout
             SubCategoryList(

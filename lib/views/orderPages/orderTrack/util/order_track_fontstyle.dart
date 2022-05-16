@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/orderPages/orderTrack/util/order_track_constants.dart';
-import 'package:flutter/material.dart';
 
 class OrderTrackFontStyle {
 //nunito font family text layout

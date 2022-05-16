@@ -21,7 +21,7 @@ class OrderDetail extends StatelessWidget {
             backgroundColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(

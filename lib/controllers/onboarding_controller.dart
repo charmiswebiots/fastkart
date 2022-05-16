@@ -1,9 +1,8 @@
 import 'package:fastkart/config.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
-class OnboardingController extends GetxController{
+class OnboardingController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
@@ -11,7 +10,7 @@ class OnboardingController extends GetxController{
   final getStorage = GetStorage();
 
   //onboarding read;
-  onBoardingRead()async{
+  onBoardingRead() async {
     await getStorage.write('isIntro', 'true');
 
     update();
@@ -27,17 +26,17 @@ class OnboardingController extends GetxController{
 
     try {
       final GoogleSignInAccount? googleSignInAccount =
-      await _googleSignIn.signIn();
+          await _googleSignIn.signIn();
       appCtrl.hideLoading();
       update();
       final GoogleSignInAuthentication googleSignInAuthentication =
-      await googleSignInAccount!.authentication;
+          await googleSignInAccount!.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );
 
-      User? user = (await _auth.signInWithCredential(credential)).user;
+      (await _auth.signInWithCredential(credential)).user;
       appCtrl.hideLoading();
       update();
       saveData(googleSignInAccount.id);
@@ -45,8 +44,13 @@ class OnboardingController extends GetxController{
     } on FirebaseAuthException catch (e) {
       appCtrl.hideLoading();
       update();
-      throw e;
+      showToast(e.toString());
     }
+  }
+
+  //show toast
+  showToast(error) {
+    Fluttertoast.showToast(msg: error);
   }
 
   //save data in shared pref
@@ -57,5 +61,4 @@ class OnboardingController extends GetxController{
     update();
     Get.toNamed(routeName.dashboard);
   }
-
 }

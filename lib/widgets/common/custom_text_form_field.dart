@@ -1,4 +1,3 @@
-
 import 'package:fastkart/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,6 +16,8 @@ class CommonTextFormField extends StatelessWidget {
   final bool isLargeScreen;
   final TextInputAction? textInputAction;
   final TextInputType? keyboardType;
+  final int? maxLength;
+  final bool readOnly;
 
   const CommonTextFormField(
       {Key? key,
@@ -24,7 +25,7 @@ class CommonTextFormField extends StatelessWidget {
       this.fillcolor,
       this.borderColor,
       this.hintColor,
-        this.obscureText = false,
+      this.obscureText = false,
       this.controller,
       this.suffixIcon,
       this.validator,
@@ -33,7 +34,9 @@ class CommonTextFormField extends StatelessWidget {
       this.isLargeScreen = false,
       this.textInputAction,
       this.prefixIcon,
-      this.keyboardType})
+      this.keyboardType,
+      this.maxLength,
+      this.readOnly = false})
       : super(key: key);
 
   @override
@@ -42,10 +45,12 @@ class CommonTextFormField extends StatelessWidget {
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
+      readOnly: readOnly,
       focusNode: focusNode,
       textInputAction: textInputAction,
       onFieldSubmitted: onFieldSubmitted,
       validator: validator,
+      maxLength: maxLength,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
             vertical: AppScreenUtil().screenHeight(14),
@@ -71,7 +76,7 @@ class CommonTextFormField extends StatelessWidget {
           ),
         ),
         focusedErrorBorder:
-        OutlineInputBorder(borderSide: BorderSide(color: borderColor!)),
+            OutlineInputBorder(borderSide: BorderSide(color: borderColor!)),
         hintText: text,
         hintStyle: TextStyle(
             fontSize: 15,

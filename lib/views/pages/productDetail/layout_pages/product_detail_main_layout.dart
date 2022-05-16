@@ -28,7 +28,7 @@ class ProductDetailMainLayout extends StatelessWidget {
                           CommonRatingLayout(
                               value: productDetailCtrl.rating,
                               onRatingUpdate: (rating) {}),
-                          Space(5, 0),
+                          const Space(5, 0),
                           ProductDetailStyle().ratingValueLayout(
                               productDetailCtrl
                                   .appCtrl.appTheme.darkContentColor),
@@ -42,15 +42,15 @@ class ProductDetailMainLayout extends StatelessWidget {
                       discountText: '25% off',
                     ),
 
-                    Space(0, 15),
+                    const Space(0, 15),
                     // select quantity and delivery time
                     const QuantityDeliverTimeLayout(),
-                    Space(0, 15),
+                    const Space(0, 15),
 
                     //detail layout
                     const CommonProductDetailLayout(),
 
-                    Space(0, 15),
+                    const Space(0, 15),
                     //product review count and see All text
                     ProductReviewAndSeeAll(
                         text: 'Product Review(15)',
@@ -58,10 +58,10 @@ class ProductDetailMainLayout extends StatelessWidget {
                             context: context,index: 2),
                         seeAll: ProductDetailFont().seeAll),
 
-                    Space(0, 20),
+                    const Space(0, 20),
                     //reviewList layout
                     const ProductReview(),
-                    Space(0, 20),
+                    const Space(0, 20),
 
                     //lowest price
                     ProductDetailWidget().lowestPrice(
@@ -75,7 +75,7 @@ class ProductDetailMainLayout extends StatelessWidget {
                         data: AppArray().lowerPriceList,
                       ),
                     ),
-                    Space(0, 50),
+                    const Space(0, 50),
                   ],
                 ))
           ],

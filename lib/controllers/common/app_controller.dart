@@ -1,15 +1,7 @@
-import 'package:fastkart/routes/screen_list.dart';
-import 'package:fastkart/views/pages/category/category_screen.dart';
-import 'package:fastkart/views/pages/home_screen/home.dart';
-import 'package:fastkart/views/pages/myCart/mycart_screen.dart';
-import 'package:fastkart/views/pages/offers/offers_screen.dart';
-import 'package:fastkart/views/pages/search/search_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../config.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AppController extends GetxController {
   AppTheme _appTheme = AppTheme.fromType(ThemeType.light);
@@ -56,7 +48,7 @@ class AppController extends GetxController {
     await getStorage.write("isDarkMode", isTheme);
     ThemeService().switchTheme(isTheme);
     Get.forceAppUpdate();
-    bool dddd = await getStorage.read('isDarkMode');
+    await getStorage.read('isDarkMode');
   }
 
   //google Login function
@@ -83,11 +75,46 @@ class AppController extends GetxController {
     } on FirebaseAuthException catch (e) {
       hideLoading();
       update();
+      showToast(e.toString());
       rethrow;
     } finally {
       hideLoading();
       update();
     }
+  }
+
+  //show toast
+  showToast(error) {
+    Fluttertoast.showToast(msg: error);
+  }
+
+  //language selection
+  languageSelection(e) async {
+    print('name : ${e['name']}');
+    if (e['name'] == "English") {
+      var locale = const Locale("en", 'US');
+      Get.updateLocale(locale);
+      getStorage.write(Session.languageCode, "en");
+      getStorage.write(Session.countryCode, "US");
+    } else if (e['name'] == "Arabic") {
+      var locale = const Locale("ar", 'AE');
+      Get.updateLocale(locale);
+      getStorage.write(Session.languageCode, "ar");
+      getStorage.write(Session.countryCode, "AE");
+    }else if (e['name'] == "Korean") {
+      var locale = const Locale("ko", 'KR');
+      Get.updateLocale(locale);
+      getStorage.write(Session.languageCode, "ko");
+      getStorage.write(Session.countryCode, "KR");
+    }else if (e['name'] == "Hindi") {
+      var locale = const Locale("hi", 'IN');
+      Get.updateLocale(locale);
+      getStorage.write(Session.languageCode, "hi");
+      getStorage.write(Session.countryCode, "IN");
+    }
+
+    update();
+    Get.back();
   }
 
   //save data in shared pref
@@ -132,64 +159,10 @@ class AppController extends GetxController {
             topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
             topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
       ),
-      // context and builder are
-      // required properties in this widget
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
-        return GetBuilder<AppController>(builder: (_) {
-          return DrawerWidget().popLayout(
-              context: context,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  DrawerFontStyle().mulishtextLayout(
-                      text: DrawerFont().selectLanguage,
-                      fontSize: DrawerFontSize.textSizeSMedium,
-                      color: appTheme.titleColor),
-                  Space(0, 20),
-                  ...AppArray().languageList.map((e) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: AppScreenUtil().screenHeight(10)),
-                      child: InkWell(
-                        onTap: () async {
-                          if (e['name'] == "English") {
-                            var locale = Locale("en", 'US');
-                            Get.updateLocale(locale);
-                            getStorage.write(Session.languageCode, "en");
-                            getStorage.write(Session.countryCode, "US");
-                          } else if (e['name'] == "Arabic") {
-                            var locale = Locale("ar", 'AE');
-                            Get.updateLocale(locale);
-                            getStorage.write(Session.languageCode, "ar");
-                            getStorage.write(Session.countryCode, "AE");
-                          }
-
-                          update();
-                          Get.back();
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              e['icon'].toString(),
-                              height: AppScreenUtil().screenHeight(20),
-                            ),
-                            Space(10, 0),
-                            DrawerFontStyle().mulishtextLayout(
-                                text: e['name'].toString(),
-                                fontSize: DrawerFontSize.textSizeSMedium,
-                                color: appTheme.titleColor),
-                          ],
-                        ),
-                      ),
-                    );
-                  }).toList()
-                ],
-              ));
-        });
+        return const LanguageBottomSheet();
       },
     );
   }
@@ -237,5 +210,20 @@ class AppController extends GetxController {
       update();
     }
     update();
+  }
+
+  //error bottom navigation bar click
+  errorBottomNavigationClick (val) async {
+    Get.back();
+    Get.back();
+    drawerSelectedIndex = 0;
+    if (selectedIndex == 4) {
+      Get.toNamed(routeName.myCart, arguments: false);
+    } else  {
+      await getStorage.write(
+          'selectedIndex', selectedIndex);
+      selectedIndex = val;
+      update();
+    }
   }
 }

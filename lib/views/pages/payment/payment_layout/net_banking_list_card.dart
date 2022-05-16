@@ -19,7 +19,7 @@ class NetBankingListCard extends StatelessWidget {
         children: [
           Icon(selectindex == index ? Icons
               .radio_button_checked : CupertinoIcons.circle,size: AppScreenUtil().size(18),color: primaryColor,),
-          Space(8, 0),
+          const Space(8, 0),
           PaymentFontStyle().mulishtextLayout(
               text: data['title'],
               fontSize:

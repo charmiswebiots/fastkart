@@ -21,20 +21,20 @@ class OrderHistoryFilter extends StatelessWidget {
             children: [
               OrderHistoryStyle()
                   .filterText(orderHistoryCtrl.appCtrl.appTheme.titleColor),
-              Space(0, 20),
+              const Space(0, 20),
 
               //filter list
               const FilterList(),
 
-              Space(0, 30),
+              const Space(0, 30),
 
               OrderHistoryStyle()
                   .timeFilterText(orderHistoryCtrl.appCtrl.appTheme.titleColor),
-              Space(0, 20),
+              const Space(0, 20),
 
               //time filter list
               const TimeFilterList(),
-              Space(0, 20),
+              const Space(0, 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

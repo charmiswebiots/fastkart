@@ -21,7 +21,7 @@ class OrderTrack extends StatelessWidget {
             backgroundColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(
@@ -37,7 +37,7 @@ class OrderTrack extends StatelessWidget {
                             child: OrderTrackStyle()
                                 .backgroundLayout(context: context)),
                         //order track detail
-                        OrderTrackDetail()
+                        const OrderTrackDetail()
                       ],
                     ),
                     //button layout

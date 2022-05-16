@@ -29,7 +29,7 @@ class CouponCard extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Image.asset(
-            isTheme! ? couponModel!.themeBG : couponModel!.BG,
+            isTheme! ? couponModel!.themeBG : couponModel!.bG,
             height: AppScreenUtil().screenHeight(
                 AppScreenUtil().screenActualWidth() > 370 ? 130 : 150),
           ),
@@ -46,13 +46,13 @@ class CouponCard extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
               ),
-              Space(0, 10),
+              const Space(0, 10),
               HomeFontStyle().mulishtextLayout(
                   text: couponModel!.title,
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: titleColor),
-              Space(0, 5),
+              const Space(0, 5),
               HomeFontStyle().mulishtextLayout(
                   text: couponModel!.upToText,
                   fontSize: 12,

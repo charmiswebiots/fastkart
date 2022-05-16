@@ -1,7 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/search/util/search_constants.dart';
-
 class SearchFontStyle {
 //nunito font family text layout
   Widget nunitotextLayout(

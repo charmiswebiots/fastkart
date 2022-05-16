@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/pagesList/util/page_list_constants.dart';
-import 'package:flutter/material.dart';
 
 class PageListFontStyle {
 //nunito font family text layout

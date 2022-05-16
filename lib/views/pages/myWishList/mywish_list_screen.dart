@@ -1,13 +1,7 @@
-
-import 'package:fastkart/views/pages/myWishList/mywish_list_card.dart';
-import 'package:fastkart/views/pages/myWishList/util/mywish_list_widget.dart';
-import 'package:fastkart/views/pages/myWishList/util/mywish_list_constants.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-
 import '../../../config.dart';
 
 class MyWishListScreen extends StatelessWidget {
-  var wishListCtrl = Get.put(MyWishListController());
+  final wishListCtrl = Get.put(MyWishListController());
 
   MyWishListScreen({Key? key}) : super(key: key);
 
@@ -25,106 +19,26 @@ class MyWishListScreen extends StatelessWidget {
             backgroundColor: wishListCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
-              child: Container(
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    SingleChildScrollView(
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            bottom: AppScreenUtil().screenHeight(50)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // wish list layout
-                            Container(
-                              height: MediaQuery.of(context).size.height,
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.only(
-                                  left: AppScreenUtil().screenHeight(15),
-                                  right: AppScreenUtil().screenHeight(15)),
-                              child: ListView.builder(
-                                itemCount: wishListCtrl.offerList.length,
-                                shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
-                                padding: EdgeInsets.zero,
-                                itemBuilder: (context, index) {
-                                  final item = wishListCtrl.offerList[index];
-                                  return Slidable(
-                                    endActionPane: ActionPane(
-                                      extentRatio: 0.32,
-                                      motion: const ScrollMotion(),
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                              color: wishListCtrl
-                                                  .appCtrl.appTheme.primary,
-                                              borderRadius: BorderRadius.only(
-                                                  topRight: Radius.circular(
-                                                      AppScreenUtil()
-                                                          .borderRadius(10)),
-                                                  bottomRight: Radius.circular(
-                                                      AppScreenUtil()
-                                                          .borderRadius(10))),
-                                            ),
-                                            margin: EdgeInsets.symmetric(
-                                              vertical: AppScreenUtil()
-                                                  .screenHeight(10),
-                                            ),
-                                            child: GestureDetector(
-                                              onTap: () => {},
-                                              child: Image.asset(
-                                                iconAssets.delete,
-                                                height: AppScreenUtil()
-                                                    .screenHeight(20),
-                                                fit: BoxFit.contain,
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-
-                                    // The child of the Slidable is what the user sees when the
-                                    // component is not dragged.
-                                    child: MyWishListCard(
-                                      data: wishListCtrl.offerList[index],
-                                      containerboxColor: wishListCtrl
-                                          .appCtrl.appTheme.wishtListBoxColor,
-                                      descriptionColor: wishListCtrl
-                                          .appCtrl.appTheme.darkContentColor,
-                                      discountBoxColor:
-                                          wishListCtrl.appCtrl.appTheme.primary,
-                                      discountTextColor: wishListCtrl
-                                          .appCtrl.appTheme.whiteColor,
-                                      dividerColor: wishListCtrl
-                                          .appCtrl.appTheme.contentColor
-                                          .withOpacity(.5),
-                                      quantityBorderColor: wishListCtrl
-                                          .appCtrl.appTheme.lightPrimary,
-                                      titleColor: wishListCtrl
-                                          .appCtrl.appTheme.titleColor,
-                                      plusTap: () =>
-                                          wishListCtrl.plusTap(index),
-                                      minusTap: () =>
-                                          wishListCtrl.minusTap(index),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  SingleChildScrollView(
+                    child: Container(
+                      margin: EdgeInsets.only(
+                          bottom: AppScreenUtil().screenHeight(50)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          // wish list layout
+                          MyWishListLayout(),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );

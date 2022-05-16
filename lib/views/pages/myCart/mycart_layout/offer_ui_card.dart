@@ -45,7 +45,7 @@ class OfferUICard extends StatelessWidget {
                             color: appCtrl.appTheme.primary,
                             fontSize: 25,
                             fontWeight: FontWeight.bold),
-                        Space(5, 0),
+                        const  Space(5, 0),
                         Column(
                           mainAxisAlignment:
                           MainAxisAlignment.center,
@@ -74,7 +74,7 @@ class OfferUICard extends StatelessWidget {
                                 FontWeight.normal)
                           ],
                         ),
-                        Space(5, 0),
+                        const Space(5, 0),
                         Column(
                           mainAxisAlignment:
                           MainAxisAlignment.center,
@@ -94,7 +94,7 @@ class OfferUICard extends StatelessWidget {
                                     .textSizeSmall,
                                 fontWeight:
                                 FontWeight.normal),
-                            Space(0, 2),
+                            const Space(0, 2),
                             MyCartFontStyle()
                                 .quicksandtextLayout(
                                 text:
@@ -124,7 +124,7 @@ class OfferUICard extends StatelessWidget {
                             fontSize:
                             MyCartFontSize.textSizeSmall,
                             fontWeight: FontWeight.normal),
-                        Space(0, 2),
+                        const Space(0, 2),
                         Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: AppScreenUtil()

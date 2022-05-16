@@ -64,7 +64,7 @@ class LoginWidget {
             color: color,
             fontSize: 12,
             fontWeight: FontWeight.normal),
-        Space(0, 15),
+        const Space(0, 15),
       ],
     );
   }
@@ -84,7 +84,7 @@ class LoginWidget {
             fontWeight: fontWeight,
             fontSize: 14,
             onTap: onTap),
-        Space(1.5, 0),
+        const Space(1.5, 0),
         LoginFontStyle().mulishtextLayout(
             color: color,
             text: LoginFont().createNow,

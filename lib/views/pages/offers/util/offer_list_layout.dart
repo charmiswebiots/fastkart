@@ -17,7 +17,7 @@ class OfferListLayout extends StatelessWidget {
               child: ListView.builder(
                 itemCount: AppArray().myOfferList.length,
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return OfferListCardLayout(
                     isTheme: appCtrl.isTheme,

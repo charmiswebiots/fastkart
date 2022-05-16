@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/orderPages/orderHistory/util/order_history_constants.dart';
-import 'package:flutter/material.dart';
 
 class OrderHistoryFontStyle {
 //nunito font family text layout

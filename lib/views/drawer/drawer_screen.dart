@@ -18,7 +18,7 @@ class DrawerScreen extends StatelessWidget {
             bottomRight: Radius.circular(AppScreenUtil().borderRadius(20))),
         child: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overscroll) {
-            overscroll.disallowGlow();
+            overscroll.disallowIndicator();
             return false;
           },
           child: Container(
@@ -41,6 +41,8 @@ class DrawerScreen extends StatelessWidget {
                             children: [
                               //Drawer header
                               DrawerCustomHeader(
+                                isYourAccount: false,
+                                  color: appCtrl.appTheme.whiteColor,
                                   borderRadius: 50,
                                   image: imageAssets.usersquare,
                                   imageHeight: 50,
@@ -70,7 +72,7 @@ class DrawerScreen extends StatelessWidget {
                                     height: 20,
                                     fontSize: 14);
                               }).toList(),
-                              Space(0, 200)
+                              const Space(0, 200)
                             ],
                           ),
                         ),

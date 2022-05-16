@@ -68,13 +68,13 @@ class CommonAppBar1 extends StatelessWidget {
                     ),
                   ),
                 ),
-              Space(10, 0),
+              const Space(10, 0),
               AppBarWidget().commonIconImage(
                   image: isTheme!
                       ? imageAssets.themeLogo
                       : imageAssets.smallLogoImage,
                   height: 16),
-              Space(10, 0),
+              const Space(10, 0),
               if (isWishListText!)
                 AppBarFontStyle().mulishtextLayout(
                     text: "(4 Items)",
@@ -89,12 +89,12 @@ class CommonAppBar1 extends StatelessWidget {
               children: [
                 AppBarWidget().commonIconImage(
                     image: iconAssets.location, height: 16, color: color),
-                Space(5, 0),
+                const Space(5, 0),
                 AppBarFontStyle().mulishtextLayout(
                     text: AppBarFont().name,
                     fontSize: 14,
                     fontWeight: FontWeight.normal),
-                Space(10, 0),
+                const Space(10, 0),
                 InkWell(
                   onTap: actionTap,
                   child: AppBarWidget()

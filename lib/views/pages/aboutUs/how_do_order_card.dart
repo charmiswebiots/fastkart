@@ -1,18 +1,22 @@
-import 'package:fastkart/views/pages/aboutUs/util/about_us_constants.dart';
-import 'package:fastkart/views/pages/aboutUs/util/about_us_fontstyle.dart';
-import 'package:fastkart/views/pages/aboutUs/util/about_us_widget.dart';
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class HowDoOrderCard extends StatelessWidget {
-  var data;
-  var containerColor;
-  var titleColor;
-  var darkContentColor;
-  var primaryColor;
-  var whiteColor;
-   HowDoOrderCard({Key? key,this.data,this.containerColor,this.titleColor,this.darkContentColor,this.primaryColor,this.whiteColor}) : super(key: key);
+  final dynamic data;
+  final Color? containerColor;
+  final Color? titleColor;
+  final Color? darkContentColor;
+  final Color? primaryColor;
+  final Color? whiteColor;
+
+  const HowDoOrderCard(
+      {Key? key,
+      this.data,
+      this.containerColor,
+      this.titleColor,
+      this.darkContentColor,
+      this.primaryColor,
+      this.whiteColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,57 +27,44 @@ class HowDoOrderCard extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(
-                left: AppScreenUtil().screenWidth(15),
-                ),
+              left: AppScreenUtil().screenWidth(15),
+            ),
             padding: EdgeInsets.only(
-                left:
-                AppScreenUtil().screenWidth(30),
-                right:
-                AppScreenUtil().screenWidth(10),
-                top:
-                AppScreenUtil().screenHeight(18),bottom:
-            AppScreenUtil().screenHeight(18)),
-
+                left: AppScreenUtil().screenWidth(30),
+                right: AppScreenUtil().screenWidth(10),
+                top: AppScreenUtil().screenHeight(18),
+                bottom: AppScreenUtil().screenHeight(18)),
             decoration: BoxDecoration(
                 color: containerColor,
-                borderRadius: BorderRadius.circular(
-                    AppScreenUtil().borderRadius(5))),
+                borderRadius:
+                    BorderRadius.circular(AppScreenUtil().borderRadius(5))),
             child: Column(
-              crossAxisAlignment:
-              CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AboutUsWidget().commonTitle(
-                    text: data
-                    ['title'],
-
-                    color: titleColor),
-                Space(0,5),
+                AboutUsStyle()
+                    .commonTitle(text: data['title'], color: titleColor),
+                const Space(0, 5),
                 AboutUsFontStyle().mulishtextLayout(
-                    text: data
-                    ['desc'],
+                    text: data['desc'],
                     overflow: TextOverflow.clip,
                     height: 1.7,
                     fontWeight: FontWeight.normal,
-                    fontSize:
-                    AboutUsFontSize.textSizeSmall,
+                    fontSize: AboutUsFontSize.textSizeSmall,
                     color: darkContentColor),
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(11),vertical: AppScreenUtil().screenHeight(7)),
+            padding: EdgeInsets.symmetric(
+                horizontal: AppScreenUtil().screenWidth(11),
+                vertical: AppScreenUtil().screenHeight(7)),
             decoration: BoxDecoration(
                 color: primaryColor,
-                borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5))
-            ),
-            child:AboutUsWidget().commonTitle(
-                text: data
-                ['id'],
-
-                color: whiteColor),
-
+                borderRadius:
+                    BorderRadius.circular(AppScreenUtil().borderRadius(5))),
+            child: AboutUsStyle()
+                .commonTitle(text: data['id'], color: whiteColor),
           ),
-
         ],
       ),
     );

@@ -52,13 +52,6 @@ class MyCartListController extends GetxController {
     }
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-
-    super.onInit();
-  }
-
 //get data
   getData() {
     offerList = AppArray().offerList;
@@ -68,20 +61,15 @@ class MyCartListController extends GetxController {
   }
 
   //offer detail bottom sheet
-  bottomSheet(
-      {data, context}) {
+  bottomSheet({data, context}) {
     showModalBottomSheet<void>(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
             topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
       ),
-      // context and builder are
-      // required properties in this widget
       context: context,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
         return OfferDetail(
           data: data,
         );

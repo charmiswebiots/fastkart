@@ -1,7 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/drawer/util/drawer_constants.dart';
-import 'package:fastkart/views/pages/login/util/login_constants.dart';
-import 'package:flutter/material.dart';
 
 class DrawerFontStyle {
 //nunito font family text layout

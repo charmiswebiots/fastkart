@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/addressList/util/address_list_constants.dart';
-import 'package:flutter/material.dart';
 
 class AddressListFontStyle {
 //nunito font family text layout

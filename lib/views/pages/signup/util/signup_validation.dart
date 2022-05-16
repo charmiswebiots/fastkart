@@ -15,7 +15,6 @@ class SignupValidation {
     } else {
       return null;
     }
-    return null;
   }
 
   //validate for password

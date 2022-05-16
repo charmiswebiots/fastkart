@@ -42,7 +42,7 @@ class CommonDrawerList extends StatelessWidget {
                         : index == appCtrl.drawerSelectedIndex
                         ? appCtrl.appTheme.drawerSelectColor
                         : appCtrl.appTheme.titleColor),
-                    Space(20, 0),
+                    const Space(20, 0),
                     DrawerFontStyle().mulishtextLayout(
                         text: title, fontSize: fontSize!, color:  index == 9
                         ? appCtrl.appTheme.titleColor

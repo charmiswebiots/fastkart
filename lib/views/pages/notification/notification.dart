@@ -1,16 +1,7 @@
-import 'package:fastkart/controllers/notification_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/notification/notification_card.dart';
-import 'package:fastkart/views/pages/notification/util/notification_constants.dart';
-import 'package:fastkart/views/pages/notification/util/notification_fontstyle.dart';
-import 'package:fastkart/views/pages/notification/util/notification_widget.dart';
-
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class Notification extends StatelessWidget {
-  var notificationCtrl = Get.put(NotificationController());
+  final notificationCtrl = Get.put(NotificationController());
 
   Notification({Key? key}) : super(key: key);
 
@@ -24,12 +15,11 @@ class Notification extends StatelessWidget {
                 bgColor: notificationCtrl.appCtrl.appTheme.whiteColor,
                 titleColor: notificationCtrl.appCtrl.appTheme.titleColor,
                 text: NotificationFont().notification,
-                onTap: ()=> notificationCtrl.goToHome()
-            ),
+                onTap: () => notificationCtrl.goToHome()),
             backgroundColor: notificationCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: SingleChildScrollView(
@@ -40,124 +30,16 @@ class Notification extends StatelessWidget {
                     child: Column(
                       children: [
                         //days and mark read all layout
-                        NotificationWidget().categoryLayout(
-                            context: context,
-                            color:
-                                notificationCtrl.appCtrl.appTheme.textBoxColor,
-                            child: Container(
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: NotificationWidget().tabBarLayout(
-                                        controller:
-                                            notificationCtrl.tabController,
-                                        titleColor: notificationCtrl
-                                            .appCtrl.appTheme.titleColor,
-                                        primary: notificationCtrl
-                                            .appCtrl.appTheme.primary,
-                                        tab1: NotificationFont().alert,
-                                        tab2: NotificationFont().offers),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset(
-                                        iconAssets.check,
-                                        height:
-                                            AppScreenUtil().screenHeight(20),
-                                      ),
-                                      NotificationFontStyle().mulishtextLayout(
-                                          text: NotificationFont().markRead,
-                                          color: notificationCtrl
-                                              .appCtrl.appTheme.primary,
-                                          fontSize: NotificationFontSize
-                                              .textSizeSMedium)
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )),
-                        Container(
+                        const NotificationCategoryLayout(),
+
+                        SizedBox(
                           height: AppScreenUtil().screenHeight(750),
                           child: TabBarView(
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               controller: notificationCtrl.tabController,
-                              children: <Widget>[
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal:
-                                          AppScreenUtil().screenWidth(15)),
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemCount: notificationCtrl
-                                        .notificationList.length,
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                        margin: EdgeInsets.only(
-                                            bottom: AppScreenUtil()
-                                                .screenWidth(30)),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            NotificationWidget().titleLayout(
-                                                text: notificationCtrl
-                                                    .notificationList[index]
-                                                        ['day']
-                                                    .toString(),
-                                                color: notificationCtrl.appCtrl
-                                                    .appTheme.darkContentColor),
-                                            ...notificationCtrl
-                                                .notificationList[index]
-                                                    ['child']
-                                                .map((e) {
-                                              return NotificationCard(data: e,titleColor: notificationCtrl.appCtrl.appTheme.titleColor,dateColor: notificationCtrl.appCtrl.appTheme.darkContentColor,primaryColor: notificationCtrl.appCtrl.appTheme.primary,);
-                                            }).toList()
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal:
-                                      AppScreenUtil().screenWidth(15)),
-                                  child: ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemCount: notificationCtrl
-                                        .notificationList.length,
-                                    itemBuilder: (context, index) {
-                                      return Container(
-                                        margin: EdgeInsets.only(
-                                            bottom: AppScreenUtil()
-                                                .screenWidth(30)),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            NotificationWidget().titleLayout(
-                                                text: notificationCtrl
-                                                    .notificationList[index]
-                                                ['day']
-                                                    .toString(),
-                                                color: notificationCtrl.appCtrl
-                                                    .appTheme.darkContentColor),
-                                            ...notificationCtrl
-                                                .notificationList[index]
-                                            ['child']
-                                                .map((e) {
-                                              return NotificationCard(data: e,titleColor: notificationCtrl.appCtrl.appTheme.titleColor,dateColor: notificationCtrl.appCtrl.appTheme.darkContentColor,primaryColor: notificationCtrl.appCtrl.appTheme.primary,);
-                                            }).toList()
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
+                              children: const <Widget>[
+                                TabBarViewLayout(),
+                                TabBarViewLayout(),
                               ]),
                         )
                       ],

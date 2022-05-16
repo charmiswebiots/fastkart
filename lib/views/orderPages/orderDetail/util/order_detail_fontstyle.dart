@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/orderPages/orderDetail/util/order_detail_constants.dart';
-import 'package:flutter/material.dart';
 
 class OrderDetailFontStyle {
 //nunito font family text layout

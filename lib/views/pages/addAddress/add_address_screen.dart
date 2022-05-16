@@ -21,7 +21,7 @@ class AddAddress extends StatelessWidget {
             backgroundColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(
@@ -30,16 +30,14 @@ class AddAddress extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   children: [
                     SingleChildScrollView(
-                      child: Container(
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: [
-                            BackgroundLayout(icon: iconAssets.truck),
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          BackgroundLayout(icon: iconAssets.truck),
 
-                            // Content Layout
-                            ContentBgLayout()
-                          ],
-                        ),
+                          // Content Layout
+                          const ContentBgLayout()
+                        ],
                       ),
                     ),
 

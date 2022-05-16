@@ -3,7 +3,7 @@ import 'package:dotted_line/dotted_line.dart';
 import '../../../../config.dart';
 
 class DottedLineLayout extends StatelessWidget {
-  final color;
+  final Color? color;
 
   const DottedLineLayout({Key? key, this.color}) : super(key: key);
 
@@ -13,7 +13,7 @@ class DottedLineLayout extends StatelessWidget {
       child: DottedLine(
         direction: Axis.horizontal,
         dashLength: 5,
-        dashColor: color,
+        dashColor: color!,
         lineThickness: 2,
         dashRadius: 2,
       ),

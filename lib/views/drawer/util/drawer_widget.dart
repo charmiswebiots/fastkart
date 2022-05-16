@@ -1,4 +1,3 @@
-import 'package:fastkart/utilities/responsive_layout.dart';
 import '../../../config.dart';
 
 class DrawerWidget {

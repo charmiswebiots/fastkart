@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/orderPages/orderSuccess/util/order_success_constants.dart';
-import 'package:flutter/material.dart';
 
 class OrderSuccessFontStyle {
 //nunito font family text layout

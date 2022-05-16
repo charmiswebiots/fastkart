@@ -17,20 +17,20 @@ class OrderSuccessDetail extends StatelessWidget {
               children: [
                 //success image layout
                 Image.asset(imageAssets.success),
-                Space(0, 20),
+                const  Space(0, 20),
                 //thankyou text layout
                 OrderSuccessStyle()
                     .thankYouText(orderSuccessCtrl.appCtrl.appTheme.titleColor),
-                Space(0, 10),
+                const  Space(0, 10),
 
                 //description layout
                 OrderSuccessStyle().descriptionText(
                     orderSuccessCtrl.appCtrl.appTheme.darkContentColor),
-                Space(0, 5),
+                const Space(0, 5),
                 Divider(
                   color: orderSuccessCtrl.appCtrl.appTheme.contentColor,
                 ),
-                Space(0, 5),
+                const Space(0, 5),
                 //order date and id layout
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +47,7 @@ class OrderSuccessDetail extends StatelessWidget {
                 ),
 
                 //price detail
-                PriceDetailColorLayout()
+                const PriceDetailColorLayout()
               ],
             ),
           ),

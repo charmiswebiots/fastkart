@@ -58,7 +58,7 @@ class CardList extends StatelessWidget {
                       height: AppScreenUtil()
                           .screenHeight(20),
                     ),
-                    Space(10, 0),
+                    const Space(10, 0),
                     PaymentFontStyle().nunitotextLayout(
                         text: data['number'],
                         fontWeight:

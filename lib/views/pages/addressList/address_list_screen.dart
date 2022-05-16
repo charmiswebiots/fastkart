@@ -1,14 +1,7 @@
-import 'package:fastkart/controllers/address_list_controller.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/addressList/address_list_card.dart';
-import 'package:fastkart/views/pages/addressList/util/address_list_constants.dart';
-import 'package:fastkart/views/pages/addressList/util/address_list_widget.dart';
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class AddressListScreen extends StatelessWidget {
-  var addAddressCtrl = Get.put(AddressListController());
+  final addAddressCtrl = Get.put(AddressListController());
 
   AddressListScreen({Key? key}) : super(key: key);
 
@@ -25,12 +18,8 @@ class AddressListScreen extends StatelessWidget {
               titleSpacing: 0,
               centerTitle: false,
               leading: AddressListWidget().appBarLeadingLayput(
-                  onTap: () => Get.back(),
-                  borderColor: addAddressCtrl.appCtrl.appTheme.titleColor,
-                  iconColor: addAddressCtrl.appCtrl.appTheme.titleColor,
-                  image: addAddressCtrl.appCtrl.isTheme
-                      ? imageAssets.themeFkLogo
-                      : imageAssets.fkLogo),
+                onTap: () => Get.back(),
+              ),
               title: AddressListWidget().appBarTitleLayout(
                   text: AddressListFont().selectDeliveryAddress,
                   textColor: addAddressCtrl.appCtrl.appTheme.titleColor),
@@ -42,7 +31,7 @@ class AddressListScreen extends StatelessWidget {
             backgroundColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {
-                overscroll.disallowGlow();
+                overscroll.disallowIndicator();
                 return false;
               },
               child: Container(
@@ -69,24 +58,15 @@ class AddressListScreen extends StatelessWidget {
                                   horizontal: AppScreenUtil().screenWidth(15)),
                               child: ListView.builder(
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: AppArray().newAddressList.length,
                                 itemBuilder: (context, index) {
                                   return AddressListCard(
-                                    onTap: () => addAddressCtrl.selectAddress(index),
+                                    onTap: () =>
+                                        addAddressCtrl.selectAddress(index),
                                     data: AppArray().newAddressList[index],
                                     index: index,
                                     selectedIndex: addAddressCtrl.selectedIndex,
-                                    containerColor: addAddressCtrl
-                                        .appCtrl.appTheme.wishtListBoxColor,
-                                    titleColor: addAddressCtrl
-                                        .appCtrl.appTheme.titleColor,
-                                    primaryColor:
-                                        addAddressCtrl.appCtrl.appTheme.primary,
-                                    whiteColor:
-                                        addAddressCtrl.appCtrl.appTheme.white,
-                                    darkContentColor: addAddressCtrl
-                                        .appCtrl.appTheme.darkContentColor,
                                   );
                                 },
                               ),

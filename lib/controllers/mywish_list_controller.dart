@@ -31,15 +31,6 @@ class MyWishListController extends GetxController{
     }
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    /*offerList = AppArray().offerList;
-    update();*/
-
-    super.onInit();
-  }
-
   getData(){
     offerList = AppArray().offerList;
     update();

@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/aboutUs/util/about_us_constants.dart';
-import 'package:flutter/material.dart';
 
 class AboutUsFontStyle {
 //nunito font family text layout
