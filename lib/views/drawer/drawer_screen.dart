@@ -46,7 +46,7 @@ class DrawerScreen extends StatelessWidget {
                                   borderRadius: 50,
                                   image: imageAssets.usersquare,
                                   imageHeight: 50,
-                                  userName: DrawerFont().userName,
+                                  userName: DrawerFont().andreaJoanne,
                                   userEmail: DrawerFont().userEmail,
                                   nameFontSize: 14,
                                   emailFontSize: 12),
@@ -63,7 +63,7 @@ class DrawerScreen extends StatelessWidget {
 
                                     index: e.key,
                                     image: e.value['icon'],
-                                    title: e.value['title'].toString().tr,
+                                    title: e.value['title'],
                                     onToggle: (val) {
                                       appCtrl.isTheme = val;
                                       appCtrl.update();

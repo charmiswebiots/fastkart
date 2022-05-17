@@ -37,7 +37,7 @@ class AddressLayout extends StatelessWidget {
                         .appTheme
                         .titleColor),
                 OrderTrackFontStyle().mulishtextLayout(
-                    text: "Store Location",
+                    text: OrderTrackFont().storeLocation,
                     fontWeight:
                     FontWeight.normal,
                     fontSize:

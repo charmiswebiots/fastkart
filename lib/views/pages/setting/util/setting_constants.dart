@@ -1,22 +1,20 @@
 //text constants
+import 'package:get/get.dart';
+
 class SettingFont {
   String dollar = "\$";
   String emailHint = 'andreajoanne@gmail.com';
   String phonelHint = '987654321';
   String dateHint = '28/12/1990';
-  String password = 'Password';
-  String forgotPassword = 'Forgot password ?';
-  String userFieldError = "Email is Required";
-  String passwordFieldError = "Password is Required";
-  String inCorrectUsername = "Incorrect Email";
-  String passwordMininumValueEnter = "Please enter mininmum 8 characters";
-  String fullName = 'Andrea Joanne';
-  String fullNameRequired = 'Name is Required';
-  String editProfile = "Edit Profile";
-  String changePassword = "Change Password";
-  String updateSettings = "Update Settings";
-  String phoneValidation = "Required 10 digit number";
-  String phoneFieldError = "PhoneNo. is Required";
+  String password = 'password'.tr;
+  String userFieldError = "userFieldError".tr;
+  String andreaJoanne = 'andreaJoanne'.tr;
+  String fullNameRequired = 'fullNameRequired'.tr;
+  String editProfile = "editProfile".tr;
+  String changePassword = "changePassword".tr;
+  String updateSettings = "updateSettings".tr;
+  String phoneValidation = "phoneValidation".tr;
+  String phoneFieldError = "phoneFieldError".tr;
 }
 
 //font size

@@ -7,20 +7,20 @@ class ShopByCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AppController>(
-      builder: (ctrl) {
+    return GetBuilder<HomeController>(
+      builder: (homeCtrl) {
         return GridView.builder(
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: AppArray().categoryData.length,
+          itemCount: homeCtrl.categoryData.length,
           itemBuilder: (context, index) {
             return InkWell(
               onTap: ()async{
-                await ctrl.getStorage.write(
-                    'selectedIndex', ctrl.selectedIndex);
-                ctrl.selectedIndex = 1;
-                ctrl.update();
+                await homeCtrl.appCtrl.getStorage.write(
+                    'selectedIndex', homeCtrl.appCtrl.selectedIndex);
+                homeCtrl.appCtrl.selectedIndex = 1;
+                homeCtrl.appCtrl.update();
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +55,7 @@ class ShopByCategory extends StatelessWidget {
                   ),
                   const Space(0, 5),
                   HomeFontStyle().mulishtextLayout(
-                      color: ctrl.appTheme.titleColor,
+                      color: homeCtrl.appCtrl.appTheme.titleColor,
                       text: AppArray().categoryData[index].title.toString(),
                       textAlign: TextAlign.center,
                       fontWeight: FontWeight.w700,

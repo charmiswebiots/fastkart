@@ -23,7 +23,7 @@ class LowestPriceAndButton extends StatelessWidget {
               CommonHorizontalList(
                 text: HomeFont().lowestPrice,
                 title: HomeFont().payLessGetMore,
-                data: AppArray().lowerPriceList,
+                data: homeCtrl.lowerPriceList,
               ),
               const Space(0, 20),
 

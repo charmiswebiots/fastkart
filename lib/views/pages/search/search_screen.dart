@@ -30,7 +30,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     children: [
                       //search product textformfield layout
                       CommonSearchTextForm(
-                        text: CategoryFont().searchProduct,
+                        text: SearchFont().searchProduct,
                         borderColor: searchCtrl.appCtrl.appTheme.primary
                             .withOpacity(.3),
                         hintColor: searchCtrl.appCtrl.appTheme.contentColor,

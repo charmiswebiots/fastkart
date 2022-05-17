@@ -1,24 +1,25 @@
 //text constants
+import 'package:get/get.dart';
+
 class OrderHistoryFont {
-  String bagSavings = "Bag savings";
-  String orderHistory = "Order History";
-  String searchProduct = "Search Products here..";
-  String filter = "Filter";
-  String timefilter = "Time Filter";
-  String id = "ID: ";
-  String dt = "Dt: ";
-  String paid = "Paid: ";
-  String items = "Items: ";
-  String orderAgain = "Order Again";
-  String close = "Close";
-  String apply = "Apply";
-  String rateReviewProduct = "Rate & Review Product";
+  String orderHistory = "orderHistory".tr;
+  String searchProduct = "searchProduct".tr;
+  String filter = "filter".tr;
+  String timefilter = "timefilter".tr;
+  String id = "id".tr;
+  String dt = "dt".tr;
+  String paid = "paid".tr;
+  String items = "items".tr;
+  String orderAgain = "orderAgain".tr;
+  String close = "close".tr;
+  String apply = "apply".tr;
+  String rateReviewProduct = "rateReviewProduct".tr;
   String dollar = "\$";
 }
 
 //font size
 class OrderHistoryFontSize {
-  static const double textXSizeSmall = 10.0;
+  static const double textXSizeSmall = 11.0;
   static const double textSizeSmall = 12.0;
   static const double textSizeSMedium = 14.0;
   static const double textSizeMedium = 16.0;

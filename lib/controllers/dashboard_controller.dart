@@ -7,6 +7,7 @@ class DashboardController extends GetxController {
   String email = '';
   String alertCount = '';
   var appCtrl = Get.put(AppController());
+  bool isLoading = false;
 
   final GlobalKey<ScaffoldState> scaffoldKey =  GlobalKey<ScaffoldState>();
 

@@ -1,19 +1,8 @@
 //text constants
+import 'package:get/get.dart';
+
 class PageListFont {
-  String userName= 'Andrea Joanne';
-  String userEmail= 'andreajoanne@gmail.com';
-  String home= 'Home';
-  String shopByCategory= 'Shop By Category';
-  String orders= 'Orders';
-  String yourWishlist= 'Your Wishlist';
-  String language= 'Language';
-  String pagesList = 'Pages List';
-  String notification = 'Notification';
-  String setting = 'Settings';
-  String contactSupport = 'Contact Support';
-  String contactSupportDesc = 'If you have any problem,queries or questions feel free to reach out';
-  String contactUs = 'Contact Us';
-  String darkTheme = 'Dark Theme';
+  String pagesList = 'pagesList'.tr;
 }
 
 //font size

@@ -1,8 +1,11 @@
 //text constants
+import 'package:get/get.dart';
+
 class OrderTrackFont {
- String orderDetail ="Order Details";
- String estimateTime ="Estimated Delivery Time";
- String courier ="Courier";
+ String orderDetail ="orderDetail".tr;
+ String estimateTime ="estimateTime".tr;
+ String courier ="courier".tr;
+ String storeLocation ="storeLocation".tr;
   String dollar = "\$";
 }
 

@@ -20,7 +20,7 @@ class OrderHistoryCard extends StatelessWidget {
           margin: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(15)),
           padding: EdgeInsets.symmetric(
               vertical: AppScreenUtil().screenHeight(15),
-              horizontal: AppScreenUtil().screenWidth(15)),
+              horizontal: AppScreenUtil().screenWidth(10)),
           decoration: BoxDecoration(
               color: orderHistoryCtrl.appCtrl.appTheme.wishtListBoxColor,
               border: Border.all(
@@ -41,7 +41,7 @@ class OrderHistoryCard extends StatelessWidget {
                       Row(
                         children: [
                           OrderHistoryStyle().commonTextLayout(
-                              text: OrderHistoryFont().id,
+                              text: OrderHistoryFont().id + ' ',
                               color:
                                   orderHistoryCtrl.appCtrl.appTheme.titleColor),
                           OrderHistoryStyle().commonTextLayout(
@@ -49,7 +49,7 @@ class OrderHistoryCard extends StatelessWidget {
                               color:
                                   orderHistoryCtrl.appCtrl.appTheme.titleColor),
                           OrderHistoryStyle().commonTextLayout(
-                              text: OrderHistoryFont().dt,
+                              text: OrderHistoryFont().dt + ' ',
                               color:
                                   orderHistoryCtrl.appCtrl.appTheme.titleColor),
                           OrderHistoryStyle().commonTextLayout(
@@ -68,7 +68,7 @@ class OrderHistoryCard extends StatelessWidget {
                       Row(
                         children: [
                           OrderHistoryStyle().commonTextLayout(
-                              text: OrderHistoryFont().paid,
+                              text: OrderHistoryFont().paid+ ' ',
                               color:
                                   orderHistoryCtrl.appCtrl.appTheme.titleColor,
                               fontWeight: FontWeight.normal),
@@ -81,7 +81,7 @@ class OrderHistoryCard extends StatelessWidget {
                                     orderHistoryCtrl.appCtrl.appTheme.primary),
                           ),
                           OrderHistoryStyle().commonTextLayout(
-                              text: OrderHistoryFont().items,
+                              text: OrderHistoryFont().items+ ' ',
                               color:
                                   orderHistoryCtrl.appCtrl.appTheme.titleColor,
                               fontWeight: FontWeight.normal),

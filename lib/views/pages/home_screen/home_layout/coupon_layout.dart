@@ -5,11 +5,11 @@ class CouponLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AppController>(builder: (appCtrl) {
+    return GetBuilder<HomeController  >(builder: (homeCtrl) {
       return Container(
         height: MediaQuery.of(context).size.height * 30 / 100,
         width: MediaQuery.of(context).size.width,
-        color: appCtrl.appTheme.couponBoxColor,
+        color: homeCtrl.appCtrl.appTheme.couponBoxColor,
         padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
           right: AppScreenUtil().screenWidth(15),
@@ -23,12 +23,12 @@ class CouponLayout extends StatelessWidget {
             HomeStyle().commonTitleAndSeeAllWidget(
                 title: HomeFont().coupensForYou,
                 seeAllText: HomeFont().seeAll,
-                seeAllColor: appCtrl.appTheme.primary),
+                seeAllColor: homeCtrl.appCtrl.appTheme.primary),
             const Space(0, 5),
             //popular offers of the day text widget
             HomeWidget().commonDescriptionTextWidget(
                 text: HomeFont().payLessGetMore,
-                color: appCtrl.appTheme.darkContentColor),
+                color: homeCtrl.appCtrl.appTheme.darkContentColor),
             SizedBox(
               height: MediaQuery.of(context).size.height * 20 / 100,
               child: ListView.builder(
@@ -38,11 +38,11 @@ class CouponLayout extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return CouponCard(
                       index: index,
-                      isTheme: appCtrl.isTheme,
-                      titleColor: appCtrl.appTheme.bannerTitleColor,
+                      isTheme: homeCtrl.appCtrl.isTheme,
+                      titleColor: homeCtrl.appCtrl.appTheme.bannerTitleColor,
                       couponModel: AppArray().couponData[index],
-                      primaryColor: appCtrl.appTheme.primary,
-                      decriptionColor: appCtrl.appTheme.darkContentColor);
+                      primaryColor: homeCtrl.appCtrl.appTheme.primary,
+                      decriptionColor: homeCtrl.appCtrl.appTheme.darkContentColor);
                 },
               ),
             ),

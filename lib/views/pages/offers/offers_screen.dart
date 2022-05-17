@@ -39,7 +39,7 @@ class _OfferScreenState extends State<OfferScreen> {
                             children: [
                               Expanded(
                                 child: CommonSearchTextForm(
-                                  text: CategoryFont().searchProduct,
+                                  text: OfferFont().searchProduct,
                                   borderColor: offerCtrl
                                       .appCtrl.appTheme.primary
                                       .withOpacity(.3),

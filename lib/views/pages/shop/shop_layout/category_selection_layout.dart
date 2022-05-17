@@ -22,29 +22,29 @@ class CategorySelectionLayout extends StatelessWidget {
                   horizontal: AppScreenUtil().screenWidth(25)),
               child: DropdownButton(
                 value: shopCtrl.dropDownVal,
-                items: const [
+                items:  [
                   //add items in the dropdown
                   DropdownMenuItem(
-                    child: Text("Fresh Fruits& Vegetables"),
+                    child: Text(ShopFont().freshFruitsVegetables),
                     value: "Fresh Fruits& Vegetables",
                   ),
                   DropdownMenuItem(
-                      child: Text("Oils,Refined & Ghee"),
+                      child: Text(ShopFont().oilsRefinedGhee),
                       value: "Oils,Refined & Ghee"),
                   DropdownMenuItem(
-                    child: Text("Rice, Flour & Gains"),
+                    child: Text(ShopFont().riceFlourGains),
                     value: "Rice, Flour & Gains",
                   ),
                   DropdownMenuItem(
-                    child: Text("Food Cupboard"),
+                    child: Text(ShopFont().foodCupboard),
                     value: "Food Cupboard",
                   ),
                   DropdownMenuItem(
-                    child: Text("Drink& Beverages"),
+                    child: Text(ShopFont().drinkBeverages),
                     value: "Drink& Beverages",
                   ),
                   DropdownMenuItem(
-                    child: Text("Instant Mixes"),
+                    child: Text(ShopFont().instantMixes),
                     value: "Instant Mixes",
                   )
                 ],

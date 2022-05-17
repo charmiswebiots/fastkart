@@ -37,7 +37,7 @@ class BackgroundLayout extends StatelessWidget {
                   ),
                   const Space(10, 0),
                   AddAddressFontStyle().mulishtextLayout(
-                      text: 'Delivery on 7th Aug, Slot: 7am to 9am',
+                      text: AddAddressFont().delivery +' on 7th Aug, ${AddAddressFont().delivery} 7am to 9am',
                       fontSize: AddAddressFontSize.textSizeSMedium,
                       color: appCtrl.appTheme.titleColor)
                 ],

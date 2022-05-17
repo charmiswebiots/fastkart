@@ -1,6 +1,8 @@
 //text constants
+import 'package:get/get.dart';
+
 class CategoryFont{
-   String searchProduct= 'Search Products here..';
+   String searchProduct= 'searchProduct'.tr;
 }
 
 

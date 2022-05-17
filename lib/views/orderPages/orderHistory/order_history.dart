@@ -41,7 +41,7 @@ class OrderHistoryScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               child: CommonSearchTextForm(
-                                text: CategoryFont().searchProduct,
+                                text: OrderHistoryFont().searchProduct,
                                 borderColor: orderHistoryCtrl
                                     .appCtrl.appTheme.primary
                                     .withOpacity(.3),

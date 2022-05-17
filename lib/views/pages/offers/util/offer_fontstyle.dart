@@ -40,11 +40,12 @@ class OfferFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
+        TextAlign textAlign = TextAlign.center,
         double fontSize = OfferFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: AppCss().quicksandTextStyle(
           color: color,
           fontSize:  AppScreenUtil().fontSize(fontSize),

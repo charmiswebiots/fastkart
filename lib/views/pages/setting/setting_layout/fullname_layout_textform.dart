@@ -21,7 +21,7 @@ class FullNameTextForm extends StatelessWidget {
           focusNode: settingCtrl.usernameFocus,
           validator: (value) =>
               LoginValidation().checkIDValidation(value),
-          text: SettingFont().fullName,
+          text: SettingFont().andreaJoanne,
           borderColor: settingCtrl.appCtrl.appTheme.primary
               .withOpacity(.3),
           hintColor: settingCtrl.appCtrl.appTheme.contentColor,

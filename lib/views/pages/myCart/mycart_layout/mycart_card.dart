@@ -12,6 +12,7 @@ class MyCartCard extends StatelessWidget {
   final GestureTapCallback? minusTap;
   final GestureTapCallback? plusTap;
   final GestureTapCallback? onTap;
+  final bool? isCart;
 
   const   MyCartCard(
       {Key? key,
@@ -25,7 +26,7 @@ class MyCartCard extends StatelessWidget {
       this.quantityBorderColor,
       this.minusTap,
       this.plusTap,
-      this.onTap})
+      this.onTap,this.isCart})
       : super(key: key);
 
   @override
@@ -75,8 +76,9 @@ class MyCartCard extends StatelessWidget {
                           fontSize: 10,
                           color: discountTextColor,
                         )),
-                    const Space(45, 0),
+                    const Space(35, 0),
                     QuantityLayout(
+                      isCart: isCart,
                       minusTap: minusTap,
                       plusTap: plusTap,
                       quantity:  data['quantity'].toString(),

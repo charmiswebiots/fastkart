@@ -25,7 +25,7 @@ class OfferListCardLayout extends StatelessWidget {
     return InkWell(
         onTap: onTap,
         child: OfferStyle().cardBGLayout(
-          context: context,
+            context: context,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -34,7 +34,7 @@ class OfferListCardLayout extends StatelessWidget {
                     OfferFontStyle().quicksandtextLayout(
                         text: data['discount'],
                         color: primaryColor,
-                        fontSize: OfferFontSize.textSizeXLarge,
+                        fontSize: OfferFontSize.textSizeLarge,
                         fontWeight: FontWeight.bold),
                     const Space(5, 0),
                     Column(
@@ -47,13 +47,13 @@ class OfferListCardLayout extends StatelessWidget {
                             fontSize: OfferFontSize.textSizeSMedium,
                             fontWeight: FontWeight.normal),
                         OfferFontStyle().quicksandtextLayout(
-                            text: "OFF",
+                            text: OfferFont().off,
                             color: primaryColor,
                             fontSize: OfferFontSize.textSizeSmall,
                             fontWeight: FontWeight.normal)
                       ],
                     ),
-                    const Space(5, 0),
+                    const Space(8, 0),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,

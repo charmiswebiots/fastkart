@@ -37,7 +37,7 @@ class OrderDetail extends StatelessWidget {
                           horizontal: AppScreenUtil().screenWidth(15),vertical: AppScreenUtil().screenHeight(10)),
                       child: CustomButton(
                         height: 40,
-                        title: OrderSuccessFont().orderTrack,
+                        title: OrderDetailFont().reorder,
                         color: orderDetailCtrl.appCtrl.appTheme.primary,
                         fontColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
                         onTap: () => orderDetailCtrl.reorder(),

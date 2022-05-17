@@ -23,6 +23,7 @@ class CartListLayout extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
                   return SlidableLayout(
+                    isCart:true,
                     data: wishListCtrl.offerList[index],
                     plusTap:()=>  wishListCtrl.plusTap(index),
                     minusTap:()=>  wishListCtrl.minusTap(index),

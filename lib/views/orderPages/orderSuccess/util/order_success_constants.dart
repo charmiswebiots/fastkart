@@ -1,16 +1,19 @@
 //text constants
+import 'package:get/get.dart';
+
 class OrderSuccessFont {
-  String orderTrack = "Track Package on Map";
-  String thankYou = "Thank you for your order!";
-  String des = "your order has been placed successfully. your order ID is #548475151";
-  String orderDate = "Order Date";
-  String orderId = "Order ID";
-  String orderDetails = "Order Details";
-  String bagTotal= "Bag total";
-  String delivery= "Delivery";
-  String totalAmount= "Total Amount";
-  String couponDiscount= "Coupon Discount";
-  String bagSavings= "Bag savings";
+  String orderTrack = "orderTrack".tr.tr;
+  String thankYou = "thankYou".tr;
+  String des = "des".tr;
+  String orderDate = "orderDate".tr;
+  String orderId = "orderId".tr;
+  String orderDetails = "orderDetails".tr;
+  String bagTotal= "bagTotal".tr;
+  String delivery= "delivery".tr;
+  String totalAmount= "totalAmount".tr;
+  String couponDiscount= "couponDiscount".tr;
+  String bagSavings= "bagSavings".tr;
+  String applyCoupon = 'Apply Coupon'.tr;
   String dollar = "\$";
 }
 

@@ -36,10 +36,10 @@ class ProductDetailMainLayout extends StatelessWidget {
                       ),
                     ),
                     //price layout
-                    const ProductPriceLayout(
+                     ProductPriceLayout(
                       discountPrice: '25.00',
                       totalPrice: '45.00',
-                      discountText: '25% off',
+                      discountText: ('25% ' + 'off'.tr),
                     ),
 
                     const Space(0, 15),
@@ -53,7 +53,7 @@ class ProductDetailMainLayout extends StatelessWidget {
                     const Space(0, 15),
                     //product review count and see All text
                     ProductReviewAndSeeAll(
-                        text: 'Product Review(15)',
+                        text: ProductDetailFont().productReview + '(15)',
                         onTap: () => productDetailCtrl.commonBottomSheet(
                             context: context,index: 2),
                         seeAll: ProductDetailFont().seeAll),

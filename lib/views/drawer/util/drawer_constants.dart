@@ -1,20 +1,13 @@
 //text constants
+import 'package:get/get.dart';
+
 class DrawerFont{
-   String userName= 'Andrea Joanne';
+   String andreaJoanne= 'andreaJoanne'.tr;
    String userEmail= 'andreajoanne@gmail.com';
-   String home= 'Home';
-   String shopByCategory= 'Shop By Category';
-   String orders= 'Orders';
-   String yourWishlist= 'Your Wishlist';
-   String language= 'Language';
-   String yourAccount = 'Your Account';
-   String notification = 'Notification';
-   String setting = 'Settings';
-   String contactSupport = 'Contact Support';
-   String contactSupportDesc = 'If you have any problem,queries or questions feel free to reach out';
-   String contactUs = 'Contact Us';
-   String darkTheme = 'Dark Theme';
-   String selectLanguage = 'Select Language';
+   String contactSupport = 'contactSupport'.tr;
+   String contactSupportDesc = 'contactSupportDesc'.tr;
+   String contactUs = 'contactUs'.tr;
+   String selectLanguage = 'selectLanguage'.tr;
 
 }
 

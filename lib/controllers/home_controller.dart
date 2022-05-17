@@ -1,8 +1,14 @@
-
 import 'package:fastkart/config.dart';
 
 class HomeController extends GetxController {
   List offerList = [];
+  List bannerList = [];
+  List recentBoughtList = [];
+  List categoryData = [];
+  List lowerPriceList = [];
+  List everyDayEssentialList = [];
+  List couponData = [];
+  bool isLoading = false;
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
@@ -30,51 +36,29 @@ class HomeController extends GetxController {
     }
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    offerList = AppArray().offerList;
+  //get data
+  getData() async{
+
+    isLoading = true;
     update();
-    //loadLocalRecipe();
-    super.onInit();
+    await Future.delayed(Durations.s2);
+
+    offerList = AppArray().offerList;
+    bannerList = AppArray().bannerList;
+    recentBoughtList = AppArray().recentBoughtList;
+    categoryData = AppArray().categoryData;
+    lowerPriceList = AppArray().lowerPriceList;
+    everyDayEssentialList = AppArray().everyDayEssentialList;
+    couponData = AppArray().couponData;
+    await Future.delayed(Durations.s3);
+    isLoading = false;
+    update();
   }
-
- /* Future<List<RecipeModel>> loadLocalRecipe() async {
-    try {
-      String response =
-          await rootBundle.loadString('assets/jsonFile/userlist.json');
-
-      List<dynamic> result = json.decode(response);
-      return result.map((n) => RecipeModel.fromJson(n)).toList();
-    } catch (e) {
-      throw const Padding(
-        padding: EdgeInsets.only(top: 50),
-        child: Center(
-          child: Text('Convert Error'),
-        ),
-      );
-    }
-  }*/
 
   @override
   void onReady() {
     // TODO: implement onReady
-    offerList = AppArray().offerList;
-    update();
+    getData();
     super.onReady();
   }
 }
-
-/*
-class RecipeModel {
-  RecipeModel({
-    required this.image,
-  });
-
-  String image;
-
-  factory RecipeModel.fromJson(Map<String, dynamic> json) => RecipeModel(
-        image: json["image"] == null ? null : json["image"],
-      );
-}
-*/

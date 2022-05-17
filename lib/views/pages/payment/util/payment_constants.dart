@@ -1,27 +1,23 @@
 //text constants
+import 'package:get/get.dart';
+
 class PaymentFont{
-   String howCanWeHelp= 'How Can We Help...';
-   String useCurrentLocation= 'Use current location';
-   String packSize= 'Pack Size';
-   String selectCard= 'Select Card';
-   String netBanking= 'Net Banking';
-   String category= 'Category';
-   String viewCart= "View Cart";
-   String addAddress = "Add New Address";
-   String confirmPayment = "Confirm Payment";
-   String addPaymentMethod= "Add Payment Method";
-   String cashonDelivery= "Cash on Delivery";
-   String orderDetails= "Order Details";
-   String bagTotal= "Bag total";
-   String delivery= "Delivery";
-   String totalAmount= "Total Amount";
-   String couponDiscount= "Coupon Discount";
-   String bagSavings= "Bag savings";
-   String addCard = "Add Card";
-   String cardHolderName = "Card Holder Name";
-   String cardNumber = "Card Number";
-   String expiryDate = "Expiry Date";
-   String cv = "CV";
+   String addNewAddress = "addNewAddress".tr;
+   String confirmPayment = "confirmPayment".tr;
+   String addPaymentMethod= "addPaymentMethod".tr;
+   String cashonDelivery= "cashonDelivery".tr;
+   String orderDetails= "orderDetails".tr;
+   String bagTotal= "bagTotal".tr;
+   String delivery= "delivery".tr;
+   String totalAmount= "totalAmount".tr;
+   String couponDiscount= "couponDiscount".tr;
+   String bagSavings= "bagSavings".tr;
+   String addCard = "addCard".tr;
+   String cardHolderName = "cardHolderName".tr;
+   String cardNumber = "cardNumber".tr;
+   String expiryDate = "expiryDate".tr;
+   String cv = "cv".tr;
+   String applyCoupon = 'Apply Coupon'.tr;
    String dollar = "\$";
 
 }

@@ -39,7 +39,7 @@ class PriceDetailLayout extends StatelessWidget {
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().couponDiscount,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: 'Apply Coupon',
+                val: MyCartFont().applyCoupon,
                 fontWeight: FontWeight.normal,
                 valColor: appCtrl.appTheme.redColor),
             const Space(0, 10),

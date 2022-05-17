@@ -13,6 +13,7 @@ class OrderTrackDetail extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  const Space(0, 2),
                   //estimated delivery text layout
                   OrderTrackStyle().estimatedDeliveryText(orderTrackCtrl.appCtrl.appTheme.darkContentColor),
                   const Space(0, 5),

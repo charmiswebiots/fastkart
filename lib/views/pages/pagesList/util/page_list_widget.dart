@@ -76,7 +76,7 @@ class PageListWidget {
       ),
       child: PageListFontStyle().mulishtextLayout(
           height: 1.5,
-          text: "Checkout all pages and their varations over here. following are the list of all the pages.",
+          text: "detail3".tr,
           overflow: TextOverflow.clip,
           color: titleColor,
           fontWeight: FontWeight.w600,

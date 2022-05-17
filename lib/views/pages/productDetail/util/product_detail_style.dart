@@ -20,7 +20,7 @@ class ProductDetailStyle {
       padding:
           EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
       child: ProductDetailFontStyle().mulishtextLayout(
-          text: 'Assorted Capsicum Combo-  (Red, Yellow, Green)',
+          text: 'Assorted Capsicum Combo'.tr + ' - ' + 'colorName'.tr,
           fontSize: ProductDetailFontSize.textSizeSMedium,
           fontWeight: FontWeight.w800,
           overflow: TextOverflow.clip),
@@ -30,7 +30,7 @@ class ProductDetailStyle {
   //rating value
   Widget ratingValueLayout(darkContentColor) {
     return ProductDetailFontStyle().mulishtextLayout(
-        text: '(150 Ratings)',
+        text: '(150 ${ProductDetailFont().ratings})',
         fontSize: ProductDetailFontSize.textSizeSmall,
         color: darkContentColor,
         fontWeight: FontWeight.w600,

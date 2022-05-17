@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 class AppController extends GetxController {
   AppTheme _appTheme = AppTheme.fromType(ThemeType.light);
   bool _isLoading = false;
+  bool isShimmer = true;
   int drawerSelectedIndex = 0;
   int selectedIndex = 0;
   bool isTheme = false;
@@ -31,13 +32,28 @@ class AppController extends GetxController {
   void onReady() {
     //updateTheme(AppTheme.fromType(ThemeType.light));
     getData();
-    drawerList = AppArray().drawerList;
-    update();
+
     super.onReady();
   }
 
   //get theme value
   getData() async {
+    isShimmer = true;
+    update();
+    //language check
+    // check which Language is selected
+    String? languageCode = storage.read(Session.languageCode);
+    String? countryCode = storage.read(Session.countryCode);
+
+    if (languageCode != null && countryCode != null) {
+      var locale = Locale(languageCode, countryCode);
+      Get.updateLocale(locale);
+    } else {
+      Get.updateLocale(Get.deviceLocale ?? const Locale('en', 'US'));
+    }
+    update();
+
+    //theme check
     bool _loadThemeFromStorage = getStorage.read('isDarkMode') ?? false;
     if (_loadThemeFromStorage) {
       isTheme = true;
@@ -49,6 +65,11 @@ class AppController extends GetxController {
     ThemeService().switchTheme(isTheme);
     Get.forceAppUpdate();
     await getStorage.read('isDarkMode');
+
+    drawerList = AppArray().drawerList;
+    await Future.delayed(Durations.s5);
+    isShimmer = false;
+    update();
   }
 
   //google Login function
@@ -91,22 +112,22 @@ class AppController extends GetxController {
   //language selection
   languageSelection(e) async {
     print('name : ${e['name']}');
-    if (e['name'] == "English") {
+    if (e['name'] == "English" || e['name'] == 'अंग्रेजी' || e['name'] == 'انجليزي' || e['name'] == '영어') {
       var locale = const Locale("en", 'US');
       Get.updateLocale(locale);
       getStorage.write(Session.languageCode, "en");
       getStorage.write(Session.countryCode, "US");
-    } else if (e['name'] == "Arabic") {
+    } else if (e['name'] == "Arabic" || e['name'] == 'अरबी' || e['name'] == 'عربي' || e['name'] == '아랍어') {
       var locale = const Locale("ar", 'AE');
       Get.updateLocale(locale);
       getStorage.write(Session.languageCode, "ar");
       getStorage.write(Session.countryCode, "AE");
-    }else if (e['name'] == "Korean") {
+    }else if (e['name'] == "Korean" || e['name'] == 'कोरियाई' || e['name'] == 'كوري' || e['name'] == '한국어') {
       var locale = const Locale("ko", 'KR');
       Get.updateLocale(locale);
       getStorage.write(Session.languageCode, "ko");
       getStorage.write(Session.countryCode, "KR");
-    }else if (e['name'] == "Hindi") {
+    }else if (e['name'] == "Hindi" || e['name'] == 'हिंदी' || e['name'] == 'هندي' || e['name'] == '힌디어') {
       var locale = const Locale("hi", 'IN');
       Get.updateLocale(locale);
       getStorage.write(Session.languageCode, "hi");

@@ -23,7 +23,7 @@ class OfferDetail extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       OfferFontStyle().quicksandtextLayout(
-                          text: "Flat ${data['discount']}% off",
+                          text: OfferFont().flat + " ${data['discount']}% " + OfferFont().off,
                           color: appCtrl.appTheme.white,
                           fontSize: OfferFontSize.textSizeNormal,
                           fontWeight: FontWeight.bold),
@@ -42,7 +42,7 @@ class OfferDetail extends StatelessWidget {
                               Row(
                                 children: [
                                   OfferFontStyle().mulishtextLayout(
-                                      text: "Code:",
+                                      text: OfferFont().code,
                                       color: appCtrl.appTheme.white,
                                       fontSize: OfferFontSize.textSizeSMedium,
                                       fontWeight: FontWeight.normal),

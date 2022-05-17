@@ -64,7 +64,7 @@ class OfferUICard extends StatelessWidget {
                                 FontWeight.normal),
                             MyCartFontStyle()
                                 .quicksandtextLayout(
-                                text: "OFF",
+                                text: "off".tr,
                                 color:
                                 appCtrl.appTheme.primary,
                                 fontSize:
@@ -119,7 +119,7 @@ class OfferUICard extends StatelessWidget {
                       CrossAxisAlignment.start,
                       children: [
                         MyCartFontStyle().quicksandtextLayout(
-                            text: "Use Code:",
+                            text: MyCartFont().useCode,
                             color: appCtrl.appTheme.titleColor,
                             fontSize:
                             MyCartFontSize.textSizeSmall,

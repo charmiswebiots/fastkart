@@ -7,7 +7,8 @@ class QuantityLayout extends StatelessWidget {
   final Color? discountTextColor;
   final Color? quantityBorderColor;
   final Color? discountBoxColor;
-  const QuantityLayout({Key? key,this.minusTap,this.plusTap,this.quantity,this.discountBoxColor,this.discountTextColor,this.quantityBorderColor}) : super(key: key);
+  final bool? isCart;
+  const QuantityLayout({Key? key,this.minusTap,this.plusTap,this.quantity,this.discountBoxColor,this.discountTextColor,this.quantityBorderColor,this.isCart}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,25 @@ class QuantityLayout extends StatelessWidget {
             borderRadius:
                 BorderRadius.circular(AppScreenUtil().borderRadius(5)),
             border: Border.all(color: quantityBorderColor!)),
-        child: GetBuilder<MyCartListController>(
+        child: isCart! ? GetBuilder<MyCartListController>(
+          builder: (controller) => Row(
+            children: [
+              InkWell(
+                  onTap: minusTap,
+                  child: const Icon(
+                    Icons.remove,
+                    size: 18,
+                  )),
+              const Space(10, 0),
+              MyCartFontStyle().mulishtextLayout(
+                  text: quantity.toString(),
+                  fontSize: 14,
+                  color: discountBoxColor),
+              const Space(10, 0),
+              InkWell(onTap: plusTap, child:  Icon(Icons.add, size: AppScreenUtil().size(18))),
+            ],
+          ),
+        ): GetBuilder<MyWishListController>(
           builder: (controller) => Row(
             children: [
               InkWell(

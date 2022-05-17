@@ -60,6 +60,7 @@ class OfferStyle{
     return  OfferFontStyle().quicksandtextLayout(
         text: text,
         color: titleColor,
+        textAlign: TextAlign.start,
         fontSize: OfferFontSize.textSizeSmall,
         fontWeight: FontWeight.normal);
   }

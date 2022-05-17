@@ -90,5 +90,6 @@ class ProductDetailController extends GetxController {
     reviewList = AppArray().reviewList;
     detail = AppArray().productDetailList;
     update();
+    print('detailList : $detailList');
   }
 }

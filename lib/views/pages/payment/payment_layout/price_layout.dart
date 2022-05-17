@@ -40,7 +40,7 @@ class PriceLayout extends StatelessWidget {
                   title: PaymentFont().couponDiscount,
                   titleColor:
                   appCtrl.appTheme.darkContentColor,
-                  val: 'Apply Coupon',
+                  val: PaymentFont().addCard,
                   fontWeight: FontWeight.normal,
                   valColor: appCtrl.appTheme.redColor),
               const Space(0, 10),

@@ -1,19 +1,18 @@
 //text constants
+import 'package:get/get.dart';
+
 class MyCartFont{
-   String searchProduct= 'Search Products here..';
-   String myCart= 'My Cart';
-   String recentlySearch= 'Recently Search';
-   String trendingCategory= 'Trending category';
-   String trendingProducts= 'Trending Products';
-   String termsConditions= 'Terms & conditions';
-   String copyCode= "Copy Code";
-   String orderDetails= "Order Details";
-   String bagTotal= "Bag total";
-   String delivery= "Delivery";
-   String totalAmount= "Total Amount";
-   String couponDiscount= "Coupon Discount";
-   String bagSavings= "Bag savings";
-   String proceedtoCheckout= "Proceed to Checkout";
+   String myCart= 'myCart'.tr;
+   String orderDetails= "orderDetails".tr;
+   String bagTotal= "bagTotal".tr;
+   String delivery= "delivery".tr;
+   String totalAmount= "totalAmount".tr;
+   String couponDiscount= "couponDiscount".tr;
+   String bagSavings= "bagSavings".tr;
+   String proceedtoCheckout= "proceedtoCheckout".tr;
+   String useCode = "useCode".tr;
+   String code =  "Code:".tr;
+   String applyCoupon =  'applyCoupon'.tr;
    String dollar = "\$";
 
 }

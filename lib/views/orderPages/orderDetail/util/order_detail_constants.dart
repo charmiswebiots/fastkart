@@ -1,18 +1,20 @@
 //text constants
+import 'package:get/get.dart';
+
 class OrderDetailFont {
-  String reorder ="Reorder";
-  String estimateTime ="Estimated Delivery Time";
-  String orderSummary ="Order Summary";
-  String orderDelivery ="Order Delivered";
-  String items ="Items:";
-  String paymentDetails ="Payment Details";
-  String paymentMethod ="Payment Method";
-  String address ="Address";
-  String bagTotal= "Bag total";
-  String delivery= "Delivery";
-  String totalAmount= "Total Amount";
-  String couponDiscount= "Coupon Discount";
-  String bagSavings= "Bag savings";
+  String reorder ="reorder".tr;
+  String estimateTime ="estimateTime".tr;
+  String orderSummary ="orderSummary".tr;
+  String orderDelivery ="orderDelivery".tr;
+  String items ="items".tr;
+  String paymentDetails ="paymentDetails".tr;
+  String paymentMethod ="paymentMethod".tr;
+  String address ="address".tr;
+  String bagTotal= "bagTotal".tr;
+  String delivery= "delivery".tr;
+  String totalAmount= "totalAmount".tr;
+  String couponDiscount= "couponDiscount".tr;
+  String bagSavings= "bagSavings".tr;
   String dollar = "\$";
 }
 

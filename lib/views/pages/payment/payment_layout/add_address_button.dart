@@ -28,7 +28,7 @@ class AddAddressButton extends StatelessWidget {
             children: [
               Icon(Icons.add, color: appCtrl.appTheme.darkContentColor),
               PaymentFontStyle().mulishtextLayout(
-                  text: PaymentFont().addAddress,
+                  text: PaymentFont().addNewAddress,
                   fontSize: PaymentFontSize.textSizeSMedium,
                   color: appCtrl.appTheme.darkContentColor),
             ],

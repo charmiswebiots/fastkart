@@ -22,7 +22,7 @@ class OrderHistoryStyle {
     return OrderHistoryFontStyle().mulishtextLayout(
         text: text,
         fontWeight: fontWeight,
-        fontSize: OrderHistoryFontSize.textSizeSmall,
+        fontSize: OrderHistoryFontSize.textXSizeSmall,
         color: color
     );
   }

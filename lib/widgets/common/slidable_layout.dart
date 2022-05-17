@@ -6,8 +6,9 @@ class SlidableLayout extends StatelessWidget {
   final dynamic data;
   final GestureTapCallback? plusTap;
   final GestureTapCallback? minusTap;
+  final bool? isCart;
 
-  const SlidableLayout({Key? key, this.plusTap, this.minusTap, this.data})
+  const SlidableLayout({Key? key, this.plusTap, this.minusTap, this.data,this.isCart})
       : super(key: key);
 
   @override
@@ -26,6 +27,7 @@ class SlidableLayout extends StatelessWidget {
         // The child of the Slidable is what the user sees when the
         // component is not dragged.
         child: MyCartCard(
+          isCart: isCart,
           onTap: () => Get.toNamed(routeName.productDetail),
           data: data,
           containerBoxColor: appCtrl.appTheme.wishtListBoxColor,

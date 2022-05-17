@@ -1,10 +1,12 @@
 //text constants
+import 'package:get/get.dart';
+
 class BottomNavigationFont{
-   String home= 'Home';
-   String category= 'Category';
-   String search= "Search";
-   String offers= "Offers";
-   String cart = "Cart";
+   String home= 'home'.tr;
+   String category= 'category'.tr;
+   String search= "search".tr;
+   String offers= "offers".tr;
+   String cart = "cart".tr;
 }
 
 //font size

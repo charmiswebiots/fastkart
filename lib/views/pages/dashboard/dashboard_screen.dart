@@ -14,18 +14,6 @@ class _DashboardState extends State<Dashboard> {
   Timer? timer;
   final dashboardCtrl = Get.put(DashboardController());
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +25,8 @@ class _DashboardState extends State<Dashboard> {
           },
           child: Scaffold(
             key: dashboardCtrl.scaffoldKey,
-            drawer: DrawerScreen(),
-            appBar: PreferredSize(
+            drawer:  DrawerScreen(),
+            appBar:  PreferredSize(
               preferredSize: Size.fromHeight(AppScreenUtil().screenHeight(300)),
               child: Offstage(
                 offstage:

@@ -21,7 +21,7 @@ class CommonOfferListCard extends StatelessWidget {
           ),
           padding: EdgeInsets.symmetric(
               vertical: AppScreenUtil().screenHeight(15),
-              horizontal: AppScreenUtil().screenHeight(15)),
+              horizontal: AppScreenUtil().screenHeight(10)),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               color: appCtrl.appTheme.whiteColor,
@@ -41,26 +41,26 @@ class CommonOfferListCard extends StatelessWidget {
                 VerticalDivider(
                     color: appCtrl.appTheme.contentColor.withOpacity(.5),
                     width: 5,
-                    indent: 10,
-                    endIndent: 10,
+                    indent: 5,
+                    endIndent: 5,
                     thickness: .5),
                 const Space(5, 0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     HomeFontStyle().mulishtextLayout(
-                        text: data['name'],
+                        text: data['name'].toString().tr,
                         fontSize: 13,
                         color: appCtrl.appTheme.titleColor),
                     const Space(0, 4),
                     HomeFontStyle().mulishtextLayout(
-                        text: data['description'],
+                        text: data['description'].toString().tr,
                         fontSize: 13,
                         color: appCtrl.appTheme.darkContentColor),
                     Row(
                       children: [
                         HomeFontStyle().mulishtextLayout(
-                            text: HomeFont().dollar + data['price'].toString(),
+                            text: HomeFont().dollar + data['price'].toString().tr,
                             fontSize: 12,
                             color: appCtrl.appTheme.titleColor,
                             fontWeight: FontWeight.w700),

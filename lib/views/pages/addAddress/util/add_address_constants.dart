@@ -1,9 +1,13 @@
 //text constants
+import 'package:get/get.dart';
+
 class AddAddressFont {
-  String howCanWeHelp = 'How Can We Help...';
-  String useCurrentLocation = 'Use current location';
-  String confirmLocation = 'Confirm location & proceed';
-  String addAddress = "Add Address";
+  String howCanWeHelp = 'howCanWeHelp'.tr;
+  String useCurrentLocation = 'useCurrentLocation'.tr;
+  String confirmLocation = 'confirmLocation'.tr;
+  String addAddress = "addAddress".tr;
+  String delivery = "delivery".tr;
+  String slot = "slot".tr;
   String dollar = "\$";
 }
 

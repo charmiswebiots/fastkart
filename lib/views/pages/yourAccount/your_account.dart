@@ -38,7 +38,7 @@ class YourAccount extends StatelessWidget {
                               .appCtrl.appTheme.wishtListBoxColor,
                           image: imageAssets.usersquare,
                           imageHeight: 50,
-                          userName: YourAccountFont().userName,
+                          userName: YourAccountFont().andreaJoanne,
                           userEmail: YourAccountFont().userEmail,
                           isYourAccount: true,
                           nameFontSize: 14,

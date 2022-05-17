@@ -26,7 +26,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 isImage: true,
               ),
               title: ShopStyle().appBarTitleLayout(
-                  text: "Fresh Fruits& Vegetables",
+                  text: ShopFont().freshFruitsVegetables,
                   textColor: shopCtrl.appCtrl.appTheme.darkContentColor),
               actions: [
                 ShopWidget()
