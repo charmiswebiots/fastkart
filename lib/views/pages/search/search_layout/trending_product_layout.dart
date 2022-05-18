@@ -20,7 +20,7 @@ class TrendingProductLayout extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              return InkWell(
+              return searchCtrl.offerList.isNotEmpty ?  InkWell(
                 onTap: () => Get.toNamed(routeName.productDetail),
                 child: CommonOfferListCard(
                   data: searchCtrl.offerList[index],
@@ -28,7 +28,7 @@ class TrendingProductLayout extends StatelessWidget {
                   plusTap: () => searchCtrl.plusTap(index),
                   minusTap: () => searchCtrl.minusTap(index),
                 ),
-              );
+              ): Container();
             },
           ),
         );

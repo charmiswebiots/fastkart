@@ -13,6 +13,7 @@ class DashboardController extends GetxController {
 
   //appbar leading function
   appBarLeadingFunction() async {
+
     if (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 1) {
       int index = await appCtrl.getStorage.read('selectedIndex');
       appCtrl.selectedIndex = index;
@@ -35,6 +36,8 @@ class DashboardController extends GetxController {
 
   //botton change
   bottomNavigationChange(val) async {
+    appCtrl.isShimmer = true;
+    appCtrl.update();
     if (appCtrl.selectedIndex == 4) {
       Get.toNamed(routeName.myCart, arguments: false);
     } else {
@@ -42,6 +45,9 @@ class DashboardController extends GetxController {
       appCtrl.selectedIndex = val;
       appCtrl.update();
     }
+    await Future.delayed(Durations.s3);
+    appCtrl.isShimmer = false;
+    appCtrl.update();
     update();
   }
 }

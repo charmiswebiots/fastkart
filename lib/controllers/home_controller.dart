@@ -39,10 +39,8 @@ class HomeController extends GetxController {
   //get data
   getData() async{
 
-    isLoading = true;
+    appCtrl.isShimmer = true;
     update();
-    await Future.delayed(Durations.s2);
-
     offerList = AppArray().offerList;
     bannerList = AppArray().bannerList;
     recentBoughtList = AppArray().recentBoughtList;
@@ -51,7 +49,8 @@ class HomeController extends GetxController {
     everyDayEssentialList = AppArray().everyDayEssentialList;
     couponData = AppArray().couponData;
     await Future.delayed(Durations.s3);
-    isLoading = false;
+    appCtrl.isShimmer = false;
+    appCtrl.update();
     update();
   }
 

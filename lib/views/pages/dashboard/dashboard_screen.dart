@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'package:fastkart/controllers/dashboard_controller.dart';
-import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
 import '../../../config.dart';
 
 class Dashboard extends StatefulWidget {
@@ -13,7 +11,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   Timer? timer;
   final dashboardCtrl = Get.put(DashboardController());
-
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
               child: Offstage(
                 offstage:
                     dashboardCtrl.appCtrl.selectedIndex == 4 ? true : false,
-                child: CommonAppBar1(
+                child: ctrl.isShimmer ? const DashboardShimmer() : CommonAppBar1(
                   onTap: () => dashboardCtrl.appBarLeadingFunction(),
                   actionTap: () => dashboardCtrl.actionTap(),
                   isTheme: dashboardCtrl.appCtrl.isTheme,

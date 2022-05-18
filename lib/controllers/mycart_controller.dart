@@ -54,9 +54,12 @@ class MyCartListController extends GetxController {
 
 //get data
   getData() {
+    appCtrl.isShimmer = true;
+    appCtrl.update();
     offerList = AppArray().offerList;
     update();
-    appCtrl.hideLoading();
+    appCtrl.isShimmer = false;
+    appCtrl.update();
     update();
   }
 
@@ -77,11 +80,10 @@ class MyCartListController extends GetxController {
     );
   }
 
+
   @override
   void onReady() {
     // TODO: implement onReady
-    appCtrl.showLoading();
-    appCtrl.update();
     getData();
     super.onReady();
   }

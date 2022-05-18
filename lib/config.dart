@@ -30,6 +30,7 @@ export 'package:fastkart/views/pages/search/search_screen.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:google_sign_in/google_sign_in.dart';
 export 'package:shared_preferences/shared_preferences.dart';
+export 'package:shimmer/shimmer.dart';
 
 //appbar
 export 'package:fastkart/widgets/common_appbar_widget/util/appbar_constants.dart';
@@ -64,6 +65,14 @@ export 'package:fastkart/views/pages/signup/signup_layout/user_text_form.dart';
 export 'package:fastkart/views/pages/signup/util/signup_style.dart';
 export 'package:fastkart/views/pages/signup/util/signup_fontstyle.dart';
 
+//dashboard page list
+
+export 'package:fastkart/controllers/dashboard_controller.dart';
+export 'package:fastkart/shimmer_effect/dashboard_shimmer/dashboard_shimmer.dart';
+export 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
+export 'package:fastkart/views/pages/bottom_navigation/android_bottom_navigation_bar.dart';
+export 'package:fastkart/views/pages/bottom_navigation/ios_bottom_navigation_bar.dart';
+
 //category page list
 export 'package:fastkart/views/pages/category/util/category_fontstyle.dart';
 export 'package:fastkart/controllers/category_controller.dart';
@@ -72,6 +81,7 @@ export 'package:fastkart/views/pages/category/util/category_widget.dart';
 export 'package:fastkart/views/pages/category/util/category_constants.dart';
 export 'package:fastkart/views/pages/category/category_layout/image_bg_layout.dart';
 export 'package:fastkart/views/pages/category/category_layout/subcategory_list.dart';
+export 'package:fastkart/shimmer_effect/category_shimmer/category_list_shimmer.dart';
 
 //home page List
 export 'package:fastkart/views/pages/home_screen/util/home_fontstyle.dart';
@@ -90,6 +100,15 @@ export 'package:fastkart/views/pages/home_screen/util/shop_by_category_text.dart
 export 'package:fastkart/widgets/common/common_horizontal_list/common_horizontal_list.dart';
 export 'package:fastkart/widgets/common/common_popup_button.dart';
 export 'package:fastkart/models/coupon_model.dart';
+export 'package:fastkart/views/pages/home_screen/home_layout/bg_layout.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/home_shimmer.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/square_list_shimmer.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/category_shimmer.dart';
+export 'package:fastkart/shimmer_effect/common_shimmer_widget.dart';
+export 'package:fastkart/shimmer_effect/common_shimmer_style.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/coupon_shimmer.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/common_horizontal_shimmer.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/vertical_list_shimmer.dart';
 
 //search page list
 export 'package:fastkart/controllers/search_controller.dart';
@@ -99,6 +118,10 @@ export 'package:fastkart/views/pages/search/util/search_fontstyle.dart';
 export 'package:fastkart/views/pages/search/search_layout/recent_search_layout.dart';
 export 'package:fastkart/views/pages/search/search_layout/trending_category_layout.dart';
 export 'package:fastkart/views/pages/search/search_layout/trending_product_layout.dart';
+export 'package:fastkart/shimmer_effect/search_shimmer/search_shimmer.dart';
+export 'package:fastkart/shimmer_effect/search_shimmer/image_horizontal_list.dart';
+export 'package:fastkart/shimmer_effect/search_shimmer/title_horizontal_list.dart';
+
 
 //offer page list
 export 'package:fastkart/controllers/offer_controller.dart';
@@ -121,6 +144,10 @@ export 'package:fastkart/controllers/mywish_list_controller.dart';
 export 'package:fastkart/views/pages/myCart/mycart_layout/mycart_card.dart';
 export 'package:fastkart/widgets/common/price_detail_layout.dart';
 export 'package:fastkart/views/pages/myCart/mycart_layout/app_bar_layout.dart';
+export 'package:fastkart/shimmer_effect/home_shimmer/offer_shimmer.dart';
+export 'package:fastkart/shimmer_effect/offer_shimmer/offer_shimmer_card.dart';
+export 'package:fastkart/shimmer_effect/price_detail_shimmer.dart';
+export 'package:fastkart/shimmer_effect/search_shimmer/common_appbar_shimmer.dart';
 
 //add address page list
 export 'package:fastkart/views/pages/addAddress/util/add_address_constants.dart';
@@ -131,6 +158,8 @@ export 'package:fastkart/views/pages/addAddress/add_address_layout/address_card.
 export 'package:fastkart/views/pages/addAddress/util/add_address_style.dart';
 export 'package:fastkart/views/pages/addAddress/add_address_layout/background_layout.dart';
 export 'package:fastkart/views/pages/addAddress/add_address_layout/content_bg_layout.dart';
+export 'package:fastkart/shimmer_effect/add_address_shimmer/delivery_time_shimmer.dart';
+export 'package:fastkart/shimmer_effect/add_address_shimmer/positioned_shimmer.dart';
 
 //payment page list
 export 'package:fastkart/controllers/payment_controller.dart';

@@ -61,7 +61,7 @@ class ContentBgLayout extends StatelessWidget {
                     vertical: AppScreenUtil().screenHeight(20)),
                 child: Column(
                   children: [
-                    ...AppArray().addressList.asMap().entries.map((e) {
+                    ...addAddressCtrl.addressList.asMap().entries.map((e) {
                       return AddressCard(
                         data: e.value,
                         index: e.key,

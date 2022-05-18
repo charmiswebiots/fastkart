@@ -1,3 +1,5 @@
+import 'package:fastkart/shimmer_effect/offer_shimmer/offer_shimmer.dart';
+
 import '../../../config.dart';
 
 class OfferScreen extends StatefulWidget {
@@ -21,7 +23,7 @@ class _OfferScreenState extends State<OfferScreen> {
               overscroll.disallowIndicator();
               return false;
             },
-            child: SingleChildScrollView(
+            child: offerCtrl.appCtrl.isShimmer ? const OfferPageShimmer() : SingleChildScrollView(
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 //mainAxisAlignment: MainAxisAlignment.spaceBetween,

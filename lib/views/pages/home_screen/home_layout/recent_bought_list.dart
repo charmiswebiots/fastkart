@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/views/pages/home_screen/home_layout/recent_bought_bg.dart';
 
 class RecentBoughtList extends StatelessWidget {
   final dynamic list;
@@ -16,43 +17,7 @@ class RecentBoughtList extends StatelessWidget {
         child: Stack(
           alignment: Alignment.topRight,
           children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  left: AppScreenUtil().screenHeight(15),
-                  right: AppScreenUtil().screenHeight(20)),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(AppScreenUtil().borderRadius(15)),
-                    bottomLeft:
-                        Radius.circular(AppScreenUtil().borderRadius(15)),
-                    bottomRight:
-                        Radius.circular(AppScreenUtil().borderRadius(15)),
-                    topRight: Radius.circular(AppScreenUtil().borderRadius(40)),
-                  ),
-                ),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft:
-                          Radius.circular(AppScreenUtil().borderRadius(15)),
-                      bottomLeft:
-                          Radius.circular(AppScreenUtil().borderRadius(15)),
-                      bottomRight:
-                          Radius.circular(AppScreenUtil().borderRadius(15)),
-                      topRight:
-                          Radius.circular(AppScreenUtil().borderRadius(35)),
-                    ),
-                    child: Image.asset(
-                      appCtrl.isTheme
-                          ? imageAssets.themeRecentBoughtBG
-                          : imageAssets.recentBoughtBG,
-                      fit: BoxFit.fill,
-                      height: AppScreenUtil().screenHeight(130),
-                      width: MediaQuery.of(context).size.width,
-                    )),
-              ),
-            ),
+            const RecentBoughtBg(),
             Container(
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(

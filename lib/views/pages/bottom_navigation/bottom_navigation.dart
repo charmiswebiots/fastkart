@@ -1,9 +1,4 @@
-
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/bottom_navigation/android_bottom_navigation_bar.dart';
-import 'package:fastkart/views/pages/bottom_navigation/ios_bottom_navigation_bar.dart';
-import 'package:fastkart/views/pages/bottom_navigation/util/bottom_navigation_constants.dart';
-import 'package:fastkart/views/pages/bottom_navigation/util/bottom_navigation_widget.dart';
 import 'dart:io' show Platform;
 
 class BottomNavigatorCard extends StatelessWidget {
@@ -25,11 +20,13 @@ class BottomNavigatorCard extends StatelessWidget {
     return GetBuilder<AppController>(
       builder: (_) => Platform.isIOS
           ? IosBottomNavigationBar(
-        selectedIndex: selectedIndex,
-        onTap: onTap,
-      )
-          : AndroidBottomNavigationBar( selectedIndex: selectedIndex,
-        onTap: onTap,),
+              selectedIndex: selectedIndex,
+              onTap: onTap,
+            )
+          : AndroidBottomNavigationBar(
+              selectedIndex: selectedIndex,
+              onTap: onTap,
+            ),
     );
   }
 }

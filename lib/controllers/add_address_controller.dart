@@ -6,7 +6,8 @@ class AddAddressController extends GetxController{
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
-
+bool isLoading = true;
+  List addressList =[];
   final getStorage = GetStorage();
 
   //go to Search
@@ -15,6 +16,25 @@ class AddAddressController extends GetxController{
     await getStorage.write('selectedIndex', 2);
     appCtrl.selectedIndex = 2;
     update();
+  }
+
+  //get data
+  getData()async{
+    isLoading = true;
+    update();
+    addressList = AppArray().addressList;
+    update();
+    await Future.delayed(Durations.s2);
+    isLoading = false;
+    update();
+
+  }
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    getData();
+    super.onReady();
   }
 
 }

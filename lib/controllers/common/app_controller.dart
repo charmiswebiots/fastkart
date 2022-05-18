@@ -60,6 +60,7 @@ class AppController extends GetxController {
     } else {
       isTheme = false;
     }
+
     update();
     await getStorage.write("isDarkMode", isTheme);
     ThemeService().switchTheme(isTheme);
@@ -67,8 +68,7 @@ class AppController extends GetxController {
     await getStorage.read('isDarkMode');
 
     drawerList = AppArray().drawerList;
-    await Future.delayed(Durations.s5);
-    isShimmer = false;
+
     update();
   }
 

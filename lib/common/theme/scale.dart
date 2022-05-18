@@ -4,7 +4,7 @@ class Durations {
   static const Duration ms150 = Duration(milliseconds: 150);
   static const Duration s2 = Duration(seconds: 2);
   static const Duration s3 = Duration(seconds: 3);
-  static const Duration s5 = Duration(seconds: 6);
+  static const Duration s5 = Duration(seconds:3);
 }
 
 class Fonts {

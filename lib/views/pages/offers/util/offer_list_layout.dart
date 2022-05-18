@@ -15,7 +15,7 @@ class OfferListLayout extends StatelessWidget {
                   left: AppScreenUtil().screenHeight(15),
                   right: AppScreenUtil().screenHeight(15)),
               child: ListView.builder(
-                itemCount: AppArray().myOfferList.length,
+                itemCount: offerCtrl.myOfferList.length,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
@@ -23,7 +23,7 @@ class OfferListLayout extends StatelessWidget {
                     isTheme: appCtrl.isTheme,
                     onTap: () => offerCtrl.bottomSheet(
                         context: context,
-                        data: AppArray().myOfferList[index],),
+                        data: offerCtrl.myOfferList[index],),
                     data: AppArray().myOfferList[index],
                   );
                 },

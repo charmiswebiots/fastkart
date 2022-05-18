@@ -23,12 +23,14 @@ class CategoryController extends GetxController {
 
   //get data on init
   getData(){
+    appCtrl.isShimmer = true;
     for (int i = 0; i < AppArray().subCategoryData.length; i++) {
       if (AppArray().subCategoryData[i]['categoryId'].toString() ==
           selectIndex.toString()) {
         subCategoryList.add(AppArray().subCategoryData[i]);
       }
     }
+    appCtrl.isShimmer = false;
     update();
   }
 
