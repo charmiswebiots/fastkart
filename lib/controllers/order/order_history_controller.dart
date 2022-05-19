@@ -7,6 +7,7 @@ class OrderHistoryController extends GetxController {
       ? Get.find<AppController>()
       : Get.put(AppController());
 
+  bool isLoading = true;
   final getStorage = GetStorage();
 
   int selectIndex = 0;
@@ -15,6 +16,7 @@ class OrderHistoryController extends GetxController {
   int itemFilterIndex = 0;
 
   List filterList = [];
+  List orderHistory = [];
 
   //go to home
   goToHome() async {
@@ -51,11 +53,20 @@ class OrderHistoryController extends GetxController {
     );
   }
 
+  //get data
+  getData()async{
+    orderHistory = AppArray().orderHistory;
+    update();
+    await Future.delayed(Durations.s2);
+    isLoading = false;
+    update();
+
+  }
+
   @override
   void onInit() {
     // TODO: implement onInit
-
-    update();
+    getData();
     super.onInit();
   }
 }

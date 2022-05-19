@@ -34,7 +34,7 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
             }
             return Future(() => wishListCtrl.isAppBar ? true : false);
           },
-          child: wishListCtrl.appCtrl.isShimmer ?  MyCartShimmer(isAppBar:wishListCtrl.isAppBar ,) : Scaffold(
+          child: Scaffold(
             appBar: wishListCtrl.isAppBar
                 ? MyCartWidget().appBarLayout(
                     actionOnTap: () => wishListCtrl.goToHome(),
@@ -50,7 +50,7 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: MyCartStyle().bodyComponentLayout(
+              child: wishListCtrl.isLoading ?  MyCartShimmer(isAppBar:wishListCtrl.isAppBar ,) : MyCartStyle().bodyComponentLayout(
                   child: SingleChildScrollView(
                     child: Container(
                       margin: EdgeInsets.only(

@@ -1,4 +1,3 @@
-import 'package:fastkart/shimmer_effect/home_shimmer/offer_shimmer.dart';
 
 import '../../config.dart';
 

@@ -1,5 +1,6 @@
-import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
+
+
+import '../../config.dart';
 
 class DeliveryTimeShimmer extends StatelessWidget {
   const DeliveryTimeShimmer({Key? key}) : super(key: key);

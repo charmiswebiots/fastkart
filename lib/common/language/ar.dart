@@ -51,7 +51,6 @@ final dynamic ar = {
   //home page
   'searchProduct': 'البحث عن المنتجات هنا ..',
   'recentBought': 'شراء من تم شراؤها مؤخرا',
-  'shopByCategory': 'تسوق حسب الاقسام',
   'sayHelloToOffer': 'قل مرحبا للعروض!',
   'bestPriceEverOfAllTheTime': 'أفضل سعر من أي وقت مضى',
   'popularOffersOfTheDay': 'عروض اليوم الشعبية',

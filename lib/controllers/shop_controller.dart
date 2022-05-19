@@ -7,6 +7,7 @@ class ShopController extends GetxController {
       : Get.put(AppController());
 
   int selectIndex = 0;
+  bool isLoading = true;
   List offerList = [];
   String dropDownVal = "Fresh Fruits& Vegetables";
   int packSizeIndex = 0;
@@ -43,12 +44,12 @@ class ShopController extends GetxController {
   }
 
   //get shop data
-  getData() {
-    appCtrl.showLoading();
-    appCtrl.update();
+  getData()async {
     offerList = AppArray().shopList;
     update();
-    appCtrl.hideLoading();
+    await Future.delayed(Durations.s2);
+    isLoading = false;
+    update();
     // selectCategory(1);
   }
 

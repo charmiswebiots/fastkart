@@ -15,7 +15,7 @@ class DataShimmer extends StatelessWidget {
             top: AppScreenUtil().screenHeight(10),
           ),
           decoration: BoxDecoration(
-              color: appCtrl.appTheme.gray.withOpacity(.5),
+              color: appCtrl.appTheme.lightGray.withOpacity(.5),
               borderRadius: BorderRadius.only(
                   topRight:
                   Radius.circular(AppScreenUtil().borderRadius(20)),

@@ -50,7 +50,6 @@ final dynamic kr = {
   //home page
   'searchProduct': '여기서 제품을 검색하세요..',
   'recentBought': '최근 구매에서 구매',
-  'shopByCategory': '카테고리별 쇼핑',
   'sayHelloToOffer': '오퍼에 인사하세요!',
   'bestPriceEverOfAllTheTime': '역대 최고의 가격',
   'popularOffersOfTheDay': '오늘의 인기 상품',

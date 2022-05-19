@@ -14,7 +14,7 @@ class PriceDetailShimmer extends StatelessWidget {
           children: [
             CommonShimmerWidget().commonShimmer(
                 color: appCtrl.appTheme.lightGray.withOpacity(.5),
-                borderRadius: 10,
+                borderRadius: 2,
                 borderColor: appCtrl.appTheme.lightGray.withOpacity(.5),
                 width: 80,
                 height: 10),

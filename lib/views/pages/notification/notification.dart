@@ -1,3 +1,5 @@
+import 'package:fastkart/shimmer_effect/notification_shimmer/notification_shimmer.dart';
+
 import '../../../config.dart';
 
 class Notification extends StatelessWidget {
@@ -22,7 +24,7 @@ class Notification extends StatelessWidget {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: SingleChildScrollView(
+              child: notificationCtrl.isLoading ? const NotificationShimmer() : SingleChildScrollView(
                 child: Container(
                   color: notificationCtrl.appCtrl.appTheme.whiteColor,
                   child: DefaultTabController(

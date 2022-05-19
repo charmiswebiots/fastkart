@@ -5,6 +5,8 @@ class OrderDetailController extends GetxController{
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
+  List orderDetailList =[];
+  bool isLoading = true;
   final getStorage = GetStorage();
 
   //go to home
@@ -22,5 +24,19 @@ class OrderDetailController extends GetxController{
     appCtrl.selectedIndex = 0;
     appCtrl.update();
     Get.offAllNamed(routeName.dashboard);
+  }
+
+  getData()async{
+    orderDetailList = AppArray().orderDetailList;
+    await Future.delayed(Durations.s2);
+    isLoading = false;
+    update();
+  }
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    getData();
+    super.onReady();
   }
 }

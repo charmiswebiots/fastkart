@@ -1,3 +1,5 @@
+import 'package:fastkart/shimmer_effect/shop_shimmer/shop_shimmer.dart';
+
 import '../../../config.dart';
 
 class ShopScreen extends StatefulWidget {
@@ -39,7 +41,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: Container(
+              child: shopCtrl.isLoading? const ShopShimmer() : Container(
                 color: shopCtrl.appCtrl.appTheme.whiteColor,
                 child: Stack(
                   alignment: Alignment.bottomCenter,

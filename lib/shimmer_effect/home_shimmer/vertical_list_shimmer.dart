@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/shimmer_effect/home_shimmer/offer_shimmer.dart';
 
 class VerticalListShimmer extends StatelessWidget {
   const VerticalListShimmer({Key? key}) : super(key: key);

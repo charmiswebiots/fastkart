@@ -28,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
               child: Offstage(
                 offstage:
                     dashboardCtrl.appCtrl.selectedIndex == 4 ? true : false,
-                child: ctrl.isShimmer ? const DashboardShimmer() : CommonAppBar1(
+                child: CommonAppBar1(
                   onTap: () => dashboardCtrl.appBarLeadingFunction(),
                   actionTap: () => dashboardCtrl.actionTap(),
                   isTheme: dashboardCtrl.appCtrl.isTheme,

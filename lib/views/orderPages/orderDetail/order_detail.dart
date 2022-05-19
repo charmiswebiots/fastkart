@@ -24,29 +24,32 @@ class OrderDetail extends StatelessWidget {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: Container(
-                color: orderDetailCtrl.appCtrl.appTheme.whiteColor,
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    //body layout
-                    const DataLayout(),
-                    //button layout
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppScreenUtil().screenWidth(15),vertical: AppScreenUtil().screenHeight(10)),
-                      child: CustomButton(
-                        height: 40,
-                        title: OrderDetailFont().reorder,
-                        color: orderDetailCtrl.appCtrl.appTheme.primary,
-                        fontColor: orderDetailCtrl.appCtrl.appTheme.whiteColor,
-                        onTap: () => orderDetailCtrl.reorder(),
+              child: orderDetailCtrl.isLoading
+                  ? const OrderSummaryShimmer()
+                  : Container(
+                      color: orderDetailCtrl.appCtrl.appTheme.whiteColor,
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          //body layout
+                          const DataLayout(),
+                          //button layout
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: AppScreenUtil().screenWidth(15),
+                                vertical: AppScreenUtil().screenHeight(10)),
+                            child: CustomButton(
+                              height: 40,
+                              title: OrderDetailFont().reorder,
+                              color: orderDetailCtrl.appCtrl.appTheme.primary,
+                              fontColor:
+                                  orderDetailCtrl.appCtrl.appTheme.whiteColor,
+                              onTap: () => orderDetailCtrl.reorder(),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-
-                  ],
-                ),
-              ),
             ),
           );
         }),

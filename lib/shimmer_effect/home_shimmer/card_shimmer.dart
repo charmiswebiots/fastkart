@@ -1,4 +1,4 @@
-import 'package:fastkart/config.dart';
+import '../../config.dart';
 
 class CardShimmer extends StatelessWidget {
   const CardShimmer({Key? key}) : super(key: key);

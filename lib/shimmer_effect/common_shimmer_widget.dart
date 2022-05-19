@@ -68,13 +68,13 @@ class CommonShimmerWidget{
       children: [
         CommonShimmerWidget().commonShimmer(
             color: color,
-            borderRadius: 10,
+            borderRadius: 2,
             borderColor: color,
             width: 80,
             height: 10),
         CommonShimmerWidget().commonShimmer(
             color: color,
-            borderRadius: 10,
+            borderRadius: 2,
             borderColor: color,
             width: 60,
             height: 10),

@@ -9,6 +9,7 @@ class MyCartListController extends GetxController {
   final getStorage = GetStorage();
   List offerList = [];
   bool isAppBar = false;
+  bool isLoading = true;
 
   //go to home
   goToHome() async {
@@ -53,13 +54,11 @@ class MyCartListController extends GetxController {
   }
 
 //get data
-  getData() {
-    appCtrl.isShimmer = true;
-    appCtrl.update();
+  getData()async {
     offerList = AppArray().offerList;
     update();
-    appCtrl.isShimmer = false;
-    appCtrl.update();
+    await Future.delayed(Durations.s2);
+    isLoading = false;
     update();
   }
 

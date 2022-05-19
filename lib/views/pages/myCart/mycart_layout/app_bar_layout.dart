@@ -49,8 +49,7 @@ class AppBarLayoutCustom extends StatelessWidget
     });
   }
 
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => throw UnimplementedError();
 
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

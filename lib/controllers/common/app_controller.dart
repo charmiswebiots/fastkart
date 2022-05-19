@@ -111,7 +111,6 @@ class AppController extends GetxController {
 
   //language selection
   languageSelection(e) async {
-    print('name : ${e['name']}');
     if (e['name'] == "English" || e['name'] == 'अंग्रेजी' || e['name'] == 'انجليزي' || e['name'] == '영어') {
       var locale = const Locale("en", 'US');
       Get.updateLocale(locale);

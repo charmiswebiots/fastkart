@@ -11,7 +11,7 @@ class AddAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (ctrl) {
       return GetBuilder<AddAddressController>(builder: (_) {
-        return addAddressCtrl.isLoading ? const AddAddressPageShimmer() : Scaffold(
+        return Scaffold(
           appBar: AddAddressWidget().appBarLayout(
               bgColor: addAddressCtrl.appCtrl.appTheme.whiteColor,
               titleColor: addAddressCtrl.appCtrl.appTheme.titleColor,
@@ -25,7 +25,7 @@ class AddAddress extends StatelessWidget {
               overscroll.disallowIndicator();
               return false;
             },
-            child: Container(
+            child: addAddressCtrl.isLoading ? const AddAddressPageShimmer() : Container(
               color: addAddressCtrl.appCtrl.appTheme.whiteColor,
               child: Stack(
                 alignment: Alignment.bottomCenter,

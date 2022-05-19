@@ -24,70 +24,73 @@ class OrderHistoryScreen extends StatelessWidget {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: SingleChildScrollView(
-                child: Container(
-                  color: orderHistoryCtrl.appCtrl.appTheme.whiteColor,
-                  child: Column(
-                    children: [
-                      //category layout
-                      const OrderHistoryDaysList(),
-
-                      //search product textformfield layout
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: AppScreenUtil().screenHeight(15),
-                            right: AppScreenUtil().screenWidth(15)),
-                        child: Row(
+              child: orderHistoryCtrl.isLoading
+                  ? const OrderHistoryShimmer()
+                  : SingleChildScrollView(
+                      child: Container(
+                        color: orderHistoryCtrl.appCtrl.appTheme.whiteColor,
+                        child: Column(
                           children: [
-                            Expanded(
-                              child: CommonSearchTextForm(
-                                text: OrderHistoryFont().searchProduct,
-                                borderColor: orderHistoryCtrl
-                                    .appCtrl.appTheme.primary
-                                    .withOpacity(.3),
-                                hintColor: orderHistoryCtrl
-                                    .appCtrl.appTheme.contentColor,
-                                fillcolor: orderHistoryCtrl
-                                    .appCtrl.appTheme.textBoxColor,
-                                titleColor: orderHistoryCtrl
-                                    .appCtrl.appTheme.titleColor,
+                            //category layout
+                            const OrderHistoryDaysList(),
+
+                            //search product textformfield layout
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: AppScreenUtil().screenHeight(15),
+                                  right: AppScreenUtil().screenWidth(15)),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: CommonSearchTextForm(
+                                      text: OrderHistoryFont().searchProduct,
+                                      borderColor: orderHistoryCtrl
+                                          .appCtrl.appTheme.primary
+                                          .withOpacity(.3),
+                                      hintColor: orderHistoryCtrl
+                                          .appCtrl.appTheme.contentColor,
+                                      fillcolor: orderHistoryCtrl
+                                          .appCtrl.appTheme.textBoxColor,
+                                      titleColor: orderHistoryCtrl
+                                          .appCtrl.appTheme.titleColor,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () => orderHistoryCtrl.bottomSheet(
+                                        context: context),
+                                    child: OrderHistoryFontStyle()
+                                        .mulishtextLayout(
+                                            text: OrderHistoryFont().filter,
+                                            fontSize: 16,
+                                            color: orderHistoryCtrl
+                                                .appCtrl.appTheme.primary,
+                                            fontWeight: FontWeight.w600),
+                                  ),
+                                ],
                               ),
                             ),
-                            InkWell(
-                              onTap: () => orderHistoryCtrl.bottomSheet(
-                                  context: context),
-                              child: OrderHistoryFontStyle().mulishtextLayout(
-                                  text: OrderHistoryFont().filter,
-                                  fontSize: 16,
-                                  color:
-                                      orderHistoryCtrl.appCtrl.appTheme.primary,
-                                  fontWeight: FontWeight.w600),
-                            ),
+
+                            //order list layout
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  vertical: AppScreenUtil().screenHeight(15),
+                                  horizontal: AppScreenUtil().screenWidth(15)),
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: orderHistoryCtrl.orderHistory.length,
+                                itemBuilder: (context, index) {
+                                  return OrderHistoryCard(
+                                    data: orderHistoryCtrl.orderHistory[index],
+                                    index: index,
+                                  );
+                                },
+                              ),
+                            )
                           ],
                         ),
                       ),
-
-                      //order list layout
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            vertical: AppScreenUtil().screenHeight(15),
-                            horizontal: AppScreenUtil().screenWidth(15)),
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: AppArray().orderHistory.length,
-                          itemBuilder: (context, index) {
-                            return OrderHistoryCard(
-                              data: AppArray().orderHistory[index],
-                              index: index,
-                            );
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+                    ),
             ),
           );
         }),

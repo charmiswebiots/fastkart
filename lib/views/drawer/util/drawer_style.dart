@@ -41,4 +41,18 @@ class DrawerStyle{
         color: color);
   }
 
+  //drawer list layout
+  Widget drawerListLayout({Widget? child, var color}){
+    return Container(
+        margin: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(8.0)),
+        padding: EdgeInsets.symmetric(
+            vertical: AppScreenUtil().screenHeight(10),
+            horizontal: AppScreenUtil().screenWidth(10)),
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius:
+            BorderRadius.circular(AppScreenUtil().borderRadius(10))),
+        child: child);
+  }
+
 }

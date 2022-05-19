@@ -22,24 +22,35 @@ class MyWishListScreen extends StatelessWidget {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  SingleChildScrollView(
-                    child: Container(
-                      margin: EdgeInsets.only(
-                          bottom: AppScreenUtil().screenHeight(50)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          // wish list layout
-                          MyWishListLayout(),
-                        ],
-                      ),
+              child: wishListCtrl.isLoading
+                  ? Shimmer.fromColors(
+                      baseColor: wishListCtrl.appCtrl.appTheme.darkGray
+                          .withOpacity(.3),
+                      highlightColor: wishListCtrl.appCtrl.appTheme.darkGray
+                          .withOpacity(.1),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: AppScreenUtil().screenWidth(15)),
+                        child: const OfferShimmer(),
+                      ))
+                  : Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        SingleChildScrollView(
+                          child: Container(
+                            margin: EdgeInsets.only(
+                                bottom: AppScreenUtil().screenHeight(50)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                // wish list layout
+                                MyWishListLayout(),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
             ),
           );
         }),

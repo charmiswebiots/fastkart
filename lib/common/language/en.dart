@@ -53,7 +53,6 @@ final dynamic en = {
   //home page
   'searchProduct': 'Search Products here..',
   'recentBought': 'Buy from Recently Bought',
-  'shopByCategory': 'Shop by Category',
   'sayHelloToOffer': 'Say hello to Offers!',
   'bestPriceEverOfAllTheTime': 'Best price ever of all the time',
   'popularOffersOfTheDay': 'Popular Offers of the Day',

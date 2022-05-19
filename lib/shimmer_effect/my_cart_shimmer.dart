@@ -16,32 +16,27 @@ class MyCartShimmer extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           children: [
             SingleChildScrollView(
-              child: Container(
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .1 / 2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CommonAppBarShimmer(),
-                    const Space(0, 20),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-                      child: const OfferShimmer(),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-                      child: CommonShimmerWidget().commonShimmer(
-                          color: appCtrl.appTheme.lightGray.withOpacity(.5),
-                          borderColor: appCtrl.appTheme.lightGray.withOpacity(.5),
-                          borderRadius: 10,
-                          height: 100,
-                          width: MediaQuery.of(context).size.width,
-                          child: const OfferShimmerCard()),
-                    ),
-                    const Space(0, 20),
-                    const PriceDetailShimmer()
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                    child: const OfferShimmer(),
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                    child: CommonShimmerWidget().commonShimmer(
+                        color: appCtrl.appTheme.lightGray.withOpacity(.5),
+                        borderColor: appCtrl.appTheme.lightGray.withOpacity(.5),
+                        borderRadius: 10,
+                        height: 100,
+                        width: MediaQuery.of(context).size.width,
+                        child: const OfferShimmerCard()),
+                  ),
+                  const Space(0, 20),
+                  const PriceDetailShimmer()
+                ],
               ),
             ),
            CommonShimmerStyle().commonButton(context: context,color: appCtrl.appTheme.lightGray.withOpacity(.9),textColor: appCtrl.appTheme.darkContentColor),

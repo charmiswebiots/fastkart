@@ -6,7 +6,7 @@ class MyWishListController extends GetxController{
       : Get.put(AppController());
 
   List offerList = [];
-
+  bool isLoading =true;
 
   //quantity increment function
   plusTap(index){
@@ -31,18 +31,18 @@ class MyWishListController extends GetxController{
     }
   }
 
-  getData(){
+  getData()async{
     offerList = AppArray().offerList;
     update();
-    appCtrl.hideLoading();
+    await Future.delayed(Durations.s2);
+    isLoading = false;
     update();
   }
 
   @override
   void onReady() {
     // TODO: implement onReady
-    appCtrl.showLoading();
-    appCtrl.update();
+
     getData();
     super.onReady();
   }

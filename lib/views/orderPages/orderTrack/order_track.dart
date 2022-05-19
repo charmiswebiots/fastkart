@@ -1,4 +1,6 @@
 
+import 'package:fastkart/shimmer_effect/order_shimmer/order_track_shimmer/order_track_shimmer.dart';
+
 import '../../../config.dart';
 
 class OrderTrack extends StatelessWidget {
@@ -24,7 +26,7 @@ class OrderTrack extends StatelessWidget {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: Container(
+              child: orderTrackCtrl.isLoading?const OrderTrackShimmer()  : Container(
                 color: orderTrackCtrl.appCtrl.appTheme.whiteColor,
                 child: Stack(
                   alignment: Alignment.bottomCenter,
@@ -40,21 +42,10 @@ class OrderTrack extends StatelessWidget {
                         const OrderTrackDetail()
                       ],
                     ),
-                    //button layout
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppScreenUtil().screenWidth(15),vertical: AppScreenUtil().screenHeight(10)),
-                      child: CustomButton(
-                        height: 40,
-                        title: OrderTrackFont().orderDetail,
-                        color: orderTrackCtrl.appCtrl.appTheme.primary,
-                        fontColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,
-                        onTap: () => Get.toNamed(routeName.orderDetail),
-                      ),
-                    ),
                   ],
                 ),
               ),
+
             ),
           );
         }),

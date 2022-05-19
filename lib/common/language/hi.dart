@@ -51,7 +51,6 @@ final dynamic hi = {
   //home page
   'searchProduct': 'यहां उत्पाद खोजें..',
   'recentBought': 'हाल ही में खरीदे गए से खरीदें',
-  'shopByCategory': 'श्रेणी के अनुसार खरीदारी करें',
   'sayHelloToOffer': 'ऑफ़र को नमस्ते कहो!',
   'bestPriceEverOfAllTheTime': 'अब तक की सबसे अच्छी कीमत',
   'popularOffersOfTheDay': 'दिन के लोकप्रिय ऑफ़र',

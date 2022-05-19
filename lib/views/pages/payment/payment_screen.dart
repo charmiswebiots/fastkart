@@ -1,3 +1,5 @@
+import 'package:fastkart/shimmer_effect/payment_shimmer/payment_shimmer.dart';
+
 import '../../../config.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -21,7 +23,7 @@ class PaymentScreen extends StatelessWidget {
                 overscroll.disallowIndicator();
                 return false;
               },
-              child: Container(
+              child: paymentCtrl.isLoading ? const PaymentPageShimmer() : Container(
                 color: paymentCtrl.appCtrl.appTheme.paymentBgColor,
                 child: Stack(
                   alignment: Alignment.bottomCenter,

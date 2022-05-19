@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/shimmer_effect/offer_shimmer/offer_shimmer_card.dart';
 
 class OfferListShimmer extends StatelessWidget {
   const OfferListShimmer({Key? key}) : super(key: key);
