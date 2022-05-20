@@ -1,5 +1,3 @@
-import 'package:fastkart/views/drawer/util/drawer_style.dart';
-
 import '../../config.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -12,7 +10,7 @@ class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
-      builder: (controller) => ClipRRect(
+      builder: (_) => ClipRRect(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(AppScreenUtil().borderRadius(20)),
             bottomRight: Radius.circular(AppScreenUtil().borderRadius(20))),

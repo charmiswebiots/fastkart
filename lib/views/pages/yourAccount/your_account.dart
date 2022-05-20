@@ -50,7 +50,7 @@ class YourAccount extends StatelessWidget {
 
                       //drawer list
                       ...AppArray().drawerList.asMap().entries.map((e) {
-                        return e.key == 10
+                        return e.key == 11
                             ? LogoutButton(
                                 text: e.value['title'],
                                 onTap: () => yourAccountCtrl.logout())

@@ -21,6 +21,7 @@ final dynamic en = {
       'If you have any problem,queries or questions feel free to reach out',
   'contactUs': 'Contact Us',
   'selectLanguage': 'Select Language',
+  'Currency Change': 'Currency Change',
 
   //login page
   'description':
@@ -125,15 +126,19 @@ final dynamic en = {
   'applyCoupon': "Apply Coupon",
 
   //add address font
-  'addAddress': "Add Address",
+  'Add Address': "Add Address",
   'slot': "Slot:",
   'confirmLocation': "Confirm location & proceed",
   'howCanWeHelp': "How Can We Help...",
   'useCurrentLocation': "Use current location",
   'Noah Hamilton': "Noah Hamilton",
+  'proceedToPayment': "Proceed to Payment",
+  'addAddress': "Add New Address",
+  "selectDeliveryAddress": "Select delivery address",
+  "defaultTitle": 'Default',
 
   //payment page font
-  'addNewAddress': "Add New Address",
+  'Add New Address': "Add New Address",
   'confirmPayment': "Confirm Payment",
   'addPaymentMethod': "Add Payment Method",
   'cashonDelivery': "Cash on Delivery",
@@ -181,6 +186,11 @@ final dynamic en = {
   'foodCupboard': "Food Cupboard",
   'drinkBeverages': "Drink& Beverages",
   'instantMixes': "Instant Mixes",
+  'Fresh Fruit': "Fresh Fruit",
+  'Herbs & Seasonings': "Herbs & Seasonings",
+  'Fresh Vegetables': "Fresh Vegetables",
+  '100% Organic, Best Quality,\nBest price':
+      "100% Organic, Best Quality,\nBest price",
 
   //product detail page list
   'addToCart': "Add to Cart",
@@ -235,23 +245,23 @@ final dynamic en = {
   'paid': "Paid:",
   'orderAgain': "Order Again",
   'rateReviewProduct': "Rate & Review Product",
-  'Processing':'Processing',
-  'Past 30 days':'Past 30 days',
-  'November':'November',
-  'October':'October',
-  'All order':'All order',
-  'Open Order':'Open Order',
-  'Return Orders':'Return Orders',
-  'Cancelled Order':'Cancelled Order',
-  'Last 30 days':'Last 30 days',
-  'Last 6 Month':'Last 6 Month',
-  'myWishList':'My WishList',
+  'Processing': 'Processing',
+  'Past 30 days': 'Past 30 days',
+  'November': 'November',
+  'October': 'October',
+  'All order': 'All order',
+  'Open Order': 'Open Order',
+  'Return Orders': 'Return Orders',
+  'Cancelled Order': 'Cancelled Order',
+  'Last 30 days': 'Last 30 days',
+  'Last 6 Month': 'Last 6 Month',
+  'myWishList': 'My WishList',
 
   //language
-  'English':'English',
-  'Arabic':'Arabic',
-  'Hindi':'Hindi',
-  'Korean':'Korean',
+  'English': 'English',
+  'Arabic': 'Arabic',
+  'Hindi': 'Hindi',
+  'Korean': 'Korean',
 
   //notification
   'markRead': "Mark all as read",

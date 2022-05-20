@@ -63,11 +63,10 @@ class OrderHistoryWidget {
       backgroundColor: backgroundColor,
       titleSpacing: 0,
       centerTitle: false,
-      leading: OrderHistoryWidget().appBarLeadingLayput(
+      leading: CommonAppBarLeading(
           onTap: () => Get.back(),
-          borderColor: titleColor,
-          iconColor: titleColor,
-          image: image),
+        isImage: false,
+      ),
       title: OrderHistoryStyle().appBarTitleLayout(
           text: OrderHistoryFont().orderHistory,
           textColor: titleColor),

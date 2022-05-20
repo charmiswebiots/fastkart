@@ -70,10 +70,9 @@ class YourAccountWidget {
       backgroundColor: bgColor,
       titleSpacing: 0,
       centerTitle: false,
-      leading: YourAccountWidget().appBarLeadingLayput(
+      leading: CommonAppBarLeading(
           onTap: () => Get.back(),
-          borderColor: titleColor,
-          iconColor: titleColor,
+        isImage: false,
       ),
       title: YourAccountWidget().appBarTitleLayout(
           text: text,

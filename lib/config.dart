@@ -180,7 +180,6 @@ export 'package:fastkart/views/pages/payment/payment_layout/card_list_card.dart'
 export 'package:fastkart/views/pages/payment/payment_layout/add_address_button.dart';
 export 'package:fastkart/views/pages/payment/payment_layout/credit_debit_layout.dart';
 export 'package:fastkart/views/pages/payment/payment_layout/net_banking_layout.dart';
-export 'package:fastkart/views/pages/payment/payment_layout/price_layout.dart';
 export 'package:fastkart/views/pages/payment/payment_layout/select_cardlist_layout.dart';
 export 'package:fastkart/views/pages/productDetail/util/product_detail_constants.dart';
 export 'package:fastkart/views/pages/payment/payment_layout/credit_debit_card.dart';

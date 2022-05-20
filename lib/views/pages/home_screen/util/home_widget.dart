@@ -58,21 +58,25 @@ class HomeWidget {
   }
 
   //quantity layout
-  Widget quantityLayout({var color, Widget? child}) {
+  Widget quantityLayout({var color, Widget? child,var borderColor}) {
     return Container(
       padding: EdgeInsets.symmetric(
-          vertical: AppScreenUtil().screenHeight(8),
-          horizontal: AppScreenUtil().screenWidth(8)),
+          vertical: AppScreenUtil().screenHeight(6),
+          horizontal: AppScreenUtil().screenWidth(5)),
       decoration: BoxDecoration(
+        color: color,
           borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
-          border: Border.all(color: color)),
+          border: Border.all(color: borderColor)),
       child: child,
     );
   }
 
   //common offer layout
   Widget commonOfferLayout(
-      {Widget? child, GestureTapCallback? onTap, context, var color}) {
+      {Widget? child,
+      GestureTapCallback? onTap,
+      context,
+      var color}) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -85,8 +89,7 @@ class HomeWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: color,
-            borderRadius:
-                BorderRadius.circular(AppScreenUtil().borderRadius(10))),
+            borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(10))),
         child: IntrinsicHeight(
           child: child,
         ),

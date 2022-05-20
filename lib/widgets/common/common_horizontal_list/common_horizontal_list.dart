@@ -1,4 +1,6 @@
 
+import 'package:fastkart/utilities/responsive_layout.dart';
+
 import '../../../config.dart';
 
 class CommonHorizontalList extends StatelessWidget {
@@ -40,7 +42,7 @@ class CommonHorizontalList extends StatelessWidget {
             //lowest price list
             SizedBox(
               height: MediaQuery.of(context).size.height *
-                  (AppScreenUtil().screenActualWidth() > 370 ? 27 : 30) /
+                  (ResponsiveWidget.isSmallScreen(context) ? 25 : 26) /
                   100,
               child: ListView.builder(
                 itemCount: data.length,

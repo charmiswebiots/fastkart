@@ -19,6 +19,7 @@ final dynamic ar = {
   'contactSupportDesc':'إذا كانت لديك أي مشكلة أو استفسارات أو أسئلة ، فلا تتردد في التواصل معنا',
   'contactUs':'اتصل بنا',
   'selectLanguage':'اختار اللغة',
+  'Currency Change': 'تغيير العملة',
 
   //login page
   'description':
@@ -129,12 +130,16 @@ final dynamic ar = {
   'applyCoupon': "تطبيق القسيمة",
 
   //add address font
-  'addAddress': "اضف عنوان",
+  'Add Address': "اضف عنوان",
   'slot': "فتحة:",
   'confirmLocation': "تأكيد الموقع والمتابعة",
   'howCanWeHelp': "كيف يمكن أن نساعد...",
   'useCurrentLocation': "استخدام الموقع الحالي",
   'Noah Hamilton': "نوح هاميلتون",
+  'proceedToPayment': "الشروع في دفع",
+  'addAddress': "أضف عنوان جديد",
+  "selectDeliveryAddress": "حدد عنوان التسليم",
+  "defaultTitle": 'تقصير',
 
   //payment page font
   'addNewAddress': "أضف عنوان جديد",
@@ -180,6 +185,10 @@ final dynamic ar = {
   'packSize': 'حجم العبوة',
   'reset': 'إعادة ضبط',
   'cancel': "يلغي",
+  'Fresh Fruit': "فاكهة طازجة",
+  'Herbs & Seasonings': "أعشاب وتوابل",
+  'Fresh Vegetables': "الخضروات الطازجة",
+  '100% Organic, Best Quality,\nBest price': "100٪ عضوي ، أفضل جودة ،\n أفضل سعر",
 
   //product detail page list
   'addToCart':"أضف إلى السلة",

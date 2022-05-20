@@ -24,7 +24,7 @@ class TrendingProductLayout extends StatelessWidget {
                 onTap: () => Get.toNamed(routeName.productDetail),
                 child: CommonOfferListCard(
                   data: searchCtrl.offerList[index],
-
+                  isColor: false,
                   plusTap: () => searchCtrl.plusTap(index),
                   minusTap: () => searchCtrl.minusTap(index),
                 ),

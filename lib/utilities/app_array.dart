@@ -243,6 +243,10 @@ class AppArray {
       "icon": iconAssets.language,
     },
     {
+      "title": "Currency Change".tr,
+      "icon": iconAssets.currency,
+    },
+    {
       "title": "yourAccount".tr,
       "icon": iconAssets.profile,
     },
@@ -323,23 +327,23 @@ class AppArray {
   //shop category list
   final shopCategoryList = [
     {
-      'title': 'Fresh Vegetables',
+      'title': 'Fresh Vegetables'.tr,
       'id': 1,
     },
     {
-      'title': 'Herbs & Seasonings',
+      'title': 'Herbs & Seasonings'.tr,
       'id': 2,
     },
     {
-      'title': 'Fresh Fruit',
+      'title': 'Fresh Fruit'.tr,
       'id': 3,
     },
     {
-      'title': 'Drinks& Beverages',
+      'title': 'drinkBeverages'.tr,
       'id': 4,
     },
     {
-      'title': 'Instant Mixes',
+      'title': 'instantMixes'.tr,
       'id': 5,
     },
   ];
@@ -414,7 +418,7 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': '100% Organic, Best Quality,\nBest price',
+      'name': '100% Organic, Best Quality,\nBest price'.tr,
       'image': imageAssets.shopListImage,
       'categoryId': 1
     },
@@ -475,12 +479,12 @@ class AppArray {
 
   //quantity list
   var quantityList = [
-    {"title": "500 g / \$24.00"},
-    {"title": "700 g / \$34.00"},
-    {"title": "100 g / \$48.00"},
-    {"title": "1.5 Kg / \$70.00"},
-    {"title": "2 Kg / \$100.00"},
-    {"title": "5 Kg / \$150.00"},
+    {"title": "500 g /\$24.00"},
+    {"title": "700 g /\$34.00"},
+    {"title": "100 g /\$48.00"},
+    {"title": "1.5 Kg /\$70.00"},
+    {"title": "2 Kg /\$100.00"},
+    {"title": "5 Kg /\$150.00"},
   ];
 
   //deliveryTime list
@@ -501,24 +505,9 @@ class AppArray {
   ];
 
   var reviewList = [
-    {
-      'name': 'andreaJoanne'.tr,
-      'rating': 4,
-      'desc':
-          "detail2".tr
-    },
-    {
-      'name': 'andreaJoanne'.tr,
-      'rating': 4,
-      'desc':
-          "detail2".tr
-    },
-    {
-      'name': 'andreaJoanne'.tr,
-      'rating': 4,
-      'desc':
-          "detail2".tr
-    },
+    {'name': 'andreaJoanne'.tr, 'rating': 4, 'desc': "detail2".tr},
+    {'name': 'andreaJoanne'.tr, 'rating': 4, 'desc': "detail2".tr},
+    {'name': 'andreaJoanne'.tr, 'rating': 4, 'desc': "detail2".tr},
     {
       'name': 'andreaJoanne'.tr,
       'rating': 4,
@@ -711,7 +700,7 @@ class AppArray {
       ]
     },
     {
-      'day': 'Last 7 Days',
+      'day': 'Last 7 Days'.tr,
       'child': [
         {
           'bgColor': const Color(0xFFFFF6F3),
@@ -909,25 +898,21 @@ class AppArray {
 
   //product detail list
   var productDetailList = [
-    {
-      'title': 'Product Details'.tr,
-      'child':
-          'detail'.tr
-    },
-    {
-      'title': 'Manufacturer Details'.tr,
-      'child':
-          'detail1'.tr
-    },
-    {
-      'title': 'Product Disclaimer'.tr,
-      'child':
-          'detail1'.tr
-    },
+    {'title': 'Product Details'.tr, 'child': 'detail'.tr},
+    {'title': 'Manufacturer Details'.tr, 'child': 'detail1'.tr},
+    {'title': 'Product Disclaimer'.tr, 'child': 'detail1'.tr},
     {
       'title': 'Features & details'.tr,
       'child':
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'
     },
+  ];
+
+  var currencyList = [
+    {'icon': iconAssets.inr, 'title': 'Indian rupee','code':'INR','symbol': '₹'},
+    {'icon': iconAssets.usd, 'title': 'United States dollar','code':'USD','symbol': '\$'},
+    {'icon': iconAssets.eur, 'title': 'Euro','code':'EUR','symbol': '€'},
+    {'icon': iconAssets.aud, 'title': 'Australian dollar','code':'AUD','symbol': 'A\$'},
+    {'icon': iconAssets.kpw, 'title': 'North Korean won','code':'KPW','symbol': '₩'},
   ];
 }

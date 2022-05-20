@@ -19,6 +19,7 @@ final dynamic hi = {
   'contactSupportDesc':'यदि आपको कोई समस्या है, तो प्रश्न या प्रश्न बेझिझक संपर्क करें',
   'contactUs':'हमसे संपर्क करें',
   'selectLanguage':'भाषा चुनें',
+  'Currency Change': 'मुद्रा परिवर्तन',
 
   //login page
   'description':
@@ -129,12 +130,16 @@ final dynamic hi = {
   'applyCoupon': "कूपन लगाइये",
 
   //add address font
-  'addAddress': "पता जोड़ें",
+  'Add Address': "पता जोड़ें",
   'slot': "छेद:",
   'confirmLocation': "स्थान की पुष्टि करें और आगे बढ़ें",
   'howCanWeHelp': "हम आपकी सहायता किस तरह से कर सकते है...",
   'useCurrentLocation': "वर्तमान स्थान का उपयोग करें",
   'Noah Hamilton': "नूह हैमिल्टन",
+  'proceedToPayment': "भुगतान करने के लिए आगे बढ़ें",
+  'addAddress': "नया पता जोड़ें",
+  "selectDeliveryAddress": "डिलीवरी पता चुनें",
+  "defaultTitle": 'डिफ़ॉल्ट',
 
   //payment page font
   'addNewAddress': "नया पता जोड़ें",
@@ -180,6 +185,10 @@ final dynamic hi = {
   'packSize': 'पैक साइज',
   'reset': 'रीसेट',
   'cancel': "रद्द करें",
+  'Fresh Fruit': "ताजा फल",
+  'Herbs & Seasonings': "जड़ी-बूटी और मसाला",
+  'Fresh Vegetables': "ताजा सब्जियां",
+  '100% Organic, Best Quality,\nBest price': "100% कार्बनिक, सर्वोत्तम गुणवत्ता, \nसर्वोत्तम मूल्य",
 
   //product detail page list
   'addToCart': "कार्ट में डालें",

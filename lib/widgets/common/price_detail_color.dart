@@ -33,14 +33,20 @@ class PriceDetailColorLayout extends StatelessWidget {
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().bagTotal,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: MyCartFont().dollar + '220.00',
+                val: appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                    220)
+                    .toStringAsFixed(2)))
+                    .toString(),
                 fontWeight: FontWeight.normal,
                 valColor: appCtrl.appTheme.darkContentColor),
             const Space(0, 10),
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().bagSavings,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: '-${MyCartFont().dollar}20.00',
+                val: '-${appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                    20)
+                    .toStringAsFixed(2)))
+                    .toString()}',
                 fontWeight: FontWeight.normal,
                 valColor: appCtrl.appTheme.primary),
             const Space(0, 10),
@@ -55,7 +61,10 @@ class PriceDetailColorLayout extends StatelessWidget {
                 title: MyCartFont().delivery,
                 titleColor: appCtrl.appTheme.darkContentColor,
                 fontWeight: FontWeight.normal,
-                val: MyCartFont().dollar + '50.00',
+                val:  appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                    50)
+                    .toStringAsFixed(2)))
+                    .toString(),
                 valColor: appCtrl.appTheme.darkContentColor),
             const Space(0, 10),
             const Divider(),
@@ -64,7 +73,10 @@ class PriceDetailColorLayout extends StatelessWidget {
                 title: MyCartFont().totalAmount,
                 titleColor: appCtrl.appTheme.titleColor,
                 fontWeight: FontWeight.w600,
-                val: MyCartFont().dollar + '270.00',
+                val:  appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                    270)
+                    .toStringAsFixed(2)))
+                    .toString(),
                 valColor: appCtrl.appTheme.titleColor),
           ],
         ),

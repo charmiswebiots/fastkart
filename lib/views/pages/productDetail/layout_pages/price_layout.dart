@@ -17,14 +17,14 @@ class ProductPriceLayout extends StatelessWidget {
           child: Row(
             children: [
               ProductDetailFontStyle().mulishtextLayout(
-                  text: ProductDetailFont().dollar + discountPrice!,
+                  text: discountPrice!,
                   fontSize: ProductDetailFontSize.textSizeMedium,
                   color: appCtrl.appTheme.titleColor,
                   fontWeight: FontWeight.w600,
                   overflow: TextOverflow.clip),
               const Space(10, 0),
               ProductDetailFontStyle().mulishtextLayout(
-                  text: ProductDetailFont().dollar + totalPrice!,
+                  text:  totalPrice!,
                   fontSize: ProductDetailFontSize.textSizeSMedium,
                   textDecoration: TextDecoration.lineThrough,
                   color: appCtrl.appTheme.darkContentColor,

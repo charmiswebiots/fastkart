@@ -1,6 +1,10 @@
+import 'dart:convert';
+
+import 'package:fastkart/views/drawer/drawer_layout/currency_bottomsheet.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../config.dart';
+import 'package:http/http.dart' as http;
 import 'package:get_storage/get_storage.dart';
 
 class AppController extends GetxController {
@@ -13,6 +17,9 @@ class AppController extends GetxController {
   var auth = FirebaseAuth.instance;
   final storage = GetStorage();
   List drawerList = [];
+  double rateValue = 0.0;
+  String priceSymbol = "₹";
+  String languageVal = "en";
 
   AppTheme get appTheme => _appTheme;
 
@@ -43,6 +50,7 @@ class AppController extends GetxController {
     //language check
     // check which Language is selected
     String? languageCode = storage.read(Session.languageCode);
+    languageVal = storage.read(Session.languageCode);
     String? countryCode = storage.read(Session.countryCode);
 
     if (languageCode != null && countryCode != null) {
@@ -66,6 +74,9 @@ class AppController extends GetxController {
     ThemeService().switchTheme(isTheme);
     Get.forceAppUpdate();
     await getStorage.read('isDarkMode');
+    String currencyCode = await getStorage.read(Session.currencyCode);
+    priceSymbol = getStorage.read(Session.currencySymbol) ?? '₹';
+    priceConvertor(currencyCode, priceSymbol);
 
     drawerList = AppArray().drawerList;
 
@@ -81,9 +92,9 @@ class AppController extends GetxController {
 
     try {
       final GoogleSignInAccount? googleSignInAccount =
-      await _googleSignIn.signIn();
+          await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleSignInAuthentication =
-      await googleSignInAccount!.authentication;
+          await googleSignInAccount!.authentication;
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
@@ -111,28 +122,45 @@ class AppController extends GetxController {
 
   //language selection
   languageSelection(e) async {
-    if (e['name'] == "English" || e['name'] == 'अंग्रेजी' || e['name'] == 'انجليزي' || e['name'] == '영어') {
+    if (e['name'] == "English" ||
+        e['name'] == 'अंग्रेजी' ||
+        e['name'] == 'انجليزي' ||
+        e['name'] == '영어') {
       var locale = const Locale("en", 'US');
       Get.updateLocale(locale);
+      languageVal = "en";
       getStorage.write(Session.languageCode, "en");
       getStorage.write(Session.countryCode, "US");
-    } else if (e['name'] == "Arabic" || e['name'] == 'अरबी' || e['name'] == 'عربي' || e['name'] == '아랍어') {
+    } else if (e['name'] == "Arabic" ||
+        e['name'] == 'अरबी' ||
+        e['name'] == 'عربي' ||
+        e['name'] == '아랍어') {
       var locale = const Locale("ar", 'AE');
       Get.updateLocale(locale);
+      languageVal = "ar";
       getStorage.write(Session.languageCode, "ar");
       getStorage.write(Session.countryCode, "AE");
-    }else if (e['name'] == "Korean" || e['name'] == 'कोरियाई' || e['name'] == 'كوري' || e['name'] == '한국어') {
+    } else if (e['name'] == "Korean" ||
+        e['name'] == 'कोरियाई' ||
+        e['name'] == 'كوري' ||
+        e['name'] == '한국어') {
       var locale = const Locale("ko", 'KR');
       Get.updateLocale(locale);
+      languageVal = "ko";
       getStorage.write(Session.languageCode, "ko");
       getStorage.write(Session.countryCode, "KR");
-    }else if (e['name'] == "Hindi" || e['name'] == 'हिंदी' || e['name'] == 'هندي' || e['name'] == '힌디어') {
+    } else if (e['name'] == "Hindi" ||
+        e['name'] == 'हिंदी' ||
+        e['name'] == 'هندي' ||
+        e['name'] == '힌디어') {
+      languageVal = "hi";
       var locale = const Locale("hi", 'IN');
       Get.updateLocale(locale);
       getStorage.write(Session.languageCode, "hi");
       getStorage.write(Session.countryCode, "IN");
     }
-
+    Get.forceAppUpdate();
+    drawerList = AppArray().drawerList;
     update();
     Get.back();
   }
@@ -187,6 +215,44 @@ class AppController extends GetxController {
     );
   }
 
+  //currency bottom sheet for filter
+  currencyBottomSheet({
+    context,
+  }) {
+    showModalBottomSheet<void>(
+      backgroundColor: appTheme.popUpColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
+            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
+      ),
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return const CurrencyBottomSheet();
+      },
+    );
+  }
+
+  priceConvertor(to, currencySymbol) async {
+    String from = getStorage.read(Session.currencyCode) ?? 'INR';
+    final response = await http.get(Uri.parse(
+        'https://free.currconv.com/api/v7/convert?q=${from}_$to&compact=ultra&apiKey=822b16f7746c9ebae65d'));
+
+    if (response.statusCode == 200) {
+      Map<String, dynamic> jsonResponse = json.decode(response.body);
+      final rate = jsonResponse[from + '_' + to].toDouble();
+      rateValue = rate;
+      priceSymbol = currencySymbol;
+      update();
+      await getStorage.write(Session.currencyCode, to);
+      await getStorage.write(Session.currencySymbol, currencySymbol);
+      // return double.parse((rate * 25).toStringAsFixed(2));
+    } else {
+      throw Exception('Error');
+    }
+  }
+
   //select page index wise
   selectPage({index, context}) async {
     onSelectIndex(index);
@@ -212,14 +278,17 @@ class AppController extends GetxController {
       bottomSheet(context: context);
     } else if (index == 6) {
       Get.back();
-      Get.toNamed(routeName.yourAccount);
+      currencyBottomSheet(context: context);
     } else if (index == 7) {
       Get.back();
-      Get.toNamed(routeName.notification);
+      Get.toNamed(routeName.yourAccount);
     } else if (index == 8) {
       Get.back();
+      Get.toNamed(routeName.notification);
+    } else if (index == 9) {
+      Get.back();
       Get.toNamed(routeName.setting);
-    } else if (index == 10) {
+    } else if (index == 11) {
       Get.back();
       selectedIndex = 0;
       auth.signOut();
@@ -233,15 +302,14 @@ class AppController extends GetxController {
   }
 
   //error bottom navigation bar click
-  errorBottomNavigationClick (val) async {
+  errorBottomNavigationClick(val) async {
     Get.back();
     Get.back();
     drawerSelectedIndex = 0;
     if (selectedIndex == 4) {
       Get.toNamed(routeName.myCart, arguments: false);
-    } else  {
-      await getStorage.write(
-          'selectedIndex', selectedIndex);
+    } else {
+      await getStorage.write('selectedIndex', selectedIndex);
       selectedIndex = val;
       update();
     }

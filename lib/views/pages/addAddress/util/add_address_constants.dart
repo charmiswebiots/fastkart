@@ -5,7 +5,7 @@ class AddAddressFont {
   String howCanWeHelp = 'howCanWeHelp'.tr;
   String useCurrentLocation = 'useCurrentLocation'.tr;
   String confirmLocation = 'confirmLocation'.tr;
-  String addAddress = "addAddress".tr;
+  String addAddress = "Add Address".tr;
   String delivery = "delivery".tr;
   String slot = "slot".tr;
   String dollar = "\$";

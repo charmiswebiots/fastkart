@@ -51,7 +51,7 @@ class EveryDayEssentialCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         HomeFontStyle()
-                            .mulishtextLayout(fontSize: 11, text: data['name']),
+                            .mulishtextLayout(fontSize: 11, text: data['name'].toString().tr,textAlign: appCtrl.languageVal == "ar" ? TextAlign.right: TextAlign.left,overflow: TextOverflow.ellipsis),
                         const  Space(0, 8),
                         HomeFontStyle().mulishtextLayout(
                             fontSize: 10,
@@ -62,7 +62,11 @@ class EveryDayEssentialCard extends StatelessWidget {
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
                             color: appCtrl.appTheme.titleColor,
-                            text: HomeFont().dollar + data['price'].toString()),
+                            text: appCtrl.priceSymbol +
+                                (double.parse((appCtrl.rateValue *
+                                    double.parse(data['price']))
+                                    .toStringAsFixed(2)))
+                                    .toString(),)
                       ],
                     ),
                   ),

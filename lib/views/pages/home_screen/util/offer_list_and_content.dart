@@ -37,6 +37,7 @@ class OfferListAndContent extends StatelessWidget {
                         homeCtrl.appCtrl.selectedIndex = 3;
                         homeCtrl.appCtrl.update();
                       },
+                      isColor:false,
                       data: e.value,
                       minusTap: () => homeCtrl.minusTap(e.key),
                       plusTap: () => homeCtrl.plusTap(e.key),

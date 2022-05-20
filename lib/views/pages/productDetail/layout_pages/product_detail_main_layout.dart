@@ -37,8 +37,18 @@ class ProductDetailMainLayout extends StatelessWidget {
                     ),
                     //price layout
                      ProductPriceLayout(
-                      discountPrice: '25.00',
-                      totalPrice: '45.00',
+                      discountPrice: productDetailCtrl
+                          .appCtrl.priceSymbol +
+                          (double.parse((productDetailCtrl
+                              .appCtrl.rateValue * 25.00)
+                              .toStringAsFixed(2)))
+                              .toString(),
+                      totalPrice:  productDetailCtrl
+                          .appCtrl.priceSymbol +
+                          (double.parse((productDetailCtrl
+                              .appCtrl.rateValue * 45.00)
+                              .toStringAsFixed(2)))
+                              .toString(),
                       discountText: ('25% ' + 'off'.tr),
                     ),
 

@@ -9,6 +9,7 @@ class ShopController extends GetxController {
   int selectIndex = 0;
   bool isLoading = true;
   List offerList = [];
+  List shopCategoryList = [];
   String dropDownVal = "Fresh Fruits& Vegetables";
   int packSizeIndex = 0;
   RangeValues currentRangeValues = const RangeValues(0, 100);
@@ -46,7 +47,9 @@ class ShopController extends GetxController {
   //get shop data
   getData()async {
     offerList = AppArray().shopList;
+    shopCategoryList = AppArray().shopCategoryList;
     update();
+    print('shopCategoryList : $shopCategoryList');
     await Future.delayed(Durations.s2);
     isLoading = false;
     update();

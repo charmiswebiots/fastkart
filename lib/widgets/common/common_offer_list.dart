@@ -5,9 +5,15 @@ class CommonOfferListCard extends StatelessWidget {
   final GestureTapCallback? minusTap;
   final GestureTapCallback? plusTap;
   final GestureTapCallback? onTap;
+  final bool? isColor;
 
   const CommonOfferListCard(
-      {Key? key, this.data, this.plusTap, this.minusTap, this.onTap})
+      {Key? key,
+      this.data,
+      this.plusTap,
+      this.minusTap,
+      this.onTap,
+      this.isColor})
       : super(key: key);
 
   @override
@@ -46,17 +52,23 @@ class CommonOfferListCard extends StatelessWidget {
                   Row(
                     children: [
                       HomeFontStyle().mulishtextLayout(
-                          text: HomeFont().dollar + data['price'].toString().tr,
+                          text: appCtrl.priceSymbol +
+                              (double.parse((appCtrl.rateValue *
+                                          double.parse(data['price']))
+                                      .toStringAsFixed(2)))
+                                  .toString(),
                           fontSize: 12,
                           color: appCtrl.appTheme.titleColor,
                           fontWeight: FontWeight.w700),
+                      const Space(5, 0),
                       HomeWidget().discountLayout(
                           color: appCtrl.appTheme.primary,
                           textColor: appCtrl.appTheme.whiteColor,
                           text: data['discount'].toString()),
-                      const Space(40, 0),
+                      const Space(30, 0),
                       HomeWidget().quantityLayout(
-                          color: appCtrl.appTheme.lightPrimary,
+                          color:appCtrl.appTheme.whiteColor,
+                          borderColor: appCtrl.appTheme.lightPrimary,
                           child: GetBuilder<HomeController>(
                               builder: (controller) => Row(
                                     children: [
@@ -86,7 +98,9 @@ class CommonOfferListCard extends StatelessWidget {
           ),
           context: context,
           onTap: onTap,
-          color: appCtrl.appTheme.whiteColor);
+          color: isColor!
+              ? appCtrl.appTheme.wishtListBoxColor
+              : appCtrl.appTheme.whiteColor);
     });
   }
 }

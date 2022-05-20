@@ -37,8 +37,8 @@ class OrderHistoryScreen extends StatelessWidget {
                             //search product textformfield layout
                             Padding(
                               padding: EdgeInsets.only(
-                                  top: AppScreenUtil().screenHeight(15),
-                                  right: AppScreenUtil().screenWidth(15)),
+                                  left: AppScreenUtil().screenHeight(orderHistoryCtrl.appCtrl.languageVal == "ar" ? 15 :0),
+                                  right: AppScreenUtil().screenHeight(orderHistoryCtrl.appCtrl.languageVal != "ar" ? 15 :0)),
                               child: Row(
                                 children: [
                                   Expanded(

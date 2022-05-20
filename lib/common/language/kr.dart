@@ -19,6 +19,7 @@ final dynamic kr = {
   'contactSupportDesc':'문제가 있는 경우 질문이나 질문이 있으시면 언제든지 연락주세요',
   'contactUs':'문의하기',
   'selectLanguage':'언어 선택',
+  'Currency Change': '통화 변경',
 
   //login page
   'description': '매일 필요한 모든 것을 제공하는 온라인 슈퍼마켓. 당신은 당신의 문 단계에서 당신의 모든 요구에서 단 한 번의 클릭입니다.',
@@ -128,12 +129,16 @@ final dynamic kr = {
   'applyCoupon': "쿠폰 적용",
 
   //add address font
-  'addAddress':"주소 추가",
+  'Add Address':"주소 추가",
   'slot':"슬롯:",
   'confirmLocation':"위치 확인 및 진행",
   'howCanWeHelp':"어떻게 도와드릴까요...",
   'useCurrentLocation':"현재 위치 사용",
   'Noah Hamilton':"노아 해밀턴",
+  'proceedToPayment': "결제 진행",
+  'addAddress': "새 주소 추가",
+  "selectDeliveryAddress": "배송 주소 선택",
+  "defaultTitle": '기본값',
 
   //payment page font
   'addNewAddress' : "새 주소 추가",
@@ -179,6 +184,10 @@ final dynamic kr = {
   'packSize': '팩 크기',
   'reset': '재설정',
   'cancel': "취소",
+  'Fresh Fruit': "신선한 과일",
+  'Herbs & Seasonings': "허브 및 조미료",
+  'Fresh Vegetables': "신선한 야채",
+  '100% Organic, Best Quality,\nBest price': "100% 유기농, 최고의 품질, \n최고의 가격",
 
   //product detail page list
   'addToCart':"장바구니에 추가",

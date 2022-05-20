@@ -20,7 +20,7 @@ class HomeFontStyle {
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
-    TextOverflow overflow = TextOverflow.ellipsis,
+    TextOverflow overflow = TextOverflow.clip,
     TextAlign textAlign = TextAlign.left
   }) {
     return InkWell(

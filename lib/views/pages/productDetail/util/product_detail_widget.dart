@@ -40,45 +40,4 @@ class ProductDetailWidget {
     );
   }
 
-  //Common Horizontal list layout
-  Widget commonHorizontalListLayout(
-      {BuildContext? context,
-      String? title,
-      String? seeAllText,
-      var data,
-      var lowestPriceColor,
-      var payLessColor,
-      bool? isBigScreen}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        //everyday essential and see all  widget
-        ProductDetailStyle().commonTitleAndSeeAllWidget(
-            title: title,
-            seeAllText: seeAllText,
-            seeAllColor: lowestPriceColor),
-        const Space(0, 5),
-        //popular offers of the day text widget
-        ProductDetailStyle().commonDescriptionTextWidget(
-            text: ProductDetailFont().payLessGetMore, color: payLessColor),
-        //lowest price list
-        SizedBox(
-          height: MediaQuery.of(context!).size.height *
-              (AppScreenUtil().screenActualWidth() > 377 ? 27 : 30) /
-              100,
-          child: ListView.builder(
-            itemCount: data.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return EveryDayEssentialCard(
-                index: index,
-                data: data[index],
-              );
-            },
-          ),
-        )
-      ],
-    );
-  }
 }

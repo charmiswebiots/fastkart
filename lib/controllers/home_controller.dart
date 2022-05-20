@@ -47,7 +47,6 @@ class HomeController extends GetxController {
     categoryData = AppArray().categoryData;
     lowerPriceList = AppArray().lowerPriceList;
     everyDayEssentialList = AppArray().everyDayEssentialList;
-    couponData = AppArray().couponData;
     await Future.delayed(Durations.s3);
     appCtrl.isShimmer = false;
     appCtrl.update();

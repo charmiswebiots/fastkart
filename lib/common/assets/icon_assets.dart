@@ -61,4 +61,10 @@ class IconAssets {
   final String twitter = 'assets/icons/twitter.png';
   final String logout = 'assets/icons/logout.png';
   final String logout1 = 'assets/icons/logout1.png';
+  final String inr = 'assets/icons/inr.png';
+  final String aud = 'assets/icons/aud.png';
+  final String eur = 'assets/icons/eur.png';
+  final String usd = 'assets/icons/usd.png';
+  final String kpw = 'assets/icons/kpw.png';
+  final String currency = 'assets/icons/currency.png';
 }

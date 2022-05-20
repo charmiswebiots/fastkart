@@ -1,6 +1,5 @@
 import 'package:fastkart/config.dart';
 
-
 class ProductDetailController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
@@ -12,6 +11,7 @@ class ProductDetailController extends GetxController {
   List detailList = [];
   List reviewList = [];
   List detail = [];
+  List quantityList = [];
   int deliveryIndex = 0;
   double rating = 2.5;
   bool isShow = false;
@@ -62,7 +62,7 @@ class ProductDetailController extends GetxController {
         return GetBuilder<ProductDetailController>(builder: (_) {
           return index == 0
               ? QuantityBottomSheet(
-                  data: AppArray().quantityList,
+                  data: quantityList,
                   closeTap: () => Get.back(),
                   applyTap: () => Get.back(),
                   isQuantity: true,
@@ -82,13 +82,42 @@ class ProductDetailController extends GetxController {
     );
   }
 
+  //get data
+  getData() {
+    detailList = AppArray().detailList;
+    reviewList = AppArray().reviewList;
+    detail = AppArray().productDetailList;
+    quantityList = AppArray().quantityList;
+    //split the value
+    selectedQuantity = quantityList[0]['title'].substring(0, 7) +
+        ' ' +
+        appCtrl.priceSymbol +
+        (double.parse((appCtrl.rateValue *
+                    double.parse(
+                        quantityList[0]['title'].toString().substring(8)))
+                .toStringAsFixed(2)))
+            .toString();
+
+    update();
+    for (var i = 0; i < quantityList.length; i++) {
+      String text = quantityList[i]['title'].toString();
+      int? sub = text.indexOf('\$');
+      quantityList[i]['title'] = quantityList[i]['title'].substring(0, sub) +
+          ' ' +
+          appCtrl.priceSymbol +
+          (double.parse(
+                  (appCtrl.rateValue * double.parse(text.substring(sub + 1)))
+                      .toStringAsFixed(2)))
+              .toString();
+    }
+
+    update();
+  }
+
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    detailList = AppArray().detailList;
-    reviewList = AppArray().reviewList;
-    detail = AppArray().productDetailList;
-    update();
+    getData();
   }
 }

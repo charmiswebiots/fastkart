@@ -35,8 +35,8 @@ class _OfferScreenState extends State<OfferScreen> {
                         //search product textformfield layout
                         Padding(
                           padding: EdgeInsets.only(
-
-                              right: AppScreenUtil().screenHeight(15)),
+              left: AppScreenUtil().screenHeight(offerCtrl.appCtrl.languageVal == "ar" ? 15 :0),
+              right: AppScreenUtil().screenHeight(offerCtrl.appCtrl.languageVal != "ar" ? 15 :0)),
                           child: Row(
                             children: [
                               Expanded(

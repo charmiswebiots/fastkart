@@ -3,37 +3,6 @@ import 'package:fastkart/config.dart';
 //Widget Layout
 class MyWishListWidget {
 
-  //appbar leading layout
-  Widget appBarLeadingLayput(
-      {GestureTapCallback? onTap,
-        var borderColor,
-        var iconColor,}) {
-    return Row(
-      children: [
-        InkWell(
-          onTap: onTap,
-          child: Container(
-            height: AppScreenUtil().screenHeight(
-                AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
-            width: AppScreenUtil().screenHeight(
-                AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
-            margin: EdgeInsets.only(
-              left: AppScreenUtil().screenWidth(15),
-            ),
-            decoration: BoxDecoration(
-                border: Border.all(color: borderColor, width: 1.5),
-                borderRadius: BorderRadius.circular(8)),
-            child: Icon(
-              Icons.arrow_back_sharp,
-              size: AppScreenUtil().size(14),
-              color: iconColor,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   //appbar title layout
   Widget appBarTitleLayout({String? text, var textColor}) {
     return MyWishListFontStyle().mulishtextLayout(
@@ -72,10 +41,9 @@ class MyWishListWidget {
       backgroundColor: bgColor,
       titleSpacing: 0,
       centerTitle: false,
-      leading: MyWishListWidget().appBarLeadingLayput(
+      leading: CommonAppBarLeading(
           onTap: () => Get.back(),
-          borderColor: titleColor,
-          iconColor: titleColor,
+        isImage: false,
           ),
       title: MyWishListWidget().appBarTitleLayout(
           text: text,

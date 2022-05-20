@@ -14,32 +14,31 @@ class SlidableLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (appCtrl) {
-      return Slidable(
-        endActionPane: ActionPane(
-          extentRatio: 0.32,
-          motion: const ScrollMotion(),
-          children: [
-            MyCartStyle().deleteLayout(
-                primaryColor: appCtrl.appTheme.primary, onTap: () => {})
-          ],
-        ),
-
-        // The child of the Slidable is what the user sees when the
-        // component is not dragged.
-        child: MyCartCard(
-          isCart: isCart,
-          onTap: () => Get.toNamed(routeName.productDetail),
-          data: data,
-          containerBoxColor: appCtrl.appTheme.wishtListBoxColor,
-          descriptionColor: appCtrl.appTheme.darkContentColor,
-          discountBoxColor: appCtrl.appTheme.primary,
-          discountTextColor: appCtrl.appTheme.whiteColor,
-          dividerColor: appCtrl.appTheme.contentColor.withOpacity(.5),
-          quantityBorderColor: appCtrl.appTheme.lightPrimary,
-          titleColor: appCtrl.appTheme.titleColor,
-          plusTap: plusTap,
-          minusTap: minusTap,
-        ),
+      return Builder(
+        builder: (context) {
+          return Slidable(
+            endActionPane: ActionPane(
+              extentRatio: 0.32,
+              motion: const ScrollMotion(),
+              children: [
+                MyCartStyle().deleteLayout(
+                    primaryColor: appCtrl.appTheme.primary, onTap: () => {})
+              ],
+            ),
+            child: CommonOfferListCard(
+              onTap: () async {
+                await appCtrl.getStorage.write(
+                    'selectedIndex', appCtrl.selectedIndex);
+                appCtrl.selectedIndex = 3;
+                appCtrl.update();
+              },
+              isColor: true,
+              data:data,
+              minusTap: plusTap,
+              plusTap: minusTap,
+            ),
+          );
+        }
       );
     });
   }

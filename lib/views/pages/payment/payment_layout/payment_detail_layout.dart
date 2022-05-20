@@ -75,7 +75,10 @@ class PaymentDetailLayout extends StatelessWidget {
                   ],
                 ),
                 //price detail
-                const PriceLayout(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                  child: const PriceDetailColorLayout(),
+                ),
               ],
             ),
           ),

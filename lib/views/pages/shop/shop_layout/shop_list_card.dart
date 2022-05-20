@@ -43,110 +43,13 @@ class ShopListCard extends StatelessWidget {
         builder: (shopCtrl) {
         return InkWell(
           onTap: onTap,
-          child: Container(
-            margin: EdgeInsets.symmetric(
-              vertical: AppScreenUtil().screenHeight(10),
-              horizontal: AppScreenUtil().screenHeight(15),
-
-            ),
-            padding: EdgeInsets.symmetric(
-                vertical: AppScreenUtil().screenHeight(15),
-                horizontal: AppScreenUtil().screenHeight(10)),
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: shopCtrl
-                  .appCtrl.appTheme.wishtListBoxColor,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(AppScreenUtil().borderRadius(10)),
-                  bottomLeft: Radius.circular(AppScreenUtil().borderRadius(10))),
-            ),
-            child: IntrinsicHeight(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    data['image'].toString(),
-                    fit: BoxFit.fill,
-                    height: AppScreenUtil().screenHeight(45),
-                    width: AppScreenUtil().screenWidth(50),
-                  ),
-                  const  Space(5, 0),
-                  VerticalDivider(
-                    color: dividerColor,
-                    width: 5,
-                    indent: 10,
-                    endIndent: 10,
-                    thickness: .5,
-                  ),
-                  const Space(5, 0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ShopFontStyle().mulishtextLayout(
-                          text: data['name'], fontSize: 13, color: titleColor),
-                      const  Space(0, 2),
-                      ShopFontStyle().mulishtextLayout(
-                          text: data['description'],
-                          fontSize: 13,
-                          color: shopCtrl
-                              .appCtrl.appTheme.darkContentColor),
-                      Row(
-                        children: [
-                          ShopFontStyle().mulishtextLayout(
-                              text: ShopFont().dollar + data['price'].toString(),
-                              fontSize: 12,
-                              color: titleColor,
-                              fontWeight: FontWeight.w700),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: shopCtrl.appCtrl.appTheme.primary,
-                                borderRadius: BorderRadius.circular(20)),
-                            margin: EdgeInsets.only(
-                                left: AppScreenUtil().screenHeight(5)),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: AppScreenUtil().screenWidth(10),
-                                vertical: AppScreenUtil().screenHeight(3)),
-                            child: ShopFontStyle().mulishtextLayout(
-                              text: data['discount'].toString(),
-                              fontSize: 10,
-                              color: discountTextColor,
-                            ),
-                          ),
-                          const  Space(45, 0),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: AppScreenUtil().screenHeight(8),
-                                horizontal: AppScreenUtil().screenWidth(8)),
-                            decoration: BoxDecoration(
-                                color: discountTextColor,
-                                borderRadius: BorderRadius.circular(
-                                    AppScreenUtil().borderRadius(5)),
-                                border: Border.all(color: quantityBorderColor!)),
-                            child: GetBuilder<ShopController>(
-                              builder: (controller) => Row(
-                                children: [
-                                  InkWell(
-                                      onTap: minusTap,
-                                      child:  Icon(
-                                        Icons.remove,
-                                        size: AppScreenUtil().size(18),
-                                      )),
-                                  const Space(10, 0),
-                                  Text(data['quantity'].toString()),
-                                  const  Space(10, 0),
-                                  InkWell(
-                                      onTap: plusTap,
-                                      child: Icon(Icons.add, size: AppScreenUtil().size(18)),)
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ],
-              ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+            child: CommonOfferListCard(
+              data: data,
+              isColor: true,
+              plusTap: plusTap,
+              minusTap:minusTap,
             ),
           ),
         );

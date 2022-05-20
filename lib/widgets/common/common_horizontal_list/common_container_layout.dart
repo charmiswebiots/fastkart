@@ -13,7 +13,8 @@ class CommonContainerLayout extends StatelessWidget {
           width: MediaQuery.of(context).size.width / 2.8,
           padding: EdgeInsets.all(AppScreenUtil().size(10)),
           margin: EdgeInsets.only(
-              left: AppScreenUtil().size(index == 0 ? 0 : 10),
+              left: AppScreenUtil().size( index == 0 ? 0 : 10),
+              right: AppScreenUtil().size(appCtrl.languageVal == "ar" ? 10 :0),
               top: AppScreenUtil().screenHeight(10),
               bottom: AppScreenUtil().screenHeight(20)),
           decoration: BoxDecoration(

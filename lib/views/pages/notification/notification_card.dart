@@ -24,7 +24,7 @@ class NotificationCard extends StatelessWidget {
                     color: data['bgColor'], icon: data['iconAssets']),
                 const Space(10, 0),
                 SizedBox(
-                  width: 200,
+                  width: AppScreenUtil().screenWidth(160),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

@@ -66,15 +66,18 @@ class YourAccountController extends GetxController{
       appCtrl
           .bottomSheet(context: context);
     } else if (index == 6) {
-      Get.back();
-      Get.toNamed(routeName.yourAccount);
+      appCtrl
+          .bottomSheet(context: context);
     } else if (index == 7) {
       Get.back();
-      Get.toNamed(routeName.notification);
+      Get.toNamed(routeName.yourAccount);
     } else if (index == 8) {
       Get.back();
+      Get.toNamed(routeName.notification);
+    } else if (index == 9) {
+      Get.back();
       Get.toNamed(routeName.setting);
-    } else if (index == 10) {
+    } else if (index == 11) {
       Get.back();
       Get.offAllNamed(routeName.login);
     }
