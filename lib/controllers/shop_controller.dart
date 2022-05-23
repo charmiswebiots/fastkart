@@ -1,6 +1,5 @@
 import 'package:fastkart/config.dart';
 
-
 class ShopController extends GetxController {
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
@@ -45,11 +44,10 @@ class ShopController extends GetxController {
   }
 
   //get shop data
-  getData()async {
+  getData() async {
     offerList = AppArray().shopList;
     shopCategoryList = AppArray().shopCategoryList;
     update();
-    print('shopCategoryList : $shopCategoryList');
     await Future.delayed(Durations.s2);
     isLoading = false;
     update();
@@ -77,11 +75,14 @@ class ShopController extends GetxController {
       isScrollControlled: true,
       builder: (BuildContext context) {
         return GetBuilder<ShopController>(builder: (_) {
-          return const ShopFilterSheet(
-              child: CategorySelectionLayout(),
-              packageSize: PackageSizeSelection(),
-              rangeSlider: PriceRangeSelection(),
-              buttonLayout:OfferButton() );
+          return ShopFilterSheet(
+              child: const CategorySelectionLayout(),
+              packageSize: const PackageSizeSelection(),
+              rangeSlider: const PriceRangeSelection(),
+              buttonLayout: CommonCancelCloseApplyButton(
+                button1: ShopFont().close,
+                button2: ShopFont().cancel,
+              ));
         });
       },
     );

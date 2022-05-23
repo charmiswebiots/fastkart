@@ -34,56 +34,60 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
             }
             return Future(() => wishListCtrl.isAppBar ? true : false);
           },
-          child: Scaffold(
-            appBar: wishListCtrl.isAppBar
-                ? MyCartWidget().appBarLayout(
-                    actionOnTap: () => wishListCtrl.goToHome(),
-                    onTap: () => wishListCtrl.leadingTap())
-                : MyCartStyle().appBarPreferred(
-                    context: context,
-                    child: MyCartWidget().appBarLayout(
-                        actionOnTap: () => wishListCtrl.goToHome(),
-                        onTap: () => wishListCtrl.leadingTap())),
-            backgroundColor: wishListCtrl.appCtrl.appTheme.blackColor,
-            body: NotificationListener<OverscrollIndicatorNotification>(
-              onNotification: (overscroll) {
-                overscroll.disallowIndicator();
-                return false;
-              },
-              child: wishListCtrl.isLoading ?  MyCartShimmer(isAppBar:wishListCtrl.isAppBar ,) : MyCartStyle().bodyComponentLayout(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      margin: EdgeInsets.only(
-                          bottom: AppScreenUtil().screenHeight(50)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // wish list layout
-                          const CartListLayout(),
-                          //offer ui card
-                          OfferUICard(
-                            onTap: () => wishListCtrl.bottomSheet(
-                              context: context,
-                              data: AppArray().myOfferList[0],
+          child:  Directionality(
+            textDirection:
+            wishListCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+            child: Scaffold(
+              appBar: wishListCtrl.isAppBar
+                  ? MyCartWidget().appBarLayout(
+                      actionOnTap: () => wishListCtrl.goToHome(),
+                      onTap: () => wishListCtrl.leadingTap())
+                  : MyCartStyle().appBarPreferred(
+                      context: context,
+                      child: MyCartWidget().appBarLayout(
+                          actionOnTap: () => wishListCtrl.goToHome(),
+                          onTap: () => wishListCtrl.leadingTap())),
+              backgroundColor: wishListCtrl.appCtrl.appTheme.blackColor,
+              body: NotificationListener<OverscrollIndicatorNotification>(
+                onNotification: (overscroll) {
+                  overscroll.disallowIndicator();
+                  return false;
+                },
+                child: wishListCtrl.isLoading ?  MyCartShimmer(isAppBar:wishListCtrl.isAppBar ,) : MyCartStyle().bodyComponentLayout(
+                    child: SingleChildScrollView(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            bottom: AppScreenUtil().screenHeight(50)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // wish list layout
+                            const CartListLayout(),
+                            //offer ui card
+                            OfferUICard(
+                              onTap: () => wishListCtrl.bottomSheet(
+                                context: context,
+                                data: AppArray().myOfferList[0],
+                              ),
                             ),
-                          ),
-                          const Space(0, 5),
-                          //price detail layout
-                          const PriceDetailLayout(isOrderDetail: true,)
-                        ],
+                            const Space(0, 5),
+                            //price detail layout
+                            const PriceDetailLayout(isOrderDetail: true,)
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  proceesToCheckout: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-                    child: CustomButton(
-                      height: 45,
-                      title: MyCartFont().proceedtoCheckout,
-                      color: wishListCtrl.appCtrl.appTheme.primary,
-                      fontColor: wishListCtrl.appCtrl.appTheme.whiteColor,
-                      onTap: () => Get.toNamed(routeName.addAddress),
-                    ),
-                  )),
+                    proceesToCheckout: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+                      child: CustomButton(
+                        height: 45,
+                        title: MyCartFont().proceedtoCheckout,
+                        color: wishListCtrl.appCtrl.appTheme.primary,
+                        fontColor: wishListCtrl.appCtrl.appTheme.whiteColor,
+                        onTap: () => Get.toNamed(routeName.addAddress),
+                      ),
+                    )),
+              ),
             ),
           ),
         );

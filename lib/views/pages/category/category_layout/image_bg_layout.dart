@@ -1,3 +1,5 @@
+import 'package:fastkart/widgets/tranform_layout.dart';
+
 import '../../../../config.dart';
 
 class ImageBgLayout extends StatelessWidget {
@@ -12,12 +14,12 @@ class ImageBgLayout extends StatelessWidget {
                 Radius.circular(AppScreenUtil().borderRadius(15))),
             child: Stack(
               children: <Widget>[
-                Image.asset(
+                TransformLayout(child: Image.asset(
                   AppArray()
                       .bannerList[0].backgroundImage,
                   fit: BoxFit.cover,
                   width: MediaQuery.of(context).size.width,
-                ),
+                ),),
                 Positioned(
                   top: MediaQuery.of(context).size.height / 15,
                   child: Padding(

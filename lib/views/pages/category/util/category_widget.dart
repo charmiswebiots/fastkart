@@ -46,4 +46,13 @@ class CategoryWidget {
           ],
         ));
   }
+
+  //image layout
+  Widget imageLayout(image){
+    return  Image.asset(
+      image,
+      height: AppScreenUtil().screenHeight(40),
+      width: AppScreenUtil().screenWidth(40),
+    );
+  }
 }

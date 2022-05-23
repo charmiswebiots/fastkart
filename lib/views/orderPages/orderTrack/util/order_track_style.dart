@@ -14,7 +14,7 @@ class OrderTrackStyle{
   //estimated delivery text value layout
   Widget estimatedDelivery(primary){
     return OrderTrackFontStyle().mulishtextLayout(
-        text: "9.00am - 12.00pm",
+        text: "9.00am - 12.00pm".tr,
         fontWeight: FontWeight.bold,
         fontSize: OrderTrackFontSize
             .textSizeMedium,

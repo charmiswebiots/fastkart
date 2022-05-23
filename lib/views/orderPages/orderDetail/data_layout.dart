@@ -14,8 +14,8 @@ class DataLayout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //order id and status layout
-                const OrderIdStatus(
-                  orderId: 'Order ID: #5151515',
+                 OrderIdStatus(
+                  orderId: "orderId".tr + ': #5151515',
                 ),
                 const Space(0, 20),
                 // items text layout
@@ -46,13 +46,13 @@ class DataLayout extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       OrderDetailFontStyle().mulishtextLayout(
-                          text: "Noah Hamilton",
+                          text: "Noah Hamilton".tr,
                           fontSize: OrderDetailFontSize.textSizeSMedium,
                           fontWeight: FontWeight.normal,
                           color: orderDetailCtrl.appCtrl.appTheme.titleColor),
                       const Space(0, 5),
                       OrderDetailFontStyle().mulishtextLayout(
-                          text: "8857 Morris Rd.,Charlottesville, VA 22901",
+                          text: "8857 Morris Rd.,Charlottesville, VA 22901".tr,
                           fontSize: OrderDetailFontSize.textSizeSmall,
                           fontWeight: FontWeight.normal,
                           color: orderDetailCtrl

@@ -68,10 +68,8 @@ class BodyLayout extends StatelessWidget {
                 const Space(0, 10),
 
                 //signup with text layout
-                LoginWithLayout(
-                    fontWeight: FontWeight.w700,
-                    color: loginCtrl.appCtrl.appTheme.contentColor,
-                    fontColor: loginCtrl.appCtrl.appTheme.primary),
+               const LoginWithLayout(
+                    fontWeight: FontWeight.w700,),
                 const Space(0, 25),
                 //continue with phone
                 LoginStyle().socialButton(

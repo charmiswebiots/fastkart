@@ -27,7 +27,7 @@ class AddressLayout extends StatelessWidget {
                 OrderTrackFontStyle()
                     .mulishtextLayout(
                     text:
-                    "8857 Morris Rd. ,Charlottesville, VA 22901",
+                    "8857 Morris Rd.,Charlottesville, VA 22901".tr,
                     fontWeight:
                     FontWeight.w700,
                     fontSize:

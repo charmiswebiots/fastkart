@@ -24,11 +24,11 @@ class RecentBoughtBg extends StatelessWidget {
           ),
           child: Transform(
             alignment: Alignment.center,
-            transform: appCtrl.languageVal == "ar"
+            transform: appCtrl.languageVal == "ar" || appCtrl.isRTL
                 ? Matrix4.rotationY(math.pi)
                 : Matrix4.rotationX((0) * math.pi / 2),
             child: ClipRRect(
-              borderRadius: appCtrl.languageVal == "ar"
+              borderRadius: appCtrl.languageVal == "ar" || appCtrl.isRTL
                   ? BorderRadius.only(
                       topLeft:
                           Radius.circular(AppScreenUtil().borderRadius(15)),
@@ -47,7 +47,7 @@ class RecentBoughtBg extends StatelessWidget {
                       bottomRight:
                           Radius.circular(AppScreenUtil().borderRadius(15)),
                       topRight: Radius.circular(AppScreenUtil()
-                          .borderRadius(appCtrl.languageVal == "ar" ? 15 : 35)),
+                          .borderRadius(appCtrl.languageVal == "ar"|| appCtrl.isRTL ? 15 : 35)),
                     ),
               child: Image.asset(
                 appCtrl.isTheme

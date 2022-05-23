@@ -51,7 +51,7 @@ class EveryDayEssentialCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         HomeFontStyle()
-                            .mulishtextLayout(fontSize: 11, text: data['name'].toString().tr,textAlign: appCtrl.languageVal == "ar" ? TextAlign.right: TextAlign.left,overflow: TextOverflow.ellipsis),
+                            .mulishtextLayout(fontSize: 11, text: data['name'].toString().tr,textAlign: appCtrl.languageVal == "ar" || appCtrl.isRTL ? TextAlign.right: TextAlign.left,overflow: TextOverflow.ellipsis),
                         const  Space(0, 8),
                         HomeFontStyle().mulishtextLayout(
                             fontSize: 10,

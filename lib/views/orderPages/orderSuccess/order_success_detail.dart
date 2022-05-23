@@ -38,7 +38,7 @@ class OrderSuccessDetail extends StatelessWidget {
                     OrderDateAndId(
                         image: iconAssets.calendar,
                         title: OrderSuccessFont().orderDate,
-                        val: "Sun, 14 Apr, 19:12"),
+                        val: 'Sun'.tr + ", 14 " + "Apr".tr +",19:12"),
                     OrderDateAndId(
                         image: iconAssets.paper,
                         title: OrderSuccessFont().orderId,

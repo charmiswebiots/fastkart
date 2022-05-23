@@ -6,55 +6,46 @@ class OrderHistoryFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OrderHistoryController>(builder: (orderHistoryCtrl) {
-      return Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: AppScreenUtil().screenWidth(15),
-              vertical: AppScreenUtil().screenHeight(15)),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-                topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-          ),
-          height: MediaQuery.of(context).size.height / 1.7,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              OrderHistoryStyle()
-                  .filterText(orderHistoryCtrl.appCtrl.appTheme.titleColor),
-              const Space(0, 20),
+      return  Directionality(
+        textDirection:
+        orderHistoryCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+        child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: AppScreenUtil().screenWidth(15),
+                vertical: AppScreenUtil().screenHeight(15)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
+                  topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
+            ),
+            height: MediaQuery.of(context).size.height / 1.7,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                OrderHistoryStyle()
+                    .filterText(orderHistoryCtrl.appCtrl.appTheme.titleColor),
+                const Space(0, 20),
 
-              //filter list
-              const FilterList(),
+                //filter list
+                const FilterList(),
 
-              const Space(0, 30),
+                const Space(0, 30),
 
-              OrderHistoryStyle()
-                  .timeFilterText(orderHistoryCtrl.appCtrl.appTheme.titleColor),
-              const Space(0, 20),
+                OrderHistoryStyle()
+                    .timeFilterText(orderHistoryCtrl.appCtrl.appTheme.titleColor),
+                const Space(0, 20),
 
-              //time filter list
-              const TimeFilterList(),
-              const Space(0, 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CommonPopUpButton(
-                      onTap: () => Get.back(),
-                      containerColor:
-                          orderHistoryCtrl.appCtrl.appTheme.popUpColor,
-                      borderColor: orderHistoryCtrl.appCtrl.appTheme.primary,
-                      textColor: orderHistoryCtrl.appCtrl.appTheme.primary,
-                      text: OfferFont().close),
-                  CommonPopUpButton(
-                      onTap: () => Get.back(),
-                      containerColor: orderHistoryCtrl.appCtrl.appTheme.primary,
-                      borderColor: orderHistoryCtrl.appCtrl.appTheme.primary,
-                      textColor: orderHistoryCtrl.appCtrl.appTheme.whiteColor,
-                      text: OfferFont().apply),
-                ],
-              )
-            ],
-          ));
+                //time filter list
+                const TimeFilterList(),
+                const Space(0, 20),
+
+                CommonCancelCloseApplyButton(
+                  button1: OfferFont().close,
+                  button2: ShopFont().cancel,
+                )
+              ],
+            )),
+      );
     });
   }
 }

@@ -27,14 +27,14 @@ class PaymentStyle{
     return Container(
         padding: EdgeInsets.symmetric(
             horizontal: AppScreenUtil().screenWidth(15),
-            vertical: AppScreenUtil().screenHeight(15)),
+            vertical: AppScreenUtil().screenHeight(10)),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
               topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
         ),
         height: MediaQuery.of(context).size.height /
-            AppScreenUtil().screenHeight(2),
+            AppScreenUtil().screenHeight(1.5),
         child: child);
   }
 
@@ -65,4 +65,5 @@ class PaymentStyle{
         fontSize: 13,
         color: textColor);
   }
+
 }

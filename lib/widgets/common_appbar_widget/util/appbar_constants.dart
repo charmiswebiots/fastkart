@@ -1,9 +1,11 @@
 //text constants
+import 'package:get/get.dart';
+
 class AppBarFont{
-   String name= 'Los Angeles';
-   String pageNotFound= 'PAGE NOT FOUND';
-   String description= "We Are Sorry But The Page You Are Looking For \nDoesn't Exist Or Has Been Removed. Please Check\n Back Later Or Search Again.";
-   String backToHome= "Back to Home";
+   String losAngeles = 'losAngeles'.tr;
+   String pageNotFound= 'pageNotFound'.tr;
+   String description= "errorDescription".tr;
+   String backToHome= "backToHome".tr;
 }
 
 //font size

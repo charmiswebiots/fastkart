@@ -7,78 +7,82 @@ class FilterLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (appCtrl) {
       return GetBuilder<OfferController>(builder: (offerCtrl) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            OfferFontStyle().mulishtextLayout(
-                text: OfferFont().filter,
-                fontSize: OfferFontSize.textSizeMedium,
-                color: appCtrl.appTheme.titleColor),
-            const Space(0, 20),
-            GridView.builder(
-              padding: EdgeInsets.zero,
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: AppArray().shopFilterList.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () async {
-                    offerCtrl.itemFilterIndex = index;
-                    offerCtrl.update();
-                  },
-                  child: Container(
-                    height: AppScreenUtil().screenHeight(20),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: index == offerCtrl.itemFilterIndex
-                          ? appCtrl.appTheme.primary
-                          : appCtrl.appTheme.wishtListBoxColor,
-                      borderRadius: BorderRadius.circular(
-                          AppScreenUtil().borderRadius(5)),
-                      border: Border.all(
-                          color: appCtrl.isTheme
-                              ? appCtrl.appTheme.gray
-                              : appCtrl.appTheme.primary.withOpacity(.2),
-                          width: .5), //border of dropdown button
-                    ),
-                    child: OfferFontStyle().mulishtextLayout(
-                        text: AppArray()
-                            .shopFilterList[index]['title']
-                            .toString(),
-                        fontSize: OfferFontSize.textSizeSMedium,
+        return Directionality(
+          textDirection:
+          offerCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              OfferFontStyle().mulishtextLayout(
+                  text: OfferFont().filter,
+                  fontSize: OfferFontSize.textSizeMedium,
+                  color: appCtrl.appTheme.titleColor),
+              const Space(0, 20),
+              GridView.builder(
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: AppArray().shopFilterList.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () async {
+                      offerCtrl.itemFilterIndex = index;
+                      offerCtrl.update();
+                    },
+                    child: Container(
+                      height: AppScreenUtil().screenHeight(20),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
                         color: index == offerCtrl.itemFilterIndex
-                            ? appCtrl.appTheme.white
-                            : appCtrl.appTheme.darkContentColor),
-                  ),
-                );
-              },
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: MediaQuery.of(context).size.width /
-                    (MediaQuery.of(context).size.height / 7),
+                            ? appCtrl.appTheme.primary
+                            : appCtrl.appTheme.wishtListBoxColor,
+                        borderRadius: BorderRadius.circular(
+                            AppScreenUtil().borderRadius(5)),
+                        border: Border.all(
+                            color: appCtrl.isTheme
+                                ? appCtrl.appTheme.gray
+                                : appCtrl.appTheme.primary.withOpacity(.2),
+                            width: .5), //border of dropdown button
+                      ),
+                      child: OfferFontStyle().mulishtextLayout(
+                          text: AppArray()
+                              .shopFilterList[index]['title']
+                              .toString(),
+                          fontSize: OfferFontSize.textSizeSMedium,
+                          color: index == offerCtrl.itemFilterIndex
+                              ? appCtrl.appTheme.white
+                              : appCtrl.appTheme.darkContentColor),
+                    ),
+                  );
+                },
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: MediaQuery.of(context).size.width /
+                      (MediaQuery.of(context).size.height / 7),
+                ),
               ),
-            ),
-            const Space(0, 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CommonPopUpButton(
-                    onTap: () => Get.back(),
-                    containerColor: appCtrl.appTheme.popUpColor,
-                    borderColor: appCtrl.appTheme.primary,
-                    textColor: appCtrl.appTheme.primary,
-                    text: OfferFont().close),
-                CommonPopUpButton(
-                    onTap: () => Get.back(),
-                    containerColor: appCtrl.appTheme.primary,
-                    borderColor: appCtrl.appTheme.primary,
-                    textColor: appCtrl.appTheme.whiteColor,
-                    text: OfferFont().apply),
-              ],
-            )
-          ],
+              const Space(0, 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CommonPopUpButton(
+                      onTap: () => Get.back(),
+                      containerColor: appCtrl.appTheme.popUpColor,
+                      borderColor: appCtrl.appTheme.primary,
+                      textColor: appCtrl.appTheme.primary,
+                      text: OfferFont().close),
+                  CommonPopUpButton(
+                      onTap: () => Get.back(),
+                      containerColor: appCtrl.appTheme.primary,
+                      borderColor: appCtrl.appTheme.primary,
+                      textColor: appCtrl.appTheme.whiteColor,
+                      text: OfferFont().apply),
+                ],
+              )
+            ],
+          ),
         );
       });
     });

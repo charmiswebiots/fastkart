@@ -36,7 +36,7 @@ class AddAddressStyle{
   }
 
   //back icon style
-  Widget backIconStyle({Widget? child,var borderColor}){
+  Widget backIconStyle({Widget? child,var borderColor,isRTL}){
     return  Container(
       height: AppScreenUtil().screenHeight(
           AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
@@ -44,6 +44,7 @@ class AddAddressStyle{
           AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
       margin: EdgeInsets.only(
         left: AppScreenUtil().screenWidth(15),
+        right: AppScreenUtil().screenWidth(isRTL ? 10 :0),
       ),
       decoration: BoxDecoration(
           border: Border.all(color: borderColor, width: 1.5),

@@ -7,8 +7,10 @@ class PasswordLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SettingController>(builder: (settingCtrl) {
       return Container(
-        padding: EdgeInsets.symmetric(
-          vertical: AppScreenUtil().screenHeight(12),
+        padding: EdgeInsets.only(
+          top: AppScreenUtil().screenHeight(12),
+          bottom: AppScreenUtil().screenHeight(12),
+          right: AppScreenUtil().screenWidth(settingCtrl.appCtrl.isRTL ? 10 :0)
         ),
         decoration: BoxDecoration(
             color: settingCtrl.appCtrl.appTheme.textBoxColor,

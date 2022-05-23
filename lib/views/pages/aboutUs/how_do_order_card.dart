@@ -20,53 +20,35 @@ class HowDoOrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(15)),
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          Container(
-            margin: EdgeInsets.only(
-              left: AppScreenUtil().screenWidth(15),
-            ),
-            padding: EdgeInsets.only(
-                left: AppScreenUtil().screenWidth(30),
-                right: AppScreenUtil().screenWidth(10),
-                top: AppScreenUtil().screenHeight(18),
-                bottom: AppScreenUtil().screenHeight(18)),
-            decoration: BoxDecoration(
-                color: containerColor,
-                borderRadius:
-                    BorderRadius.circular(AppScreenUtil().borderRadius(5))),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AboutUsStyle()
-                    .commonTitle(text: data['title'], color: titleColor),
-                const Space(0, 5),
-                AboutUsFontStyle().mulishtextLayout(
-                    text: data['desc'],
-                    overflow: TextOverflow.clip,
-                    height: 1.7,
-                    fontWeight: FontWeight.normal,
-                    fontSize: AboutUsFontSize.textSizeSmall,
-                    color: darkContentColor),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppScreenUtil().screenWidth(11),
-                vertical: AppScreenUtil().screenHeight(7)),
-            decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius:
-                    BorderRadius.circular(AppScreenUtil().borderRadius(5))),
-            child: AboutUsStyle()
-                .commonTitle(text: data['id'], color: whiteColor),
-          ),
-        ],
-      ),
-    );
+    return GetBuilder<AppController>(builder: (appCtrl) {
+      return Container(
+        margin: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(15)),
+        child: Stack(
+          alignment: appCtrl.languageVal == "ar" || appCtrl.isRTL
+              ? Alignment.centerRight
+              : Alignment.centerLeft,
+          children: [
+            AboutUsStyle().textLayout(child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AboutUsStyle()
+                      .commonTitle(text: data['title'], color: titleColor),
+                  const Space(0, 5),
+                  AboutUsFontStyle().mulishtextLayout(
+                      text: data['desc'],
+                      overflow: TextOverflow.clip,
+                      height: 1.7,
+                      fontWeight: FontWeight.normal,
+                      fontSize: AboutUsFontSize.textSizeSmall,
+                      color: darkContentColor)
+                ]),languageVal: appCtrl.languageVal,isRTL: appCtrl.isRTL,containerColor: containerColor),
+            AboutUsStyle().idLayout(
+                text: data['id'],
+                primaryColor: primaryColor,
+                whiteColor: whiteColor)
+          ],
+        ),
+      );
+    });
   }
 }

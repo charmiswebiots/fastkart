@@ -1,25 +1,7 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/cupertino.dart';
 
 //Widget Layout
 class OrderDetailWidget {
-  //appbar leading layout
-  Widget appBarLeadingLayput(
-      {GestureTapCallback? onTap,
-      var borderColor,
-      var iconColor,
-      String? image}) {
-    return Row(
-      children: [
-        InkWell(
-          onTap: onTap,
-          child: OrderDetailStyle()
-              .iconBack(iconColor: iconColor, borderColor: borderColor),
-        ),
-      ],
-    );
-  }
-
   //common text layout
   Widget commonTextLayout({String? text, var color, var fontWeight}) {
     return OrderDetailFontStyle().mulishtextLayout(
@@ -36,15 +18,12 @@ class OrderDetailWidget {
       var titleColor,
       var valColor,
       var fontWeight}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        OrderDetailWidget().commonTextLayout(
-            text: title, color: titleColor, fontWeight: fontWeight),
-        OrderDetailWidget().commonTextLayout(
-            text: val, color: valColor, fontWeight: fontWeight),
-      ],
-    );
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      OrderDetailWidget().commonTextLayout(
+          text: title, color: titleColor, fontWeight: fontWeight),
+      OrderDetailWidget()
+          .commonTextLayout(text: val, color: valColor, fontWeight: fontWeight)
+    ]);
   }
 
   //common title text layout
@@ -72,26 +51,10 @@ class OrderDetailWidget {
       backgroundColor: backgroundColor,
       titleSpacing: 0,
       centerTitle: false,
-      leading: OrderDetailWidget().appBarLeadingLayput(
-          onTap: () => Get.back(),
-          borderColor: titleColor,
-          iconColor: titleColor,
-          image: image),
+      leading: CommonAppBarLeading(onTap: () => Get.back(), isImage: false),
       title: OrderDetailStyle().appBarTitleLayout(
           text: OrderDetailFont().orderSummary, textColor: titleColor),
-      actions: [
-        OrderDetailStyle()
-            .appBarActionLayout(iconColor: titleColor, onTap: onTap),
-      ],
-    );
-  }
-
-  //multiply layout
-  Widget multiplyIconLayout(titleColor){
-    return Icon(
-      CupertinoIcons.multiply,
-      color: titleColor,
-      size: AppScreenUtil().size(14),
+      actions: [AppBarHomeIconLayout(onTap: onTap,icon: iconAssets.drawerHome,)],
     );
   }
 }

@@ -18,13 +18,13 @@ class OrderHistoryStyle {
   }
 
   //common text layout
-  Widget commonTextLayout({String? text, var color,var fontWeight= FontWeight.w700}){
+  Widget commonTextLayout(
+      {String? text, var color, var fontWeight = FontWeight.w700}) {
     return OrderHistoryFontStyle().mulishtextLayout(
         text: text,
         fontWeight: fontWeight,
         fontSize: OrderHistoryFontSize.textXSizeSmall,
-        color: color
-    );
+        color: color);
   }
 
   //appbar title layout
@@ -36,25 +36,24 @@ class OrderHistoryStyle {
         color: textColor);
   }
 
-
   //days list card
-  Widget daysListCard({var data,int? index,GestureTapCallback? onTap,int? selectIndex,color}){
+  Widget daysListCard(
+      {var data,
+      int? index,
+      GestureTapCallback? onTap,
+      int? selectIndex,
+      color}) {
     return Padding(
       padding: EdgeInsets.only(
           right: AppScreenUtil().screenWidth(12),
-          left: AppScreenUtil()
-              .screenWidth(index == 0 ? 15 : 0)),
+          left: AppScreenUtil().screenWidth(index == 0 ? 15 : 0)),
       child: InkWell(
-        onTap: onTap,
-        child: OrderHistoryFontStyle().mulishtextLayout(
-            text:data
-            ['title'].toString(),
-            fontSize: OrderHistoryFontSize.textSizeSMedium,
-            fontWeight: FontWeight.normal,
-            color: color),
-      ),
+          onTap: onTap,
+          child: OrderHistoryFontStyle().mulishtextLayout(
+              text: data['title'].toString(),
+              fontSize: OrderHistoryFontSize.textSizeSMedium,
+              fontWeight: FontWeight.normal,
+              color: color)),
     );
   }
-
-
 }

@@ -31,7 +31,7 @@ class TeamListCard extends StatelessWidget {
         ),
         const Space(0, 10),
         AboutUsStyle()
-            .commonTitle(text: AboutUsFont().howDoOrder, color: titleColor),
+            .commonTitle(text: data['name'], color: titleColor),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

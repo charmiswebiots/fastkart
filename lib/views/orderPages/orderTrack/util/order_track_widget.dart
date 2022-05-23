@@ -6,7 +6,7 @@ class OrderTrackWidget {
   Widget appBarLeadingLayput(
       {GestureTapCallback? onTap,
       var borderColor,
-      var iconColor,}) {
+      var iconColor,isRTL}) {
     return Row(
       children: [
         InkWell(
@@ -18,6 +18,7 @@ class OrderTrackWidget {
                 AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
             margin: EdgeInsets.only(
               left: AppScreenUtil().screenWidth(15),
+              right: AppScreenUtil().screenWidth(isRTL ? 12 :0),
             ),
             decoration: BoxDecoration(
                 border: Border.all(color: borderColor, width: 1.5),
@@ -54,7 +55,7 @@ class OrderTrackWidget {
   }
 
   //app bar layout
-  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor, var titleColor, String? image}){
+  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor, var titleColor, String? image,isRTL}){
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -65,6 +66,7 @@ class OrderTrackWidget {
           onTap: () => Get.back(),
           borderColor: titleColor,
           iconColor: titleColor,
+        isRTL: isRTL
       ),
       title: OrderTrackStyle().appBarTitleLayout(
           image: image,

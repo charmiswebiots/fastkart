@@ -11,7 +11,7 @@ class TransformLayout extends StatelessWidget {
       builder: (appCtrl) {
         return Transform(
           alignment: Alignment.center,
-          transform: appCtrl.languageVal == "ar"
+          transform: appCtrl.languageVal == "ar" || appCtrl.isRTL
               ? Matrix4.rotationY(math.pi)
               : Matrix4.rotationX(math.pi),
           child: child,

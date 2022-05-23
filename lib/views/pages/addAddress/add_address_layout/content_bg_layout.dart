@@ -47,7 +47,7 @@ class ContentBgLayout extends StatelessWidget {
                   //send location layout
                   AddAddressWidget().sendLocationLayout(
                       boxColor: addAddressCtrl.appCtrl.appTheme.primary,
-                      icon: iconAssets.send),
+                      icon: iconAssets.send,isRTL:appCtrl.isRTL),
                   const Space(10, 0),
                   //use current location text layout
                   AddAddressStyle().useCurrentLocation(

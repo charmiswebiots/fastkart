@@ -23,4 +23,12 @@ class OrderSuccessStyle{
         overflow: TextOverflow.clip,
         color: darkContentColor);
   }
+
+  //appbar title layout
+  Widget appBarTitleLayout({String? image, var textColor, bool? isTheme}) {
+    return Image.asset(
+      image!,
+      width: AppScreenUtil().screenWidth(100),
+    );
+  }
 }

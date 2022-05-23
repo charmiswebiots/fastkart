@@ -38,48 +38,28 @@ class _LoginScreenState extends State<LoginScreen> {
                           imageLayout: LoginWidget()
                               .logoImage(loginCtrl.appCtrl.isTheme),
                           //user layout
-                          usertextForm: CommonTextFormField(
-                            obscureText: false,
-                            keyboardType: TextInputType.emailAddress,
-                            textInputAction: TextInputAction.next,
-                            controller: loginCtrl.email,
+                          usertextForm: EmailTextForm(
+                            email: loginCtrl.email,
+                            emailFocus: loginCtrl.userFocus,
                             onFieldSubmitted: (value) {
-                              LoginWidget().fieldFocusChange(context,
-                                  loginCtrl.userFocus, loginCtrl.passwordFocus);
+                              SignupWidget().fieldFocusChange(
+                                  context,
+                                  loginCtrl.userFocus,
+                                  loginCtrl.passwordFocus);
                             },
-                            focusNode: loginCtrl.userFocus,
                             validator: (value) =>
-                                LoginValidation().checkIDValidation(value),
-                            text: LoginFont().emailHint,
-                            borderColor: loginCtrl.appCtrl.appTheme.primary
-                                .withOpacity(.3),
-                            hintColor: loginCtrl.appCtrl.appTheme.contentColor,
-                            fillcolor: loginCtrl.appCtrl.appTheme.textBoxColor,
-                            suffixIcon: LoginStyle().commonIcon(
-                                isPassword: false,
-                                color: loginCtrl.appCtrl.appTheme.titleColor),
+                                SignupValidation().checkIDValidation(value),
                           ),
                           //password layout
-                          passwordTextForm: CommonTextFormField(
-                            keyboardType: TextInputType.visiblePassword,
-                            textInputAction: TextInputAction.none,
-                            controller: loginCtrl.password,
-                            focusNode: loginCtrl.passwordFocus,
-                            obscureText: loginCtrl.passwordVisible,
-                            validator: (value) => LoginValidation()
+                          passwordTextForm:PasswordTextForm(
+                            password: loginCtrl.password,
+                            passwordFocus: loginCtrl.passwordFocus,
+                            passwordVisible: loginCtrl.passwordVisible,
+                            validator: (value) => SignupValidation()
                                 .checkPasswordValidation(value),
-                            suffixIcon: InkWell(
-                              onTap: () => loginCtrl.toggle(),
-                              child: LoginStyle().commonIcon(
-                                  isPassword: true,
-                                  passwordVisible: loginCtrl.passwordVisible,
-                                  color: loginCtrl.appCtrl.appTheme.titleColor),
-                            ),
-                            text: LoginFont().password,
-                            borderColor: loginCtrl.appCtrl.appTheme.primary
-                                .withOpacity(.3),
-                            hintColor: loginCtrl.appCtrl.appTheme.contentColor,
-                            fillcolor: loginCtrl.appCtrl.appTheme.textBoxColor,
+                            onTap: () {
+                              loginCtrl.toggle();
+                            },
                           ),
                         ),
                         // continue as guest text layout

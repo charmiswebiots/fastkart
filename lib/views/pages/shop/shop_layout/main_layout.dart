@@ -17,8 +17,8 @@ class MainLayout extends StatelessWidget {
               //search product textformfield layout
               Padding(
                 padding: EdgeInsets.only(
-                    left: AppScreenUtil().screenHeight(shopCtrl.appCtrl.languageVal == "ar" ? 15 :0),
-                    right: AppScreenUtil().screenHeight(shopCtrl.appCtrl.languageVal != "ar" ? 15 :0)),
+                    left: AppScreenUtil().screenHeight(shopCtrl.appCtrl.languageVal == "ar"  || shopCtrl.appCtrl.isRTL? 15 :0),
+                    right: AppScreenUtil().screenHeight(shopCtrl.appCtrl.languageVal != "ar" || shopCtrl.appCtrl.isRTL ? 15 :0)),
                 child: Row(
                   children: [
                     Expanded(

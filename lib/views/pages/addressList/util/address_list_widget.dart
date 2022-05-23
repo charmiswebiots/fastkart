@@ -16,15 +16,6 @@ class AddressListWidget {
     );
   }
 
-  //appbar title layout
-  Widget appBarTitleLayout({String? text, var textColor}) {
-    return AddressListFontStyle().mulishtextLayout(
-        text: text,
-        fontWeight: FontWeight.w600,
-        fontSize: 13,
-        color: textColor);
-  }
-
   //appbar action layout
   Widget appBarActionLayout({var iconColor}) {
     return Padding(
@@ -61,76 +52,6 @@ class AddressListWidget {
           text: AddressListFont().proceedToPayment,
           color: itemColor,
           fontSize: AddressListFontSize.textSizeMedium),
-    );
-  }
-
-  //add address layout
-  Widget addAddressLayout(
-      {context, var borderColor, var color, GestureTapCallback? onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        margin:
-            EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-        padding:
-            EdgeInsets.symmetric(vertical: AppScreenUtil().screenHeight(10)),
-        alignment: Alignment.center,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            border: Border.all(color: borderColor),
-            borderRadius:
-                BorderRadius.circular(AppScreenUtil().borderRadius(5))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.add, color: color),
-            AddressListFontStyle().mulishtextLayout(
-                text: AddressListFont().addAddress,
-                fontSize: AddressListFontSize.textSizeSMedium,
-                color: color),
-          ],
-        ),
-      ),
-    );
-  }
-
-  //icon and place layout
-  Widget iconAndPlaceLayout(
-      {String? text,
-      var textColor,
-      int? index,
-      var defaultBoxColor,
-      var defaultTextColor}) {
-    return Row(
-      children: [
-        Image.asset(
-          iconAssets.work,
-          color: textColor,
-          height: AppScreenUtil().screenHeight(20),
-        ),
-        const Space(8, 0),
-        AddressListFontStyle().mulishtextLayout(
-            text: text,
-            fontSize: AddressListFontSize.textSizeSMedium,
-            color: textColor,
-            fontWeight: FontWeight.w700),
-        const  Space(8, 0),
-        if (index == 0)
-          Container(
-            padding: EdgeInsets.symmetric(
-                vertical: AppScreenUtil().screenHeight(2),
-                horizontal: AppScreenUtil().screenWidth(15)),
-            decoration: BoxDecoration(
-                color: defaultBoxColor,
-                borderRadius:
-                    BorderRadius.circular(AppScreenUtil().borderRadius(50))),
-            child: AddressListFontStyle().mulishtextLayout(
-                text: AddressListFont().defaultTitle,
-                fontSize: AddressListFontSize.textXSizeSmall,
-                color: defaultTextColor,
-                fontWeight: FontWeight.normal),
-          )
-      ],
     );
   }
 }

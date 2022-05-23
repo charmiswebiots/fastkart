@@ -20,6 +20,12 @@ final dynamic ar = {
   'contactUs':'اتصل بنا',
   'selectLanguage':'اختار اللغة',
   'Currency Change': 'تغيير العملة',
+  'losAngeles': "الملائكة",
+  'pageNotFound': "الصفحة غير موجودة",
+  "errorDescription":
+  "نحن آسفون ولكن الصفحة التي تبحث عنها \n غير موجودة أو تمت إزالتها. الرجاء التحقق من \n الرجوع لاحقًا أو البحث مرة أخرى.",
+  "backToHome": "العودة إلى المنزل",
+  'RTL': 'RTL',
 
   //login page
   'description':
@@ -116,6 +122,12 @@ final dynamic ar = {
   'copyCode': 'رمز النسخ',
   'copy': 'شفرة :',
   'flat': 'مستوي:',
+  "All Offer":"كل العروض",
+  "More Than 50%":"أكثر من 50٪",
+  "More Than 30%":"أكثر من 30٪",
+  "More Than 25%":"أكثر من 25٪",
+  "More Than 15%":"أكثر من 15٪",
+  "More Than 10%":"أكثر من 10٪",
 
   //my cart font
   'myCart': 'عربة التسوق الخاصة بي',
@@ -140,6 +152,17 @@ final dynamic ar = {
   'addAddress': "أضف عنوان جديد",
   "selectDeliveryAddress": "حدد عنوان التسليم",
   "defaultTitle": 'تقصير',
+  "Work": 'عمل',
+  "Other": 'أخرى',
+  "nameHint" : "تلميح الاسم",
+  "apartmentStudioOrFloor" : "شقة ، استوديو أو طابق",
+  "city" : "مدينة",
+  "state" : "حالة",
+  "zip" : "أَزِيز",
+  "noahHamilton":"نوح هاميلتون",
+  "8857 Morris Rd.,Charlottesville, VA 22901":"8857 طريق موريس. شارلوتسفيل ، فيرجينيا 22901",
+  "address1":
+  "8857 طريق موريس.\n شارلوتسفيل ، فيرجينيا 22901",
 
   //payment page font
   'addNewAddress': "أضف عنوان جديد",
@@ -156,17 +179,20 @@ final dynamic ar = {
   "Credit/Debit Card": "بطاقة الائتمان / الخصم",
   "Cash on Delivery": "الدفع عند الاستلام",
 
-  //order track page font
+  //order success page font
   'orderTrack': "تتبع الحزمة على الخريطة",
   'thankYou': "شكرا لطلبك!",
   'des': "تم وضع طلبك بنجاح. معرف الطلب الخاص بك هو # 548475151",
   'orderDate': "تاريخ الطلب",
   'orderId': "رقم التعريف الخاص بالطلب",
+  'Sun': "الأحد",
+  'Apr': "ابريل",
 
   //order track page font
   'estimateTime': "يقدر وقت التسليم",
   'courier': "ساعي",
   'storeLocation': "موقع المتجر",
+  "9.00am - 12.00pm":"7.00 صباحًا - 4.00 مساءً",
 
   //order detail page font
   'reorder': "إعادة ترتيب",
@@ -274,4 +300,20 @@ final dynamic ar = {
   'updateSettings': 'إعدادات التحديث',
   'phoneValidation': 'مطلوب رقم مكون من 10 أرقام',
   'phoneFieldError': 'رقم الهاتف. مطلوب',
+
+  //about us page font
+  "aboutUs" : "نبذة عنا",
+  "whoWeAre" : "من نحن؟",
+  "howDoOrder" : "كيف أطلب؟",
+  "peopleWhoBuildFastkart" : "الأشخاص الذين يبنون Fastkart",
+  "desc" : "لوريم إيبسوم هو مجرد نص وهمي لصناعة الطباعة والتنضيد. كان لوريم إيبسوم هو النص الوهمي القياسي في الصناعة منذ القرن الخامس عشر الميلادي ، عندما أخذت طابعة غير معروفة لوحًا من النوع وتدافعت عليه لعمل عينة من كتاب . وقد نجا خمسة قرون فحسب",
+  "Browse products using the search feature":"تصفح المنتجات باستخدام ميزة البحث",
+  "Add item to your Shopping Cart":"إضافة عنصر إلى عربة التسوق الخاصة بك",
+  "Choose a convenient delivery time":"اختر وقت التسليم المناسب",
+  "Select suitable payment option":"حدد خيار الدفع المناسب",
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry":"لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد",
+  "Maureen Biologist":"مورين بيولوجي",
+  "Glenn P. Mojica":"جلين ب.موجيكا",
+  "Patty O'Furniture":"باتي أوفريش",
+  "Johnny M. Lopez":"جوني إم لوبيز",
 };

@@ -194,21 +194,21 @@ class AppArray {
   //coupon List
   var couponData = <CouponModel>[
     CouponModel(
-        ("50% " + "OFF".tr),
+        ("50% " + "off".tr),
         ('UPTO'.tr + ' \$20.00'),
         imageAssets.coupon1,
         const Color(0xFFFFF4F3),
         imageAssets.offerBG1,
         imageAssets.themeOfferBG1),
     CouponModel(
-        ("50% " + "OFF".tr),
+        ("50% " + "off".tr),
         ('UPTO'.tr + ' \$20.00'),
         imageAssets.coupon2,
         const Color(0xFFFFFFFF),
         imageAssets.offerBG2,
         imageAssets.themeOfferBG2),
     CouponModel(
-        ("50% " + "OFF".tr),
+        ("50% " + "off".tr),
         ('UPTO'.tr + ' \$20.00'),
         imageAssets.coupon3,
         const Color(0xFFFFFDE9),
@@ -263,10 +263,31 @@ class AppArray {
       "icon": iconAssets.darkTheme,
     },
     {
+      "title": "RTL".tr,
+      "icon": iconAssets.filter,
+    },
+    {
       "title": "signOut".tr,
       "icon": iconAssets.logout1,
     },
   ];
+
+  var bottomNavigationList =[{
+    'title' : "home".tr,
+      'icon' : iconAssets.home
+  },{
+    'title' : "category".tr,
+    'icon' : iconAssets.category
+  },{
+    'title' : "search".tr,
+    'icon' : iconAssets.search
+  },{
+    'title' : "offers".tr,
+    'icon' : iconAssets.offers
+  },{
+    'title' : "cart".tr,
+    'icon' : iconAssets.cart
+  }];
 
   //sub category list with model
   var subCategoryData = [
@@ -519,12 +540,12 @@ class AppArray {
   //address list
   var addressList = [
     {
-      'address': 'Noah Hamilton'.tr,
-      'area': '8857 Morris Rd.,Charlottesville, VA 22901'
+      'address': 'noahHamilton'.tr,
+      'area': '8857 Morris Rd.,Charlottesville, VA 22901'.tr
     },
     {
-      'address': 'Noah Hamilton'.tr,
-      'area': '8857 Morris Rd.,Charlottesville, VA 22901'
+      'address': 'noahHamilton'.tr,
+      'area': '8857 Morris Rd.,Charlottesville, VA 22901'.tr
     },
   ];
 
@@ -532,27 +553,27 @@ class AppArray {
   var newAddressList = [
     {
       'icon': iconAssets.work,
-      'place': 'Work',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+      'place': 'Work'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
     {
       'icon': iconAssets.home,
-      'place': 'Home',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+      'place': 'home'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
     {
       'icon': iconAssets.home,
-      'place': 'Home',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+      'place': 'home'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
     {
       'icon': iconAssets.home,
-      'place': 'Other',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd\nCharlottesville, VA 22901'
+      'place': 'Other'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
   ];
 
@@ -810,36 +831,36 @@ class AppArray {
   var howToOrder = [
     {
       'id': "1",
-      "title": "Browse products using the search feature",
+      "title": "Browse products using the search feature".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     },
     {
       'id': "2",
-      "title": "Add item to your Shopping Cart",
+      "title": "Add item to your Shopping Cart".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     },
     {
       'id': "3",
-      "title": "Choose a convenient delivery time",
+      "title": "Choose a convenient delivery time".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     },
     {
       'id': "4",
-      "title": "Select suitable payment option",
+      "title": "Select suitable payment option".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     }
   ];
 
   //team list
   var teamList = [
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
+    {"name": "Maureen Biologist".tr, 'image': imageAssets.team},
+    {"name": "Glenn P. Mojica".tr, 'image': imageAssets.team},
+    {"name": "Patty O'Furniture".tr, 'image': imageAssets.team},
+    {"name": "Johnny M. Lopez".tr, 'image': imageAssets.team},
   ];
 
   //filter list
@@ -877,22 +898,22 @@ class AppArray {
   //shopFilter list
   var shopFilterList = [
     {
-      'title': "All Offer",
+      'title': "All Offer".tr,
     },
     {
-      'title': "More Than 50%",
+      'title': "More Than 50%".tr,
     },
     {
-      'title': "More Than 30%",
+      'title': "More Than 30%".tr,
     },
     {
-      'title': "More Than 25%",
+      'title': "More Than 25%".tr,
     },
     {
-      'title': "More Than 15%",
+      'title': "More Than 15%".tr,
     },
     {
-      'title': "More Than 10%",
+      'title': "More Than 10%".tr,
     }
   ];
 

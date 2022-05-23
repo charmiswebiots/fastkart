@@ -34,7 +34,7 @@ class PaymentWidget {
       {GestureTapCallback? onTap,
       var borderColor,
       var iconColor,
-      String? image}) {
+      String? image,isRTL}) {
     return Row(
       children: [
         InkWell(
@@ -46,6 +46,7 @@ class PaymentWidget {
                 AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
             margin: EdgeInsets.only(
               left: AppScreenUtil().screenWidth(15),
+              right: AppScreenUtil().screenWidth(isRTL ?12 :0),
             ),
             decoration: BoxDecoration(
                 border: Border.all(color: borderColor, width: 1.5),
@@ -63,7 +64,7 @@ class PaymentWidget {
 
   //app bar layout
   PreferredSizeWidget appBarLayout(
-      {var paymentBgColor, var titleColor, bool? isTheme}) {
+      {var paymentBgColor, var titleColor, bool? isTheme,isRTL}) {
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -74,6 +75,7 @@ class PaymentWidget {
           onTap: () => Get.back(),
           borderColor: titleColor,
           iconColor: titleColor,
+          isRTL:isRTL,
           image: isTheme! ? imageAssets.themeFkLogo : imageAssets.fkLogo),
       title: PaymentStyle().appBarTitleLayout(
           text: PaymentFont().addPaymentMethod, textColor: titleColor),
@@ -83,7 +85,7 @@ class PaymentWidget {
   //add card text
   Widget addCardText(titleColor) {
     return PaymentFontStyle().mulishtextLayout(
-        text: PaymentFont().addCard,
+        text: AddressListFont().addAddress,
         fontWeight: FontWeight.w600,
         fontSize: ProductDetailFontSize.textSizeSMedium,
         color: titleColor);

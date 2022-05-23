@@ -39,7 +39,7 @@ class DrawerScreen extends StatelessWidget {
                             children: [
                               //Drawer header
                               DrawerCustomHeader(
-                                isYourAccount: false,
+                                  isYourAccount: false,
                                   color: appCtrl.appTheme.whiteColor,
                                   borderRadius: 50,
                                   image: imageAssets.usersquare,
@@ -58,7 +58,6 @@ class DrawerScreen extends StatelessWidget {
                               //drawer list
                               ...appCtrl.drawerList.asMap().entries.map((e) {
                                 return CommonDrawerList(
-
                                     index: e.key,
                                     image: e.value['icon'],
                                     title: e.value['title'],
@@ -66,6 +65,10 @@ class DrawerScreen extends StatelessWidget {
                                       appCtrl.isTheme = val;
                                       appCtrl.update();
                                       ThemeService().switchTheme(val);
+                                    },
+                                    onToggleRtl: (val) {
+                                      appCtrl.isRTL = val;
+                                      appCtrl.update();
                                     },
                                     height: 20,
                                     fontSize: 14);

@@ -20,6 +20,12 @@ final dynamic hi = {
   'contactUs':'हमसे संपर्क करें',
   'selectLanguage':'भाषा चुनें',
   'Currency Change': 'मुद्रा परिवर्तन',
+  'losAngeles': "देवदूत",
+  'pageNotFound': "पृष्ठ नहीं मिला",
+  "errorDescription":
+  "हमें खेद है लेकिन आप जिस पेज की तलाश कर रहे हैं \n वह मौजूद नहीं है या उसे हटा दिया गया है। कृपया जाँच करें\n बाद में वापस जाएँ या फिर से खोजें।",
+  "backToHome": "घर वापिस जा रहा हूँ",
+  'RTL': 'आरटीएल',
 
   //login page
   'description':
@@ -116,6 +122,12 @@ final dynamic hi = {
   'copyCode': 'कॉपी कोड',
   'copy': 'कोड:',
   'flat': 'समतल:',
+  "All Offer":"ऑल ऑफर",
+  "More Than 50%":"50% से अधिक",
+  "More Than 30%":"30% से अधिक",
+  "More Than 25%":"25% से अधिक",
+  "More Than 15%":"15% से अधिक",
+  "More Than 10%":"10% से अधिक",
 
   //my cart font
   'myCart': 'मेरी कार्ट',
@@ -140,6 +152,16 @@ final dynamic hi = {
   'addAddress': "नया पता जोड़ें",
   "selectDeliveryAddress": "डिलीवरी पता चुनें",
   "defaultTitle": 'डिफ़ॉल्ट',
+  "Work": 'काम',
+  "Other": 'अन्य',
+  "nameHint" : "नाम संकेत",
+  "apartmentStudioOrFloor" : "अपार्टमेंट, स्टूडियो या फ्लोर",
+  "city" : "शहर",
+  "state" : "राज्य",
+  "zip" : "ज़िप",
+  "noahHamilton":"नूह हैमिल्टन",
+  "8857 Morris Rd.,Charlottesville, VA 22901":"8857 मॉरिस रोड। चार्लोट्सविले, वीए 22901",
+  "address1":"8857 मॉरिस रोड। \nचार्लोट्सविले, वीए 22901",
 
   //payment page font
   'addNewAddress': "नया पता जोड़ें",
@@ -150,23 +172,26 @@ final dynamic hi = {
   'cardHolderName': "कार्ड धारक का नाम",
   'cardNumber': "कार्ड नंबर",
   'expiryDate': "एक्सपायरी डेट",
-  'cv ': "एक्सपायरी डेट",
+  'cv ': "सीवी",
   "Select Card": "कार्ड चुनें",
   "Net Banking": "नेट बैंकिंग",
   "Credit/Debit Card": "क्रेडिट/डेबिट कार्ड",
   "Cash on Delivery": "डिलीवरी पर नकद",
 
-  //order track page font
+  //order success page font
   'orderTrack': "मानचित्र पर पैकेज ट्रैक करें",
   'thankYou': "आपके आदेश के लिए धन्यवाद!",
   'des': "आपका ऑर्डर सफलतापूर्वक दे दिया गया है। आपकी ऑर्डर आईडी #548475151 है",
   'orderDate': "आदेश दिनांक",
   'orderId': "ऑर्डर आईडी",
+  'Sun': "रविवार",
+  'Apr': "अप्रैल",
 
   //order track page font
   'estimateTime': "अनुमानित वितरण समय",
   'courier': "택배원",
   'storeLocation': "संग्रहण स्थान",
+  "9.00am - 12.00pm":"7.00 पूर्वाह्न-4.00 अपराह्न",
 
   //order detail page font
   'reorder': "पुन: व्यवस्थित करें",
@@ -274,4 +299,20 @@ final dynamic hi = {
   'updateSettings': 'अपडेट सेटिंग्स',
   'phoneValidation': 'आवश्यक 10 अंकों की संख्या',
   'phoneFieldError': 'फोन नं। आवश्यक है',
+
+  //about us page font
+  "aboutUs" : "हमारे बारे में",
+  "whoWeAre" : "हम कौन हैं?",
+  "howDoOrder" : "मैं कैसे ऑर्डर करूँ?",
+  "peopleWhoBuildFastkart" : "वे लोग जो Fastkart बनाते हैं",
+  "desc" : "Lorem Ipsum प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है। Lorem Ipsum 1500 के दशक से उद्योग का मानक डमी टेक्स्ट रहा है, जब एक अज्ञात प्रिंटर ने गैली टाइप किया और इसे टाइप सैंपल बुक बनाने के लिए स्क्रैम्बल किया। । यह न केवल पांच शताब्दियों तक जिया",
+  "Browse products using the search feature":"खोज सुविधा का उपयोग करके उत्पाद ब्राउज़ करें",
+  "Add item to your Shopping Cart":"अपनी शॉपिंग कार्ट में आइटम जोड़ें",
+  "Choose a convenient delivery time":"एक सुविधाजनक डिलीवरी समय चुनें",
+  "Select suitable payment option":"उपयुक्त भुगतान विकल्प चुनें",
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry":"लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है",
+  "Maureen Biologist":"मॉरीन जीवविज्ञानी",
+  "Glenn P. Mojica":"ग्लेन पी। मोजिका",
+  "Patty O'Furniture":"पैटी ओ'फर्नीचर",
+  "Johnny M. Lopez":"जॉनी एम। लोपेज",
 };

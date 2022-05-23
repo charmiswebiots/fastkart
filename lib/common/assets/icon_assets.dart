@@ -67,4 +67,5 @@ class IconAssets {
   final String usd = 'assets/icons/usd.png';
   final String kpw = 'assets/icons/kpw.png';
   final String currency = 'assets/icons/currency.png';
+  final String filter = 'assets/icons/filter.png';
 }

@@ -22,6 +22,8 @@ final dynamic en = {
   'contactUs': 'Contact Us',
   'selectLanguage': 'Select Language',
   'Currency Change': 'Currency Change',
+  'RTL': 'RTL',
+  'addNewAddress': 'Add New Address',
 
   //login page
   'description':
@@ -42,7 +44,12 @@ final dynamic en = {
   'userFieldError': "Email is Required",
   'passwordFieldError': "Password is Required",
   'inCorrectUsername': "Incorrect Email",
-  'passwordMininumValueEnter': "Please enter mininmum 8 characters",
+  'passwordMininumValueEnter': "Please enter minimum 8 characters",
+  'losAngeles': "Los Angeles",
+  'pageNotFound': "PAGE NOT FOUND",
+  "errorDescription":
+      "We Are Sorry But The Page You Are Looking For \nDoesn't Exist Or Has Been Removed. Please Check\n Back Later Or Search Again.",
+  "backToHome": "Back to Home",
 
   //register page
   'registerAccount': 'Register Account',
@@ -112,6 +119,12 @@ final dynamic en = {
   'copyCode': 'Copy Code',
   'code': 'Code:',
   'flat': 'Flat:',
+  "All Offer":"All Offer",
+  "More Than 50%":"More Than 50%",
+  "More Than 30%":"More Than 30%",
+  "More Than 25%":"More Than 25%",
+  "More Than 15%":"More Than 15%",
+  "More Than 10%":"More Than 10%",
 
   //my cart font
   'myCart': 'My Cart',
@@ -136,6 +149,18 @@ final dynamic en = {
   'addAddress': "Add New Address",
   "selectDeliveryAddress": "Select delivery address",
   "defaultTitle": 'Default',
+  "Work": 'Work',
+  "Other": 'Other',
+  "nameHint": "Name Hint",
+  "apartmentStudioOrFloor": "Apartment, Studio Or Floor",
+  "city": "City",
+  "state": "State",
+  "zip": "Zip",
+  "noahHamilton": "Noah Hamilton",
+  "8857 Morris Rd.,Charlottesville, VA 22901":
+      "8857 Morris Rd., Charlottesville, VA 22901",
+  "address1":
+  "8857 Morris Rd.\nCharlottesville, VA 22901",
 
   //payment page font
   'Add New Address': "Add New Address",
@@ -158,11 +183,14 @@ final dynamic en = {
   'des': "your order has been placed successfully. your order ID is #548475151",
   'orderDate': "Order Date",
   'orderId': "Order ID",
+  'Sun': "Sun",
+  'Apr': "Apr",
 
   //order track page font
   'estimateTime': "Estimated Delivery Time",
   'courier': "Courier",
   'storeLocation': "Store Location",
+  "9.00am - 12.00pm":"9.00am - 12.00pm",
 
   //order detail page font
   'reorder': "Reorder",
@@ -280,4 +308,21 @@ final dynamic en = {
   'updateSettings': 'Update Settings',
   'phoneValidation': 'Required 10 digit number',
   'phoneFieldError': 'PhoneNo. is Required',
+
+  //about us page font
+  "aboutUs" : "About Us",
+  "whoWeAre" : "Who We Are?",
+  "howDoOrder" : "How do I order?",
+  "peopleWhoBuildFastkart" : "People who Build Fastkart",
+  "desc" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+  "Browse products using the search feature":"Browse products using the search feature",
+  "Add item to your Shopping Cart":"Add item to your Shopping Cart",
+  "Choose a convenient delivery time":"Choose a convenient delivery time",
+  "Select suitable payment option":"Select suitable payment option",
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry":"Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+  "Maureen Biologist":"Maureen Biologist",
+  "Glenn P. Mojica":"Glenn P. Mojica",
+  "Patty O'Furniture":"Patty O'Furniture",
+  "Johnny M. Lopez":"Johnny M. Lopez",
+
 };

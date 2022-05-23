@@ -14,9 +14,11 @@ class AppController extends GetxController {
   int drawerSelectedIndex = 0;
   int selectedIndex = 0;
   bool isTheme = false;
+  bool isRTL = false;
   var auth = FirebaseAuth.instance;
   final storage = GetStorage();
   List drawerList = [];
+  List bottomNavigationList = [];
   double rateValue = 0.0;
   String priceSymbol = "₹";
   String languageVal = "en";
@@ -79,6 +81,7 @@ class AppController extends GetxController {
     priceConvertor(currencyCode, priceSymbol);
 
     drawerList = AppArray().drawerList;
+    bottomNavigationList = AppArray().bottomNavigationList;
 
     update();
   }
@@ -161,6 +164,7 @@ class AppController extends GetxController {
     }
     Get.forceAppUpdate();
     drawerList = AppArray().drawerList;
+    bottomNavigationList = AppArray().bottomNavigationList;
     update();
     Get.back();
   }
@@ -288,7 +292,7 @@ class AppController extends GetxController {
     } else if (index == 9) {
       Get.back();
       Get.toNamed(routeName.setting);
-    } else if (index == 11) {
+    } else if (index == 12) {
       Get.back();
       selectedIndex = 0;
       auth.signOut();

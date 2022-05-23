@@ -77,7 +77,7 @@ class YourAccountController extends GetxController{
     } else if (index == 9) {
       Get.back();
       Get.toNamed(routeName.setting);
-    } else if (index == 11) {
+    } else if (index == 12) {
       Get.back();
       Get.offAllNamed(routeName.login);
     }

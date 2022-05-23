@@ -20,14 +20,14 @@ class MyCartWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({GestureTapCallback? onTap}) {
+  Widget appBarActionLayout({GestureTapCallback? onTap,isRTL}) {
     return Padding(
       padding: EdgeInsets.only(
           bottom: AppScreenUtil()
               .screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 6 : 0),
           top: AppScreenUtil()
               .screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 8 : 2),
-          right: AppScreenUtil().screenWidth(15)),
+          right: AppScreenUtil().screenWidth(15),left: AppScreenUtil().screenWidth(isRTL ? 15 :0)),
       child: InkWell(
         onTap: onTap,
         child: Image.asset(

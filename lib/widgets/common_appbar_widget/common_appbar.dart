@@ -30,92 +30,39 @@ class CommonAppBar1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height /
-              AppScreenUtil().screenHeight(
-                  AppScreenUtil().screenActualWidth() > 370 ? 13 : 22),
-          bottom: AppScreenUtil().screenHeight(10),
-          left: AppScreenUtil().screenHeight(15),
-          right: AppScreenUtil().screenHeight(15)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+    return GetBuilder<AppController>(builder: (appCtrl) {
+      return AppBarWidget().appBarLayout(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              if (isCategory!)
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                if (isCategory!)
+                  AppBarStyle().categoryIcon(
+                      isRTL: appCtrl.isRTL, onTap: onTap, color: color),
+                if (isBack!) CommonAppBarLeading(onTap: onTap, isImage: false),
+                const Space(10, 0),
                 AppBarWidget().commonIconImage(
-                    onTap: onTap,
-                    image: iconAssets.category,
-                    height: 20,
-                    color: color),
-              if (isBack!)
-                InkWell(
-                  onTap: onTap,
-                  child: Container(
-                    height: AppScreenUtil().screenHeight(
-                        AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
-                    width: AppScreenUtil().screenHeight(
-                        AppScreenUtil().screenActualWidth() > 370 ? 21 : 25),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: borderColor!, width: 1.5),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Icon(
-                      Icons.arrow_back_sharp,
-                      size: AppScreenUtil().size(14),
-                      color: color,
-                    ),
-                  ),
-                ),
-              const Space(10, 0),
-              AppBarWidget().commonIconImage(
-                  image: isTheme!
-                      ? imageAssets.themeLogo
-                      : imageAssets.smallLogoImage,
-                  height: 16),
-              const Space(10, 0),
-              if (isWishListText!)
-                AppBarFontStyle().mulishtextLayout(
-                    text: "(4 Items)",
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal),
+                    image: isTheme!
+                        ? imageAssets.themeLogo
+                        : imageAssets.smallLogoImage,
+                    height: 16),
+                const Space(10, 0),
+                if (isWishListText!)
+                  AppBarFontStyle().mulishtextLayout(
+                      text: "(4 + " + 'items'.tr + ')',
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal)
+              ]),
+              if (isLocation!) const AppbarUserIconLocation(),
+              if (isCart!)
+                AppBarStyle()
+                    .offerIcon(isRTL: appCtrl.isRTL, actionTap: actionTap),
+              if (isHome!)
+                AppBarWidget()
+                    .homeIcon(isRTL: appCtrl.isRTL, actionTap: actionTap),
             ],
           ),
-          if (isLocation!)
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                AppBarWidget().commonIconImage(
-                    image: iconAssets.location, height: 16, color: color),
-                const Space(5, 0),
-                AppBarFontStyle().mulishtextLayout(
-                    text: AppBarFont().name,
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal),
-                const Space(10, 0),
-                InkWell(
-                  onTap: actionTap,
-                  child: AppBarWidget()
-                      .commonIconImage(image: iconAssets.user, height: 30),
-                ),
-              ],
-            ),
-          if (isCart!)
-            InkWell(
-                onTap: actionTap,
-                child: Image.asset(gifAssets.colorOffer, height: 30)),
-          if (isHome!)
-            InkWell(
-                onTap: actionTap,
-                child: Image.asset(
-                  iconAssets.colorHome,
-                  height: 20,
-                  fit: BoxFit.contain,
-                )),
-        ],
-      ),
-    );
+          context: context);
+    });
   }
 }

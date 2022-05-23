@@ -13,37 +13,41 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
-      builder: (ctrl) => Scaffold(
-        backgroundColor: productDetailCtrl.appCtrl.appTheme.wishtListBoxColor,
-        appBar: AppBar(
-          elevation: 0,
-          automaticallyImplyLeading: false,
+      builder: (ctrl) => Directionality(
+        textDirection:
+        productDetailCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+        child: Scaffold(
           backgroundColor: productDetailCtrl.appCtrl.appTheme.wishtListBoxColor,
-          leading: CommonAppBarLeading(
-            onTap: () => Get.back(),
-            isImage: false,
-          ),
-          actions: [
-            ProductDetailWidget().appBarActionLayout(
-              iconColor: productDetailCtrl.appCtrl.appTheme.titleColor,
+          appBar: AppBar(
+            elevation: 0,
+            automaticallyImplyLeading: false,
+            backgroundColor: productDetailCtrl.appCtrl.appTheme.wishtListBoxColor,
+            leading: CommonAppBarLeading(
+              onTap: () => Get.back(),
+              isImage: false,
             ),
-          ],
-        ),
-        body: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (overscroll) {
-            overscroll.disallowIndicator();
-            return false;
-          },
-          child: GetBuilder<ProductDetailController>(
-            builder: (_) => Stack(
-              alignment: Alignment.bottomCenter,
-              children: const [
-                //main layout
-                ProductDetailMainLayout(),
+            actions: [
+              ProductDetailWidget().appBarActionLayout(
+                iconColor: productDetailCtrl.appCtrl.appTheme.titleColor,
+              ),
+            ],
+          ),
+          body: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: (overscroll) {
+              overscroll.disallowIndicator();
+              return false;
+            },
+            child: GetBuilder<ProductDetailController>(
+              builder: (_) => Stack(
+                alignment: Alignment.bottomCenter,
+                children: const [
+                  //main layout
+                  ProductDetailMainLayout(),
 
-                //amount and quantity layout
-                AmountButtonLayout()
-              ],
+                  //amount and quantity layout
+                  AmountButtonLayout()
+                ],
+              ),
             ),
           ),
         ),

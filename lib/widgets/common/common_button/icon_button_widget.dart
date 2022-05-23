@@ -11,15 +11,21 @@ class IconButtonWidget extends StatelessWidget {
   final double? rightMargin;
   final GestureTapCallback? onTap;
 
-
-  IconButtonWidget({Key? key, this.icon, this.textWidget, this.type,this.lefMargin,this.rightMargin,this.onTap}) : super(key: key);
+  IconButtonWidget(
+      {Key? key,
+      this.icon,
+      this.textWidget,
+      this.type,
+      this.lefMargin,
+      this.rightMargin,
+      this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-
         padding: EdgeInsets.all(AppScreenUtil().size(12)),
         decoration: BoxDecoration(
             color: appCtrl.appTheme.socialColor,
@@ -27,13 +33,17 @@ class IconButtonWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(icon!,height: AppScreenUtil().screenHeight(20),),
+            Image.asset(
+              icon!,
+              height: AppScreenUtil().screenHeight(20),
+            ),
             const Space(10, 0),
             textWidget!
-
           ],
         ),
-      ).marginOnly(left: AppScreenUtil().screenWidth(lefMargin!), right: AppScreenUtil().screenWidth(rightMargin!)),
+      ).marginOnly(
+          left: AppScreenUtil().screenWidth(lefMargin!),
+          right: AppScreenUtil().screenWidth(rightMargin!)),
     );
   }
 }

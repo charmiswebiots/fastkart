@@ -1,4 +1,4 @@
-import '../../config.dart';
+import '../../../config.dart';
 
 class CustomButton extends StatelessWidget {
   final appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());

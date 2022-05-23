@@ -20,6 +20,12 @@ final dynamic kr = {
   'contactUs':'문의하기',
   'selectLanguage':'언어 선택',
   'Currency Change': '통화 변경',
+  'losAngeles': "천사들",
+  'pageNotFound': "페이지를 찾을 수 없음",
+  "errorDescription":
+  "죄송하지만 찾고 있는 페이지가 \n 존재하지 않거나 제거되었습니다. 나중에\n 다시 확인하거나 다시 검색하십시오.",
+  "backToHome": "홈으로",
+  'RTL': 'RTL',
 
   //login page
   'description': '매일 필요한 모든 것을 제공하는 온라인 슈퍼마켓. 당신은 당신의 문 단계에서 당신의 모든 요구에서 단 한 번의 클릭입니다.',
@@ -115,6 +121,12 @@ final dynamic kr = {
   'copyCode':'코드 복사',
   'copy':'코드:',
   'flat':'평평한:',
+  "All Offer":"모든 제안",
+  "More Than 50%":"50% 이상",
+  "More Than 30%":"30% 이상",
+  "More Than 25%":"25% 이상",
+  "More Than 15%":"15% 이상",
+  "More Than 10%":"10% 이상",
 
   //my cart font
   'myCart': '내 카트',
@@ -139,6 +151,16 @@ final dynamic kr = {
   'addAddress': "새 주소 추가",
   "selectDeliveryAddress": "배송 주소 선택",
   "defaultTitle": '기본값',
+  "Work": '일',
+  "Other": '기타',
+  "nameHint" : "이름 힌트",
+  "apartmentStudioOrFloor" : "아파트, 스튜디오 또는 층",
+  "city" : "시",
+  "state" : "상태",
+  "zip" : "지퍼",
+  "noahHamilton":"노아 해밀턴",
+  "8857 Morris Rd.,Charlottesville, VA 22901":"8857 모리스 로드 샬러츠빌, 바 22901",
+  "address1":"8857 모리스 로드 \n샬러츠빌, 바 22901",
 
   //payment page font
   'addNewAddress' : "새 주소 추가",
@@ -155,17 +177,20 @@ final dynamic kr = {
   "Credit/Debit Card":"신용/직불 카드",
   "Cash on Delivery":"착불 착불",
 
-  //order track page font
+  //order sucess page font
   'orderTrack':"지도에서 패키지 추적",
   'thankYou': "주문해주셔서 감사합니다!",
   'des': "주문이 완료되었습니다. 주문 ID는 #548475151 입니다.",
   'orderDate': "주문 날짜",
   'orderId': "주문 아이디",
+  'Sun': "일요일",
+  'Apr': "4월",
 
   //order track page font
   'estimateTime':"예상 배달 시간",
   'courier':"택배원",
   'storeLocation':"매장 위치",
+  "9.00am - 12.00pm":"오전 7시-오후 4시",
 
   //order detail page font
   'reorder':"재 주문",
@@ -273,4 +298,21 @@ final dynamic kr = {
   'updateSettings': '업데이트 설정',
   'phoneValidation': '10자리 숫자 필수',
   'phoneFieldError': '전화번호. 필수',
+
+  //about us page font
+  "aboutUs" : "회사 소개",
+  "whoWeAre" : "우리는 누구인가?",
+  "howDoOrder" : "주문은 어떻게 하나요?",
+  "peopleWhoBuildFastkart" : "Fastkart를 구축하는 사람들",
+  "desc" : "Lorem Ipsum은 단순히 인쇄 및 조판 산업의 더미 텍스트입니다. Lorem Ipsum은 1500년대부터 무명의 인쇄업자가 활자 갤리를 가져와 활자 견본 책을 만들기 위해 스크램블한 이래로 업계의 표준 더미 텍스트였습니다. . 그것은 단지 5세기 동안 살아남은 것이 아니라",
+  "Browse products using the search feature":"검색 기능을 사용하여 제품 검색",
+  "Add item to your Shopping Cart":"장바구니에 항목 추가",
+  "Choose a convenient delivery time":"편리한 배송 시간 선택",
+  "Select suitable payment option":"적절한 지불 옵션 선택",
+  "Lorem Ipsum is simply dummy text of the printing and typesetting industry":"Lorem Ipsum은 단순히 인쇄 및 조판 산업의 더미 텍스트입니다.",
+  "Maureen Biologist":"모린 생물학자",
+  "Glenn P. Mojica":"글렌 P. 모히카",
+  "Patty O'Furniture":"패티 오가구",
+  "Johnny M. Lopez":"조니 M. 로페즈",
+
 };

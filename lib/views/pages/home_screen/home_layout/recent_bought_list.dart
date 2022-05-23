@@ -1,8 +1,8 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/home_screen/home_layout/recent_bought_bg.dart';
 
 class RecentBoughtList extends StatelessWidget {
   final dynamic list;
+
   const RecentBoughtList({
     Key? key,
     this.list,
@@ -30,8 +30,9 @@ class RecentBoughtList extends StatelessWidget {
                 children: [
                   //recent bought widget
                   HomeStyle().recentlyBought(
-                      text: HomeFont().recentBought, color: appCtrl.appTheme.titleColor),
-                  const  Space(0, 20),
+                      text: HomeFont().recentBought,
+                      color: appCtrl.appTheme.titleColor),
+                  const Space(0, 20),
                   SizedBox(
                     height: AppScreenUtil().screenHeight(50),
                     child: ListView.builder(
@@ -39,24 +40,9 @@ class RecentBoughtList extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () => Get.toNamed(routeName.productDetail),
-                          child: Container(
-                            margin: EdgeInsets.only(
-                                right: AppScreenUtil().size(15)),
-                            padding: EdgeInsets.symmetric(
-                                vertical: AppScreenUtil().size(12),
-                                horizontal: AppScreenUtil().size(12)),
-                            decoration: BoxDecoration(
-                                color: appCtrl.appTheme.whiteColor,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Image.asset(
-                              list[index]['image'].toString(),
-                              fit: BoxFit.fill,
-                              height: AppScreenUtil().size(30),
-                              width: AppScreenUtil().size(30),
-                            ),
-                          ),
+                        return RecentBoughtCard(
+                          index: index,
+                          list: list[index],
                         );
                       },
                     ),
@@ -64,7 +50,7 @@ class RecentBoughtList extends StatelessWidget {
                 ],
               ),
             ),
-            /* Positioned(right: 15, child: Image.asset(imageAssets.corner))*/
+
           ],
         ),
       );

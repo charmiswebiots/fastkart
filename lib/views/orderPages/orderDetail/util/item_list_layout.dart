@@ -18,11 +18,6 @@ class ItemListLayout extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ItemListCard(
                     data: orderDetailCtrl.orderDetailList[index],
-                    quantityLayoutColor: appCtrl.appTheme.primary,
-                    quantityTextColor: appCtrl.appTheme.white,
-                    titleColor: appCtrl.appTheme.titleColor,
-                    darkContentColor: appCtrl.appTheme.darkContentColor,
-                    contentColor: appCtrl.appTheme.contentColor,
                     index: index,
                     lastIndex:
                     orderDetailCtrl.orderDetailList.length - 1,

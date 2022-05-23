@@ -71,7 +71,7 @@ class HomeStyle{
       color: containerColor,
       width: MediaQuery.of(context!).size.width,
       height: MediaQuery.of(context).size.height *
-          (ResponsiveWidget.isSmallScreen(context) ? 80 : 67) /
+          (ResponsiveWidget.isSmallScreen(context) ? 80 : 68) /
           100,
       padding:
       EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),

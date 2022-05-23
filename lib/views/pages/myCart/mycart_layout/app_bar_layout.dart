@@ -43,7 +43,7 @@ class AppBarLayoutCustom extends StatelessWidget
         title: MyCartStyle().appBarTitleLayout(
             text: "(4 Items)", textColor: appCtrl.appTheme.darkContentColor),
         actions: [
-          MyCartWidget().appBarActionLayout(onTap: actionOnTap),
+          MyCartWidget().appBarActionLayout(onTap: actionOnTap,isRTL: appCtrl.isRTL),
         ],
       );
     });

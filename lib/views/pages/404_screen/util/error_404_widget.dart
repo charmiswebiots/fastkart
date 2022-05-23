@@ -6,7 +6,8 @@ class Error404Widget {
       {GestureTapCallback? onTap,
       var borderColor,
       var iconColor,
-      String? image}) {
+        isRTL,
+      String? image,String? language}) {
     return Row(
       children: [
         InkWell(
@@ -14,6 +15,7 @@ class Error404Widget {
           child: Container(
             margin: EdgeInsets.only(
                 left: AppScreenUtil().screenWidth(15),
+                right: AppScreenUtil().screenWidth(language == "ar" || isRTL ? 15 :0),
                 bottom: AppScreenUtil().screenHeight(4)),
             child: Image.asset(
               iconAssets.category,
@@ -30,32 +32,6 @@ class Error404Widget {
     return Image.asset(
       image!,
       width: AppScreenUtil().screenWidth(100),
-    );
-  }
-
-  //appbar action layout
-  Widget appBarActionLayout({var iconColor}) {
-    return Padding(
-      padding: EdgeInsets.only(
-          left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(15),
-          top: AppScreenUtil().screenHeight(13),
-          right: AppScreenUtil().screenWidth(15)),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Error404Widget().commonIconImage(
-              image: iconAssets.location, height: 16, color: iconColor),
-          const  Space(5, 0),
-          Error404FontStyle().mulishtextLayout(
-              text: Error404Font().name,
-              fontSize: 14,
-              fontWeight: FontWeight.normal),
-          const Space(5, 0),
-          Error404Widget().commonIconImage(image: iconAssets.user, height: 30),
-        ],
-      ),
     );
   }
 

@@ -1,4 +1,5 @@
 import '../../../config.dart';
+import 'address_list_layout/icon_place_layout.dart';
 
 class AddressListCard extends StatelessWidget {
   final int? index;
@@ -35,14 +36,9 @@ class AddressListCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AddressListWidget().iconAndPlaceLayout(
+                    IconAndPlaceLayout(
                         index: index,
-                        text: data['place'],
-                        textColor: addAddressCtrl.appCtrl.appTheme.titleColor,
-                        defaultBoxColor:
-                            addAddressCtrl.appCtrl.appTheme.primary,
-                        defaultTextColor:
-                            addAddressCtrl.appCtrl.appTheme.white),
+                        text: data['place'],),
                     const Space(0, 8),
                     AddressListFontStyle().mulishtextLayout(
                         text: data['address'],

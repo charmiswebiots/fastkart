@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:fastkart/config.dart';
 
+
 class Error404Page extends StatelessWidget {
   final appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
@@ -11,10 +12,14 @@ class Error404Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AppController>(
-      builder: (_) {
-        return Scaffold(
+    return GetBuilder<AppController>(builder: (_) {
+      return Directionality(
+        textDirection:
+        appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+        child: Scaffold(
+          key: _scaffoldKey,
           drawer: DrawerScreen(),
+          drawerEnableOpenDragGesture: true,
           appBar: AppBar(
             elevation: 0,
             automaticallyImplyLeading: false,
@@ -23,26 +28,29 @@ class Error404Page extends StatelessWidget {
             centerTitle: false,
             leading: Error404Widget().appBarLeadingLayout(
                 onTap: () => _scaffoldKey.currentState!.openDrawer(),
+                isRTL: appCtrl.isRTL,
+                language: appCtrl.languageVal,
                 borderColor: appCtrl.appTheme.titleColor,
                 iconColor: appCtrl.appTheme.titleColor,
-                image:
-                    appCtrl.isTheme ? imageAssets.themeFkLogo : imageAssets.fkLogo),
+                image: appCtrl.isTheme
+                    ? imageAssets.themeFkLogo
+                    : imageAssets.fkLogo),
             title: Error404Widget().appBarTitleLayout(
                 image: appCtrl.isTheme ? imageAssets.themeLogo : imageAssets.logo,
                 textColor: appCtrl.appTheme.titleColor),
-            actions: [
-              Error404Widget()
-                  .appBarActionLayout(iconColor: appCtrl.appTheme.titleColor),
+            actions: const [
+              AppbarUserIconLocation(),
             ],
           ),
           bottomNavigationBar: BottomNavigatorCard(
             selectedIndex: appCtrl.selectedIndex,
-            onTap: (val)=> appCtrl.errorBottomNavigationClick(val),
+            onTap: (val) => appCtrl.errorBottomNavigationClick(val),
           ),
           body: Stack(
             alignment: Alignment.bottomCenter,
             children: [
               Container(
+                width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(
                     top: Platform.isIOS
                         ? MediaQuery.of(context).size.height /
@@ -52,39 +60,15 @@ class Error404Page extends StatelessWidget {
                     left: AppScreenUtil().screenHeight(15),
                     right: AppScreenUtil().screenHeight(15)),
                 child: Column(
-                  children: [
-                    Column(
-                      children: [
-                        Error404Widget().commonIconImage(
-                            image: imageAssets.noPageFoundImage, height: 100),
-                        const Space(0, 15),
-                        Error404FontStyle().quicksandtextLayout(
-                            text: Error404Font().pageNotFound,
-                            fontSize: Error404FontSize.textSizeNormal,
-                            color: appCtrl.appTheme.titleColor,
-                            fontWeight: FontWeight.w600),
-                        const Space(0, 15),
-                        Error404FontStyle().quicksandtextLayout(
-                            text: Error404Font().description,
-                            fontSize: Error404FontSize.textSizeSMedium,
-                            color: appCtrl.appTheme.darkContentColor,
-                            fontWeight: FontWeight.normal),
-                        const Space(0, 15),
-                        Error404Widget().backToHomeWidget(
-                            text: Error404Font().backToHome,
-                            color: appCtrl.appTheme.primary,
-                            fontColor: appCtrl.appTheme.whiteColor,
-                            context: context)
-                      ],
-                    ),
+                  children: const [
+                   ErrorDataLayout(),
                   ],
                 ),
               ),
-
             ],
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }

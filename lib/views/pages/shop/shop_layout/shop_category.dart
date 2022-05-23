@@ -29,7 +29,7 @@ class ShopCategory extends StatelessWidget {
               return Padding(
                 padding: EdgeInsets.only(
                     right: AppScreenUtil().screenWidth(  12),
-                    left: AppScreenUtil().screenWidth(appCtrl.languageVal == "ar" ? 15: index == 0 ? 15 : 0)),
+                    left: AppScreenUtil().screenWidth(appCtrl.languageVal == "ar"  || appCtrl.isRTL? 15: index == 0 ? 15 : 0)),
                 child: InkWell(
                   onTap: () => shopCtrl.selectCategory(
                       index, shopCtrl.shopCategoryList[index]['id']),
