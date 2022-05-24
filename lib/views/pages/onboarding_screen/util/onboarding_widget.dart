@@ -26,15 +26,14 @@ class OnboardingWidget {
   Widget layout(
       {context, image, var titleColor, var contentColor, bool? isTheme}) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 3.1,
-      child: Column(
-        children: [
+        height: MediaQuery.of(context).size.height / 3.1,
+        child: Column(children: [
           //logo layout
           OnboardingWidget().smallLogoImage(
               image:
                   isTheme! ? imageAssets.themeLogo : imageAssets.smallLogoImage,
               context: context),
-          const  Space(0, 2),
+          const Space(0, 2),
 
           //get safe delivery text layout
           OnboardingFontStyle().nunitoAndQuicksandtextLayout(
@@ -43,7 +42,7 @@ class OnboardingWidget {
               fontSize: OnboardingFontSize.textSizeNormal,
               fontWeight: FontWeight.w500,
               type: 'quicksand'),
-          const  Space(0, 5),
+          const Space(0, 5),
 
           //description layout
           OnboardingFontStyle().nunitoAndQuicksandtextLayout(
@@ -52,18 +51,15 @@ class OnboardingWidget {
               fontSize: OnboardingFontSize.textSizeSMedium,
               fontWeight: FontWeight.normal,
               type: 'nunito'),
-        ],
-      ),
-    );
+        ]));
   }
 
   //social login layout
   Widget socialLoginLayout({context, Widget? child}) {
     return Container(
-      height: MediaQuery.of(context).size.height / 4.50,
-      padding:
-          EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
-      child: child,
-    );
+        height: MediaQuery.of(context).size.height / 4.50,
+        padding:
+            EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(15)),
+        child: child);
   }
 }

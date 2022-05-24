@@ -1,40 +1,7 @@
-import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../config.dart';
-import '../../../../utilities/responsive_layout.dart';
 
 class LoginStyle {
-  //body style
-  Widget bodyStyle({context, var color, loginformKey, Widget? child}) {
-    return Container(
-      margin: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height /
-              (Platform.isIOS ? 9.2 : AppScreenUtil().size(7.2))),
-      padding: EdgeInsets.symmetric(
-          horizontal: AppScreenUtil().size(15),
-          vertical: AppScreenUtil().size(25)),
-      width: MediaQuery.of(context).size.width,
-      height: AppScreenUtil().screenActualHeight(),
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(AppScreenUtil().borderRadius(22)),
-              topRight: Radius.circular(AppScreenUtil().borderRadius(22)))),
-      child: Form(
-        key: loginformKey,
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height /
-                  AppScreenUtil().screenHeight(
-                      (ResponsiveWidget.isSmallScreen(context)) ? 1.52 : 1.14),
-              child: child,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   //description text layout
   Widget descLayout(darkContentColor) {
@@ -85,5 +52,16 @@ class LoginStyle {
             iconAssets.atsign,
             color: color,
           );
+  }
+
+  //logo
+  Widget logoImage(isTheme) {
+    return isTheme
+        ? Image.asset(
+      imageAssets.themeLogo,
+      fit: BoxFit.contain,
+      height: AppScreenUtil().screenHeight(20),
+    )
+        : Image.asset(imageAssets.smallLogoImage);
   }
 }

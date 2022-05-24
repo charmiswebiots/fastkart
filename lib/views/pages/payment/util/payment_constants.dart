@@ -2,7 +2,6 @@
 import 'package:get/get.dart';
 
 class PaymentFont{
-   String addNewAddress = "addNewAddress".tr;
    String confirmPayment = "confirmPayment".tr;
    String addPaymentMethod= "addPaymentMethod".tr;
    String cashonDelivery= "cashonDelivery".tr;
@@ -13,6 +12,7 @@ class PaymentFont{
    String couponDiscount= "couponDiscount".tr;
    String bagSavings= "bagSavings".tr;
    String addCard = "addCard".tr;
+   String addNewCard = "addNewCard".tr;
    String cardHolderName = "cardHolderName".tr;
    String cardNumber = "cardNumber".tr;
    String expiryDate = "expiryDate".tr;

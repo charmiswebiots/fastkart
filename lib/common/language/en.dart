@@ -32,7 +32,7 @@ final dynamic en = {
   'emailHint': 'Email address',
   'password': 'Password',
   'forgotPassword': 'Forgot password ?',
-  'signInsignIn': 'Sign in',
+  'signIn': 'Sign in',
   'creatUser': 'If you are new,  ',
   'createNow': 'Create Now',
   'signInWith': 'Or login with',
@@ -176,6 +176,8 @@ final dynamic en = {
   "Net Banking": "Net Banking",
   "Credit/Debit Card": "Credit/Debit Card",
   "Cash on Delivery": "Cash on Delivery",
+  "addNewCard": "Add New Card",
+
 
   //order success page font
   'orderTrack': "Track Package on Map",

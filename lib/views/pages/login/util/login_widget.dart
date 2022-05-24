@@ -19,41 +19,6 @@ class LoginWidget {
     );
   }
 
-  //logo
-  Widget logoImage(isTheme) {
-    return isTheme
-        ? Image.asset(
-            imageAssets.themeLogo,
-            fit: BoxFit.contain,
-            height: AppScreenUtil().screenHeight(20),
-          )
-        : Image.asset(imageAssets.smallLogoImage);
-  }
-
-  //sign in button
-  Widget signInButton({
-    color,
-    BuildContext? context,
-    fontColor,
-    GestureTapCallback? onTap,
-  }) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: AppScreenUtil().size(10)),
-        width: MediaQuery.of(context!).size.width,
-        decoration:
-            BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
-        child: LoginFontStyle().mulishtextLayout(
-            text: LoginFont().signIn,
-            fontSize: 17,
-            fontWeight: FontWeight.bold,
-            color: fontColor),
-      ),
-    );
-  }
-
   //fogot password widget
   Widget forgotPasswordWidget({color}) {
     return Column(
@@ -65,33 +30,6 @@ class LoginWidget {
             fontSize: 12,
             fontWeight: FontWeight.normal),
         const Space(0, 15),
-      ],
-    );
-  }
-
-  //create new user layout
-  Widget createUserWidget({
-    color,
-    fontWeight,
-    GestureTapCallback? onTap,
-  }) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        LoginFontStyle().mulishtextLayout(
-            color: color,
-            text: LoginFont().creatUser,
-            fontWeight: fontWeight,
-            fontSize: 14,
-            onTap: onTap),
-        const Space(1.5, 0),
-        LoginFontStyle().mulishtextLayout(
-            color: color,
-            text: LoginFont().createNow,
-            fontWeight: fontWeight,
-            fontSize: 14,
-            textDecoration: TextDecoration.underline,
-            onTap: onTap),
       ],
     );
   }

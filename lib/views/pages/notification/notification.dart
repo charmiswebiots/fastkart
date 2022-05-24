@@ -1,5 +1,3 @@
-import 'package:fastkart/shimmer_effect/notification_shimmer/notification_shimmer.dart';
-
 import '../../../config.dart';
 
 class Notification extends StatelessWidget {
@@ -12,9 +10,10 @@ class Notification extends StatelessWidget {
     return GetBuilder<AppController>(builder: (ctrl) {
       return AppComponent(
         child: GetBuilder<NotificationController>(builder: (_) {
-          return  Directionality(
-            textDirection:
-            notificationCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+          return Directionality(
+            textDirection: notificationCtrl.appCtrl.isRTL
+                ? TextDirection.rtl
+                : TextDirection.ltr,
             child: Scaffold(
               appBar: NotificationWidget().appBarLayout(
                   bgColor: notificationCtrl.appCtrl.appTheme.whiteColor,
@@ -27,31 +26,35 @@ class Notification extends StatelessWidget {
                   overscroll.disallowIndicator();
                   return false;
                 },
-                child: notificationCtrl.isLoading ? const NotificationShimmer() : SingleChildScrollView(
-                  child: Container(
-                    color: notificationCtrl.appCtrl.appTheme.whiteColor,
-                    child: DefaultTabController(
-                      length: 2,
-                      child: Column(
-                        children: [
-                          //days and mark read all layout
-                          const NotificationCategoryLayout(),
+                child: notificationCtrl.isLoading
+                    ? const NotificationShimmer()
+                    : SingleChildScrollView(
+                        child: Container(
+                          color: notificationCtrl.appCtrl.appTheme.whiteColor,
+                          child: DefaultTabController(
+                            length: 2,
+                            child: Column(
+                              children: [
+                                //days and mark read all layout
+                                const NotificationCategoryLayout(),
 
-                          SizedBox(
-                            height: AppScreenUtil().screenHeight(750),
-                            child: TabBarView(
-                                physics: const NeverScrollableScrollPhysics(),
-                                controller: notificationCtrl.tabController,
-                                children: const <Widget>[
-                                  TabBarViewLayout(),
-                                  TabBarViewLayout(),
-                                ]),
-                          )
-                        ],
+                                SizedBox(
+                                  height: AppScreenUtil().screenHeight(750),
+                                  child: TabBarView(
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      controller:
+                                          notificationCtrl.tabController,
+                                      children: const <Widget>[
+                                        TabBarViewLayout(),
+                                        TabBarViewLayout(),
+                                      ]),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
               ),
             ),
           );

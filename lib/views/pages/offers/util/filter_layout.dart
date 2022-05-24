@@ -8,11 +8,10 @@ class FilterLayout extends StatelessWidget {
     return GetBuilder<AppController>(builder: (appCtrl) {
       return GetBuilder<OfferController>(builder: (offerCtrl) {
         return Directionality(
-          textDirection:
-          offerCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            textDirection:
+                offerCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               OfferFontStyle().mulishtextLayout(
                   text: OfferFont().filter,
                   fontSize: OfferFontSize.textSizeMedium,
@@ -24,35 +23,13 @@ class FilterLayout extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: AppArray().shopFilterList.length,
                 itemBuilder: (context, index) {
-                  return InkWell(
+                  return FilterListCard(
+                    index: index,
+                    itemFilterIndex: offerCtrl.itemFilterIndex,
                     onTap: () async {
                       offerCtrl.itemFilterIndex = index;
                       offerCtrl.update();
                     },
-                    child: Container(
-                      height: AppScreenUtil().screenHeight(20),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: index == offerCtrl.itemFilterIndex
-                            ? appCtrl.appTheme.primary
-                            : appCtrl.appTheme.wishtListBoxColor,
-                        borderRadius: BorderRadius.circular(
-                            AppScreenUtil().borderRadius(5)),
-                        border: Border.all(
-                            color: appCtrl.isTheme
-                                ? appCtrl.appTheme.gray
-                                : appCtrl.appTheme.primary.withOpacity(.2),
-                            width: .5), //border of dropdown button
-                      ),
-                      child: OfferFontStyle().mulishtextLayout(
-                          text: AppArray()
-                              .shopFilterList[index]['title']
-                              .toString(),
-                          fontSize: OfferFontSize.textSizeSMedium,
-                          color: index == offerCtrl.itemFilterIndex
-                              ? appCtrl.appTheme.white
-                              : appCtrl.appTheme.darkContentColor),
-                    ),
                   );
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -78,12 +55,10 @@ class FilterLayout extends StatelessWidget {
                       containerColor: appCtrl.appTheme.primary,
                       borderColor: appCtrl.appTheme.primary,
                       textColor: appCtrl.appTheme.whiteColor,
-                      text: OfferFont().apply),
+                      text: OfferFont().apply)
                 ],
               )
-            ],
-          ),
-        );
+            ]));
       });
     });
   }

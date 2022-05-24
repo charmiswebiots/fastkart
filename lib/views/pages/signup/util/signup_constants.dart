@@ -7,7 +7,7 @@ class SignupFont{
    String emailHint = 'emailHint'.tr;
    String password = 'password'.tr;
    String fullName = 'fullName'.tr;
-   String signup = 'signup';
+   String signup = 'signup'.tr;
 
    String alreadyAccount = 'alreadyAccount'.tr;
    String signIn = 'signIn'.tr;

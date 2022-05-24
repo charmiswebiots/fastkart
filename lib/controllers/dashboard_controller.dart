@@ -41,6 +41,7 @@ class DashboardController extends GetxController {
     if (appCtrl.selectedIndex == 4) {
       Get.toNamed(routeName.myCart, arguments: false);
     } else {
+
       await appCtrl.getStorage.write('selectedIndex', appCtrl.selectedIndex);
       appCtrl.selectedIndex = val;
       appCtrl.update();

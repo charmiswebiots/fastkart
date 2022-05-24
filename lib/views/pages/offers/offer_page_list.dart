@@ -1,0 +1,14 @@
+export 'package:fastkart/controllers/offer_controller.dart';
+export 'package:fastkart/views/pages/offers/util/offer_constants.dart';
+export 'package:fastkart/views/pages/offers/util/offer_fontstyle.dart';
+export 'package:fastkart/views/pages/offers/util/offer_list_layout.dart';
+export 'package:fastkart/views/pages/offers/util/offer_widget.dart';
+export 'package:fastkart/views/pages/offers/util/offer_style.dart';
+export 'package:fastkart/views/pages/offers/offer_list_card.dart';
+export 'package:fastkart/shimmer_effect/common_textform_filter.dart';
+export 'package:fastkart/shimmer_effect/offer_shimmer/offer_list_shimmer.dart';
+export 'package:fastkart/views/pages/offers/util/filter_layout.dart';
+export 'package:fastkart/views/pages/offers/util/offer_detail.dart';
+export 'package:fastkart/views/pages/offers/util/filter_list_card.dart';
+export 'package:fastkart/views/pages/offers/util/offer_detail_content.dart';
+export 'package:fastkart/views/pages/offers/offers_screen.dart';

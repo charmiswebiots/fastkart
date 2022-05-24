@@ -69,7 +69,7 @@ class OfferStyle{
   Widget codeValueLayout({String? text, var primaryColor,var whiteColor}){
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: AppScreenUtil().screenWidth(5)),
+          horizontal: AppScreenUtil().screenWidth(7),vertical: AppScreenUtil().screenHeight(2)),
       decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(

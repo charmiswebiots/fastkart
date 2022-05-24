@@ -178,6 +178,7 @@ final dynamic ar = {
   "Net Banking": "صافي المصرفية",
   "Credit/Debit Card": "بطاقة الائتمان / الخصم",
   "Cash on Delivery": "الدفع عند الاستلام",
+  "addNewCard": "إضافة بطاقة جديدة",
 
   //order success page font
   'orderTrack': "تتبع الحزمة على الخريطة",

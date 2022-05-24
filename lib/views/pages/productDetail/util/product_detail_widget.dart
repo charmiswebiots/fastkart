@@ -39,5 +39,4 @@ class ProductDetailWidget {
       child: child,
     );
   }
-
 }

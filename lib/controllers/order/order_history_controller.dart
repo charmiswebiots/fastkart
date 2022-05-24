@@ -35,23 +35,11 @@ class OrderHistoryController extends GetxController {
   }
 
   //bottom sheet for filter
-  bottomSheet(
-      {
-      context}) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return const OrderHistoryFilter();
-      },
-    );
+  bottomSheet() {
+    BottomSheetLayout().bottomSheet(
+        child: const OrderHistoryFilter());
   }
+
 
   //get data
   getData()async{
