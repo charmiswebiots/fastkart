@@ -11,4 +11,7 @@ class Session {
   //for language change
   static String get languageCode => 'languageCode';
   static String get countryCode => 'countryCode';
+  static String get currencyCode => 'currencyCode';
+  static String get currencySymbol => 'currencySymbol';
+  static String get rate => 'rate';
 }

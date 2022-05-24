@@ -1,39 +1,79 @@
-import 'package:fastkart/utilities/responsive_layout.dart';
-import 'package:fastkart/views/pages/login/util/large_screen.dart';
-import 'package:fastkart/views/pages/login/util/medium_screen.dart';
-import 'package:flutter/material.dart';
-import '../../../config.dart';
+import 'package:fastkart/config.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var appCtrl = Get.isRegistered<AppController>()
-      ? Get.find<AppController>()
-      : Get.put(AppController());
+  final loginCtrl = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async{
-        return Future(() => false);
-      },
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: appCtrl.appTheme.primary,
-        body: const ResponsiveWidget(
-          //if screen height is large
-          largeScreen: LargeScreen(),
-          //if screen height in medium
-          mediumScreen: MediumScreen(),
+    return GetBuilder<AppController>(builder: (ctrl) {
+      return WillPopScope(
+        onWillPop: () async {
+          return Future(() => false);
+        },
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: loginCtrl.appCtrl.appTheme.primary,
+          body: AppComponent(
+            child: GetBuilder<LoginController>(
+              builder: (_) => SizedBox(
+                height: AppScreenUtil().screenActualHeight(),
+                child: Stack(
+                  children: [
+                    //background Image layout
+                    LoginWidget().loginBackGroundImage(
+                        imageAssets.backgroundImage, context),
+                    //main body container
+                    Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        BodyLayout(
+                          loginformKey: loginCtrl.loginformKey,
+                          imageLayout: LoginWidget()
+                              .logoImage(loginCtrl.appCtrl.isTheme),
+                          //user layout
+                          usertextForm: EmailTextForm(
+                            email: loginCtrl.email,
+                            emailFocus: loginCtrl.userFocus,
+                            onFieldSubmitted: (value) {
+                              SignupWidget().fieldFocusChange(
+                                  context,
+                                  loginCtrl.userFocus,
+                                  loginCtrl.passwordFocus);
+                            },
+                            validator: (value) =>
+                                SignupValidation().checkIDValidation(value),
+                          ),
+                          //password layout
+                          passwordTextForm:PasswordTextForm(
+                            password: loginCtrl.password,
+                            passwordFocus: loginCtrl.passwordFocus,
+                            passwordVisible: loginCtrl.passwordVisible,
+                            validator: (value) => SignupValidation()
+                                .checkPasswordValidation(value),
+                            onTap: () {
+                              loginCtrl.toggle();
+                            },
+                          ),
+                        ),
+                        // continue as guest text layout
+                        LoginWidget().continueAsGuest(
+                            color: loginCtrl.appCtrl.appTheme.titleColor)
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
-
-

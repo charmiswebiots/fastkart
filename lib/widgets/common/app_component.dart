@@ -3,7 +3,7 @@ import 'package:fastkart/controllers/common/app_controller.dart';
 import 'package:get/get.dart';
 
 class AppComponent extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());
+  final appCtrl = Get.isRegistered<AppController>() ? Get.find<AppController>() : Get.put(AppController());
   final Widget? child;
   AppComponent({Key? key, this.child}) : super(key: key);
 

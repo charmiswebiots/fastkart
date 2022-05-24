@@ -1,15 +1,7 @@
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/drawer/contact_us.dart';
-import 'package:fastkart/views/drawer/util/drawer_constants.dart';
-import 'package:fastkart/views/drawer/util/drawer_fontstyle.dart';
-import 'package:fastkart/views/drawer/util/drawer_header.dart';
-import 'package:fastkart/views/drawer/util/drawer_widget.dart';
-import 'package:flutter/material.dart';
-
 import '../../config.dart';
 
 class DrawerScreen extends StatelessWidget {
-  var appCtrl = Get.isRegistered<AppController>()
+  final appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
 
@@ -18,13 +10,13 @@ class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
-      builder: (controller) => ClipRRect(
+      builder: (_) => ClipRRect(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(AppScreenUtil().borderRadius(20)),
             bottomRight: Radius.circular(AppScreenUtil().borderRadius(20))),
         child: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overscroll) {
-            overscroll.disallowGlow();
+            overscroll.disallowIndicator();
             return false;
           },
           child: Container(
@@ -32,7 +24,7 @@ class DrawerScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width *
                 AppScreenUtil().screenWidth(0.75),
             child: Drawer(
-              backgroundColor: appCtrl.appTheme.whiteColor,
+                backgroundColor: appCtrl.appTheme.whiteColor,
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
@@ -47,60 +39,41 @@ class DrawerScreen extends StatelessWidget {
                             children: [
                               //Drawer header
                               DrawerCustomHeader(
-                                  borderRaius: 50,
+                                  isYourAccount: false,
+                                  color: appCtrl.appTheme.whiteColor,
+                                  borderRadius: 50,
                                   image: imageAssets.usersquare,
                                   imageHeight: 50,
-                                  userName: DrawerFont().userName,
+                                  userName: DrawerFont().andreaJoanne,
                                   userEmail: DrawerFont().userEmail,
-                                  userNameFontColor: appCtrl.appTheme.titleColor,
-                                  emailFontColor: appCtrl.appTheme.darkContentColor,
                                   nameFontSize: 14,
                                   emailFontSize: 12),
 
                               //divider layout
-                              DrawerWidget().dividerLineLayout(
+                              DrawerStyle().dividerLineLayout(
                                   height: 48,
                                   horizontalPadding: 10,
                                   color: appCtrl.appTheme.borderGray),
 
                               //drawer list
-                              ...AppArray().drawerList.asMap().entries.map((e) {
-                                return DrawerWidget().commonDrawerListTile(
+                              ...appCtrl.drawerList.asMap().entries.map((e) {
+                                return CommonDrawerList(
+                                    index: e.key,
                                     image: e.value['icon'],
-                                    title: e.value['title'].toString(),
-                                    color: e.key == appCtrl.drawerSelectedIndex
-                                        ? appCtrl.appTheme.whiteColor
-                                        : appCtrl.appTheme.arrowSelectColor,
-                                    status2: appCtrl.isTheme,
-                                    toggleColor: appCtrl.appTheme.greyBGColor,
-                                    activeColor: appCtrl.appTheme.titleColor,
-                                    inactiveColor: appCtrl.appTheme.white,
+                                    title: e.value['title'],
                                     onToggle: (val) {
                                       appCtrl.isTheme = val;
                                       appCtrl.update();
                                       ThemeService().switchTheme(val);
                                     },
-                                    activeIconColor: appCtrl.appTheme.green,
-                                    onTap: () async {
-                                      print('tap');
-                                      appCtrl.selectPage(index: e.key,context: context);
+                                    onToggleRtl: (val) {
+                                      appCtrl.isRTL = val;
+                                      appCtrl.update();
                                     },
-                                    textColor: e.key == 9 ? appCtrl.appTheme.titleColor : e.key == appCtrl.drawerSelectedIndex
-                                        ? appCtrl.appTheme.drawerSelectColor
-                                        : appCtrl.appTheme.titleColor,
-                                    iconColor: e.key == 9 ? appCtrl.appTheme.titleColor : e.key == appCtrl.drawerSelectedIndex
-                                        ? appCtrl.appTheme.drawerSelectColor
-                                        : appCtrl.appTheme.titleColor,
                                     height: 20,
-                                    fontSize: 14,
-                                    context: context,
-                                    inActiveIconColor: appCtrl.appTheme.gray,
-                                    selectedColor: e.key == 9 ? appCtrl.appTheme.whiteColor :
-                                    e.key == appCtrl.drawerSelectedIndex
-                                        ? appCtrl.appTheme.primary
-                                        : appCtrl.appTheme.whiteColor);
+                                    fontSize: 14);
                               }).toList(),
-                              Space(0, 200)
+                              const Space(0, 200)
                             ],
                           ),
                         ),
@@ -108,35 +81,7 @@ class DrawerScreen extends StatelessWidget {
                     ),
 
                     //CONTACT US LAYOUT
-                    ContactUsLayout(
-                      height: 150,
-                      containerColor: appCtrl.appTheme.arrowSelectColor,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //contact support text layout
-                          DrawerWidget().contactSupport(
-                              title: DrawerFont().contactSupport,
-                              fontSize: 13,
-                              color: appCtrl.appTheme.titleColor),
-                          Space(0, 5),
-
-                          //contact support description
-                          DrawerFontStyle().mulishtextLayout(
-                              text: DrawerFont().contactSupportDesc,
-                              fontSize: 12,
-                              color: appCtrl.appTheme.darkContentColor,
-                              overflow: TextOverflow.clip),
-                          Space(0, 15),
-
-                          //contact us button
-                          DrawerWidget().contactUsButtonLayout(
-                              text: DrawerFont().contactUs,
-                              buttonColor: appCtrl.appTheme.primary,
-                              textColor: appCtrl.appTheme.white)
-                        ],
-                      ),
-                    )
+                    const ContactUsLayout()
                   ],
                 )),
           ),

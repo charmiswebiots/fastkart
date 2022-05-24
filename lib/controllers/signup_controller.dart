@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 import '../config.dart';
 
@@ -29,7 +26,6 @@ class SignupController extends GetxController {
 
   //google Login function
   googleLogin() async {
-    print('tap');
     appCtrl.showLoading();
     update();
     final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -47,23 +43,20 @@ class SignupController extends GetxController {
         idToken: googleSignInAuthentication.idToken,
       );
 
-      User? user = (await _auth.signInWithCredential(credential)).user;
-      print(user);
-      print(googleSignInAccount);
+      (await _auth.signInWithCredential(credential)).user;
       appCtrl.hideLoading();
       update();
       saveData(googleSignInAccount.id);
       Get.toNamed(routeName.dashboard);
     } on FirebaseAuthException catch (e) {
+      showToast(e.toString());
       appCtrl.hideLoading();
       update();
-      throw e;
     }
   }
 
   //save data in shared pref
   saveData(userid) async {
-    print('userid : $userid');
     await storage.write('id', userid);
     update();
     Get.toNamed(routeName.dashboard);
@@ -72,7 +65,6 @@ class SignupController extends GetxController {
 
 //sign in tap function
   signInClick({context}) async {
-    print('tap');
     appCtrl.showLoading();
     update();
     FocusScopeNode currentFocus = FocusScope.of(context);
@@ -83,10 +75,7 @@ class SignupController extends GetxController {
     try {
       var user = await auth.createUserWithEmailAndPassword(
           email: email.text, password: password.text);
-      print('user : $user');
-
-      assert(user != null);
-      assert(await user.user!.getIdToken() != null);
+      await user.user!.getIdToken();
       appCtrl.hideLoading();
       update();
       email.text = "";
@@ -98,10 +87,8 @@ class SignupController extends GetxController {
       appCtrl.hideLoading();
       update();
       showToast(e.toString());
-      print('error : ${e.toString()}');
     }
 
-    print('tap');
   }
 
 

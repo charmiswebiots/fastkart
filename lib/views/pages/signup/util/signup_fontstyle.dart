@@ -1,9 +1,5 @@
 
-import 'dart:io';
-
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/signup/util/signup_constants.dart';
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignupFontStyle {
@@ -11,11 +7,11 @@ class SignupFontStyle {
   Widget nunitotextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = SignupFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: TextStyle(
-        color: color, fontSize: 16, fontWeight: fontWeight,
+        color: color, fontSize: AppScreenUtil().fontSize(fontSize), fontWeight: fontWeight,
         fontFamily: GoogleFonts.nunitoSans().fontFamily)
     );
   }
@@ -24,7 +20,7 @@ class SignupFontStyle {
   Widget mulishtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = SignupFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal,
         TextDecoration textDecoration = TextDecoration.none,GestureTapCallback? onTap,}) {
     return InkWell(
@@ -33,7 +29,7 @@ class SignupFontStyle {
           style: AppCss().mulishTextStyle(
               color: color,
               fontWeight: fontWeight,
-              fontSize: textSizeMedium,
+              fontSize: AppScreenUtil().fontSize(fontSize),
               textDecoration: textDecoration)),
     );
   }

@@ -1,13 +1,11 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/login/util/login_constants.dart';
-import 'package:flutter/material.dart';
 
 class HomeFontStyle {
 //nunito font family text layout
   Widget nunitotextLayout(
       {String? text,
       color,
-      double fontSize = textSizeMedium,
+      double fontSize = HomeFontSize.textSizeMedium,
       FontWeight fontWeight = FontWeight.normal}) {
     return Text(text!,
         style: AppCss().nunitoTextStyle(
@@ -18,11 +16,11 @@ class HomeFontStyle {
   Widget mulishtextLayout({
     String? text,
     color,
-    double fontSize = textSizeMedium,
+    double fontSize = HomeFontSize.textSizeMedium,
     FontWeight fontWeight = FontWeight.normal,
     TextDecoration textDecoration = TextDecoration.none,
     GestureTapCallback? onTap,
-    TextOverflow overflow = TextOverflow.ellipsis,
+    TextOverflow overflow = TextOverflow.clip,
     TextAlign textAlign = TextAlign.left
   }) {
     return InkWell(
@@ -42,7 +40,7 @@ class HomeFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
-        double fontSize = textSizeMedium,
+        double fontSize = HomeFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,
@@ -54,4 +52,6 @@ class HomeFontStyle {
       ),
     );
   }
+
+
 }

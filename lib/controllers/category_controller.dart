@@ -1,13 +1,16 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
 
 class CategoryController extends GetxController {
   int selectIndex = 1;
-  List subCategoryList =[];
+  List subCategoryList = [];
+  bool isLoading = true;
+  var appCtrl = Get.isRegistered<AppController>()
+      ? Get.find<AppController>()
+      : Get.put(AppController());
 
   //ontap category index change
   onTap(index) {
-    subCategoryList =[];
+    subCategoryList = [];
     for (int i = 0; i < AppArray().subCategoryData.length; i++) {
       if (AppArray().subCategoryData[i]['categoryId'].toString() ==
           index.toString()) {
@@ -19,7 +22,7 @@ class CategoryController extends GetxController {
   }
 
   //get data on init
-  getData(){
+  getData() {
     for (int i = 0; i < AppArray().subCategoryData.length; i++) {
       if (AppArray().subCategoryData[i]['categoryId'].toString() ==
           selectIndex.toString()) {
@@ -35,5 +38,4 @@ class CategoryController extends GetxController {
     getData();
     super.onInit();
   }
-
 }

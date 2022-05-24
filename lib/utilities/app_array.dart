@@ -4,6 +4,7 @@ import 'package:fastkart/models/category_model.dart';
 import 'package:fastkart/models/coupon_model.dart';
 import 'package:fastkart/views/pages/offers/util/offer_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppArray {
   //recent bought list
@@ -29,93 +30,93 @@ class AppArray {
   var categoryData = <CategoryModel>[
     CategoryModel(
       1,
-      "Oils,Refined & Ghee",
-      Color(0xFFE5FDFA),
+      "Oils,Refined & Ghee".tr,
+      const Color(0xFFE5FDFA),
       imageAssets.category1,
-      Color(0xFFE0FFFB),
+      const Color(0xFFE0FFFB),
     ),
     CategoryModel(
       2,
-      "Rice, Flour & Grains",
-      Color(0xFFFFF9D8),
+      "Rice, Flour & Grains".tr,
+      const Color(0xFFFFF9D8),
       imageAssets.category2,
-      Color(0xFFFFF6C3),
+      const Color(0xFFFFF6C3),
     ),
     CategoryModel(
       3,
-      "Food \nCupboard",
-      Color(0xFFFFF2EC),
+      "Food \nCupboard".tr,
+      const Color(0xFFFFF2EC),
       imageAssets.category3,
-      Color(0xFFFFEAE0),
+      const Color(0xFFFFEAE0),
     ),
     CategoryModel(
       4,
-      "Fresh Fruits & Vegetables",
-      Color(0xFFFFF2F2),
+      "Fresh Fruits & Vegetables".tr,
+      const Color(0xFFFFF2F2),
       imageAssets.category4,
-      Color(0xFFFFFE5E5),
+      const Color(0xFFFFE5E5),
     ),
     CategoryModel(
       5,
-      "Drinks & Beverages",
-      Color(0xFFFCF1FF),
+      "Drinks & Beverages".tr,
+      const Color(0xFFFCF1FF),
       imageAssets.category5,
-      Color(0xFFFAEAFF),
+      const Color(0xFFFAEAFF),
     ),
     CategoryModel(
       6,
-      "Instant \nMixes",
-      Color(0xFFE8FFFC),
+      "Instant \nMixes".tr,
+      const Color(0xFFE8FFFC),
       imageAssets.category6,
-      Color(0xFFDBFFFA),
+      const Color(0xFFDBFFFA),
     ),
     CategoryModel(
       7,
-      "Ready to \nEat",
-      Color(0xFFFFF9D8),
+      "Ready to \nEat".tr,
+      const Color(0xFFFFF9D8),
       imageAssets.category7,
-      Color(0xFFFFF6C3),
+      const Color(0xFFFFF6C3),
     ),
     CategoryModel(
       8,
-      "Dals & \nPulses",
-      Color(0xFFFFF8F0),
+      "Dals & \nPulses".tr,
+      const Color(0xFFFFF8F0),
       imageAssets.category8,
-      Color(0xFFFFF1E1),
+      const Color(0xFFFFF1E1),
     )
   ];
 
   //banner list
   var bannerList = <BannerModel>[
-    BannerModel('Farm Fresh Vegies', 'Get instant delivery',
-        imageAssets.banner1, 'Shop Now'),
-    BannerModel('Farm Fresh Vegies', 'Get instant delivery',
-        imageAssets.banner2, 'Shop Now'),
+    BannerModel('Farm Fresh Vegies'.tr, 'Get instant delivery'.tr,
+        imageAssets.banner1, 'Shop Now'.tr),
+    BannerModel('Farm Fresh Vegies'.tr, 'Get instant delivery'.tr,
+        imageAssets.banner2, 'Shop Now'.tr),
   ];
 
   //offer lists
   var offerList = [
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
-      'discount': '50% off',
+      'discount': ('50% ' + 'off'.tr),
       'image': imageAssets.offer1,
       'quantity': 0
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
-      'discount': '50% off',
+      'discount': ('50% ' + 'off'.tr),
       'image': imageAssets.offer2,
       'quantity': 0
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
-      'discount': '50% off',
+      'discount': ('50% ' + 'off'.tr),
       'image': imageAssets.offer3,
       'quantity': 0
     }
@@ -125,31 +126,31 @@ class AppArray {
   //lower price lists
   var lowerPriceList = [
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice2
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice3
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay2
@@ -159,31 +160,31 @@ class AppArray {
   //everyday Essential lists
   var everyDayEssentialList = [
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay2
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.everyDay3
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice1
     },
     {
-      'name': 'Assorted \nCapsicum Combo',
+      'name': 'Assorted \nCapsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'image': imageAssets.lowestPrice2
@@ -192,118 +193,178 @@ class AppArray {
 
   //coupon List
   var couponData = <CouponModel>[
-    CouponModel("50% OFF", 'UPTO \$20.00', imageAssets.coupon1,
-        Color(0xFFFFF4F3), imageAssets.offerBG1, imageAssets.themeOfferBG1),
-    CouponModel("50% OFF", 'UPTO \$20.00', imageAssets.coupon2,
-        Color(0xFFFFFFFF), imageAssets.offerBG2, imageAssets.themeOfferBG2),
-    CouponModel("50% OFF", 'UPTO \$20.00', imageAssets.coupon3,
-        Color(0xFFFFFDE9), imageAssets.offerBG3, imageAssets.themeOfferBG3),
+    CouponModel(
+        ("50% " + "off".tr),
+        ('UPTO'.tr + ' \$20.00'),
+        imageAssets.coupon1,
+        const Color(0xFFFFF4F3),
+        imageAssets.offerBG1,
+        imageAssets.themeOfferBG1),
+    CouponModel(
+        ("50% " + "off".tr),
+        ('UPTO'.tr + ' \$20.00'),
+        imageAssets.coupon2,
+        const Color(0xFFFFFFFF),
+        imageAssets.offerBG2,
+        imageAssets.themeOfferBG2),
+    CouponModel(
+        ("50% " + "off".tr),
+        ('UPTO'.tr + ' \$20.00'),
+        imageAssets.coupon3,
+        const Color(0xFFFFFDE9),
+        imageAssets.offerBG3,
+        imageAssets.themeOfferBG3),
   ];
 
   //drawer list
   final drawerList = [
     {
-      "title": "Home",
+      "title": "home".tr,
       "icon": iconAssets.drawerHome,
     },
     {
-      "title": "Fastkart Pages list",
+      "title": "fastkartPagesList".tr,
       "icon": iconAssets.paper,
     },
     {
-      "title": "Shop By Category",
+      "title": "shopByCategory".tr,
       "icon": iconAssets.category,
     },
     {
-      "title": "Orders",
+      "title": "orders".tr,
       "icon": iconAssets.orders,
     },
     {
-      "title": "Your Wishlist",
+      "title": "yourWishlist".tr,
       "icon": iconAssets.simpleheart,
     },
     {
-      "title": "Language",
+      "title": "language".tr,
       "icon": iconAssets.language,
     },
     {
-      "title": "Your Account",
+      "title": "Currency Change".tr,
+      "icon": iconAssets.currency,
+    },
+    {
+      "title": "yourAccount".tr,
       "icon": iconAssets.profile,
     },
     {
-      "title": "Notification",
+      "title": "notification".tr,
       "icon": iconAssets.notification,
     },
     {
-      "title": "Settings",
+      "title": "settings".tr,
       "icon": iconAssets.setting,
     },
     {
-      "title": "Theme",
+      "title": "theme".tr,
       "icon": iconAssets.darkTheme,
     },
     {
-      "title": "Logout",
-      "icon": iconAssets.logout,
+      "title": "RTL".tr,
+      "icon": iconAssets.filter,
+    },
+    {
+      "title": "signOut".tr,
+      "icon": iconAssets.logout1,
     },
   ];
 
+  var bottomNavigationList =[{
+    'title' : "home".tr,
+      'icon' : iconAssets.home
+  },{
+    'title' : "category".tr,
+    'icon' : iconAssets.category
+  },{
+    'title' : "search".tr,
+    'icon' : iconAssets.search
+  },{
+    'title' : "offers".tr,
+    'icon' : iconAssets.offers
+  },{
+    'title' : "cart".tr,
+    'icon' : iconAssets.cart
+  }];
+
   //sub category list with model
   var subCategoryData = [
-    {"title": "Vegetables", "image": imageAssets.subCategory1, 'categoryId': 1},
-    {"title": "Fruits", "image": imageAssets.subCategory2, 'categoryId': 1},
-    {"title": "Herbs", "image": imageAssets.subCategory3, 'categoryId': 1},
-    {"title": "Herbs", "image": imageAssets.subCategory4, 'categoryId': 1},
-    {"title": "Sprouts", "image": imageAssets.subCategory5, 'categoryId': 1},
-    {"title": "Flowers", "image": imageAssets.subCategory6, 'categoryId': 1},
     {
-      "title": "Exotic Fruits",
+      "title": "Vegetables".tr,
+      "image": imageAssets.subCategory1,
+      'categoryId': 1
+    },
+    {"title": "Fruits".tr, "image": imageAssets.subCategory2, 'categoryId': 1},
+    {"title": "Herbs".tr, "image": imageAssets.subCategory3, 'categoryId': 1},
+    {"title": "Herbs".tr, "image": imageAssets.subCategory4, 'categoryId': 1},
+    {"title": "Sprouts".tr, "image": imageAssets.subCategory5, 'categoryId': 1},
+    {"title": "Flowers".tr, "image": imageAssets.subCategory6, 'categoryId': 1},
+    {
+      "title": "Exotic Fruits".tr,
       "image": imageAssets.subCategory7,
       'categoryId': 1
     },
-    {"title": "Organic", "image": imageAssets.subCategory8, 'categoryId': 1},
-    {"title": "Cut Fruits", "image": imageAssets.subCategory9, 'categoryId': 1},
-    {"title": "Bouquets", "image": imageAssets.subCategory10, 'categoryId': 1},
-    {"title": "Fruits", "image": imageAssets.subCategory2, 'categoryId': 1},
-    {"title": "Herbs", "image": imageAssets.subCategory3, 'categoryId': 1},
-    {"title": "Sprouts", "image": imageAssets.subCategory5, 'categoryId': 0},
-    {"title": "Herbs", "image": imageAssets.subCategory4, 'categoryId': 0},
-    {"title": "Flowers", "image": imageAssets.subCategory6, 'categoryId': 0},
-    {"title": "Organic", "image": imageAssets.subCategory8, 'categoryId': 2},
-    {"title": "Vegetables", "image": imageAssets.subCategory1, 'categoryId': 2},
-    {"title": "Bouquets", "image": imageAssets.subCategory8, 'categoryId': 4},
+    {"title": "Organic".tr, "image": imageAssets.subCategory8, 'categoryId': 1},
+    {
+      "title": "Cut Fruits".tr,
+      "image": imageAssets.subCategory9,
+      'categoryId': 1
+    },
+    {
+      "title": "Bouquets".tr,
+      "image": imageAssets.subCategory10,
+      'categoryId': 1
+    },
+    {"title": "Fruits".tr, "image": imageAssets.subCategory2, 'categoryId': 1},
+    {"title": "Herbs".tr, "image": imageAssets.subCategory3, 'categoryId': 1},
+    {"title": "Sprouts".tr, "image": imageAssets.subCategory5, 'categoryId': 0},
+    {"title": "Herbs".tr, "image": imageAssets.subCategory4, 'categoryId': 0},
+    {"title": "Flowers".tr, "image": imageAssets.subCategory6, 'categoryId': 0},
+    {"title": "Organic".tr, "image": imageAssets.subCategory8, 'categoryId': 2},
+    {
+      "title": "Vegetables".tr,
+      "image": imageAssets.subCategory1,
+      'categoryId': 2
+    },
+    {
+      "title": "Bouquets".tr,
+      "image": imageAssets.subCategory8,
+      'categoryId': 4
+    },
   ];
 
   //recent search list
   final recentSearch = [
-    {'title': 'Vegetables'},
-    {'title': 'Fruits'},
-    {'title': 'Beauty'},
+    {'title': 'Vegetables'.tr},
+    {'title': 'Fruits'.tr},
+    {'title': 'Beauty'.tr},
     {
-      'title': 'Fruits',
+      'title': 'Fruits'.tr,
     }
   ];
 
   //shop category list
   final shopCategoryList = [
     {
-      'title': 'Fresh Vegetables',
+      'title': 'Fresh Vegetables'.tr,
       'id': 1,
     },
     {
-      'title': 'Herbs & Seasonings',
+      'title': 'Herbs & Seasonings'.tr,
       'id': 2,
     },
     {
-      'title': 'Fresh Fruit',
+      'title': 'Fresh Fruit'.tr,
       'id': 3,
     },
     {
-      'title': 'Drinks& Beverages',
+      'title': 'drinkBeverages'.tr,
       'id': 4,
     },
     {
-      'title': 'Instant Mixes',
+      'title': 'instantMixes'.tr,
       'id': 5,
     },
   ];
@@ -312,38 +373,38 @@ class AppArray {
   final myOfferList = [
     {
       'discount': "50",
-      'title': "on your first order",
-      "des": "on order above ${OfferFont().dollar}250.00",
+      'title': "on your first order".tr,
+      "des": "on order above".tr + " ${OfferFont().dollar}" + "250.00",
       "code": "SCD450"
     },
     {
       'discount': "25",
-      'title': "on your first order",
-      "des": "hdfc  credit card",
+      'title': "on your first order".tr,
+      "des": "hdfc credit card",
       "code": "SCD450"
     },
     {
       'discount': "40",
-      'title': "on your first order",
-      "des": "on order above ${OfferFont().dollar}250.00",
+      'title': "on your first order".tr,
+      "des": "on order above".tr + " ${OfferFont().dollar}" + "250.00",
       "code": "SCD450"
     },
     {
       'discount': "30",
-      'title': "on your first order",
-      "des": "on order above ${OfferFont().dollar}250.00",
+      'title': "on your first order".tr,
+      "des": "on order above".tr + " ${OfferFont().dollar}" + "250.00",
       "code": "SCD450"
     },
     {
       'discount': "15",
-      'title': "on your first order",
-      "des": "on order above ${OfferFont().dollar}250.00",
+      'title': "on your first order".tr,
+      "des": "on order above".tr + " ${OfferFont().dollar}" + "250.00",
       "code": "SCD450"
     },
     {
       'discount': "10",
-      'title': "on your first order",
-      "des": "on order above ${OfferFont().dollar}250.00",
+      'title': "on your first order".tr,
+      "des": "on order above".tr + " ${OfferFont().dollar}" + "250.00",
       "code": "SCD450"
     },
   ];
@@ -351,7 +412,7 @@ class AppArray {
   //shop lists
   var shopList = [
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -360,7 +421,7 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -369,7 +430,7 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -378,12 +439,12 @@ class AppArray {
       'categoryId': 1
     },
     {
-      'name': '100% Organic, Best Quality,\nBest price',
+      'name': '100% Organic, Best Quality,\nBest price'.tr,
       'image': imageAssets.shopListImage,
       'categoryId': 1
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -392,7 +453,7 @@ class AppArray {
       'categoryId': 2
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -401,7 +462,7 @@ class AppArray {
       'categoryId': 2
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -410,7 +471,7 @@ class AppArray {
       'categoryId': 3
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -419,7 +480,7 @@ class AppArray {
       'categoryId': 3
     },
     {
-      'name': 'Assorted Capsicum Combo',
+      'name': 'Assorted Capsicum Combo'.tr,
       'description': '500g',
       'price': '25.00',
       'discount': '50% off',
@@ -439,12 +500,12 @@ class AppArray {
 
   //quantity list
   var quantityList = [
-    {"title": "500 g / \$24.00"},
-    {"title": "700 g / \$34.00"},
-    {"title": "100 g / \$48.00"},
-    {"title": "1.5 Kg / \$70.00"},
-    {"title": "2 Kg / \$100.00"},
-    {"title": "5 Kg / \$150.00"},
+    {"title": "500 g /\$24.00"},
+    {"title": "700 g /\$34.00"},
+    {"title": "100 g /\$48.00"},
+    {"title": "1.5 Kg /\$70.00"},
+    {"title": "2 Kg /\$100.00"},
+    {"title": "5 Kg /\$150.00"},
   ];
 
   //deliveryTime list
@@ -458,53 +519,18 @@ class AppArray {
   ];
 
   var detailList = [
-    {
-      "title": "Product Details",
-      'desc':
-          'Refillable, Reusable, High Quality Glass Roll on Bottles with Silver cap For Essential Oil Blends DIY Perfume Cosmetics Beauty Products Ideal',
-      'isShow': false
-    },
-    {
-      "title": "Manufacturer Details",
-      'desc':
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
-      'isShow': false
-    },
-    {
-      "title": "Product Disclaimer",
-      'desc':
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
-      'isShow': false
-    },
-    {
-      "title": "Features & details",
-      'desc':
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?',
-      'isShow': false
-    },
+    {"title": "Product Details".tr, 'desc': 'detail'.tr, 'isShow': false},
+    {"title": "Manufacturer Details".tr, 'desc': 'detail1'.tr, 'isShow': false},
+    {"title": "Product Disclaimer".tr, 'desc': 'detail1'.tr, 'isShow': false},
+    {"title": "Features & details".tr, 'desc': 'detail1'.tr, 'isShow': false},
   ];
 
   var reviewList = [
+    {'name': 'andreaJoanne'.tr, 'rating': 4, 'desc': "detail2".tr},
+    {'name': 'andreaJoanne'.tr, 'rating': 4, 'desc': "detail2".tr},
+    {'name': 'andreaJoanne'.tr, 'rating': 4, 'desc': "detail2".tr},
     {
-      'name': 'Andrea Joanne',
-      'rating': 4,
-      'desc':
-          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-    },
-    {
-      'name': 'Andrea Joanne',
-      'rating': 4,
-      'desc':
-          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-    },
-    {
-      'name': 'Andrea Joanne',
-      'rating': 4,
-      'desc':
-          "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
-    },
-    {
-      'name': 'Andrea Joanne',
+      'name': 'andreaJoanne'.tr,
       'rating': 4,
       'desc':
           "It's a really cute skirt! I didn't expect to feel so good in a polyester material. The print is slightly"
@@ -514,12 +540,12 @@ class AppArray {
   //address list
   var addressList = [
     {
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.,Charlottesville, VA 22901'
+      'address': 'noahHamilton'.tr,
+      'area': '8857 Morris Rd.,Charlottesville, VA 22901'.tr
     },
     {
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.,Charlottesville, VA 22901'
+      'address': 'noahHamilton'.tr,
+      'area': '8857 Morris Rd.,Charlottesville, VA 22901'.tr
     },
   ];
 
@@ -527,34 +553,34 @@ class AppArray {
   var newAddressList = [
     {
       'icon': iconAssets.work,
-      'place': 'Work',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+      'place': 'Work'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
     {
       'icon': iconAssets.home,
-      'place': 'Home',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+      'place': 'home'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
     {
       'icon': iconAssets.home,
-      'place': 'Home',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd.\nCharlottesville, VA 22901'
+      'place': 'home'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
     {
       'icon': iconAssets.home,
-      'place': 'Other',
-      'address': 'Noah Hamilton',
-      'area': '8857 Morris Rd\nCharlottesville, VA 22901'
+      'place': 'Other'.tr,
+      'address': 'noahHamilton'.tr,
+      'area': 'address1'.tr
     },
   ];
 
   //payment method list
   var paymentMethodList = [
     {
-      'title': 'Select Card',
+      'title': 'Select Card'.tr,
       'child': [
         {
           'icon': imageAssets.masterCard1,
@@ -571,7 +597,7 @@ class AppArray {
       ]
     },
     {
-      'title': 'Net Banking',
+      'title': 'Net Banking'.tr,
       'child': [
         {'title': 'Industrial & Commercial Bank', 'isSelect': false},
         {'title': 'Construction Bank Corp.', 'isSelect': false},
@@ -582,7 +608,7 @@ class AppArray {
       ]
     },
     {
-      'title': 'Credit/Debit Card',
+      'title': 'Credit/Debit Card'.tr,
       'child': [
         {'title': 'Adyen', 'isSelect': false},
         {'title': ' Airtel Money', 'isSelect': false},
@@ -592,26 +618,26 @@ class AppArray {
         {'title': ' CardFree', 'isSelect': false},
       ]
     },
-    {'title': 'Cash on Delivery', 'child': 'textbox'},
+    {'title': 'Cash on Delivery'.tr, 'child': 'textbox'},
   ];
 
   //order detail
   var orderDetailList = [
     {
       'quantity': 2,
-      'name': 'Assorted Capsicum Combo ',
+      'name': 'Assorted Capsicum Combo'.tr,
       'gram': '500g',
       'price': ' \$25.00'
     },
     {
       'quantity': 1,
-      'name': 'Assorted Capsicum Combo ',
+      'name': 'Assorted Capsicum Combo'.tr,
       'gram': '500g',
       'price': ' \$25.00'
     },
     {
       'quantity': 1,
-      'name': 'Assorted Capsicum Combo ',
+      'name': 'Assorted Capsicum Combo'.tr,
       'gram': '500g',
       'price': ' \$25.00'
     },
@@ -620,19 +646,19 @@ class AppArray {
   //days list list
   final daysList = [
     {
-      'title': 'Processing',
+      'title': 'Processing'.tr,
       'id': 1,
     },
     {
-      'title': 'Past 30 days',
+      'title': 'Past 30 days'.tr,
       'id': 2,
     },
     {
-      'title': 'November',
+      'title': 'November'.tr,
       'id': 3,
     },
     {
-      'title': 'October',
+      'title': 'October'.tr,
       'id': 4,
     },
   ];
@@ -676,74 +702,74 @@ class AppArray {
   //notification list
   var notificationList = [
     {
-      'day': 'Yesterday',
+      'day': 'Yesterday'.tr,
       'child': [
         {
-          'bgColor': Color(0xFFEDF8F8),
-          'title': 'UPTO 40% OFF, Sales Ends..',
+          'bgColor': const Color(0xFFEDF8F8),
+          'title': 'upToSales'.tr,
           'dateTime': '3.00pm, 10 July, 2021',
-          'type': 'offer',
+          'type': 'offer'.tr,
           'iconAssets': iconAssets.discount
         },
         {
-          'bgColor': Color(0xFFFFF8ED),
-          'title': 'FLAT 30% OFF, Sales Ends..',
+          'bgColor': const Color(0xFFFFF8ED),
+          'title': 'flatToSales'.tr,
           'dateTime': '5.00pm, 10 July, 2021',
-          'type': 'offer',
+          'type': 'offer'.tr,
           'iconAssets': iconAssets.ticket
         },
       ]
     },
     {
-      'day': 'Last 7 Days',
+      'day': 'Last 7 Days'.tr,
       'child': [
         {
-          'bgColor': Color(0xFFFFF6F3),
-          'title': 'Password Succesfully Changed',
+          'bgColor': const Color(0xFFFFF6F3),
+          'title': 'passwordSuccessfully'.tr,
           'dateTime': '8.00am, 15 Jan, 2021',
-          'type': 'Signin',
+          'type': 'Signin'.tr,
           'iconAssets': iconAssets.password
         },
         {
-          'bgColor': Color(0xFFF9F9FF),
-          'title': '\$200 top up successfully',
+          'bgColor': const Color(0xFFF9F9FF),
+          'title': 'topUp'.tr,
           'dateTime': '9.00am, 10 Jan, 2021',
-          'type': 'Topup',
+          'type': 'Topup'.tr,
           'iconAssets': iconAssets.ticketStar
         },
         {
-          'bgColor': Color(0xFFEDF8F8),
-          'title': 'UPTO 40% OFF, Sales Ends..',
+          'bgColor': const Color(0xFFEDF8F8),
+          'title': 'upToSales'.tr,
           'dateTime': '3.00pm, 10 July, 2021',
-          'type': 'offer',
+          'type': 'offer'.tr,
           'iconAssets': iconAssets.discount
         },
         {
-          'bgColor': Color(0xFFFFF8ED),
-          'title': 'FLAT 30% OFF, Sales Ends..',
+          'bgColor': const Color(0xFFFFF8ED),
+          'title': 'flatToSales'.tr,
           'dateTime': '5.00pm, 10 July, 2021',
-          'type': 'offer',
+          'type': 'offer'.tr,
           'iconAssets': iconAssets.ticket
         },
         {
-          'bgColor': Color(0xFFFFF6F3),
-          'title': 'Password Succesfully Changed',
+          'bgColor': const Color(0xFFFFF6F3),
+          'title': 'passwordSuccessfully'.tr,
           'dateTime': '8.00am, 15 Jan, 2021',
-          'type': 'Signin',
+          'type': 'Signin'.tr,
           'iconAssets': iconAssets.password
         },
         {
-          'bgColor': Color(0xFFF9F9FF),
-          'title': '\$200 top up successfully',
+          'bgColor': const Color(0xFFF9F9FF),
+          'title': 'topUp'.tr,
           'dateTime': '9.00am, 10 Jan, 2021',
-          'type': 'Topup',
+          'type': 'Topup'.tr,
           'iconAssets': iconAssets.ticketStar
         },
         {
-          'bgColor': Color(0xFFEDF8F8),
-          'title': 'UPTO 40% OFF, Sales Ends..',
+          'bgColor': const Color(0xFFEDF8F8),
+          'title': 'upToSales'.tr,
           'dateTime': '3.00pm, 10 July, 2021',
-          'type': 'offer',
+          'type': 'offer'.tr,
           'iconAssets': iconAssets.discount
         }
       ]
@@ -752,98 +778,114 @@ class AppArray {
 
   //language list
   var languageList = [
-    {'icon': iconAssets.us, 'name': 'English'},
-    {'icon': iconAssets.inImag, 'name': 'Indian'},
-    {'icon': iconAssets.it, 'name': 'Italian'},
-    {'icon': iconAssets.tf, 'name': 'French'},
-    {'icon': iconAssets.cn, 'name': 'Chinese'}
+    {
+      'icon': iconAssets.us,
+      'name': 'English'.tr,
+      'locale': const Locale('en', 'US')
+    },
+    {
+      'icon': iconAssets.ar,
+      'name': 'Arabic'.tr,
+      'locale': const Locale('ar', 'AE')
+    },
+    {
+      'icon': iconAssets.inImag,
+      'name': 'Hindi'.tr,
+      'locale': const Locale('hi', 'IN')
+    },
+    {
+      'icon': iconAssets.kr,
+      'name': 'Korean'.tr,
+      'locale': const Locale('ko', 'KR')
+    }
   ];
 
   //pages list
   var pagesList = [
     {'name': '404'},
-    {'name': 'About Us'},
-    {'name': 'Account'},
-    {'name': 'Address Type 1'},
-    {'name': 'Address Type 2'},
-    {'name': 'Cart'},
-    {'name': 'Category Wide'},
-    {'name': 'Home Page'},
-    {'name': 'Login'},
-    {'name': 'Notification'},
-    {'name': 'Offer'},
-    {'name': 'OnBoarding'},
-    {'name': 'Order Detail'},
-    {'name': 'Order History'},
-    {'name': 'Order Success'},
-    {'name': 'Order Tracking'},
-    {'name': 'Payment'},
-    {'name': 'Product'},
-    {'name': 'Register'},
-    {'name': 'Search'},
-    {'name': 'Setting'},
-    {'name': 'Shop'},
-    {'name': 'Wishlist'},
+    {'name': 'About Us'.tr},
+    {'name': 'Account'.tr},
+    {'name': 'Address Type 1'.tr},
+    {'name': 'Address Type 2'.tr},
+    {'name': 'Cart'.tr},
+    {'name': 'Category Wide'.tr},
+    {'name': 'Home Page'.tr},
+    {'name': 'Login'.tr},
+    {'name': 'Notification'.tr},
+    {'name': 'Offer'.tr},
+    {'name': 'OnBoarding'.tr},
+    {'name': 'orderDetail'.tr},
+    {'name': 'Order History'.tr},
+    {'name': 'Order Success'.tr},
+    {'name': 'Order Tracking'.tr},
+    {'name': 'Payment'.tr},
+    {'name': 'Product'.tr},
+    {'name': 'Register'.tr},
+    {'name': 'search'.tr},
+    {'name': 'Setting'.tr},
+    {'name': 'Shop'.tr},
+    {'name': 'Wishlist'.tr},
   ];
 
   //how to order list
   var howToOrder = [
     {
       'id': "1",
-      "title": "Browse products using the search feature",
+      "title": "Browse products using the search feature".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     },
     {
       'id': "2",
-      "title": "Add item to your Shopping Cart",
+      "title": "Add item to your Shopping Cart".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     },
     {
       'id': "3",
-      "title": "Choose a convenient delivery time",
+      "title": "Choose a convenient delivery time".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     },
     {
       'id': "4",
-      "title": "Select suitable payment option",
+      "title": "Select suitable payment option".tr,
       "desc":
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry".tr
     }
   ];
 
   //team list
   var teamList = [
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
-    {"name": "Patty O'Furniture", 'image': imageAssets.team},
+    {"name": "Maureen Biologist".tr, 'image': imageAssets.team},
+    {"name": "Glenn P. Mojica".tr, 'image': imageAssets.team},
+    {"name": "Patty O'Furniture".tr, 'image': imageAssets.team},
+    {"name": "Johnny M. Lopez".tr, 'image': imageAssets.team},
   ];
 
   //filter list
   var filterList = [
     {
-      'title': "All order",
+      'title': "All order".tr,
     },
     {
-      'title': "Open Order",
+      'title': "Open Order".tr,
     },
     {
-      'title': "Return Orders",
+      'title': "Return Orders".tr,
     },
     {
-      'title': "Cancelled Order",
+      'title': "Cancelled Order".tr,
     }
   ];
+
   //time filter list
   var timefilterList = [
     {
-      'title': "Last 30days",
+      'title': "Last 30 days".tr,
     },
     {
-      'title': "Last 6 Month",
+      'title': "Last 6 Month".tr,
     },
     {
       'title': "2021",
@@ -853,44 +895,45 @@ class AppArray {
     }
   ];
 
-
   //shopFilter list
   var shopFilterList = [
     {
-      'title': "All Offer",
+      'title': "All Offer".tr,
     },
     {
-      'title': "More Than 50%",
+      'title': "More Than 50%".tr,
     },
     {
-      'title': "More Than 30%",
+      'title': "More Than 30%".tr,
     },
     {
-      'title': "More Than 25%",
+      'title': "More Than 25%".tr,
     },
     {
-      'title': "More Than 15%",
+      'title': "More Than 15%".tr,
     },
     {
-      'title': "More Than 10%",
+      'title': "More Than 10%".tr,
     }
   ];
 
   //product detail list
   var productDetailList = [
+    {'title': 'Product Details'.tr, 'child': 'detail'.tr},
+    {'title': 'Manufacturer Details'.tr, 'child': 'detail1'.tr},
+    {'title': 'Product Disclaimer'.tr, 'child': 'detail1'.tr},
     {
-      'title': 'Product Details',
-      'child': 'Refillable, Reusable, High Quality Glass Roll on Bottles with Silver cap For Essential Oil Blends DIY Perfume Cosmetics Beauty Products Ideal'
+      'title': 'Features & details'.tr,
+      'child':
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'
     },
-    {
-      'title': 'Manufacturer Details',
-      'child': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'
-    },
-    {
-      'title': 'Product Disclaimer',
-      'child': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'
-    },
-    {'title': 'Features & details', 'child': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ullam iste aliquam, commodi voluptates doloremque. Autem exercitationem vel eaque in odit expedita non blanditiis, perspiciatis maiores cum tempora quo distinctio?'},
   ];
 
+  var currencyList = [
+    {'icon': iconAssets.inr, 'title': 'Indian rupee','code':'INR','symbol': '₹'},
+    {'icon': iconAssets.usd, 'title': 'United States dollar','code':'USD','symbol': '\$'},
+    {'icon': iconAssets.eur, 'title': 'Euro','code':'EUR','symbol': '€'},
+    {'icon': iconAssets.aud, 'title': 'Australian dollar','code':'AUD','symbol': 'A\$'},
+    {'icon': iconAssets.kpw, 'title': 'North Korean won','code':'KPW','symbol': '₩'},
+  ];
 }

@@ -1,9 +1,11 @@
 //text constants
+import 'package:get/get.dart';
+
 class SearchFont{
-   String searchProduct= 'Search Products here..';
-   String recentlySearch= 'Recently Search';
-   String trendingCategory= 'Trending category';
-   String trendingProducts= 'Trending Products';
+   String searchProduct= 'searchProduct'.tr;
+   String recentlySearch= 'recentlySearch'.tr;
+   String trendingCategory= 'trendingCategory'.tr;
+   String trendingProducts= 'trendingProducts'.tr;
    String dollar = "\$";
 
 }

@@ -11,7 +11,7 @@ class IconAssets {
   final String location = 'assets/icons/location.png';
   final String addreesslocation = 'assets/icons/addreesslocation.png';
   final String user = 'assets/icons/user.png';
-  final String white_category_icon = 'assets/icons/white_category_icon.png';
+  final String whiteCategoryIcon = 'assets/icons/white_category_icon.png';
   final String cart = 'assets/icons/cart.png';
   final String offers = 'assets/icons/offers.png';
   final String search = 'assets/icons/search.png';
@@ -54,8 +54,18 @@ class IconAssets {
   final String it = 'assets/icons/it.png';
   final String tf = 'assets/icons/tf.png';
   final String us = 'assets/icons/us.png';
+  final String ar = 'assets/icons/ar.png';
+  final String kr = 'assets/icons/kr.png';
   final String facebook = 'assets/icons/facebook.png';
   final String linkedIn = 'assets/icons/linkedin.png';
   final String twitter = 'assets/icons/twitter.png';
   final String logout = 'assets/icons/logout.png';
+  final String logout1 = 'assets/icons/logout1.png';
+  final String inr = 'assets/icons/inr.png';
+  final String aud = 'assets/icons/aud.png';
+  final String eur = 'assets/icons/eur.png';
+  final String usd = 'assets/icons/usd.png';
+  final String kpw = 'assets/icons/kpw.png';
+  final String currency = 'assets/icons/currency.png';
+  final String filter = 'assets/icons/filter.png';
 }

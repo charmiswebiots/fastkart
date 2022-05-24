@@ -1,15 +1,22 @@
 //text constants
+import 'package:get/get.dart';
+
 class ShopFont{
-   String searchProduct= 'Search Products here..';
-   String priceRange= 'Price Range';
-   String packSize= 'Pack Size';
-   String reset= 'Reset';
-   String category= 'Category';
-   String viewCart= "View Cart";
-   String filter= "Filter";
-   String close= "Close";
-   String cancel = "Cancel";
-   String apply= "Apply";
+   String priceRange= 'priceRange'.tr;
+   String packSize= 'packSize'.tr;
+   String reset= 'reset'.tr;
+   String category= 'category'.tr;
+   String viewCart= "viewCart".tr;
+   String filter= "filter".tr;
+   String close= "close".tr;
+   String cancel = "cancel".tr;
+   String apply= "apply".tr;
+   String freshFruitsVegetables= "freshFruitsVegetables".tr;
+   String oilsRefinedGhee= "oilsRefinedGhee".tr;
+   String riceFlourGains= "riceFlourGains".tr;
+   String foodCupboard= "foodCupboard".tr;
+   String drinkBeverages= "drinkBeverages".tr;
+   String instantMixes= "instantMixes".tr;
    String dollar = "\$";
 
 }

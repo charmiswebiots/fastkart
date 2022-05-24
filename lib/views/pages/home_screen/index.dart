@@ -17,6 +17,6 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    return HomeLayout();
+    return const HomeLayout();
   }
 }

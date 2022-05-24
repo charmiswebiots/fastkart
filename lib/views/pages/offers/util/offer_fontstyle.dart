@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:flutter/material.dart';
-import 'package:fastkart/views/pages/offers/util/offer_constants.dart';
 
 class OfferFontStyle {
 //nunito font family text layout
@@ -42,11 +40,12 @@ class OfferFontStyle {
   Widget quicksandtextLayout(
       {String? text,
         color,
+        TextAlign textAlign = TextAlign.center,
         double fontSize = OfferFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: AppCss().quicksandTextStyle(
           color: color,
           fontSize:  AppScreenUtil().fontSize(fontSize),

@@ -1,21 +1,20 @@
-import 'package:fastkart/common/assets/index.dart';
+
 import 'package:fastkart/views/pages/splash_screen/util/splash_widget.dart';
-import 'package:flutter/material.dart';
 
 import 'package:fastkart/config.dart';
 import 'package:fastkart/controllers/spalsh_controller.dart';
 
 class SplashScreen extends StatefulWidget {
 
-  SplashScreen({Key? key}) : super(key: key);
+ const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  var splashCtrl = Get.put(SplashController());
-  var appCtrl = Get.isRegistered<AppController>()
+  final splashCtrl = Get.put(SplashController());
+  final appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
 

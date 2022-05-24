@@ -1,8 +1,4 @@
-
-import 'package:fastkart/views/pages/category/category_screen.dart';
-import 'package:fastkart/views/pages/home_screen/home.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../config.dart';
 
 class DashboardController extends GetxController {
   int selectedIndex = 0;
@@ -10,20 +6,48 @@ class DashboardController extends GetxController {
   String lastname = '';
   String email = '';
   String alertCount = '';
+  var appCtrl = Get.put(AppController());
+  bool isLoading = false;
 
+  final GlobalKey<ScaffoldState> scaffoldKey =  GlobalKey<ScaffoldState>();
 
+  //appbar leading function
+  appBarLeadingFunction() async {
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-
-    super.onInit();
+    if (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 1) {
+      int index = await appCtrl.getStorage.read('selectedIndex');
+      appCtrl.selectedIndex = index;
+      appCtrl.update();
+    } else {
+      scaffoldKey.currentState!.openDrawer();
+    }
+    update();
   }
 
-  @override
-  void onReady() {
-    // TODO: implement onReady
+  //actionTap
+  actionTap() {
+    if (appCtrl.selectedIndex == 0) {
+      Get.toNamed(routeName.setting);
+    } else if (appCtrl.selectedIndex == 1) {
+      Get.toNamed(routeName.myCart, arguments: true);
+    }
+    update();
+  }
 
-    super.onReady();
+  //botton change
+  bottomNavigationChange(val) async {
+    appCtrl.isShimmer = true;
+    appCtrl.update();
+    if (appCtrl.selectedIndex == 4) {
+      Get.toNamed(routeName.myCart, arguments: false);
+    } else {
+      await appCtrl.getStorage.write('selectedIndex', appCtrl.selectedIndex);
+      appCtrl.selectedIndex = val;
+      appCtrl.update();
+    }
+    await Future.delayed(Durations.s3);
+    appCtrl.isShimmer = false;
+    appCtrl.update();
+    update();
   }
 }

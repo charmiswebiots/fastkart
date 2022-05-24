@@ -1,4 +1,5 @@
 import 'package:fastkart/common/font_name.dart';
+import 'package:fastkart/common/language/index.dart';
 import 'package:fastkart/routes/index.dart';
 import 'package:fastkart/views/pages/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,24 +11,24 @@ import 'package:fastkart/common/theme/app_theme.dart';
 import 'package:fastkart/common/theme/theme_service.dart';
 import 'package:get_storage/get_storage.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
   await GetStorage.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     lockScreenPortrait();
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top,SystemUiOverlay.bottom]);
+
     return ScreenUtilInit(
-      designSize: Size(360, 690),
+      designSize: const Size(360, 690),
       builder: () => GetMaterialApp(
         builder: (context, widget) {
           ScreenUtil.setContext(context);
@@ -38,10 +39,13 @@ class MyApp extends StatelessWidget {
           );
         },
         debugShowCheckedModeBanner: false,
-        locale: Locale('en', 'US'),
-        fallbackLocale: Locale('en', 'US'), // tran
+        locale: const Locale('en', 'US'),
+        fallbackLocale: const Locale('en', 'US'),
+        // tran
         title: FontName().appName,
-        home: SplashScreen(),
+        home: const SplashScreen(),
+        translations: Language(),
+
         getPages: appRoute.getPages,
         theme: AppTheme.fromType(ThemeType.light).themeData,
         darkTheme: AppTheme.fromType(ThemeType.dark).themeData,

@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/setting/util/setting_constants.dart';
-import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
@@ -8,7 +6,7 @@ class SettingController extends GetxController{
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
       : Get.put(AppController());
-  GlobalKey<FormState> loginformKey = new GlobalKey<FormState>();
+  GlobalKey<FormState> loginformKey =  GlobalKey<FormState>();
   final FocusNode userFocus = FocusNode();
   final FocusNode passwordFocus = FocusNode();
   final FocusNode usernameFocus = FocusNode();
@@ -53,12 +51,11 @@ class SettingController extends GetxController{
 
     );
 
-    if (selected != null && selected != selectedDate)
+    if (selected != null && selected != selectedDate) {
       selectedDate = selected;
+    }
     dateCtrl.text = DateFormat('dd/MM/yyyy').format(selectedDate);
     update();
-    print(selectedDate);
-    print(dateCtrl.text);
   }
 
 }

@@ -1,10 +1,4 @@
 import 'dart:async';
-
-import 'package:fastkart/views/drawer/drawer_screen.dart';
-import 'package:fastkart/views/pages/bottom_navigation/bottom_navigation.dart';
-import 'package:fastkart/widgets/common_appbar_widget/common_appbar.dart';
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class Dashboard extends StatefulWidget {
@@ -16,97 +10,66 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   Timer? timer;
-  var appCtrl = Get.put(AppController());
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    print('index : ${AppScreenUtil().screenActualWidth()}');
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-
-    super.dispose();
-  }
+  final dashboardCtrl = Get.put(DashboardController());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
-      builder: (ctrl) => WillPopScope(
-        onWillPop: () {
-          return Future(() => false);
-        },
-        child: Scaffold(
-          key: _scaffoldKey,
-          drawer: DrawerScreen(),
-          appBar: PreferredSize(
-            preferredSize: Size.fromHeight(AppScreenUtil().screenHeight(300)),
-            child: Offstage(
-              offstage: appCtrl.selectedIndex == 4 ? true : false,
-              child: CommonAppBar1(
-                onTap: () async {
-                  print('tap');
-                  print(appCtrl.selectedIndex);
-                  if (appCtrl.selectedIndex == 3 ||
-                      appCtrl.selectedIndex == 1) {
-                    int index = await appCtrl.getStorage.read('selectedIndex');
-                    print(index);
-                    appCtrl.selectedIndex = index;
-                    appCtrl.update();
-                  } else {
-                    _scaffoldKey.currentState!.openDrawer();
-                  }
-                },
-                actionTap: () {
-                  if (appCtrl.selectedIndex == 1) {
-                    Get.toNamed(routeName.myCart, arguments: true);
-                  }
-                },
-                isTheme: appCtrl.isTheme,
-                borderColor: appCtrl.appTheme.titleColor,
-                color: appCtrl.appTheme.titleColor,
-                isWishListText: appCtrl.selectedIndex == 4 ? true : false,
-                isCart: appCtrl.selectedIndex == 1 ? true : false,
-                isLocation:
-                    (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
+      builder: (ctrl) => GetBuilder<DashboardController>(builder: (_) {
+        return Directionality(
+          textDirection: dashboardCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+          child: WillPopScope(
+            onWillPop: () {
+              return Future(() => false);
+            },
+            child: Scaffold(
+              key: dashboardCtrl.scaffoldKey,
+              drawer:  DrawerScreen(),
+              appBar:  PreferredSize(
+                preferredSize: Size.fromHeight(AppScreenUtil().screenHeight(300)),
+                child: Offstage(
+                  offstage:
+                      dashboardCtrl.appCtrl.selectedIndex == 4 ? true : false,
+                  child: CommonAppBar1(
+                    onTap: () => dashboardCtrl.appBarLeadingFunction(),
+                    actionTap: () => dashboardCtrl.actionTap(),
+                    isTheme: dashboardCtrl.appCtrl.isTheme,
+                    borderColor: dashboardCtrl.appCtrl.appTheme.titleColor,
+                    color: dashboardCtrl.appCtrl.appTheme.titleColor,
+                    isWishListText:
+                        dashboardCtrl.appCtrl.selectedIndex == 4 ? true : false,
+                    isCart:
+                        dashboardCtrl.appCtrl.selectedIndex == 1 ? true : false,
+                    isLocation: (dashboardCtrl.appCtrl.selectedIndex == 0 ||
+                            dashboardCtrl.appCtrl.selectedIndex == 2)
                         ? true
                         : false,
-                isback: (appCtrl.selectedIndex == 1 ||
-                        appCtrl.selectedIndex == 3 ||
-                        appCtrl.selectedIndex == 4)
-                    ? true
-                    : false,
-                isCategory:
-                    (appCtrl.selectedIndex == 0 || appCtrl.selectedIndex == 2)
+                    isBack: (dashboardCtrl.appCtrl.selectedIndex == 1 ||
+                            dashboardCtrl.appCtrl.selectedIndex == 3 ||
+                            dashboardCtrl.appCtrl.selectedIndex == 4)
                         ? true
                         : false,
-                isHome:
-                    (appCtrl.selectedIndex == 3 || appCtrl.selectedIndex == 4)
+                    isCategory: (dashboardCtrl.appCtrl.selectedIndex == 0 ||
+                            dashboardCtrl.appCtrl.selectedIndex == 2)
                         ? true
                         : false,
+                    isHome: (dashboardCtrl.appCtrl.selectedIndex == 3 ||
+                            dashboardCtrl.appCtrl.selectedIndex == 4)
+                        ? true
+                        : false,
+                  ),
+                ),
               ),
+              bottomNavigationBar: BottomNavigatorCard(
+                selectedIndex: dashboardCtrl.appCtrl.selectedIndex,
+                onTap: (val) => dashboardCtrl.bottomNavigationChange(val),
+              ),
+              body: dashboardCtrl.appCtrl.widgetOptions
+                  .elementAt(dashboardCtrl.appCtrl.selectedIndex),
             ),
           ),
-          bottomNavigationBar: BottomNavigatorCard(
-            selectedIndex: appCtrl.selectedIndex,
-            onTap: (val) async {
-              if (appCtrl.selectedIndex == 4) {
-                Get.toNamed(routeName.myCart, arguments: false);
-              } else {
-                await appCtrl.getStorage
-                    .write('selectedIndex', appCtrl.selectedIndex);
-                appCtrl.selectedIndex = val;
-                appCtrl.update();
-              }
-            },
-          ),
-          body: appCtrl.widgetOptions.elementAt(appCtrl.selectedIndex),
-        ),
-      ),
+        );
+      }),
     );
   }
 }

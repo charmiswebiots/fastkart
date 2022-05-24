@@ -1,45 +1,39 @@
-import 'package:fastkart/utilities/responsive_layout.dart';
-import 'package:fastkart/views/pages/home_screen/util/largeScreen.dart';
-import 'package:fastkart/views/pages/home_screen/util/mediumScreen.dart';
-import 'package:flutter/material.dart';
-
 import '../../../config.dart';
 
 class HomeLayout extends StatefulWidget {
-  HomeLayout({Key? key}) : super(key: key);
+  const HomeLayout({Key? key}) : super(key: key);
 
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
-  var appCtrl = Get.isRegistered<AppController>()
-      ? Get.find<AppController>()
-      : Get.put(AppController());
+  var homeCtrl = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async{
-        return false;
-      },
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-
-        body: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (overscroll) {
-            overscroll.disallowGlow();
+    return GetBuilder<AppController>(builder: (appCtrl) {
+      return GetBuilder<HomeController>(builder: (_) {
+        return WillPopScope(
+          onWillPop: () async {
             return false;
           },
-          child: ResponsiveWidget(
-            //if screen height is large
-            largeScreen: HomeLagreScreen(),
-            //if screen height in medium
-            mediumScreen: HomeMediumScreen(),
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overscroll) {
+                overscroll.disallowIndicator();
+                return false;
+              },
+              child: homeCtrl.appCtrl.isShimmer
+                  ? const HomeShimmer()
+                  : const SingleChildScrollView(
+                      child: HomeDataLayout(),
+                    ),
+            ),
           ),
-        ),
-      ),
-    );
+        );
+      });
+    });
   }
 }
-
-

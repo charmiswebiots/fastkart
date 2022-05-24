@@ -1,23 +1,5 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/utilities/app_array.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_constants.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_fontstyle.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_widget.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_widget.dart';
-import 'package:fastkart/views/pages/myCart/util/myCart_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:fastkart/views/pages/offers/util/offer_detail.dart';
 import 'package:get_storage/get_storage.dart';
 
 class MyCartListController extends GetxController {
@@ -27,6 +9,7 @@ class MyCartListController extends GetxController {
   final getStorage = GetStorage();
   List offerList = [];
   bool isAppBar = false;
+  bool isLoading = true;
 
   //go to home
   goToHome() async {
@@ -36,9 +19,19 @@ class MyCartListController extends GetxController {
     update();
   }
 
+  //leading tap
+  leadingTap() async {
+    if (isAppBar) {
+      Get.back();
+    } else {
+      await appCtrl.getStorage.write('selectedIndex', 0);
+      appCtrl.selectedIndex = 0;
+      appCtrl.update();
+    }
+  }
+
   //quantity increment function
   plusTap(index) {
-    print(offerList[index]['quantity']);
     int count = int.parse(offerList[index]['quantity'].toString());
     count = count + 1;
     offerList[index]['quantity'] = count.toString();
@@ -48,7 +41,6 @@ class MyCartListController extends GetxController {
   //quantity decrement function
   minusTap(index) {
     if (offerList[index]['quantity'] != 0) {
-      print(offerList[index]['quantity']);
       if (offerList[index]['quantity'] == "0") {
         offerList[index]['quantity'] = "0";
         update();
@@ -61,144 +53,36 @@ class MyCartListController extends GetxController {
     }
   }
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-
-    super.onInit();
-  }
-
 //get data
-  getData() {
-    print(Get.arguments);
+  getData()async {
     offerList = AppArray().offerList;
     update();
-    appCtrl.hideLoading();
+    await Future.delayed(Durations.s2);
+    isLoading = false;
     update();
   }
 
   //offer detail bottom sheet
-  bottomSheet(
-      {var primaryColor,
-        var whiteColor,
-        var lightPrimary,
-        var termConditionColor,context}) {
+  bottomSheet({data, context}) {
     showModalBottomSheet<void>(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
             topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
       ),
-      // context and builder are
-      // required properties in this widget
       context: context,
       builder: (BuildContext context) {
-        // we set up a container inside which
-        // we create center column and display text
-        return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-                  topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-            ),
-            height: AppScreenUtil().screenHeight(500),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MyCartWidget().bottomSheetLayout(
-                    primaryColor: primaryColor,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        MyCartFontStyle().quicksandtextLayout(
-                            text: "Flat ${AppArray().myOfferList[0]['discount']}% off",
-                            color: whiteColor,
-                            fontSize: MyCartFontSize.textSizeNormal,
-                            fontWeight: FontWeight.bold),
-                        Space(0, 10),
-                        MyCartFontStyle().quicksandtextLayout(
-                            text: AppArray().myOfferList[0]['des'].toString(),
-                            color: whiteColor,
-                            fontSize: MyCartFontSize.textSizeSMedium,
-                            fontWeight: FontWeight.normal),
-                        Space(0, 10),
-                        MyCartWidget().codeLayout(lightPrimary: lightPrimary,child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                MyCartFontStyle().mulishtextLayout(
-                                    text: "Code:",
-                                    color: whiteColor,
-                                    fontSize: MyCartFontSize.textSizeSMedium,
-                                    fontWeight: FontWeight.normal),
-                                Space(5, 0),
-                                MyCartFontStyle().mulishtextLayout(
-                                    text: AppArray().myOfferList[0]['code'].toString(),
-                                    color: whiteColor,
-                                    fontSize: MyCartFontSize.textSizeSMedium,
-                                    fontWeight: FontWeight.bold),
-                              ],
-                            ),
-                            MyCartWidget().copyCodeButton(
-                                text: MyCartFont().copyCode,
-                                whiteColor: whiteColor,
-                                primaryColor: primaryColor
-                            )
-                          ],
-                        ))
-                      ],
-                    )),
-                Space(0, 10),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppScreenUtil().screenWidth(20),
-                      right: AppScreenUtil().screenWidth(20)),
-                  child: MyCartFontStyle().mulishtextLayout(
-                      text: MyCartFont().termsConditions,
-                      color: termConditionColor,
-                      fontSize: MyCartFontSize.textSizeSMedium,
-                      fontWeight: FontWeight.w600),
-                ),
-                Space(0, 10),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppScreenUtil().screenWidth(20),
-                      right: AppScreenUtil().screenWidth(20)),
-                  child: MyCartFontStyle().mulishtextLayout(
-                      text:
-                      "1. Information on how to participate forms part of these Terms & Conditions. By participating, claimants agree to be bound by these Terms & Conditions. Claimants must comply with these Terms & Conditions for a coupon to be valid.",
-                      color: termConditionColor,
-                      fontSize: MyCartFontSize.textSizeSmall,
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.start,
-                      fontWeight: FontWeight.normal),
-                ),
-                Space(0, 20),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: AppScreenUtil().screenWidth(20),
-                      right: AppScreenUtil().screenWidth(20)),
-                  child: MyCartFontStyle().mulishtextLayout(
-                      text:
-                      "2. Each claimant is entitled to one coupon per accommodation establishment. Coupons are not transferable and are not redeemable for cash and cannot be combined with any other coupons or any other offer or discounts or promotions offered ",
-                      color: termConditionColor,
-                      fontSize: MyCartFontSize.textSizeSmall,
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.start,
-                      fontWeight: FontWeight.normal),
-                ),
-              ],
-            ));
+        return OfferDetail(
+          data: data,
+        );
       },
     );
   }
 
+
   @override
   void onReady() {
     // TODO: implement onReady
-    appCtrl.showLoading();
-    appCtrl.update();
     getData();
     super.onReady();
   }

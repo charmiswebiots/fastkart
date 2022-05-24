@@ -1,42 +1,18 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/offers/util/offer_constants.dart';
-import 'package:fastkart/views/pages/offers/util/offer_fontstyle.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 //Widget Layout
 class OfferWidget {
-  //textformfield layout
-  Widget textFieldLayout(
-      {String? text,
-      fillcolor,
-      borderColor,
-      hintColor,
-      Widget? suffixIcon,
-      Widget? prefixIcon}) {
-    return TextField(
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(
-              vertical: 0, horizontal: AppScreenUtil().screenWidth(20)),
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
-          fillColor: fillcolor,
-          filled: true,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor,
-            ),
-          ),
-          hintText: text,
-          hintStyle: TextStyle(
-              fontSize: AppScreenUtil().fontSize(15),
-              color: hintColor,
-              fontFamily: GoogleFonts.mulish().fontFamily)),
+
+  //filter text
+  Widget filterText({var color,GestureTapCallback? onTap}){
+    return InkWell(
+      onTap: onTap,
+      child: OfferFontStyle().mulishtextLayout(
+          text: OfferFont().filter,
+          fontSize: 16,
+          color:
+          color,
+          fontWeight: FontWeight.w600),
     );
   }
 
@@ -57,30 +33,6 @@ class OfferWidget {
         ),
         height: MediaQuery.of(context).size.height / 2.2,
         child: child);
-  }
-
-
-  //common button widget
-  Widget commonButtonWidget({context, var containerColor,var borderColor,var textColor,String? text}) {
-    return Container(
-      width: MediaQuery.of(context).size.width / 2.5,
-      margin: EdgeInsets.symmetric(horizontal: AppScreenUtil().screenWidth(10)),
-      padding: EdgeInsets.symmetric(
-          vertical: AppScreenUtil().screenWidth(13),
-          horizontal: AppScreenUtil().screenHeight(10)),
-      decoration: BoxDecoration(
-        color: containerColor,
-        borderRadius: BorderRadius.circular(AppScreenUtil().borderRadius(5)),
-        border: Border.all(
-            color: borderColor,
-            width: .5), //border of dropdown button
-      ),
-      child: OfferFontStyle().mulishtextLayout(
-          text: text,
-          textAlign: TextAlign.center,
-          fontSize: OfferFontSize.textSizeSmall,
-          color: textColor),
-    );
   }
 
 
@@ -133,4 +85,5 @@ class OfferWidget {
           fontWeight: FontWeight.bold),
     );
   }
+
 }
