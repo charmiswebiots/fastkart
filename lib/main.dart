@@ -10,14 +10,19 @@ import 'package:fastkart/common/theme/app_theme.dart';
 import 'package:fastkart/common/theme/theme_service.dart';
 import 'package:get_storage/get_storage.dart';
 
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future main() async {
   await GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
-  await GetStorage.init();
+  // await Firebase.initializeApp(
+  //     options: const FirebaseOptions(
+  //         apiKey: "AIzaSyDW99lYfW2J23gSMzHk8TYSQuR_3oNfYIk",
+  //         authDomain: "fastkart-e69da.firebaseapp.com",
+  //         projectId: "fastkart-e69da",
+  //         storageBucket: "fastkart-e69da.appspot.com",
+  //         messagingSenderId: "442123674229",
+  //         appId: "1:442123674229:web:c871c0ad182b43c2c68e3c",
+  //         measurementId: "G-KP32F6B2V0"));
   runApp(MyApp());
 }
 
@@ -25,7 +30,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     lockScreenPortrait();
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top,SystemUiOverlay.bottom]);
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     return ScreenUtilInit(
       designSize: Size(360, 690),
       builder: () => GetMaterialApp(
