@@ -176,6 +176,7 @@ final dynamic kr = {
   "Net Banking":"넷뱅킹",
   "Credit/Debit Card":"신용/직불 카드",
   "Cash on Delivery":"착불 착불",
+  "addNewCard": "새 카드 추가",
 
   //order sucess page font
   'orderTrack':"지도에서 패키지 추적",

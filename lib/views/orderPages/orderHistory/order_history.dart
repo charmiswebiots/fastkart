@@ -10,9 +10,10 @@ class OrderHistoryScreen extends StatelessWidget {
     return GetBuilder<AppController>(builder: (ctrl) {
       return AppComponent(
         child: GetBuilder<OrderHistoryController>(builder: (_) {
-          return  Directionality(
-            textDirection:
-            orderHistoryCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+          return Directionality(
+            textDirection: orderHistoryCtrl.appCtrl.isRTL
+                ? TextDirection.rtl
+                : TextDirection.ltr,
             child: Scaffold(
               appBar: OrderHistoryWidget().appbarLayout(
                   backgroundColor: orderHistoryCtrl.appCtrl.appTheme.whiteColor,
@@ -39,8 +40,7 @@ class OrderHistoryScreen extends StatelessWidget {
                               const Space(0, 15),
                               //search product textformfield layout
                               TextFormFilterLayout(
-                                onTap: () => orderHistoryCtrl.bottomSheet(
-                                    context: context),
+                                onTap: () => orderHistoryCtrl.bottomSheet(),
                               ),
 
                               //order list layout

@@ -52,7 +52,7 @@ class AppController extends GetxController {
     //language check
     // check which Language is selected
     String? languageCode = storage.read(Session.languageCode);
-    languageVal = storage.read(Session.languageCode);
+    languageVal = storage.read(Session.languageCode) ?? 'en';
     String? countryCode = storage.read(Session.countryCode);
 
     if (languageCode != null && countryCode != null) {
@@ -76,7 +76,7 @@ class AppController extends GetxController {
     ThemeService().switchTheme(isTheme);
     Get.forceAppUpdate();
     await getStorage.read('isDarkMode');
-    String currencyCode = await getStorage.read(Session.currencyCode);
+    String currencyCode = await getStorage.read(Session.currencyCode) ?? 'INR';
     priceSymbol = getStorage.read(Session.currencySymbol) ?? '₹';
     priceConvertor(currencyCode, priceSymbol);
 
@@ -201,41 +201,15 @@ class AppController extends GetxController {
   }
 
   //bottom sheet for filter
-  bottomSheet({
-    context,
-  }) {
-    showModalBottomSheet<void>(
-      backgroundColor: appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return const LanguageBottomSheet();
-      },
-    );
+  bottomSheet() {
+    BottomSheetLayout().bottomSheet(
+        child: const LanguageBottomSheet());
   }
 
   //currency bottom sheet for filter
-  currencyBottomSheet({
-    context,
-  }) {
-    showModalBottomSheet<void>(
-      backgroundColor: appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return const CurrencyBottomSheet();
-      },
-    );
+  currencyBottomSheet() {
+    BottomSheetLayout().bottomSheet(
+        child: const CurrencyBottomSheet());
   }
 
   priceConvertor(to, currencySymbol) async {
@@ -279,10 +253,10 @@ class AppController extends GetxController {
       Get.toNamed(routeName.myWishList);
     } else if (index == 5) {
       Get.back();
-      bottomSheet(context: context);
+      bottomSheet();
     } else if (index == 6) {
       Get.back();
-      currencyBottomSheet(context: context);
+      currencyBottomSheet();
     } else if (index == 7) {
       Get.back();
       Get.toNamed(routeName.yourAccount);

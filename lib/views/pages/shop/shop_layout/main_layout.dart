@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/views/pages/shop/shop_layout/shop_list_layout.dart';
 
 class MainLayout extends StatelessWidget {
   const MainLayout({Key? key}) : super(key: key);
@@ -17,8 +18,16 @@ class MainLayout extends StatelessWidget {
               //search product textformfield layout
               Padding(
                 padding: EdgeInsets.only(
-                    left: AppScreenUtil().screenHeight(shopCtrl.appCtrl.languageVal == "ar"  || shopCtrl.appCtrl.isRTL? 15 :0),
-                    right: AppScreenUtil().screenHeight(shopCtrl.appCtrl.languageVal != "ar" || shopCtrl.appCtrl.isRTL ? 15 :0)),
+                    left: AppScreenUtil().screenHeight(
+                        shopCtrl.appCtrl.languageVal == "ar" ||
+                                shopCtrl.appCtrl.isRTL
+                            ? 15
+                            : 0),
+                    right: AppScreenUtil().screenHeight(
+                        shopCtrl.appCtrl.languageVal != "ar" ||
+                                shopCtrl.appCtrl.isRTL
+                            ? 15
+                            : 0)),
                 child: Row(
                   children: [
                     Expanded(
@@ -32,7 +41,7 @@ class MainLayout extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () => shopCtrl.bottomSheet(context: context),
+                      onTap: () => shopCtrl.bottomSheet(),
                       child: ShopFontStyle().mulishtextLayout(
                           text: ShopFont().filter,
                           fontSize: 16,
@@ -44,29 +53,7 @@ class MainLayout extends StatelessWidget {
               ),
 
               //shop list
-              ShopWidget().shopLayout(
-                  context: context,
-                  child: ListView.builder(
-                    itemCount: shopCtrl.offerList.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return ShopListCard(
-                        onTap: () => Get.toNamed(routeName.productDetail),
-                        index: index,
-                        data: shopCtrl.offerList[index],
-                        discountTextColor: shopCtrl.appCtrl.appTheme.whiteColor,
-                        dividerColor: shopCtrl.appCtrl.appTheme.contentColor
-                            .withOpacity(.5),
-                        quantityBorderColor:
-                            shopCtrl.appCtrl.appTheme.lightPrimary,
-                        titleColor: shopCtrl.appCtrl.appTheme.titleColor,
-                        plusTap: () => shopCtrl.plusTap(index),
-                        minusTap: () => shopCtrl.minusTap(index),
-                      );
-                    },
-                  )),
+              const ShopListLayout(),
               const Space(0, 60),
             ],
           ),

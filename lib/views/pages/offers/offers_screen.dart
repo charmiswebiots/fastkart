@@ -70,8 +70,7 @@ class _OfferScreenState extends State<OfferScreen> {
                                       ),
                                       OfferWidget().filterText(
                                           onTap: () =>
-                                              offerCtrl.filterbottomSheet(
-                                                  context: context),
+                                              offerCtrl.filterbottomSheet(),
                                           color: offerCtrl
                                               .appCtrl.appTheme.primary),
                                     ],

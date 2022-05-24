@@ -1,0 +1,9 @@
+export 'package:fastkart/controllers/address_list_controller.dart';
+export 'package:fastkart/views/pages/addressList/address_list_card.dart';
+export 'package:fastkart/views/pages/addressList/util/address_list_constants.dart';
+export 'package:fastkart/views/pages/addressList/util/address_list_widget.dart';
+export 'package:fastkart/views/pages/addressList/util/address_list_fontstyle.dart';
+export 'package:fastkart/controllers/about_us_controller.dart';
+export 'package:fastkart/views/pages/aboutUs/util/about_us_style.dart';
+export 'package:fastkart/views/pages/aboutUs/about_us_layout/how_do_order.dart';
+export 'package:fastkart/views/pages/aboutUs/about_us_layout/team_list_layout.dart';

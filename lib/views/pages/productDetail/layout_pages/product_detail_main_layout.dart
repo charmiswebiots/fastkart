@@ -64,8 +64,7 @@ class ProductDetailMainLayout extends StatelessWidget {
                     //product review count and see All text
                     ProductReviewAndSeeAll(
                         text: ProductDetailFont().productReview + '(15)',
-                        onTap: () => productDetailCtrl.commonBottomSheet(
-                            context: context,index: 2),
+                        onTap: () => productDetailCtrl.commonBottomSheet(index: 2),
                         seeAll: ProductDetailFont().seeAll),
 
                     const Space(0, 20),

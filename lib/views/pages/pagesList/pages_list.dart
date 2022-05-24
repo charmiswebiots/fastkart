@@ -11,7 +11,7 @@ class PagesList extends StatelessWidget {
       builder: (ctrl) => GetBuilder<PagesListController>(builder: (_) {
         return Directionality(
           textDirection:
-          pageCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+              pageCtrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
           child: Scaffold(
             backgroundColor: pageCtrl.appCtrl.appTheme.whiteColor,
             appBar: AppBar(
@@ -28,8 +28,8 @@ class PagesList extends StatelessWidget {
                   text: PageListFont().pagesList,
                   textColor: pageCtrl.appCtrl.appTheme.titleColor),
               actions: [
-                PageListWidget().appBarActionLayout(
-                    iconColor: pageCtrl.appCtrl.appTheme.titleColor,
+                AppBarHomeIconLayout(
+                    icon: iconAssets.drawerHome,
                     onTap: () => pageCtrl.goToHome()),
               ],
             ),
@@ -58,27 +58,7 @@ class PagesList extends StatelessWidget {
                       titleColor: pageCtrl.appCtrl.appTheme.titleColor),
                   //page list Layout
 
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: AppScreenUtil().screenWidth(15)),
-                      child: ListView.builder(
-                        itemCount: AppArray().pagesList.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                              onTap: () => pageCtrl.listTap(index),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color: pageCtrl.appCtrl.appTheme.titleColor,
-                                size: AppScreenUtil().screenHeight(18.0),
-                              ),
-                              title: Text(AppArray()
-                                  .pagesList[index]['name']
-                                  .toString()));
-                        },
-                      ),
-                    ),
-                  )
+                  const PagesListCardLayout()
                 ],
               ),
             ),

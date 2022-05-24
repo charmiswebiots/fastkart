@@ -32,48 +32,6 @@ class SignupStyle {
     );
   }
 
-  //already account layout
-  Widget alreadyAccountWidget({
-    color,
-    GestureTapCallback? onTap,
-  }) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SignupFontStyle().mulishtextLayout(
-            color: color,
-            text: SignupFont().alreadyAccount,
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
-            onTap: onTap),
-        SignupFontStyle().mulishtextLayout(
-            color: color,
-            text: SignupFont().signIn,
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
-            textDecoration: TextDecoration.underline,
-            onTap: onTap),
-      ],
-    );
-  }
-
-  //login with layout
-  Widget loginWithLayout({color, fontColor}) {
-    return Row(
-      children: [
-        DottedLineLayout(color: color,),
-        const  Space(10, 0),
-        SignupFontStyle().mulishtextLayout(
-          color: fontColor,
-          text: SignupFont().signInWith,
-          fontWeight: FontWeight.w700,
-          fontSize: SignupFontSize.textSizeSMedium,
-        ),
-        const Space(10, 0),
-        DottedLineLayout(color: color,),
-      ],
-    );
-  }
 
   //common social button
   Widget socialButton(

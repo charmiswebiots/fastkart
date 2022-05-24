@@ -46,40 +46,27 @@ class ProductDetailController extends GetxController {
   }
 
   //common select bottom sheet
-  commonBottomSheet({context, index}) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      // context and builder are
-      // required properties in this widget
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return GetBuilder<ProductDetailController>(builder: (_) {
-          return index == 0
+  commonBottomSheet({index}) {
+    BottomSheetLayout().bottomSheet(
+        child: GetBuilder<ProductDetailController>(builder: (_) {
+      return index == 0
+          ? QuantityBottomSheet(
+              data: quantityList,
+              closeTap: () => Get.back(),
+              applyTap: () => Get.back(),
+              isQuantity: true,
+            )
+          : index == 1
               ? QuantityBottomSheet(
-                  data: quantityList,
+                  data: AppArray().deliveryTimeList,
                   closeTap: () => Get.back(),
                   applyTap: () => Get.back(),
-                  isQuantity: true,
+                  isQuantity: false,
                 )
-              : index == 1
-                  ? QuantityBottomSheet(
-                      data: AppArray().deliveryTimeList,
-                      closeTap: () => Get.back(),
-                      applyTap: () => Get.back(),
-                      isQuantity: false,
-                    )
-                  : AllReviewLayout(
-                      reviewList: reviewList,
-                    );
-        });
-      },
-    );
+              : AllReviewLayout(
+                  reviewList: reviewList,
+                );
+    }));
   }
 
   //get data

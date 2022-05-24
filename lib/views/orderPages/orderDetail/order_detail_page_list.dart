@@ -1,0 +1,9 @@
+export 'package:fastkart/controllers/order/order_detail_controller.dart';
+export 'package:fastkart/views/orderPages/orderDetail/util/order_detail_constants.dart';
+export 'package:fastkart/views/orderPages/orderDetail/util/order_detail_fontstyle.dart';
+export 'package:fastkart/views/orderPages/orderDetail/util/order_detail_widget.dart';
+export 'package:fastkart/views/orderPages/orderDetail/util/item_list_layout.dart';
+export 'package:fastkart/views/orderPages/orderDetail/util/order_detail_style.dart';
+export 'package:fastkart/views/orderPages/orderDetail/util/order_id_status.dart';
+export 'package:fastkart/views/orderPages/orderDetail/item_list_card.dart';
+export 'package:fastkart/views/orderPages/orderDetail/data_layout.dart';

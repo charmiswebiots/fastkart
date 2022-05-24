@@ -1,3 +1,5 @@
+import 'package:fastkart/views/pages/productDetail/layout_pages/quantity_bottom_sheet_list.dart';
+
 import '../../../../config.dart';
 
 class QuantityBottomSheet extends StatelessWidget {
@@ -7,11 +9,7 @@ class QuantityBottomSheet extends StatelessWidget {
   final bool? isQuantity;
 
   const QuantityBottomSheet(
-      {Key? key,
-      this.data,
-      this.applyTap,
-      this.closeTap,
-      this.isQuantity})
+      {Key? key, this.data, this.applyTap, this.closeTap, this.isQuantity})
       : super(key: key);
 
   @override
@@ -19,7 +17,7 @@ class QuantityBottomSheet extends StatelessWidget {
     return GetBuilder<ProductDetailController>(builder: (ctrl) {
       return Directionality(
         textDirection:
-        ctrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+            ctrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
         child: Container(
             padding: EdgeInsets.symmetric(
                 horizontal: AppScreenUtil().screenWidth(15),
@@ -40,55 +38,13 @@ class QuantityBottomSheet extends StatelessWidget {
                     fontSize: ProductDetailFontSize.textSizeSMedium,
                     color: ctrl.appCtrl.appTheme.titleColor),
                 const Space(20, 0),
-                GridView.builder(
-                  padding: EdgeInsets.symmetric(
-                      vertical: AppScreenUtil().screenHeight(20)),
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: data.length,
-                  itemBuilder: (context, index) {
-                    return GridViewLayoutCard(
-                      data: data[index],
-                      index: index,
-                      quantityIndex:
-                          isQuantity! ? ctrl.quantityIndex : ctrl.deliveryIndex,
-                      onTap: () {
-                        if (isQuantity!) {
-                          ctrl.quantityIndex = index;
-                          ctrl.selectedQuantity = data[index]['title'].toString();
-                          ctrl.update();
-                        } else {
-                          ctrl.deliveryIndex = index;
-                          ctrl.selectedDeliveryTime =
-                              data[index]['title'].toString();
-                          ctrl.update();
-                        }
-                      },
-                    );
-                  },
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 15,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 7)),
+                QuantityBottomSheetList(
+                  data: data,
+                  isQuantity: isQuantity,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CommonPopUpButton(
-                        onTap: closeTap,
-                        containerColor: ctrl.appCtrl.appTheme.popUpColor,
-                        borderColor: ctrl.appCtrl.appTheme.primary,
-                        textColor: ctrl.appCtrl.appTheme.primary,
-                        text: OfferFont().close),
-                    CommonPopUpButton(
-                        onTap: applyTap,
-                        containerColor: ctrl.appCtrl.appTheme.primary,
-                        borderColor: ctrl.appCtrl.appTheme.primary,
-                        textColor: ctrl.appCtrl.appTheme.whiteColor,
-                        text: OfferFont().apply),
-                  ],
+                CommonCancelCloseApplyButton(
+                  button2: OfferFont().apply,
+                  button1: OfferFont().close,
                 )
               ],
             )),

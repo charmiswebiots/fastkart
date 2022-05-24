@@ -24,7 +24,7 @@ class AddCardLayout extends StatelessWidget {
       return GetBuilder<PaymentController>(builder: (ctrl) {
         return Directionality(
           textDirection:
-          ctrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
+              ctrl.appCtrl.isRTL ? TextDirection.rtl : TextDirection.ltr,
           child: PaymentStyle().addCardLayout(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,49 +50,11 @@ class AddCardLayout extends StatelessWidget {
                   ),
                   const Space(0, 15),
                   //card holder name textformfield layout
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CommonTextFormField(
-                          controller: txtExpiryDate,
-                          suffixIcon: const Icon(
-                            Icons.calendar_today,
-                          ),
-                          text: PaymentFont().expiryDate,
-                          borderColor: appCtrl.appTheme.primary.withOpacity(.3),
-                          hintColor: appCtrl.appTheme.contentColor,
-                          fillcolor: appCtrl.appTheme.textBoxColor,
-                        ),
-                      ),
-                      const Space(10, 0),
-                      Expanded(
-                        child: CommonTextFormField(
-                          controller: txtCV,
-                          text: PaymentFont().cv,
-                          borderColor: appCtrl.appTheme.primary.withOpacity(.3),
-                          hintColor: appCtrl.appTheme.contentColor,
-                          fillcolor: appCtrl.appTheme.textBoxColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const  Space(0, 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CommonPopUpButton(
-                          onTap: () => Get.back(),
-                          containerColor: appCtrl.appTheme.popUpColor,
-                          borderColor: appCtrl.appTheme.primary,
-                          textColor: appCtrl.appTheme.primary,
-                          text: ProductDetailFont().close),
-                      CommonPopUpButton(
-                          onTap: () => Get.back(),
-                          containerColor: appCtrl.appTheme.primary,
-                          borderColor: appCtrl.appTheme.primary,
-                          textColor: appCtrl.appTheme.whiteColor,
-                          text: ProductDetailFont().apply),
-                    ],
+                  CardHolderLayout(txtExpiryDate: txtExpiryDate, txtCV: txtCV),
+                  const Space(0, 15),
+                  CommonCancelCloseApplyButton(
+                    button1: ProductDetailFont().close,
+                    button2: ProductDetailFont().apply,
                   )
                 ],
               ),

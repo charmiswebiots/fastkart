@@ -45,20 +45,9 @@ class PaymentController extends GetxController {
     update();
   }
 
-  addCardBottomSheet({
-    context,
-  }) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return GetBuilder<PaymentController>(builder: (_) {
+  addCardBottomSheet({data}) {
+    BottomSheetLayout().bottomSheet(
+        child: GetBuilder<PaymentController>(builder: (_) {
           return AddCardLayout(
             txtName: txtName,
             txtExpiryDate: txtExpiryDate,
@@ -67,9 +56,7 @@ class PaymentController extends GetxController {
             closeTap: () => Get.back(),
             applyTap: () => Get.back(),
           );
-        });
-      },
-    );
+        }));
   }
 
   //get data

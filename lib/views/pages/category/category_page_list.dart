@@ -1,0 +1,10 @@
+export 'package:fastkart/views/pages/category/util/category_fontstyle.dart';
+export 'package:fastkart/controllers/category_controller.dart';
+export 'package:fastkart/views/pages/category/category_layout/category_data_card.dart';
+export 'package:fastkart/views/pages/category/util/category_widget.dart';
+export 'package:fastkart/views/pages/category/util/category_constants.dart';
+export 'package:fastkart/views/pages/category/category_layout/image_bg_layout.dart';
+export 'package:fastkart/views/pages/category/category_layout/subcategory_list.dart';
+export 'package:fastkart/shimmer_effect/category_shimmer/category_list_shimmer.dart';
+export 'package:fastkart/views/pages/category/category_layout/list_layout.dart';
+export 'package:fastkart/views/pages/category/category_screen.dart';
