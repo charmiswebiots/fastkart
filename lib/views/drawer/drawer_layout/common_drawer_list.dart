@@ -35,7 +35,7 @@ class CommonDrawerList extends StatelessWidget {
                     DrawerWidget().commonImageLayout(
                         image: image,
                         height: height,
-                        iconColor: index == 10 || index == 11 || index == 12
+                        iconColor: index == 10 || index == 11 || index == 12 || index == 5 || index == 6
                             ? appCtrl.appTheme.titleColor
                             : index == appCtrl.drawerSelectedIndex
                                 ? appCtrl.appTheme.drawerSelectColor
@@ -44,7 +44,7 @@ class CommonDrawerList extends StatelessWidget {
                     DrawerFontStyle().mulishtextLayout(
                         text: title,
                         fontSize: fontSize!,
-                        color: index == 10 || index == 11 || index == 12
+                        color: index == 10 || index == 11 || index == 12 || index == 5 || index == 6
                             ? appCtrl.appTheme.titleColor
                             : index == appCtrl.drawerSelectedIndex
                                 ? appCtrl.appTheme.drawerSelectColor
@@ -73,7 +73,7 @@ class CommonDrawerList extends StatelessWidget {
                             context: context)
               ],
             ),
-            color:index == 10 || index == 11 || index == 12
+            color:index == 10 || index == 11 || index == 12 || index == 5 || index == 6
                 ? appCtrl.appTheme.whiteColor
                 : index == appCtrl.drawerSelectedIndex
                     ? appCtrl.appTheme.primary

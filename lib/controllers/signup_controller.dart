@@ -26,7 +26,7 @@ class SignupController extends GetxController {
 
   //google Login function
   googleLogin() async {
-    appCtrl.showLoading();
+    appCtrl.commonController.showLoading();
     update();
     final FirebaseAuth _auth = FirebaseAuth.instance;
     final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -34,7 +34,7 @@ class SignupController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
       await _googleSignIn.signIn();
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       final GoogleSignInAuthentication googleSignInAuthentication =
       await googleSignInAccount!.authentication;
@@ -44,13 +44,13 @@ class SignupController extends GetxController {
       );
 
       (await _auth.signInWithCredential(credential)).user;
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       saveData(googleSignInAccount.id);
       Get.toNamed(routeName.dashboard);
     } on FirebaseAuthException catch (e) {
       showToast(e.toString());
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
     }
   }
@@ -65,7 +65,7 @@ class SignupController extends GetxController {
 
 //sign in tap function
   signInClick({context}) async {
-    appCtrl.showLoading();
+    appCtrl.commonController.showLoading();
     update();
     FocusScopeNode currentFocus = FocusScope.of(context);
 
@@ -76,7 +76,7 @@ class SignupController extends GetxController {
       var user = await auth.createUserWithEmailAndPassword(
           email: email.text, password: password.text);
       await user.user!.getIdToken();
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       email.text = "";
       password.text = "";
@@ -84,7 +84,7 @@ class SignupController extends GetxController {
 
       Get.back();
     } catch (e) {
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       showToast(e.toString());
     }

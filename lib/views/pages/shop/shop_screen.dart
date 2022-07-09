@@ -36,7 +36,7 @@ class _ShopScreenState extends State<ShopScreen> {
                         textColor: shopCtrl.appCtrl.appTheme.darkContentColor),
                     actions: [
                       ShopWidget()
-                          .appBarActionLayout(onTap: shopCtrl.actionButtonTap),
+                          .appBarActionLayout(onTap: shopCtrl.actionButtonTap,context: context),
                     ],
                   ),
                   backgroundColor: shopCtrl.appCtrl.appTheme.whiteColor,

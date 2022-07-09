@@ -1,15 +1,11 @@
-import 'dart:convert';
-
-import 'package:fastkart/views/drawer/drawer_layout/currency_bottomsheet.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
 import '../../config.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_storage/get_storage.dart';
 
 class AppController extends GetxController {
   AppTheme _appTheme = AppTheme.fromType(ThemeType.light);
-  bool _isLoading = false;
+  var commonController = Get.isRegistered<CommonController>()
+      ? Get.find<CommonController>()
+      : Get.put(CommonController());
   bool isShimmer = true;
   int drawerSelectedIndex = 0;
   int selectedIndex = 0;
@@ -19,13 +15,9 @@ class AppController extends GetxController {
   final storage = GetStorage();
   List drawerList = [];
   List bottomNavigationList = [];
-  double rateValue = 0.0;
-  String priceSymbol = "₹";
   String languageVal = "en";
 
   AppTheme get appTheme => _appTheme;
-
-  bool get isLoading => _isLoading;
   final getStorage = GetStorage();
 
   //list of bottomnavigator page
@@ -39,9 +31,7 @@ class AppController extends GetxController {
 
   @override
   void onReady() {
-    //updateTheme(AppTheme.fromType(ThemeType.light));
     getData();
-
     super.onReady();
   }
 
@@ -75,14 +65,16 @@ class AppController extends GetxController {
     await getStorage.write("isDarkMode", isTheme);
     ThemeService().switchTheme(isTheme);
     Get.forceAppUpdate();
+
     await getStorage.read('isDarkMode');
-    String currencyCode = await getStorage.read(Session.currencyCode) ?? 'INR';
-    priceSymbol = getStorage.read(Session.currencySymbol) ?? '₹';
-    priceConvertor(currencyCode, priceSymbol);
+    String currencyCode = getStorage.read(Session.currencyCode) ?? 'INR';
+    commonController.priceSymbol =
+        getStorage.read(Session.currencySymbol) ?? '₹';
+    commonController.priceConvertor(currencyCode, commonController.priceSymbol);
 
     drawerList = AppArray().drawerList;
     bottomNavigationList = AppArray().bottomNavigationList;
-
+    commonController.update();
     update();
   }
 
@@ -110,17 +102,12 @@ class AppController extends GetxController {
     } on FirebaseAuthException catch (e) {
       hideLoading();
       update();
-      showToast(e.toString());
+      commonController.showToast(e.toString());
       rethrow;
     } finally {
       hideLoading();
       update();
     }
-  }
-
-  //show toast
-  showToast(error) {
-    Fluttertoast.showToast(msg: error);
   }
 
   //language selection
@@ -182,53 +169,10 @@ class AppController extends GetxController {
     Get.forceAppUpdate();
   }
 
-  //show loader
-  void showLoading() {
-    _isLoading = true;
-    update();
-  }
-
-  //hide loader
-  void hideLoading() {
-    _isLoading = false;
-    update();
-  }
-
   //on drawer change function
   onSelectIndex(index) {
     drawerSelectedIndex = index;
     update();
-  }
-
-  //bottom sheet for filter
-  bottomSheet() {
-    BottomSheetLayout().bottomSheet(
-        child: const LanguageBottomSheet());
-  }
-
-  //currency bottom sheet for filter
-  currencyBottomSheet() {
-    BottomSheetLayout().bottomSheet(
-        child: const CurrencyBottomSheet());
-  }
-
-  priceConvertor(to, currencySymbol) async {
-    String from = getStorage.read(Session.currencyCode) ?? 'INR';
-    final response = await http.get(Uri.parse(
-        'https://free.currconv.com/api/v7/convert?q=${from}_$to&compact=ultra&apiKey=822b16f7746c9ebae65d'));
-
-    if (response.statusCode == 200) {
-      Map<String, dynamic> jsonResponse = json.decode(response.body);
-      final rate = jsonResponse[from + '_' + to].toDouble();
-      rateValue = rate;
-      priceSymbol = currencySymbol;
-      update();
-      await getStorage.write(Session.currencyCode, to);
-      await getStorage.write(Session.currencySymbol, currencySymbol);
-      // return double.parse((rate * 25).toStringAsFixed(2));
-    } else {
-      throw Exception('Error');
-    }
   }
 
   //select page index wise
@@ -253,10 +197,10 @@ class AppController extends GetxController {
       Get.toNamed(routeName.myWishList);
     } else if (index == 5) {
       Get.back();
-      bottomSheet();
+      commonController.bottomSheet();
     } else if (index == 6) {
       Get.back();
-      currencyBottomSheet();
+      commonController.currencyBottomSheet();
     } else if (index == 7) {
       Get.back();
       Get.toNamed(routeName.yourAccount);

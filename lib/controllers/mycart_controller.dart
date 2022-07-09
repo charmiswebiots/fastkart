@@ -1,6 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/offers/util/offer_detail.dart';
-import 'package:fastkart/widgets/bottom_sheet.dart';
 import 'package:get_storage/get_storage.dart';
 
 class MyCartListController extends GetxController {

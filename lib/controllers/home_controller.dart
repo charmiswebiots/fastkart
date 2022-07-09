@@ -1,7 +1,9 @@
 import 'package:fastkart/config.dart';
 
+
 class HomeController extends GetxController {
   List offerList = [];
+  //List<BannerModel> bannerList = [];
   List bannerList = [];
   List recentBoughtList = [];
   List categoryData = [];
@@ -37,8 +39,7 @@ class HomeController extends GetxController {
   }
 
   //get data
-  getData() async{
-
+  getData() async {
     appCtrl.isShimmer = true;
     update();
     offerList = AppArray().offerList;

@@ -9,7 +9,7 @@ class PaymentDetailLayout extends StatelessWidget {
       return GetBuilder<PaymentController>(builder: (paymentCtrl) {
         return SingleChildScrollView(
           child: Container(
-            height: MediaQuery.of(context).size.height,
+
             margin: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(50)),
             child: Column(
               children: [

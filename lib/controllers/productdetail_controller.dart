@@ -78,8 +78,8 @@ class ProductDetailController extends GetxController {
     //split the value
     selectedQuantity = quantityList[0]['title'].substring(0, 7) +
         ' ' +
-        appCtrl.priceSymbol +
-        (double.parse((appCtrl.rateValue *
+        appCtrl.commonController.priceSymbol +
+        (double.parse((appCtrl.commonController.rateValue *
                     double.parse(
                         quantityList[0]['title'].toString().substring(8)))
                 .toStringAsFixed(2)))
@@ -91,9 +91,9 @@ class ProductDetailController extends GetxController {
       int? sub = text.indexOf('\$');
       quantityList[i]['title'] = quantityList[i]['title'].substring(0, sub) +
           ' ' +
-          appCtrl.priceSymbol +
+          appCtrl.commonController.priceSymbol +
           (double.parse(
-                  (appCtrl.rateValue * double.parse(text.substring(sub + 1)))
+                  (appCtrl.commonController.rateValue * double.parse(text.substring(sub + 1)))
                       .toStringAsFixed(2)))
               .toString();
     }

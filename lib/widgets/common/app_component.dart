@@ -21,7 +21,7 @@ class AppComponent extends StatelessWidget {
           return Stack(
             children: [
               child!,
-              ctrl.isLoading == true
+              ctrl.commonController.isLoading == true
                   ? Container(
                 color: Colors.black26.withOpacity(.4),
                     child: Center(

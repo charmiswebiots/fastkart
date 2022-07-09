@@ -8,23 +8,27 @@ class BannerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(right: AppScreenUtil().screenWidth(10)),
-      child: ClipRRect(
-          borderRadius: BorderRadius.all(
-              Radius.circular(AppScreenUtil().borderRadius(15))),
-          child: Stack(
-            children: <Widget>[
-              TransformLayout(
-                child: Image.asset(
-                  AppArray().bannerList[itemIndex!].backgroundImage,
-                  fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
-              BannerContent(itemIndex: itemIndex,)
-            ],
-          )),
+    return GetBuilder<AppController>(
+      builder: (appCtrl) {
+        return Container(
+          padding: EdgeInsets.only(right: AppScreenUtil().screenWidth(10)),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(
+                  Radius.circular(AppScreenUtil().borderRadius(15))),
+              child: Stack(
+                children: <Widget>[
+                  TransformLayout(
+                    child: Image.asset(
+                      AppArray().bannerList[itemIndex!].backgroundImage,
+                      fit: BoxFit.cover,
+                      width: MediaQuery.of(context).size.width,
+                    ),
+                  ),
+                  BannerContent(itemIndex: itemIndex)
+                ],
+              )),
+        );
+      }
     );
   }
 }

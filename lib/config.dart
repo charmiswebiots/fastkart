@@ -13,6 +13,8 @@ export 'package:google_sign_in/google_sign_in.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:shimmer/shimmer.dart';
 export 'package:fastkart/widgets/common_layout_page_list.dart';
+export 'package:fastkart/controllers/common/common_controller.dart';
+export 'package:fastkart/models/model_class_list.dart';
 
 //appbar
 export 'package:fastkart/widgets/common/appbar_page_list.dart';

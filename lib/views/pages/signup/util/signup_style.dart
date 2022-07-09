@@ -1,6 +1,3 @@
-
-import 'package:fastkart/views/pages/signup/signup_layout/dotted_line.dart';
-
 import '../../../../config.dart';
 
 class SignupStyle {
@@ -31,7 +28,6 @@ class SignupStyle {
       width: AppScreenUtil().screenWidth(10),
     );
   }
-
 
   //common social button
   Widget socialButton(

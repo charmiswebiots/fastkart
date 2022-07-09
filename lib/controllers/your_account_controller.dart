@@ -64,10 +64,10 @@ class YourAccountController extends GetxController{
       Get.toNamed(routeName.myWishList);
     } else if (index == 5) {
       appCtrl
-          .bottomSheet();
+          .commonController.bottomSheet();
     } else if (index == 6) {
       appCtrl
-          .currencyBottomSheet();
+          .commonController.currencyBottomSheet();
     } else if (index == 7) {
       Get.back();
       Get.toNamed(routeName.yourAccount);

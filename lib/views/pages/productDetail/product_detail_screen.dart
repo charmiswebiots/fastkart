@@ -28,6 +28,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
             actions: [
               ProductDetailWidget().appBarActionLayout(
+                context: context,
                 iconColor: productDetailCtrl.appCtrl.appTheme.titleColor,
               ),
             ],

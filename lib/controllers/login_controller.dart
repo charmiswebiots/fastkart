@@ -38,7 +38,7 @@ class LoginController extends GetxController {
 
   //firebase login with email and password
   login() async {
-    appCtrl.showLoading();
+    appCtrl.commonController.showLoading();
     update();
     try {
       var user = await auth.signInWithEmailAndPassword(
@@ -46,14 +46,15 @@ class LoginController extends GetxController {
       await user.user!.getIdToken();
       final User? currentUser =  auth.currentUser;
       assert(user.user!.uid == currentUser!.uid);
-      appCtrl.hideLoading();
+      await storage.write('id', user.user!.uid);
+      appCtrl.commonController.hideLoading();
       update();
       email.text = "";
       password.text = "";
       appCtrl.saveData(user.user!.uid);
       Get.toNamed(routeName.dashboard);
     } on FirebaseAuthException catch (e) {
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       if (e.code == 'wrong-password') {
         showToast('Incorrect Password');
@@ -61,10 +62,10 @@ class LoginController extends GetxController {
         showToast('Email is not Found');
       }
     } catch (e) {
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
     } finally {
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
     }
   }

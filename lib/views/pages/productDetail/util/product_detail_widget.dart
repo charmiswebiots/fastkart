@@ -1,16 +1,18 @@
 import 'package:fastkart/config.dart';
 
+import '../../../../utilities/responsive_layout.dart';
+
 //Widget Layout
 class ProductDetailWidget {
   //appbar action layout
-  Widget appBarActionLayout({var iconColor}) {
+  Widget appBarActionLayout({var iconColor,context}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
           bottom: AppScreenUtil().screenHeight(
-              AppScreenUtil().screenActualWidth() > 370 ? 15 : 20),
+              ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
           top: AppScreenUtil().screenHeight(
-              AppScreenUtil().screenActualWidth() > 370 ? 10 : 20),
+              ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
           right: AppScreenUtil().screenWidth(15)),
       child: Image.asset(
         iconAssets.share,

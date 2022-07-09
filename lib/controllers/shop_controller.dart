@@ -56,9 +56,7 @@ class ShopController extends GetxController {
 
   //select category function
   selectCategory(index, id) {
-    appCtrl.showLoading();
     selectIndex = index;
-    appCtrl.hideLoading();
     update();
   }
 

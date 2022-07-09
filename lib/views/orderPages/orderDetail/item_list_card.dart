@@ -49,7 +49,10 @@ class ItemListCard extends StatelessWidget {
                   ],
                 ),
                 OrderDetailFontStyle().mulishtextLayout(
-                    text: data['price'].toString(),
+                    text:appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
+                        double.parse(data['price']))
+                        .toStringAsFixed(2)))
+                        .toString(),
                     color: appCtrl.appTheme.titleColor,
                     fontSize: OrderDetailFontSize.textSizeSMedium)
               ],

@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:442123674229:android:c386db6205944fcfc68e3c",
+        "mobilesdk_app_id": "1:442123674229:android:91a21f4256a057f5c68e3c",
         "android_client_info": {
-          "package_name": "com.fastkart"
+          "package_name": "com.webiots.fastkart"
         }
       },
       "oauth_client": [
         {
-          "client_id": "442123674229-b1c4ujrm5ttd06vokonsr1385oavh6q3.apps.googleusercontent.com",
+          "client_id": "442123674229-v018v6el5a6mdmhjdm70elmj1qot00vg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.fastkart",
+            "package_name": "com.webiots.fastkart",
             "certificate_hash": "5dc4eefd147741939978bcd403f44d9c88856294"
           }
         },

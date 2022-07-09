@@ -19,6 +19,7 @@ class OrderTrack extends StatelessWidget {
             child: Scaffold(
               appBar: OrderTrackWidget().appBarLayout(
                 isRTL: orderTrackCtrl.appCtrl.isRTL,
+                context: context,
                 bgColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,titleColor: orderTrackCtrl.appCtrl.appTheme.titleColor,image: orderTrackCtrl.appCtrl.isTheme
                   ? imageAssets.themeLogo
                   : imageAssets.logo,

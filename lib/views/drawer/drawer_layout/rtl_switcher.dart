@@ -32,7 +32,7 @@ class RtlSwitcher extends StatelessWidget {
             ),
             onToggle: onToggle!,
             activeIcon: Icon(
-              Icons.nightlight_round,
+              Icons.circle,
               color: appCtrl.appTheme.green,
               size: AppScreenUtil().size(30),
             ),

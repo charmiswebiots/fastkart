@@ -38,6 +38,7 @@ class CommonAppBar1 extends StatelessWidget {
               Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                 if (isCategory!)
                   AppBarStyle().categoryIcon(
+                    language: appCtrl.languageVal,
                       isRTL: appCtrl.isRTL, onTap: onTap, color: color),
                 if (isBack!) CommonAppBarLeading(onTap: onTap, isImage: false),
                 const Space(10, 0),

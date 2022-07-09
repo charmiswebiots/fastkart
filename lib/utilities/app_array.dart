@@ -627,19 +627,19 @@ class AppArray {
       'quantity': 2,
       'name': 'Assorted Capsicum Combo'.tr,
       'gram': '500g',
-      'price': ' \$25.00'
+      'price': ' 25.00'
     },
     {
       'quantity': 1,
       'name': 'Assorted Capsicum Combo'.tr,
       'gram': '500g',
-      'price': ' \$25.00'
+      'price': ' 25.00'
     },
     {
       'quantity': 1,
       'name': 'Assorted Capsicum Combo'.tr,
       'gram': '500g',
-      'price': ' \$25.00'
+      'price': ' 25.00'
     },
   ];
 

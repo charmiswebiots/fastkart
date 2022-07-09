@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 
 //Widget Layout
 class ShopWidget {
@@ -26,12 +27,12 @@ class ShopWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({GestureTapCallback? onTap}) {
+  Widget appBarActionLayout({GestureTapCallback? onTap,context}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(10),
-          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 :15),
-          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 10 :15),
+          bottom: AppScreenUtil().screenHeight(ResponsiveWidget.isSmallScreen(context) ? 18 :15),
+          top: AppScreenUtil().screenHeight(ResponsiveWidget.isSmallScreen(context) ? 18 :15),
           right: AppScreenUtil().screenWidth(10)),
       child: InkWell(
         onTap: onTap,

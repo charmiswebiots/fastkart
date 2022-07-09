@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Farm Fresh Vegies",
+    "description": "Get instant delivery",
+    "backgroundImage": "assets/backgroundImages/banner/banner1.jpeg",
+    "buttonTitle": "Shop Now"
+  },
+  {
+    "title": "Farm Fresh Vegies",
+    "description": "Get instant delivery",
+    "backgroundImage": "assets/backgroundImages/banner/banner2.jpeg",
+    "buttonTitle": "Shop Now"
+  }
+]

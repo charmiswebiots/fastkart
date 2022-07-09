@@ -37,7 +37,7 @@ class LoginStyle {
     return LoginFontStyle().mulishtextLayout(
         text: LoginFont().loginAccount,
         color: titleColor,
-        fontSize: LoginFontSize.textSizeMedium,
+        fontSize: LoginFontSize.textSizeSMedium,
         fontWeight: FontWeight.w700);
   }
 
@@ -62,6 +62,8 @@ class LoginStyle {
       fit: BoxFit.contain,
       height: AppScreenUtil().screenHeight(20),
     )
-        : Image.asset(imageAssets.smallLogoImage);
+        : Image.asset(imageAssets.smallLogoImage,
+      fit: BoxFit.contain,
+      height: AppScreenUtil().screenHeight(20),);
   }
 }

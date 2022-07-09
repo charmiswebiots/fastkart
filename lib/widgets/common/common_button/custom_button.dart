@@ -43,7 +43,7 @@ class CustomButton extends StatelessWidget {
         BoxDecoration(color: color, borderRadius: BorderRadius.circular(5)),
         child: LoginFontStyle().mulishtextLayout(
             text: title,
-            fontSize: 17,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
             color: fontColor),
       ),

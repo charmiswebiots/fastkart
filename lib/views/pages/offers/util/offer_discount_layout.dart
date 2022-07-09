@@ -46,7 +46,7 @@ class OfferDiscountLayout extends StatelessWidget {
                       fontWeight: FontWeight.normal),
                   const Space(0, 2),
                   OfferFontStyle().quicksandtextLayout(
-                      text: data['des'] + 'dsfsd',
+                      text: data['des'],
                       textAlign: TextAlign.start,
                       textOverflow: TextOverflow.clip,
                       color: appCtrl.appTheme.darkContentColor,

@@ -2,11 +2,11 @@ import '../../../config.dart';
 
 class AppBarStyle{
   //category icon
-  Widget categoryIcon({isRTL, GestureTapCallback? onTap, var color}) {
+  Widget categoryIcon({isRTL, GestureTapCallback? onTap, var color,String? language}) {
     return Padding(
       padding: EdgeInsets.only(
         left: AppScreenUtil().screenHeight(15),
-        right: AppScreenUtil().screenHeight(isRTL ? 15 : 0),
+        right: AppScreenUtil().screenHeight(isRTL || language == "ar" ? 15 : 0),
       ),
       child: AppBarWidget().commonIconImage(
           onTap: onTap, image: iconAssets.category, height: 20, color: color),

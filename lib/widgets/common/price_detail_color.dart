@@ -1,5 +1,3 @@
-import 'package:fastkart/utilities/responsive_layout.dart';
-
 import '../../config.dart';
 
 class PriceDetailColorLayout extends StatelessWidget {
@@ -10,7 +8,7 @@ class PriceDetailColorLayout extends StatelessWidget {
     return GetBuilder<AppController>(builder: (appCtrl) {
       return Container(
         height: AppScreenUtil()
-            .screenHeight(ResponsiveWidget.isSmallScreen(context) ? 180 : 200),
+            .screenHeight(200),
         margin: EdgeInsets.only(
             top: AppScreenUtil().screenHeight(15),
             bottom: AppScreenUtil().screenHeight(50)),
@@ -33,7 +31,7 @@ class PriceDetailColorLayout extends StatelessWidget {
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().bagTotal,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val: appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     220)
                     .toStringAsFixed(2)))
                     .toString(),
@@ -43,7 +41,7 @@ class PriceDetailColorLayout extends StatelessWidget {
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().bagSavings,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: '-${appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val: '-${appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     20)
                     .toStringAsFixed(2)))
                     .toString()}',
@@ -61,7 +59,7 @@ class PriceDetailColorLayout extends StatelessWidget {
                 title: MyCartFont().delivery,
                 titleColor: appCtrl.appTheme.darkContentColor,
                 fontWeight: FontWeight.normal,
-                val:  appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val:  appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     50)
                     .toStringAsFixed(2)))
                     .toString(),
@@ -73,7 +71,7 @@ class PriceDetailColorLayout extends StatelessWidget {
                 title: MyCartFont().totalAmount,
                 titleColor: appCtrl.appTheme.titleColor,
                 fontWeight: FontWeight.w600,
-                val:  appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val:  appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     270)
                     .toStringAsFixed(2)))
                     .toString(),
