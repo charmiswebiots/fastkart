@@ -10,13 +10,13 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  var searchCtrl = Get.put(SearchController());
+  var searchCtrl = Get.put(SearchScreenController());
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
       builder: (ctrl) {
-        return GetBuilder<SearchController>(builder: (_) {
+        return GetBuilder<SearchScreenController>(builder: (_) {
           return Scaffold(
             body: NotificationListener<OverscrollIndicatorNotification>(
               onNotification: (overscroll) {

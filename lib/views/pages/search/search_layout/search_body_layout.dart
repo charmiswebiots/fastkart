@@ -5,7 +5,7 @@ class SearchBodyLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SearchController>(
+    return GetBuilder<SearchScreenController>(
       builder: (searchCtrl) {
         return SingleChildScrollView(
           child: Stack(

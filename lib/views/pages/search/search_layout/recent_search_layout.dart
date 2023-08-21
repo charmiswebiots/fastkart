@@ -7,7 +7,7 @@ class RecentSearchLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SearchController>(builder: (searchCtrl) {
+    return GetBuilder<SearchScreenController>(builder: (searchCtrl) {
       return Container(
         width: MediaQuery.of(context).size.width,
         margin: EdgeInsets.only(

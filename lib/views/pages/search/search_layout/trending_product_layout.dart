@@ -6,7 +6,7 @@ class TrendingProductLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (appCtrl) {
-      return GetBuilder<SearchController>(builder: (searchCtrl) {
+      return GetBuilder<SearchScreenController>(builder: (searchCtrl) {
         return Container(
           width: MediaQuery.of(context).size.width,
           color: appCtrl.appTheme.offerBoxColor,
