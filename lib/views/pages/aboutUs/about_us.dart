@@ -17,6 +17,7 @@ class AboutUs extends StatelessWidget {
             child: Scaffold(
               //app bar layout
               appBar: AboutUsWidget().appBarLayout(
+                  context:context,
                   bgColor: aboutUsCtrl.appCtrl.appTheme.whiteColor,
                   titleColor: aboutUsCtrl.appCtrl.appTheme.titleColor,
                   image: aboutUsCtrl.appCtrl.isTheme

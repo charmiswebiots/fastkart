@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 
 //Widget Layout
 class OrderTrackWidget {
@@ -35,12 +36,12 @@ class OrderTrackWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({var iconColor,GestureTapCallback? onTap}) {
+  Widget appBarActionLayout({var iconColor,GestureTapCallback? onTap,context}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
-          top: AppScreenUtil().screenHeight(AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
+          bottom: AppScreenUtil().screenHeight(ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
+          top: AppScreenUtil().screenHeight(ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
           right: AppScreenUtil().screenWidth(15)),
       child: InkWell(
         onTap: onTap,
@@ -55,7 +56,7 @@ class OrderTrackWidget {
   }
 
   //app bar layout
-  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor, var titleColor, String? image,isRTL}){
+  PreferredSizeWidget appBarLayout({GestureTapCallback? onTap,var bgColor, var titleColor, String? image,isRTL,context}){
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -73,7 +74,7 @@ class OrderTrackWidget {
           textColor: titleColor),
       actions: [
         OrderTrackWidget().appBarActionLayout(
-            iconColor: titleColor,onTap: onTap),
+            iconColor: titleColor,onTap: onTap,context: context),
       ],
     );
   }

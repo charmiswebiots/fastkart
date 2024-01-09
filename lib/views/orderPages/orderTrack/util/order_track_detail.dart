@@ -49,7 +49,7 @@ class OrderTrackDetail extends StatelessWidget {
                     horizontal: AppScreenUtil().screenWidth(15),
                     vertical: AppScreenUtil().screenHeight(10)),
                 child: CustomButton(
-                  height: 40,
+                  height: 45,
                   title: OrderTrackFont().orderDetail,
                   color: orderTrackCtrl.appCtrl.appTheme.primary,
                   fontColor: orderTrackCtrl.appCtrl.appTheme.whiteColor,

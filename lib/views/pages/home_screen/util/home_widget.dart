@@ -47,7 +47,7 @@ class HomeWidget {
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
       margin: EdgeInsets.only(left: AppScreenUtil().screenHeight(5)),
       padding: EdgeInsets.symmetric(
-          horizontal: AppScreenUtil().screenWidth(10),
+          horizontal: AppScreenUtil().screenWidth(8),
           vertical: AppScreenUtil().screenHeight(3)),
       child: HomeFontStyle().mulishtextLayout(
         text: text,

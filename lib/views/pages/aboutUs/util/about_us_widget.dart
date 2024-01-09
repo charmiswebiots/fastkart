@@ -1,4 +1,5 @@
 import 'package:fastkart/config.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 
 //Widget Layout
 class AboutUsWidget {
@@ -28,14 +29,14 @@ class AboutUsWidget {
   }
 
   //appbar action layout
-  Widget appBarActionLayout({var iconColor, GestureTapCallback? onTap}) {
+  Widget appBarActionLayout({var iconColor, GestureTapCallback? onTap,context}) {
     return Padding(
       padding: EdgeInsets.only(
           left: AppScreenUtil().screenWidth(15),
           bottom: AppScreenUtil().screenHeight(
-              AppScreenUtil().screenActualWidth() > 370 ? 15 : 20),
+              ResponsiveWidget.isSmallScreen(context) ? 18: 15),
           top: AppScreenUtil().screenHeight(
-              AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
+              ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
           right: AppScreenUtil().screenWidth(15)),
       child: InkWell(
         onTap: onTap,
@@ -51,7 +52,7 @@ class AboutUsWidget {
 
   //app bar layout
   PreferredSizeWidget appBarLayout(
-      {var bgColor, var titleColor, String? image, GestureTapCallback? onTap}) {
+      {var bgColor, var titleColor, String? image, GestureTapCallback? onTap,context}) {
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -66,7 +67,7 @@ class AboutUsWidget {
       title: AboutUsWidget().appBarTitleLayout(
           text: AboutUsFont().aboutUs, textColor: titleColor),
       actions: [
-        AboutUsWidget().appBarActionLayout(iconColor: titleColor, onTap: onTap),
+        AboutUsWidget().appBarActionLayout(iconColor: titleColor, onTap: onTap,context: context),
       ],
     );
   }

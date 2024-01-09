@@ -56,25 +56,14 @@ class ShopController extends GetxController {
 
   //select category function
   selectCategory(index, id) {
-    appCtrl.showLoading();
     selectIndex = index;
-    appCtrl.hideLoading();
     update();
   }
 
   //filter bottom sheet
-  bottomSheet({context}) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return GetBuilder<ShopController>(builder: (_) {
+  bottomSheet({data,}) {
+    BottomSheetLayout().bottomSheet(
+        child: GetBuilder<ShopController>(builder: (_) {
           return ShopFilterSheet(
               child: const CategorySelectionLayout(),
               packageSize: const PackageSizeSelection(),
@@ -83,10 +72,9 @@ class ShopController extends GetxController {
                 button1: ShopFont().close,
                 button2: ShopFont().cancel,
               ));
-        });
-      },
-    );
+        }));
   }
+
 
   @override
   void onReady() {

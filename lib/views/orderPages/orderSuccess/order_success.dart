@@ -48,7 +48,7 @@ class OrderSuccess extends StatelessWidget {
                             horizontal: AppScreenUtil().screenWidth(15),
                             vertical: AppScreenUtil().screenHeight(10)),
                         child: CustomButton(
-                          height: 40,
+                          height: 45,
                           title: OrderSuccessFont().orderTrack,
                           color: orderSuccessCtrl.appCtrl.appTheme.primary,
                           fontColor:

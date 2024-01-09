@@ -34,7 +34,7 @@ class PaymentStyle{
               topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
         ),
         height: MediaQuery.of(context).size.height /
-            AppScreenUtil().screenHeight(1.5),
+            AppScreenUtil().screenHeight(2),
         child: child);
   }
 

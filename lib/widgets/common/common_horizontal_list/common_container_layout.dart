@@ -1,3 +1,5 @@
+import 'package:fastkart/utilities/responsive_layout.dart';
+
 import '../../../config.dart';
 
 class CommonContainerLayout extends StatelessWidget {
@@ -16,7 +18,7 @@ class CommonContainerLayout extends StatelessWidget {
               left: AppScreenUtil().size( index == 0 ? 0 : 10),
               right: AppScreenUtil().size(appCtrl.languageVal == "ar"  || appCtrl.isRTL ? 10 :0),
               top: AppScreenUtil().screenHeight(10),
-              bottom: AppScreenUtil().screenHeight(20)),
+              bottom: AppScreenUtil().screenHeight(ResponsiveWidget.isSmallScreen(context) ? 0:  20)),
           decoration: BoxDecoration(
               color: appCtrl.appTheme.whiteColor,
               boxShadow: [

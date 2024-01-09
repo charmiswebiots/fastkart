@@ -38,15 +38,15 @@ class ProductDetailMainLayout extends StatelessWidget {
                     //price layout
                      ProductPriceLayout(
                       discountPrice: productDetailCtrl
-                          .appCtrl.priceSymbol +
+                          .appCtrl.commonController.priceSymbol +
                           (double.parse((productDetailCtrl
-                              .appCtrl.rateValue * 25.00)
+                              .appCtrl.commonController.rateValue * 25.00)
                               .toStringAsFixed(2)))
                               .toString(),
                       totalPrice:  productDetailCtrl
-                          .appCtrl.priceSymbol +
+                          .appCtrl.commonController.priceSymbol +
                           (double.parse((productDetailCtrl
-                              .appCtrl.rateValue * 45.00)
+                              .appCtrl.commonController.rateValue * 45.00)
                               .toStringAsFixed(2)))
                               .toString(),
                       discountText: ('25% ' + 'off'.tr),
@@ -64,8 +64,7 @@ class ProductDetailMainLayout extends StatelessWidget {
                     //product review count and see All text
                     ProductReviewAndSeeAll(
                         text: ProductDetailFont().productReview + '(15)',
-                        onTap: () => productDetailCtrl.commonBottomSheet(
-                            context: context,index: 2),
+                        onTap: () => productDetailCtrl.commonBottomSheet(index: 2),
                         seeAll: ProductDetailFont().seeAll),
 
                     const Space(0, 20),

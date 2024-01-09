@@ -1,5 +1,5 @@
 import 'package:fastkart/config.dart';
-
+import 'package:fastkart/widgets/common/common_horizontal_list/product_data_layout.dart';
 
 class EveryDayEssentialCard extends StatelessWidget {
   final int? index;
@@ -13,80 +13,59 @@ class EveryDayEssentialCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AppController>(builder: (appCtrl) {
-      return InkWell(
-        onTap: () => Get.toNamed(routeName.productDetail),
-        child: CommonContainerLayout(
-          index: index,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  Image.asset(
-                    iconAssets.heart,
-                    color: appCtrl.appTheme.titleColor,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        AppScreenUtil().screenWidth(8),
-                        AppScreenUtil().screenHeight(4),
-                        AppScreenUtil().screenWidth(8),
-                        AppScreenUtil().screenWidth(8)),
-                    child: Image.asset(
-                      data['image'].toString(),
-                      height: AppScreenUtil().screenHeight(50),
-                      width: AppScreenUtil().screenWidth(100),
+    return GetBuilder<CommonController>(builder: (commonCtrl) {
+      return GetBuilder<AppController>(builder: (appCtrl) {
+        return InkWell(
+          onTap: () => Get.toNamed(routeName.productDetail),
+          child: CommonContainerLayout(
+            index: index,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Stack(
+                  alignment: Alignment.topRight,
+                  children: [
+                    Image.asset(
+                      iconAssets.heart,
+                      color: appCtrl.appTheme.titleColor,
                     ),
-                  ),
-                ],
-              ),
-              const Space(0, 5),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        HomeFontStyle()
-                            .mulishtextLayout(fontSize: 11, text: data['name'].toString().tr,textAlign: appCtrl.languageVal == "ar" || appCtrl.isRTL ? TextAlign.right: TextAlign.left,overflow: TextOverflow.ellipsis),
-                        const  Space(0, 8),
-                        HomeFontStyle().mulishtextLayout(
-                            fontSize: 10,
-                            color: appCtrl.appTheme.darkContentColor,
-                            text: data['description']),
-                        const Space(0, 8),
-                        HomeFontStyle().mulishtextLayout(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: appCtrl.appTheme.titleColor,
-                            text: appCtrl.priceSymbol +
-                                (double.parse((appCtrl.rateValue *
-                                    double.parse(data['price']))
-                                    .toStringAsFixed(2)))
-                                    .toString(),)
-                      ],
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          AppScreenUtil().screenWidth(8),
+                          AppScreenUtil().screenHeight(4),
+                          AppScreenUtil().screenWidth(8),
+                          AppScreenUtil().screenWidth(8)),
+                      child: Image.asset(
+                        data['image'].toString(),
+                        height: AppScreenUtil().screenHeight(50),
+                        width: AppScreenUtil().screenWidth(100),
+                      ),
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(AppScreenUtil().size(5)),
-                    decoration: BoxDecoration(
-                        color: appCtrl.appTheme.primary,
-                        borderRadius: BorderRadius.circular(
-                            AppScreenUtil().borderRadius(5))),
-                    child: Icon(
-                      Icons.add,
-                      color: appCtrl.appTheme.whiteColor,
-                    ),
-                  )
-                ],
-              ),
-            ],
+                  ],
+                ),
+                const Space(0, 5),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    ProductData(data: data,),
+                    Container(
+                      padding: EdgeInsets.all(AppScreenUtil().size(5)),
+                      decoration: BoxDecoration(
+                          color: appCtrl.appTheme.primary,
+                          borderRadius: BorderRadius.circular(
+                              AppScreenUtil().borderRadius(5))),
+                      child: Icon(
+                        Icons.add,
+                        color: appCtrl.appTheme.whiteColor,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      );
+        );
+      });
     });
   }
 }

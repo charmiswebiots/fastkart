@@ -15,7 +15,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   await Firebase.initializeApp();
-
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -29,9 +28,8 @@ class MyApp extends StatelessWidget {
 
     return ScreenUtilInit(
       designSize: const Size(360, 690),
-      builder: () => GetMaterialApp(
+      builder: (_, child) => GetMaterialApp(
         builder: (context, widget) {
-          ScreenUtil.setContext(context);
           return MediaQuery(
             //Setting font does not change with system font size
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
@@ -45,7 +43,6 @@ class MyApp extends StatelessWidget {
         title: FontName().appName,
         home: const SplashScreen(),
         translations: Language(),
-
         getPages: appRoute.getPages,
         theme: AppTheme.fromType(ThemeType.light).themeData,
         darkTheme: AppTheme.fromType(ThemeType.dark).themeData,

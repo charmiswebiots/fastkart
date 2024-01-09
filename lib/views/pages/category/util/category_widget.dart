@@ -31,7 +31,7 @@ class CategoryWidget {
   }
 
   //sub category and category list layout and
-  Widget subCategoryImageAndList({context, data}) {
+  Widget subCategoryImageAndList({context, data,bannerData}) {
     return CategoryWidget().subCaegoryLayout(
         context: context,
         child: Column(

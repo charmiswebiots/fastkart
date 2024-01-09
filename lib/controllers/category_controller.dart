@@ -3,6 +3,7 @@ import 'package:fastkart/config.dart';
 class CategoryController extends GetxController {
   int selectIndex = 1;
   List subCategoryList = [];
+  List bannerList = [];
   bool isLoading = true;
   var appCtrl = Get.isRegistered<AppController>()
       ? Get.find<AppController>()
@@ -22,13 +23,14 @@ class CategoryController extends GetxController {
   }
 
   //get data on init
-  getData() {
+  getData()async {
     for (int i = 0; i < AppArray().subCategoryData.length; i++) {
       if (AppArray().subCategoryData[i]['categoryId'].toString() ==
           selectIndex.toString()) {
         subCategoryList.add(AppArray().subCategoryData[i]);
       }
     }
+    bannerList = AppArray().bannerList;
     update();
   }
 

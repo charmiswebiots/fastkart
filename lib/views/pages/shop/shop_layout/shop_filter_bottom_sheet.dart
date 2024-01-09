@@ -23,47 +23,53 @@ class ShopFilterSheet extends StatelessWidget {
                     topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
               ),
               height: MediaQuery.of(context).size.height / 1.5,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ShopFontStyle().mulishtextLayout(
+                                text: ShopFont().category,
+                                fontSize: ShopFontSize.textSizeSMedium,
+                                fontWeight: FontWeight.w600,
+                                color: shopCtrl.appCtrl.appTheme.titleColor),
+                            ShopFontStyle().mulishtextLayout(
+                                text: ShopFont().reset,
+                                fontSize: ShopFontSize.textSizeSMedium,
+                                fontWeight: FontWeight.w600,
+                                color: shopCtrl.appCtrl.appTheme.primary),
+                          ],
+                        ),
+                        const Space(0, 20),
+                        child!,
+                        const Space(0, 20),
                         ShopFontStyle().mulishtextLayout(
-                            text: ShopFont().category,
+                            text: ShopFont().packSize,
                             fontSize: ShopFontSize.textSizeSMedium,
                             fontWeight: FontWeight.w600,
                             color: shopCtrl.appCtrl.appTheme.titleColor),
+                        const Space(0, 20),
+                        packageSize!,
+                        const Space(0, 20),
                         ShopFontStyle().mulishtextLayout(
-                            text: ShopFont().reset,
+                            text: ShopFont().priceRange,
                             fontSize: ShopFontSize.textSizeSMedium,
                             fontWeight: FontWeight.w600,
-                            color: shopCtrl.appCtrl.appTheme.primary),
+                            color: shopCtrl.appCtrl.appTheme.titleColor),
+                        const  Space(0, 20),
+                        rangeSlider!,
+                        const Space(0, 50),
+
                       ],
                     ),
-                    const Space(0, 20),
-                    child!,
-                    const Space(0, 20),
-                    ShopFontStyle().mulishtextLayout(
-                        text: ShopFont().packSize,
-                        fontSize: ShopFontSize.textSizeSMedium,
-                        fontWeight: FontWeight.w600,
-                        color: shopCtrl.appCtrl.appTheme.titleColor),
-                    const Space(0, 20),
-                    packageSize!,
-                    const Space(0, 20),
-                    ShopFontStyle().mulishtextLayout(
-                        text: ShopFont().priceRange,
-                        fontSize: ShopFontSize.textSizeSMedium,
-                        fontWeight: FontWeight.w600,
-                        color: shopCtrl.appCtrl.appTheme.titleColor),
-                    const  Space(0, 20),
-                    rangeSlider!,
-                    const Space(0, 20),
-                    buttonLayout!
-                  ],
-                ),
+                  ),
+                  buttonLayout!
+                ],
               )),
         );
       }

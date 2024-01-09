@@ -52,7 +52,7 @@ class DrawerCustomHeader extends StatelessWidget {
         ).paddingOnly(
             top: isYourAccount! ? 0 : MediaQuery.of(context).size.height /
                 AppScreenUtil().screenHeight(14),
-            left: AppScreenUtil().screenWidth(30),
+            left: AppScreenUtil().screenWidth(15),
             right: AppScreenUtil().screenWidth(25)),
       ).marginOnly(
 

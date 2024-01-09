@@ -25,7 +25,7 @@ class PriceDetailLayout extends StatelessWidget {
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().bagTotal,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val: appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     220)
                     .toStringAsFixed(2)))
                     .toString(),
@@ -35,7 +35,7 @@ class PriceDetailLayout extends StatelessWidget {
             MyCartWidget().commonPriceDetail(
                 title: MyCartFont().bagSavings,
                 titleColor: appCtrl.appTheme.darkContentColor,
-                val: '-${appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val: '-${appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     20)
                     .toStringAsFixed(2)))
                     .toString()}',
@@ -53,7 +53,7 @@ class PriceDetailLayout extends StatelessWidget {
                 title: MyCartFont().delivery,
                 titleColor: appCtrl.appTheme.darkContentColor,
                 fontWeight: FontWeight.normal,
-                val: appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val: appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     50)
                     .toStringAsFixed(2)))
                     .toString(),
@@ -65,7 +65,7 @@ class PriceDetailLayout extends StatelessWidget {
                 title: MyCartFont().totalAmount,
                 titleColor: appCtrl.appTheme.titleColor,
                 fontWeight: FontWeight.w600,
-                val: appCtrl.priceSymbol +  (double.parse((appCtrl.rateValue *
+                val: appCtrl.commonController.priceSymbol +  (double.parse((appCtrl.commonController.rateValue *
                     270)
                     .toStringAsFixed(2)))
                     .toString(),

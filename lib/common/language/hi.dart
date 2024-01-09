@@ -177,6 +177,7 @@ final dynamic hi = {
   "Net Banking": "नेट बैंकिंग",
   "Credit/Debit Card": "क्रेडिट/डेबिट कार्ड",
   "Cash on Delivery": "डिलीवरी पर नकद",
+  "addNewCard": "नया कार्ड जोड़ें",
 
   //order success page font
   'orderTrack': "मानचित्र पर पैकेज ट्रैक करें",

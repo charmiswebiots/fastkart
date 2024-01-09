@@ -29,9 +29,12 @@ class RecentBoughtList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //recent bought widget
-                  HomeStyle().recentlyBought(
-                      text: HomeFont().recentBought,
-                      color: appCtrl.appTheme.titleColor),
+                  Directionality(
+                    textDirection: appCtrl.languageVal == "ar" ? TextDirection.rtl : TextDirection.ltr,
+                    child: HomeStyle().recentlyBought(
+                        text: HomeFont().recentBought,
+                        color: appCtrl.appTheme.titleColor),
+                  ),
                   const Space(0, 20),
                   SizedBox(
                     height: AppScreenUtil().screenHeight(50),

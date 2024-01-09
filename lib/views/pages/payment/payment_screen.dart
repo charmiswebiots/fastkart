@@ -39,9 +39,9 @@ class PaymentScreen extends StatelessWidget {
                       //confirm payment layout
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: AppScreenUtil().screenWidth(15)),
+                            horizontal: AppScreenUtil().screenWidth(15),vertical: AppScreenUtil().screenHeight(10)),
                         child: CustomButton(
-                          height: 40,
+                          height: 45,
                           title: PaymentFont().confirmPayment,
                           color: paymentCtrl.appCtrl.appTheme.primary,
                           fontColor: paymentCtrl.appCtrl.appTheme.whiteColor,

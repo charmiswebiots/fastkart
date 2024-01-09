@@ -2,8 +2,8 @@ import 'package:dotted_line/dotted_line.dart';
 import '../../../config.dart';
 
 class LoginWithLayout extends StatelessWidget {
-  final FontWeight? fontWeight;
-  const LoginWithLayout({Key? key,this.fontWeight}) : super(key: key);
+
+  const LoginWithLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class LoginWithLayout extends StatelessWidget {
             LoginFontStyle().mulishtextLayout(
               color: appCtrl.appTheme.primary,
               text: LoginFont().signInWith,
-              fontWeight: fontWeight!,
+              fontWeight: FontWeight.w700,
               fontSize: LoginFontSize.textSizeSMedium,
             ),
             const Space(10, 0),

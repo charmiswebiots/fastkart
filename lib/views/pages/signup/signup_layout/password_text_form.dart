@@ -20,7 +20,7 @@ class PasswordTextForm extends StatelessWidget {
       return  CommonTextFormField(
         controller: password,
         keyboardType: TextInputType.visiblePassword,
-        textInputAction: TextInputAction.none,
+        textInputAction: TextInputAction.done,
         obscureText: passwordVisible!,
         focusNode: passwordFocus,
         validator: validator,

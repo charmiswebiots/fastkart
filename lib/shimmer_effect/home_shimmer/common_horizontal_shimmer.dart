@@ -1,5 +1,6 @@
 import 'package:fastkart/config.dart';
 import 'package:fastkart/shimmer_effect/home_shimmer/horizontal_list_shimmer.dart';
+import 'package:fastkart/utilities/responsive_layout.dart';
 
 class CommonHorizontalShimmer extends StatelessWidget {
   const CommonHorizontalShimmer({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class CommonHorizontalShimmer extends StatelessWidget {
                 appCtrl.appTheme.lightGray.withOpacity(.5)),
             const Space(0, 15),
             SizedBox(
-              height: AppScreenUtil().screenHeight(170),
+              height: AppScreenUtil().screenHeight(ResponsiveWidget.isSmallScreen(context) ? 200 :170),
               child: ListView.builder(
                   itemCount: 5,
                   padding: EdgeInsets.zero,

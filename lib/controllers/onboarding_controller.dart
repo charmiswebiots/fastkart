@@ -19,7 +19,7 @@ class OnboardingController extends GetxController {
 
   //google Login function
   googleLogin() async {
-    appCtrl.showLoading();
+    appCtrl.commonController.showLoading();
     update();
     final FirebaseAuth _auth = FirebaseAuth.instance;
     final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -27,7 +27,7 @@ class OnboardingController extends GetxController {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount!.authentication;
@@ -37,12 +37,12 @@ class OnboardingController extends GetxController {
       );
 
       (await _auth.signInWithCredential(credential)).user;
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       saveData(googleSignInAccount.id);
       Get.toNamed(routeName.dashboard);
     } on FirebaseAuthException catch (e) {
-      appCtrl.hideLoading();
+      appCtrl.commonController.hideLoading();
       update();
       showToast(e.toString());
     }

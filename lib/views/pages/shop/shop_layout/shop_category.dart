@@ -24,18 +24,20 @@ class ShopCategory extends StatelessWidget {
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              print('name : ${shopCtrl
-                  .shopCategoryList[index]['title']}');
               return Padding(
                 padding: EdgeInsets.only(
-                    right: AppScreenUtil().screenWidth(  12),
-                    left: AppScreenUtil().screenWidth(appCtrl.languageVal == "ar"  || appCtrl.isRTL? 15: index == 0 ? 15 : 0)),
+                    right: AppScreenUtil().screenWidth(12),
+                    left: AppScreenUtil().screenWidth(
+                        appCtrl.languageVal == "ar" || appCtrl.isRTL
+                            ? 15
+                            : index == 0
+                                ? 15
+                                : 0)),
                 child: InkWell(
                   onTap: () => shopCtrl.selectCategory(
                       index, shopCtrl.shopCategoryList[index]['id']),
                   child: ShopFontStyle().mulishtextLayout(
-                      text: shopCtrl
-                          .shopCategoryList[index]['title'],
+                      text: shopCtrl.shopCategoryList[index]['title'],
                       fontSize: ShopFontSize.textSizeSMedium,
                       fontWeight: FontWeight.normal,
                       color: shopCtrl.selectIndex == index

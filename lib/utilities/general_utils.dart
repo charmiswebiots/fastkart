@@ -20,12 +20,12 @@ printLog(val) {
 
 //show loading
 void showLoading() {
-  return loadingCtrl.showLoading();
+  return loadingCtrl.commonController.showLoading();
 }
 
 //hide loading after success or error
 void hideLoading() {
-  return loadingCtrl.hideLoading();
+  return loadingCtrl.commonController.hideLoading();
 }
 
 List arrayFilter(List val) {

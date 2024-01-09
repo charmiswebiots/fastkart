@@ -41,11 +41,13 @@ class OfferFontStyle {
       {String? text,
         color,
         TextAlign textAlign = TextAlign.center,
+        TextOverflow textOverflow = TextOverflow.clip,
         double fontSize = OfferFontSize.textSizeMedium,
         FontWeight fontWeight = FontWeight.normal}) {
     return Text(
       text!,
       textAlign: textAlign,
+      overflow: textOverflow,
       style: AppCss().quicksandTextStyle(
           color: color,
           fontSize:  AppScreenUtil().fontSize(fontSize),

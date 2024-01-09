@@ -46,40 +46,27 @@ class ProductDetailController extends GetxController {
   }
 
   //common select bottom sheet
-  commonBottomSheet({context, index}) {
-    showModalBottomSheet<void>(
-      backgroundColor: appCtrl.appTheme.popUpColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      // context and builder are
-      // required properties in this widget
-      context: context,
-      isScrollControlled: true,
-      builder: (BuildContext context) {
-        return GetBuilder<ProductDetailController>(builder: (_) {
-          return index == 0
+  commonBottomSheet({index}) {
+    BottomSheetLayout().bottomSheet(
+        child: GetBuilder<ProductDetailController>(builder: (_) {
+      return index == 0
+          ? QuantityBottomSheet(
+              data: quantityList,
+              closeTap: () => Get.back(),
+              applyTap: () => Get.back(),
+              isQuantity: true,
+            )
+          : index == 1
               ? QuantityBottomSheet(
-                  data: quantityList,
+                  data: AppArray().deliveryTimeList,
                   closeTap: () => Get.back(),
                   applyTap: () => Get.back(),
-                  isQuantity: true,
+                  isQuantity: false,
                 )
-              : index == 1
-                  ? QuantityBottomSheet(
-                      data: AppArray().deliveryTimeList,
-                      closeTap: () => Get.back(),
-                      applyTap: () => Get.back(),
-                      isQuantity: false,
-                    )
-                  : AllReviewLayout(
-                      reviewList: reviewList,
-                    );
-        });
-      },
-    );
+              : AllReviewLayout(
+                  reviewList: reviewList,
+                );
+    }));
   }
 
   //get data
@@ -91,8 +78,8 @@ class ProductDetailController extends GetxController {
     //split the value
     selectedQuantity = quantityList[0]['title'].substring(0, 7) +
         ' ' +
-        appCtrl.priceSymbol +
-        (double.parse((appCtrl.rateValue *
+        appCtrl.commonController.priceSymbol +
+        (double.parse((appCtrl.commonController.rateValue *
                     double.parse(
                         quantityList[0]['title'].toString().substring(8)))
                 .toStringAsFixed(2)))
@@ -104,9 +91,9 @@ class ProductDetailController extends GetxController {
       int? sub = text.indexOf('\$');
       quantityList[i]['title'] = quantityList[i]['title'].substring(0, sub) +
           ' ' +
-          appCtrl.priceSymbol +
+          appCtrl.commonController.priceSymbol +
           (double.parse(
-                  (appCtrl.rateValue * double.parse(text.substring(sub + 1)))
+                  (appCtrl.commonController.rateValue * double.parse(text.substring(sub + 1)))
                       .toStringAsFixed(2)))
               .toString();
     }

@@ -26,7 +26,9 @@ class CurrencyBottomSheet extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         Get.back();
-                        appCtrl.priceConvertor(e['code'],e['symbol']);
+                        appCtrl.commonController.priceConvertor(e['code'],e['symbol']);
+                        appCtrl.commonController.update();
+                        appCtrl.update();
                       },
                       child: Row(
                         children: [

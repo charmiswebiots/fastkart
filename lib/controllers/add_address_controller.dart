@@ -23,8 +23,6 @@ bool isLoading = true;
     isLoading = true;
     update();
     addressList = AppArray().addressList;
-
-    print('addressList : $addressList');
     update();
     await Future.delayed(Durations.s2);
     isLoading = false;

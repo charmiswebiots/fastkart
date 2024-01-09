@@ -20,9 +20,10 @@ class OfferListLayout extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return OfferListCardLayout(
+                    primaryColor: appCtrl.appTheme.primary,
+                    whiteColor: appCtrl.appTheme.white,
                     isTheme: appCtrl.isTheme,
                     onTap: () => offerCtrl.bottomSheet(
-                        context: context,
                         data: offerCtrl.myOfferList[index],),
                     data: AppArray().myOfferList[index],
                   );

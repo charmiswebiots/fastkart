@@ -85,7 +85,7 @@ class PaymentWidget {
   //add card text
   Widget addCardText(titleColor) {
     return PaymentFontStyle().mulishtextLayout(
-        text: AddressListFont().addAddress,
+        text: PaymentFont().addCard,
         fontWeight: FontWeight.w600,
         fontSize: ProductDetailFontSize.textSizeSMedium,
         color: titleColor);

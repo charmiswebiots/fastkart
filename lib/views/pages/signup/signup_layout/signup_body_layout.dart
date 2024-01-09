@@ -1,3 +1,5 @@
+import 'package:fastkart/views/pages/signup/signup_layout/already_account.dart';
+
 import '../../../../config.dart';
 
 class SignUpBodyLayout extends StatelessWidget {
@@ -25,74 +27,69 @@ class SignUpBodyLayout extends StatelessWidget {
           color: signupCtrl.appCtrl.appTheme.whiteColor,
           context: context,
           child: Form(
-            key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //logo image layout
-                    SignupWidget().logoImage(signupCtrl.appCtrl.isTheme),
-                    const  Space(0, 18),
-                    //description text layout
-                    SignupStyle()
-                        .descLayout(signupCtrl.appCtrl.appTheme.darkContentColor),
-                    const Space(0, 20),
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //logo image layout
+                        SignupWidget().logoImage(signupCtrl.appCtrl.isTheme),
+                        const Space(0, 18),
+                        //description text layout
+                        SignupStyle().descLayout(
+                            signupCtrl.appCtrl.appTheme.darkContentColor),
+                        const Space(0, 20),
 
-                    //register account text layout
-                    SignupStyle().registerAccountLayout(
-                        signupCtrl.appCtrl.appTheme.titleColor),
-                    const  Space(0, 16),
+                        //register account text layout
+                        SignupStyle().registerAccountLayout(
+                            signupCtrl.appCtrl.appTheme.titleColor),
+                        const Space(0, 16),
 
-                    //fullname textformfield layout
-                    usertextForm!,
-                    const  Space(0, 13),
+                        //fullname textformfield layout
+                        usertextForm!,
+                        const Space(0, 13),
 
-                    //email textformfield layout
-                    emailTextForm!,
+                        //email textformfield layout
+                        emailTextForm!,
 
-                    const Space(0, 13),
-                  ],
-                ),
-                // password layout
-                passwordTextForm!,
-                const Space(0, 20),
-                //signup button layout
-                button!,
-                const Space(0, 25),
+                        const Space(0, 13)
+                      ]),
+                  // password layout
+                  passwordTextForm!,
+                  const Space(0, 20),
+                  //signup button layout
+                  button!,
+                  const Space(0, 25),
 
-                //already account widget
-                SignupStyle().alreadyAccountWidget(
-                    onTap: () => Get.back(),
-                    color: signupCtrl.appCtrl.appTheme.darkContentColor),
-                const Space(0, 25),
+                  //already account widget
+                  AlreadyAccount(
+                      onTap: () => Get.back(),
+                      color: signupCtrl.appCtrl.appTheme.darkContentColor),
+                  const Space(0, 25),
 
-                //signup with text layout
-                SignupStyle().loginWithLayout(
-                    color: signupCtrl.appCtrl.appTheme.contentColor,
-                    fontColor: signupCtrl.appCtrl.appTheme.primary),
-                const Space(0, 35),
+                  //signup with text layout
+                  const LoginWithLayout(),
+                  const Space(0, 35),
 
-                //continue with phone layout
-                SignupStyle().socialButton(
-                    icon: iconAssets.mobileIcon,
-                    text: SignupFont().continueWithPhone,
-                    type: SignupFont().phone,
-                    titleColor: signupCtrl.appCtrl.appTheme.titleColor),
-                const Space(0, 15),
+                  //continue with phone layout
+                  SignupStyle().socialButton(
+                      icon: iconAssets.mobileIcon,
+                      text: SignupFont().continueWithPhone,
+                      type: SignupFont().phone,
+                      titleColor: signupCtrl.appCtrl.appTheme.titleColor),
+                  const Space(0, 15),
 
-                //continue with google layout
-                SignupStyle().socialButton(
-                  icon: iconAssets.google,
-                  text: SignupFont().continueWithGoogle,
-                  type: SignupFont().google,
-                  titleColor: signupCtrl.appCtrl.appTheme.titleColor,
-                  onTap: () => signupCtrl.googleLogin(),
-                ),
-              ],
-            ),
-          ));
+                  //continue with google layout
+                  SignupStyle().socialButton(
+                      icon: iconAssets.google,
+                      text: SignupFont().continueWithGoogle,
+                      type: SignupFont().google,
+                      titleColor: signupCtrl.appCtrl.appTheme.titleColor,
+                      onTap: () => signupCtrl.googleLogin())
+                ],
+              )));
     });
   }
 }

@@ -1,3 +1,5 @@
+import 'package:fastkart/views/pages/offers/util/offer_discount_layout.dart';
+
 import '../../../config.dart';
 
 class OfferListCardLayout extends StatelessWidget {
@@ -29,50 +31,7 @@ class OfferListCardLayout extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    OfferFontStyle().quicksandtextLayout(
-                        text: data['discount'],
-                        color: primaryColor,
-                        fontSize: OfferFontSize.textSizeLarge,
-                        fontWeight: FontWeight.bold),
-                    const Space(5, 0),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        OfferFontStyle().quicksandtextLayout(
-                            text: "%",
-                            color: primaryColor,
-                            fontSize: OfferFontSize.textSizeSMedium,
-                            fontWeight: FontWeight.normal),
-                        OfferFontStyle().quicksandtextLayout(
-                            text: OfferFont().off,
-                            color: primaryColor,
-                            fontSize: OfferFontSize.textSizeSmall,
-                            fontWeight: FontWeight.normal)
-                      ],
-                    ),
-                    const Space(8, 0),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        OfferFontStyle().quicksandtextLayout(
-                            text: data['title'],
-                            color: titleColor,
-                            fontSize: OfferFontSize.textSizeSmall,
-                            fontWeight: FontWeight.normal),
-                        const Space(0, 2),
-                        OfferFontStyle().quicksandtextLayout(
-                            text: data['des'],
-                            color: darkContentColor,
-                            fontSize: OfferFontSize.textSizeSmall,
-                            fontWeight: FontWeight.normal),
-                      ],
-                    ),
-                  ],
-                ),
+                OfferDiscountLayout(data: data,),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,

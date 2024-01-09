@@ -5,7 +5,7 @@ class TrendingCategoryLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<SearchController>(
+    return GetBuilder<SearchScreenController>(
       builder: (searchCtrl) {
         return Container(
           padding: EdgeInsets.only(bottom: AppScreenUtil().screenHeight(2)),

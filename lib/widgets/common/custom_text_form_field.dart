@@ -58,6 +58,7 @@ class CommonTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         fillColor: fillcolor,
+        errorStyle: TextStyle(fontSize: AppScreenUtil().fontSize(10)),
         filled: true,
         border: OutlineInputBorder(borderSide: BorderSide(color: borderColor!)),
         focusedBorder: OutlineInputBorder(

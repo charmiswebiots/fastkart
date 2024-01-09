@@ -1,5 +1,4 @@
 import 'package:fastkart/config.dart';
-import 'package:fastkart/views/pages/offers/util/offer_detail.dart';
 import 'package:get_storage/get_storage.dart';
 
 class MyCartListController extends GetxController {
@@ -54,7 +53,7 @@ class MyCartListController extends GetxController {
   }
 
 //get data
-  getData()async {
+  getData() async {
     offerList = AppArray().offerList;
     update();
     await Future.delayed(Durations.s2);
@@ -63,22 +62,12 @@ class MyCartListController extends GetxController {
   }
 
   //offer detail bottom sheet
-  bottomSheet({data, context}) {
-    showModalBottomSheet<void>(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topRight: Radius.circular(AppScreenUtil().borderRadius(15)),
-            topLeft: Radius.circular(AppScreenUtil().borderRadius(15))),
-      ),
-      context: context,
-      builder: (BuildContext context) {
-        return OfferDetail(
-          data: data,
-        );
-      },
-    );
+  bottomSheet({data,}) {
+    BottomSheetLayout().bottomSheet(
+        child: OfferDetail(
+      data: data,
+    ));
   }
-
 
   @override
   void onReady() {

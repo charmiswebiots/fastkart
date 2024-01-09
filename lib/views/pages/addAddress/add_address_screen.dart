@@ -40,7 +40,7 @@ class AddAddress extends StatelessWidget {
                           //confirm location and proceed button layout
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: AppScreenUtil().screenWidth(15)),
+                                horizontal: AppScreenUtil().screenWidth(15),vertical: AppScreenUtil().screenHeight(10)),
                             child: CustomButton(
                               height: 45,
                               title: AddAddressFont().confirmLocation,

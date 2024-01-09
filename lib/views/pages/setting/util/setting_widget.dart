@@ -2,22 +2,6 @@ import 'package:fastkart/config.dart';
 
 //Widget Layout
 class SettingWidget {
-  //appbar leading layout
-  Widget appBarLeadingLayput(
-      {GestureTapCallback? onTap,
-      var borderColor,
-      var iconColor,
-      String? image}) {
-    return Row(
-      children: [
-        CommonAppBarLeading(
-          onTap: onTap,
-          isImage: false,
-        ),
-      ],
-    );
-  }
-
   //appbar title layout
   Widget appBarTitleLayout({String? text, var textColor}) {
     return SettingFontStyle().mulishtextLayout(
@@ -25,28 +9,6 @@ class SettingWidget {
         fontWeight: FontWeight.w600,
         fontSize: 13,
         color: textColor);
-  }
-
-  //appbar action layout
-  Widget appBarActionLayout({var iconColor, GestureTapCallback? onTap}) {
-    return Padding(
-      padding: EdgeInsets.only(
-          left: AppScreenUtil().screenWidth(15),
-          bottom: AppScreenUtil().screenHeight(
-              AppScreenUtil().screenActualWidth() > 370 ? 15 : 20),
-          top: AppScreenUtil().screenHeight(
-              AppScreenUtil().screenActualWidth() > 370 ? 13 : 20),
-          right: AppScreenUtil().screenWidth(15)),
-      child: InkWell(
-        onTap: onTap,
-        child: Image.asset(
-          iconAssets.drawerHome,
-          color: iconColor,
-          height: AppScreenUtil().screenHeight(20),
-          fit: BoxFit.contain,
-        ),
-      ),
-    );
   }
 
   //focus change
@@ -65,16 +27,42 @@ class SettingWidget {
       backgroundColor: bgColor,
       titleSpacing: 0,
       centerTitle: false,
-      leading: SettingWidget().appBarLeadingLayput(
+      leading: CommonAppBarLeading(
         onTap: () => Get.back(),
-        borderColor: titleColor,
-        iconColor: titleColor,
+        isImage: false,
       ),
       title:
           SettingWidget().appBarTitleLayout(text: text, textColor: titleColor),
       actions: [
-        SettingWidget().appBarActionLayout(iconColor: titleColor, onTap: onTap)
+        AppBarHomeIconLayout(icon: iconAssets.drawerHome, onTap: onTap)
       ],
     );
   }
+
+  //edit icon layout
+  Widget editIcon({context, var primaryColor}) {
+    return Positioned(
+        top: MediaQuery.of(context).size.height * .8 / 10,
+        child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: AppScreenUtil().screenWidth(6),
+                vertical: AppScreenUtil().screenHeight(5)),
+            decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius:
+                BorderRadius.circular(AppScreenUtil().borderRadius(60))),
+            child: Image.asset(iconAssets.edit,
+                height: AppScreenUtil().screenHeight(18))));
+  }
+
+  //user name text layout
+  Widget userNameLayout(color) {
+    return SettingFontStyle().mulishtextLayout(
+        text: 'Andrea Joanne',
+        fontSize: SettingFontSize.textSizeMedium,
+        fontWeight: FontWeight.w700,
+        color: color);
+  }
+
+
 }

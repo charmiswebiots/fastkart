@@ -1,3 +1,5 @@
+import 'package:fastkart/utilities/responsive_layout.dart';
+
 import '../../../config.dart';
 
 class AppBarHomeIconLayout extends StatelessWidget {
@@ -13,9 +15,9 @@ class AppBarHomeIconLayout extends StatelessWidget {
           padding: EdgeInsets.only(
               left: AppScreenUtil().screenWidth(15),
               bottom: AppScreenUtil().screenHeight(
-                  AppScreenUtil().screenActualWidth() > 370 ? 15 : 20),
+                  ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
               top: AppScreenUtil().screenHeight(
-                  AppScreenUtil().screenActualWidth() > 370 ? 15 : 20),
+                  ResponsiveWidget.isSmallScreen(context) ? 18 : 15),
               right: AppScreenUtil().screenWidth(15)),
           child: InkWell(
             onTap: onTap,

@@ -24,8 +24,8 @@ class AndroidBottomNavigationBar extends StatelessWidget {
           height: AppScreenUtil()
               .screenHeight(ResponsiveWidget.isSmallScreen(context)
                   ? appCtrl.languageVal == "ar" || appCtrl.isRTL
-                      ? 60
-                      : 58
+                      ? 70
+                      : 68
                   : appCtrl.languageVal == "ar" || appCtrl.isRTL
                       ? 57
                       : 55),
