@@ -39,6 +39,7 @@ class SettingValidation {
     }
   }
 
+
 // Check Password Validation
   String? checkPasswordValidation(value) {
     if (value.isEmpty) {

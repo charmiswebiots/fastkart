@@ -43,7 +43,7 @@ class OrderHistoryController extends GetxController {
   getData()async{
     orderHistory = AppArray().orderHistory;
     update();
-    await Future.delayed(Durations.s2);
+    await Future.delayed(DurationsClass.s2);
     isLoading = false;
     update();
 

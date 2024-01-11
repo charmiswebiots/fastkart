@@ -28,10 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (cntrl) {
-        return WillPopScope(
-          onWillPop: () async{
-            return Future(() => false);
-          },
+        return PopScope(
+          canPop:false,
           child: Scaffold(
             body: GetBuilder<SplashController>(builder: (_) => Stack(
               children:  [

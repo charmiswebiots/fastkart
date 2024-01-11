@@ -13,12 +13,12 @@ class ShopShimmer extends StatelessWidget {
         body: Shimmer.fromColors(
             baseColor: appCtrl.appTheme.darkGray.withOpacity(.3),
             highlightColor: appCtrl.appTheme.darkGray.withOpacity(.1),
-            child: Stack(
+            child: const Stack(
               alignment: Alignment.bottomCenter,
               children: [
                 SingleChildScrollView(
                   child: Column(
-                    children: const [
+                    children: [
                        ShopCategoryShimmer(),
                        Space(0, 20),
                        CommonTextFormAndFilter(),
@@ -27,7 +27,7 @@ class ShopShimmer extends StatelessWidget {
                     ],
                   ),
                 ),
-                const ViewCartButtonShimmer()
+                ViewCartButtonShimmer()
               ],
             )),
       );

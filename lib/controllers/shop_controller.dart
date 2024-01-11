@@ -48,7 +48,7 @@ class ShopController extends GetxController {
     offerList = AppArray().shopList;
     shopCategoryList = AppArray().shopCategoryList;
     update();
-    await Future.delayed(Durations.s2);
+    await Future.delayed(DurationsClass.s2);
     isLoading = false;
     update();
     // selectCategory(1);

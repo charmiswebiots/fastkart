@@ -13,10 +13,7 @@ export 'package:fastkart/views/pages/productDetail/layout_pages/product_review_s
 export 'package:fastkart/views/pages/productDetail/layout_pages/quantity_delivery_time_layout.dart';
 export 'package:fastkart/views/pages/productDetail/util/product_detail_style.dart';
 export 'package:fastkart/widgets/common/common_rating_layout.dart';
-export 'package:fastkart/controllers/productdetail_controller.dart';
 export 'package:fastkart/views/pages/productDetail/util/product_detail_constants.dart';
-export 'package:fastkart/views/pages/productDetail/util/product_detail_fontstyle.dart';
-export 'package:fastkart/views/pages/productDetail/util/product_detail_widget.dart';
 export 'package:fastkart/views/pages/productDetail/layout_pages/gridview_layout.dart';
 export 'package:fastkart/views/pages/productDetail/layout_pages/product_review_layout.dart';
 export 'package:fastkart/views/pages/productDetail/layout_pages/price_layout.dart';

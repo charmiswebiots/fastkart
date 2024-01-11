@@ -28,7 +28,7 @@ extension StyledText<T extends Text> on T {
         semanticsLabel: semanticsLabel ?? this.semanticsLabel,
         softWrap: softWrap ?? this.softWrap,
         textDirection: textDirection ?? this.textDirection,
-        textScaleFactor: textScaleFactor ?? this.textScaleFactor,
+        textScaler: textScaler ?? textScaler,
         textWidthBasis: textWidthBasis ?? this.textWidthBasis,
       ) as T;
 

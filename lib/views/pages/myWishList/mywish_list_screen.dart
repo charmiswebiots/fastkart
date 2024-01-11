@@ -43,9 +43,9 @@ class MyWishListScreen extends StatelessWidget {
                             child: Container(
                               margin: EdgeInsets.only(
                                   bottom: AppScreenUtil().screenHeight(50)),
-                              child: Column(
+                              child: const Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   // wish list layout
                                   MyWishListLayout(),
                                 ],

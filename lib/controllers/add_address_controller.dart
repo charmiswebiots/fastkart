@@ -24,7 +24,7 @@ bool isLoading = true;
     update();
     addressList = AppArray().addressList;
     update();
-    await Future.delayed(Durations.s2);
+    await Future.delayed(DurationsClass.s2);
     isLoading = false;
     update();
 

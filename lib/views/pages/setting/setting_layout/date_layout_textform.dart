@@ -1,4 +1,3 @@
-
 import '../../../../config.dart';
 
 class DateLayoutTextForm extends StatelessWidget {
@@ -10,7 +9,7 @@ class DateLayoutTextForm extends StatelessWidget {
       builder: (settingCtrl) {
         return CommonTextFormField(
           obscureText: false,
-          readOnly: true,
+          //readOnly: true,
           keyboardType: TextInputType.datetime,
           textInputAction: TextInputAction.next,
           controller: settingCtrl.dateCtrl,

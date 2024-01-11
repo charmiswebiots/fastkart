@@ -18,10 +18,8 @@ class _DashboardState extends State<Dashboard> {
       builder: (ctrl) => GetBuilder<DashboardController>(builder: (_) {
         return Directionality(
           textDirection: dashboardCtrl.appCtrl.isRTL || dashboardCtrl.appCtrl.languageVal == "ar" ? TextDirection.rtl : TextDirection.ltr,
-          child: WillPopScope(
-            onWillPop: () {
-              return Future(() => false);
-            },
+          child: PopScope(
+            canPop: false,
             child: Scaffold(
               key: dashboardCtrl.scaffoldKey,
               drawer:  DrawerScreen(),
