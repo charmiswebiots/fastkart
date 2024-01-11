@@ -14,10 +14,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (ctrl) {
-      return WillPopScope(
-        onWillPop: () async {
-          return Future(() => false);
-        },
+      return PopScope(
+        canPop: false,
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: loginCtrl.appCtrl.appTheme.primary,

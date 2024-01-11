@@ -8,7 +8,7 @@ class SplashController extends GetxController {
   @override
   void onInit() async {
 
-    await Future.delayed(Durations.s3);
+    await Future.delayed(DurationsClass.s3);
     checkLogin();
     super.onInit();
   }

@@ -59,8 +59,8 @@ class Error404Page extends StatelessWidget {
                             AppScreenUtil().screenHeight(20),
                     left: AppScreenUtil().screenHeight(15),
                     right: AppScreenUtil().screenHeight(15)),
-                child: Column(
-                  children: const [
+                child: const Column(
+                  children: [
                    ErrorDataLayout(),
                   ],
                 ),

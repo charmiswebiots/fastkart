@@ -39,9 +39,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               return false;
             },
             child: GetBuilder<ProductDetailController>(
-              builder: (_) => Stack(
+              builder: (_) => const Stack(
                 alignment: Alignment.bottomCenter,
-                children: const [
+                children: [
                   //main layout
                   ProductDetailMainLayout(),
 

@@ -14,10 +14,8 @@ class _HomeLayoutState extends State<HomeLayout> {
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(builder: (appCtrl) {
       return GetBuilder<HomeController>(builder: (_) {
-        return WillPopScope(
-          onWillPop: () async {
-            return false;
-          },
+        return PopScope(
+          canPop:false,
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             body: NotificationListener<OverscrollIndicatorNotification>(

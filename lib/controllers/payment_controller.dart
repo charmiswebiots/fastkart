@@ -66,7 +66,7 @@ class PaymentController extends GetxController {
     tapped = 0;
     expand = true;
     paymentMethodList = AppArray().paymentMethodList;
-    await Future.delayed(Durations.s2);
+    await Future.delayed(DurationsClass.s2);
     isLoading = false;
     update();
   }

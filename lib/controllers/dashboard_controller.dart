@@ -46,7 +46,7 @@ class DashboardController extends GetxController {
       appCtrl.selectedIndex = val;
       appCtrl.update();
     }
-    await Future.delayed(Durations.s3);
+    await Future.delayed(DurationsClass.s3);
     appCtrl.isShimmer = false;
     appCtrl.update();
     update();

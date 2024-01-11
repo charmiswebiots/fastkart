@@ -48,7 +48,6 @@ class SettingController extends GetxController{
       firstDate: DateTime(2010),
       lastDate: DateTime(2025),
 
-
     );
 
     if (selected != null && selected != selectedDate) {

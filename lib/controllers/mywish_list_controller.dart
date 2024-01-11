@@ -34,7 +34,7 @@ class MyWishListController extends GetxController{
   getData()async{
     offerList = AppArray().offerList;
     update();
-    await Future.delayed(Durations.s2);
+    await Future.delayed(DurationsClass.s2);
     isLoading = false;
     update();
   }

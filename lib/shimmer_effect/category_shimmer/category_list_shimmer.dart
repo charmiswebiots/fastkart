@@ -29,9 +29,8 @@ class CategoryListShimmer extends StatelessWidget {
                     const Space(10, 0),
                     Padding(
                       padding: EdgeInsets.only(right: AppScreenUtil().screenWidth(15)),
-                      child: Column(
-
-                        children: const [
+                      child: const Column(
+                        children:  [
                           BannerShimmer(),
                           Space(0, 10),
                           GridViewShimmer()

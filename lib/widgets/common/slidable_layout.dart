@@ -34,8 +34,8 @@ class SlidableLayout extends StatelessWidget {
               },
               isColor: true,
               data:data,
-              minusTap: plusTap,
-              plusTap: minusTap,
+              minusTap: minusTap,
+              plusTap: plusTap,
             ),
           );
         }

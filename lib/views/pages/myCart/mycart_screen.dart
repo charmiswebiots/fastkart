@@ -24,8 +24,9 @@ class _MyCartListScreenState extends State<MyCartListScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<AppController>(
         builder: (ctrl) => GetBuilder<MyCartListController>(builder: (_) {
-              return WillPopScope(
-                  onWillPop: () async {
+              return PopScope(
+                canPop: false,
+                  onPopInvoked: (canPop) async {
                     if (wishListCtrl.isAppBar == true) {
                       Get.back();
                     }
